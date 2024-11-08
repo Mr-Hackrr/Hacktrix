@@ -131,25 +131,67 @@ p {
   transform: translateY(-10px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
+/* Styles for the Python section */
+.language-section {
+  margin: 40px auto;
+  padding: 30px;
+  max-width: 700px;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  background-color: #ffffff;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.language-section h2 {
+  color: #333;
+  font-size: 32px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.language-section p {
+  color: #666;
+  font-size: 20px;
+  margin-bottom: 30px;
+}
 
 .language-section ul {
-  list-style: none;
+  list-style-type: none;
   padding: 0;
 }
 
 .language-section li {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  position: relative; /* For positioning the arrows */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.language-section li::before {
+  content: "➤"; /* Arrow symbol */
+  margin-right: 10px; /* Space between arrow and text */
+  color: #007bff;
+  font-size: 20px;
 }
 
 .language-section a {
-  color: #333;
+  color: #007bff;
   text-decoration: none;
-  font-size: 1.1em;
-  transition: color 0.3s;
+  font-size: 20px;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .language-section a:hover {
-  color: #ff5733;
+  color: #0056b3;
+  text-decoration: underline;
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.language-section .light-bold {
+  font-weight: 600; /* Light bold for sub-items */
 }
 
 .articles .article {
