@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacktrix - Your Tech Resource Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Hacktrix</div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#python">Python</a></li>
+                <li><a href="#sql">SQL</a></li>
+                <li><a href="#java">Java</a></li>
+                <li><a href="#gcp">GCP</a></li>
+                <li><a href="#articles">Articles</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="burger" onclick="toggleMenu()">&#9776;</div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Welcome to Hacktrix</h1>
+        <p>Your gateway to mastering tech skills, cloud services, and coding solutions.</p>
+        <a href="#services" class="btn">Get Started</a>
+    </section>
+
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>At LuckyBytes, we simplify complex tech and help you navigate through the world of cloud services, coding tutorials, and problem-solving techniques.</p>
+    </section>
+
+    <section id="services" class="services">
+        <h2>Services</h2>
+        <div class="service-item">
+            <h3>Coding Tutorials (Python, SQL, Java)</h3>
+            <p>Guides and solutions for popular coding platforms, from basic to advanced.</p>
+        </div>
+        <div class="service-item">
+            <h3>Cloud Solutions (GCP)</h3>
+            <p>Step-by-step guides for GCP services, pipelines, and more.</p>
+        </div>
+        <div class="service-item">
+            <h3>Error Resolution</h3>
+            <p>In-depth troubleshooting articles to solve common tech issues.</p>
+        </div>
+    </section>
+
+    <!-- Language-Specific Sections (Python, SQL, Java) -->
+    <section id="python" class="language-section">
+        <h2>Python</h2>
+        <p>Learn Python fundamentals, data structures, and more.</p>
+        <ul>
+            <li><a href="python/introduction.html">Introduction to Python</a></li>
+            <li><a href="python/data-structures.html">Data Structures</a></li>
+            <li><a href="python/control-flow.html">Control Flow</a></li>
+            </ul>
+    </section>
+
+    <section id="sql" class="language-section">
+        <h2>SQL</h2>
+        <p>Master SQL for database management.</p>
+        <ul>
+            <li><a href="sql/basics.html">SQL Basics</a></li>
+            <li><a href="sql/queries.html">Advanced Queries</a></li>
+            <li><a href="sql/database-design.html">Database Design</a></li>
+        </ul>
+    </section>
+
+    <section id="java" class="language-section">
+        <h2>Java</h2>
+        <p>Explore object-oriented programming with Java.</p>
+        <ul>
+            <li><a href="java/introduction.html">Introduction to Java</a></li>
+            <li><a href="java/oop.html">Object-Oriented Programming</a></li>
+            <li><a href="java/collections.html">Collections</a></li>
+        </ul>
+    </section>
+
+    <section id="gcp" class="language-section">
+        <h2>Google Cloud Platform (GCP)</h2>
+        <p>Learn about GCP services and cloud computing.</p>
+        <ul>
+            <li><a href="gcp/compute-engine.html">Compute Engine</a></li>
+            <li><a href="gcp/cloud-storage.html">Cloud Storage</a></li>
+            <li><a href="gcp/data-processing.html">Data Processing</a></li>
+
+        </ul>
+    </section>
+
+
+    <section id="articles" class="articles">
+        <h2>Latest Articles</h2>
+        <!-- Add your articles here -->
+        <div class="article">
+            <h3>How to Build GCP Pipelines</h3>
+            <p>Explore our step-by-step guide on setting up data pipelines on Google Cloud Platform.</p>
+            <a href="#" class="read-more">Read More</a>
+        </div>
+        <!-- Add more articles -->
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <p>Have questions? Reach out to us for more information.</p>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 LuckyBytes. All rights reserved.</p>
+    </footer>
+</body>
+</html>
