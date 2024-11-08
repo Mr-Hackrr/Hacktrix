@@ -1,29 +1,53 @@
-// script.js
-function toggleMenu() {
-  const navLinks = document.getElementById('nav-links');
-  navLinks.classList.toggle('active');
-}
-
-// Add smooth scrolling to anchor links (optional)
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-
-    const targetId = this.getAttribute('href');
-    const targetElement = document.querySelector(targetId);
-
-    if (targetElement) {
-      targetElement.scrollIntoView({ behavior: 'smooth' });
-    }
-  });
-});
+// document.addEventListener('DOMContentLoaded', () => {
+//     // Scroll smoothly to sections
+//     document.querySelectorAll('.nav-link').forEach(anchor => {
+//         anchor.addEventListener('click', function (e) {
+//             e.preventDefault();
+//             document.querySelector(this.getAttribute('href')).scrollIntoView({
+//                 behavior: 'smooth'
+//             });
+//         });
+//     });
+// });
 
 
-// Example of a simple animation (you can enhance this)
-const heroSection = document.querySelector('.hero');
-heroSection.addEventListener('mouseover', () => {
-  heroSection.style.transform = 'scale(1.02)'; // subtle zoom on hover
-});
-heroSection.addEventListener('mouseout', () => {
-  heroSection.style.transform = 'scale(1)';
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    const faders = document.querySelectorAll('.fadeInUp');
+
+    const appearOptions = {
+
+        threshold: 0.5,
+
+        rootMargin: "0px 0px -50px 0px"
+
+    };
+
+    const appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll) {
+
+        entries.forEach(entry => {
+
+            if (!entry.isIntersecting) {
+
+                return;
+
+            } else {
+
+                entry.target.classList.add('show');
+
+                appearOnScroll.unobserve(entry.target);
+
+            }
+
+        });
+
+    }, appearOptions);
+
+    faders.forEach(fader => {
+
+        appearOnScroll.observe(fader);
+
+    });
+
 });
