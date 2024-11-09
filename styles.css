@@ -123,6 +123,7 @@ section .text-muted {
     color: #555;
     line-height: 1.8;
     margin-bottom: 1rem;
+    text-align: justify;
 }
 
 /* About Us Section */
