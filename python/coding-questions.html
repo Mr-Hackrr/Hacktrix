@@ -77,6 +77,107 @@
             }
         }
     </style>
+        <style>
+        /* Existing styles */
+        .content-section {
+            background: linear-gradient(to right, #f0f8ff, #e6f7ff);
+            padding: 40px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+        .code-block {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        .code-block:hover {
+            transform: scale(1.05);
+            background-color: #f0f8ff;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .code-container {
+            position: relative;
+        }
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .copy-btn:hover {
+            background-color: #0056b3;
+        }
+        pre {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto; /* Enable horizontal scrolling */
+            transition: background-color 0.3s ease;
+            white-space: pre-wrap; /* Allow line breaks */
+            word-wrap: break-word; /* Break long words */
+        }
+        pre:hover {
+            background-color: #3e3e3e;
+        }
+        code {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        h2 {
+            color: #007bff;
+            margin-top: 2rem;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+        h3 {
+            color: #0056b3;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .content-section {
+                padding: 20px;
+            }
+            .code-block {
+                padding: 15px;
+            }
+            pre {
+                font-size: 14px; /* Adjust font size for smaller screens */
+            }
+            .copy-btn {
+                padding: 3px 7px;
+                font-size: 12px;
+            }
+        }
+    </style>
 </head>
 
 <body>
