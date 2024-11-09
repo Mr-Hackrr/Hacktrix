@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacktrix - Your Tech Resource Hub</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* Custom styling */
+        body {
+            padding-top: 80px;
+        }
+        header {
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #007bff;
+            margin-top: 2rem;
+        }
+        .code-block {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+        .nav-link:hover {
+           color: #ffdd57;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="bg-dark text-white fixed-top">
+        <nav class="container navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="#">Hacktrix</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#python">Python</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#sql">SQL</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#java">Java</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gcp">GCP</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#articles">Articles</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Title Section -->
+<div class="title-section">
+    <h1>Getting Started with Python</h1>
+</div>
+
+<style>
+    /* Title Section Styling */
+    .title-section {
+        text-align: center;
+        padding: 30px 20px;
+        background-color: #333;
+        color: #ffffff;
+        border-bottom: 5px solid #007bff;
+    }
+
+    .title-section h1 {
+        font-size: 2.5em;
+        margin: 0;
+        color: #ffffff;
+    }
+</style>
+    </header>
+    <main class="container mt-5 pt-5">
+        <section id="python">
+            <h2>History of Python</h2>
+            <p>Python was created by Guido van Rossum and first released in 1991. Here are some key milestones in its history:</p>
+            <ul>
+                <li><strong>Late 1980s</strong>: Guido van Rossum began working on Python as a successor to the ABC language.</li>
+                <li><strong>1991</strong>: Python 0.9.0 was released, featuring classes with inheritance, exception handling, and core data types like list, dict, and str.</li>
+                <li><strong>2000</strong>: Python 2.0 was released, introducing list comprehensions and a garbage collection system.</li>
+                <li><strong>2008</strong>: Python 3.0 was released, which was not backward-compatible with Python 2.x. This version aimed to fix fundamental design flaws in the language.</li>
+                <li><strong>2020</strong>: Support for Python 2 ended, encouraging users to transition to Python 3.</li>
+            </ul>
+        </section>
+        <section id="variables-data-types">
+            <h2>Variables and Data Types</h2>
+            <p>Variables are used to store data that can be referenced and manipulated in a program. Each variable has a data type that determines the kind of data it can hold.</p>
+            <ul>
+                <li><strong>Integers</strong>: Whole numbers without a decimal point.</li>
+                <div class="code-block">
+                    <pre><code>age = 25</code></pre>
+                </div>
+                <li><strong>Floats</strong>: Numbers with a decimal point.</li>
+                <div class="code-block">
+                    <pre><code>price = 19.99</code></pre>
+                </div>
+                <li><strong>Strings</strong>: A sequence of characters enclosed in quotes.</li>
+                <div class="code-block">
+                    <pre><code>name = "Alice"</code></pre>
+                </div>
+                <li><strong>Booleans</strong>: Represents True or False.</li>
+                <div class="code-block">
+                    <pre><code>is_student = True</code></pre>
+                </div>
+            </ul>
+        </section>
+
+        <section id="basic-operators">
+            <h2>Basic Operators</h2>
+            <p>Arithmetic Operators are used to perform mathematical operations:</p>
+            <ul>
+                <li><strong>Addition (+)</strong>:</li>
+                <div class="code-block">
+                    <pre><code>sum = 10 + 5  # sum is 15</code></pre>
+                </div>
+                <li><strong>Subtraction (-)</strong>:</li>
+                <div class="code-block">
+                    <pre><code>difference = 10 - 5  # difference is 5</code></pre>
+                </div>
+                <li><strong>Multiplication (*)</strong>:</li>
+                <div class="code-block">
+                    <pre><code>product = 10 * 5  # product is 50</code></pre>
+                </div>
+                <li><strong>Division (/)</strong>:</li>
+                <div class="code-block">
+                    <pre><code>quotient = 10 / 5  # quotient is 2.0</code></pre>
+                </div>
+            </ul>
+
+            <p>Comparison Operators are used to compare values:</p>
+            <ul>
+                <li><strong>Equal to (==)</strong>:</li>
+                <div class="code-block">
+                    <pre><code>is_equal = (10 == 10)  # is_equal is True</code></pre>
+                </div>
+                <li><strong>Not equal to (!=)</strong>:</li>
+                <div class="code-block">
+                    <pre><code>is_not_equal = (10 != 5)  # is_not_equal is True</code></pre>
+                </div>
+                <li><strong>Greater than (>)</strong>:</li>
+                <div class="code-block">
+                    <pre><code>is_greater = (10 > 5)  # is_greater is True</code></pre>
+                </div>
+                <li><strong>Less than (<)</strong>:</li>
+                <div class="code-block">
+                    <pre><code>is_less = (5 < 10)  # is_less is True</code></pre>
+                </div>
+            </ul>
+        
+            <p>Logical Operators are used to combine conditional statements:</p>
+            <ul>
+                <li><strong>And (and)</strong>:</li>
+                <div class="code-block">
+                    <pre><code>result = (10 > 5) and (5 < 10)  # result is True</code></pre>
+                </div>
+                <li><strong>Or (or)</strong>:</li>
+                <div class="code-block">
+                    <pre><code>result = (10 > 5) or (5 > 10)  # result is True</code></pre>
+                </div>
+                <li><strong>Not (not)</strong>:</li>
+                <div class="code-block">
+                    <pre><code>result = not (10 > 5)  # result is False</code></pre>
+                </div>
+            </ul>
+        </section>
+
+        </section>
+        <section id="control-flow">
+            <h2>Control Flow</h2>
+            <p>Control flow in programming determines the order in which statements are executed. It includes conditional statements and loops.</p>
+            <h3>Conditional Statements</h3>
+            <p>Theory: Conditional statements allow a program to make decisions based on certain conditions. They execute different blocks of code depending on whether a condition is true or false.</p>
+            <p>Real-Life Example: Imagine you’re deciding what to wear based on the weather:</p>
+            <ul>
+                <li>If it’s raining, you wear a raincoat.</li>
+                <li>If it’s sunny, you wear sunglasses.</li>
+                <li>If it’s cold, you wear a jacket.</li>
+            </ul>
+            <p>Syntax:</p>
+            <div class="code-block">
+                <pre><code>if condition:
+            # code to execute if condition is true
+        elif another_condition:
+            # code to execute if another_condition is true
+        else:
+            # code to execute if none of the above conditions are true</code></pre>
+            </div>
+        
+            <h4>Examples:</h4>
+            <p>Simple If Statement:</p>
+            <div class="code-block">
+                <pre><code>temperature = 30
+        if temperature > 25:
+            print("It's hot outside.")</code></pre>
+            </div>
+        
+            <p>If-Else Statement:</p>
+            <div class="code-block">
+                <pre><code>temperature = 20
+        if temperature > 25:
+            print("It's hot outside.")
+        else:
+            print("It's not hot outside.")</code></pre>
+            </div>
+        
+            <p>If-Elif-Else Statement:</p>
+            <div class="code-block">
+                <pre><code>temperature = 15
+        if temperature > 25:
+            print("It's hot outside.")
+        elif temperature > 15:
+            print("It's warm outside.")
+        else:
+            print("It's cold outside.")</code></pre>
+            </div>
+        
+            <h3>Loops</h3>
+            <p>Theory: Loops allow a program to repeat a block of code multiple times. They are useful for tasks that require repetition.</p>
+            <p>Real-Life Example: Think of a morning routine:</p>
+            <ul>
+                <li>You brush your teeth every morning.</li>
+                <li>You eat breakfast every morning.</li>
+                <li>You check your email every morning.</li>
+            </ul>
+            <p>Syntax:</p>
+            <p>For Loop:</p>
+            <div class="code-block">
+                <pre><code>for item in iterable:
+            # code to execute for each item</code></pre>
+            </div>
+            <p>While Loop:</p>
+            <div class="code-block">
+                <pre><code>while condition:
+            # code to execute as long as condition is true</code></pre>
+            </div>
+        
+            <h4>Examples:</h4>
+            <p>For Loop with Range:</p>
+            <div class="code-block">
+                <pre><code>for i in range(3):
+            print("Iteration:", i)</code></pre>
+            </div>
+        
+            <p>While Loop with Condition:</p>
+            <div class="code-block">
+                <pre><code>count = 0
+        while count < 3:
+            print("Count:", count)
+            count += 1</code></pre>
+            </div>
+        
+            <p>For Loop with List:</p>
+            <div class="code-block">
+                <pre><code>fruits = ["apple", "banana", "cherry"]
+        for fruit in fruits:
+            print(fruit)</code></pre>
+            </div>
+        
+            <p>While Loop with Decrement:</p>
+            <div class="code-block">
+                <pre><code>number = 3
+        while number > 0:
+            print("Number:", number)
+            number -= 1</code></pre>
+            </div>
+        
+            <p>Nested Loops:</p>
+            <div class="code-block">
+                <pre><code>for i in range(2):
+            for j in range(2):
+                print(f"i: {i}, j: {j}")</code></pre>
+            </div>
+
+
+
+
+        </section>
+
+        <section id="functions">
+            <h2>Functions</h2>
+            <p>Functions are a fundamental concept in programming that allow you to encapsulate code into reusable blocks. Let’s explore defining functions and built-in functions in Python with theory, real-life examples, syntax, and varied examples.</p>
+        
+            <h3>Defining Functions</h3>
+            <p>Theory: Functions are blocks of code designed to perform a specific task. They help in organizing code, making it reusable, and improving readability.</p>
+            <p>Real-Life Example: Think of a function as a recipe in a cookbook. The recipe (function) takes ingredients (parameters), follows a series of steps (code), and produces a dish (return value).</p>
+            <p>Syntax:</p>
+            <div class="code-block">
+                <pre><code>def function_name(parameters):
+            # code block
+            return value</code></pre>
+            </div>
+        
+            <h4>Examples:</h4>
+            <p>Simple Function:</p>
+            <div class="code-block">
+                <pre><code>def greet():
+            return "Hello, World!"
+        
+        print(greet())</code></pre>
+            </div>
+        
+            <p>Function with Parameters:</p>
+            <div class="code-block">
+                <pre><code>def greet(name):
+            return f"Hello, {name}!"
+        
+        print(greet("Alice"))</code></pre>
+            </div>
+        
+            <p>Function with Multiple Parameters:</p>
+            <div class="code-block">
+                <pre><code>def add(a, b):
+            return a + b
+        
+        print(add(5, 3))</code></pre>
+            </div>
+        
+            <p>Function with Default Parameters:</p>
+            <div class="code-block">
+                <pre><code>def greet(name="Guest"):
+            return f"Hello, {name}!"
+        
+        print(greet())
+        print(greet("Bob"))</code></pre>
+            </div>
+        
+            <p>Function Returning Multiple Values:</p>
+            <div class="code-block">
+                <pre><code>def get_name_and_age():
+            name = "Alice"
+            age = 30
+            return name, age
+        
+        name, age = get_name_and_age()
+        print(f"Name: {name}, Age: {age}")</code></pre>
+            </div>
+        
+            <h3>Built-in Functions</h3>
+            <p>Theory: Python provides many built-in functions that perform common tasks. These functions are always available and do not require importing any modules.</p>
+            <p>Real-Life Example: Built-in functions are like tools in a toolbox. You use them to perform specific tasks without having to create the tools yourself.</p>
+        
+            <h4>Examples:</h4>
+            <p><code>print()</code>: Outputs data to the console.</p>
+            <div class="code-block">
+                <pre><code>print("Hello, World!")</code></pre>
+            </div>
+        
+            <p><code>len()</code>: Returns the length of an object.</p>
+            <div class="code-block">
+                <pre><code>fruits = ["apple", "banana", "cherry"]
+        print(len(fruits))</code></pre>
+            </div>
+        
+            <p><code>range()</code>: Generates a sequence of numbers.</p>
+            <div class="code-block">
+                <pre><code>for i in range(5):
+            print(i)</code></pre>
+            </div>
+        
+            <p><code>type()</code>: Returns the type of an object.</p>
+            <div class="code-block">
+                <pre><code>print(type(10))
+        print(type(10.5))
+        print(type("Hello"))</code></pre>
+            </div>
+        
+            <p><code>sum()</code>: Returns the sum of all items in an iterable.</p>
+            <div class="code-block">
+                <pre><code>numbers = [1, 2, 3, 4, 5]
+        print(sum(numbers))</code></pre>
+            </div>
+        
+            <h4>Defining Functions:</h4>
+            <p>Function to Calculate Area of a Circle:</p>
+            <div class="code-block">
+                <pre><code>def area_of_circle(radius):
+            pi = 3.14159
+            return pi * (radius ** 2)
+        
+        print(area_of_circle(5))</code></pre>
+            </div>
+        
+            <p>Function to Check Even or Odd:</p>
+            <div class="code-block">
+                <pre><code>def is_even(number):
+            return number % 2 == 0
+        
+        print(is_even(4))
+        print(is_even(7))</code></pre>
+            </div>
+        
+            <p>Function to Convert Celsius to Fahrenheit:</p>
+            <div class="code-block">
+                <pre><code>def celsius_to_fahrenheit(celsius):
+            return (celsius * 9/5) + 32
+        
+        print(celsius_to_fahrenheit(0))
+        print(celsius_to_fahrenheit(100))</code></pre>
+            </div>
+        
+            <p>Function to Find Maximum of Three Numbers:</p>
+            <div class="code-block">
+                <pre><code>def max_of_three(a, b, c):
+            return max(a, b, c)
+        
+        print(max_of_three(10, 20, 15))</code></pre>
+            </div>
+        
+            <p>Function to Reverse a String:</p>
+            <div class="code-block">
+                <pre><code>def reverse_string(s):
+            return s[::-1]
+        
+        print(reverse_string("hello"))</code></pre>
+            </div>
+        
+            <h4>Built-in Functions:</h4>
+            <p>Using <code>print()</code> to Display Messages:</p>
+            <div class="code-block">
+                <pre><code>print("Welcome to Python programming!")</code></pre>
+            </div>
+        
+            <p>Using <code>len()</code> to Get Length of a List:</p>
+            <div class="code-block">
+                <pre><code>colors = ["red", "green", "blue"]
+        print(len(colors))</code></pre>
+            </div>
+        
+            <p>Using <code>range()</code> to Generate Numbers:</p>
+            <div class="code-block">
+                <pre><code>for i in range(1, 6):
+            print(i)</code></pre>
+            </div>
+        
+            <p>Using <code>type()</code> to Check Data Types:</p>
+            <div class="code-block">
+                <pre><code>print(type(42))
+        print(type(3.14))
+        print(type([1, 2, 3]))</code></pre>
+            </div>
+        
+            <p>Using <code>sum()</code> to Add Numbers in a List:</p>
+            <div class="code-block">
+                <pre><code>expenses = [200, 150, 300, 100]
+        print(sum(expenses))</code></pre>
+            </div>
+            <h3>Summary</h3>
+            <p>Functions, both user-defined and built-in, are essential for efficient programming. They help in breaking down complex problems into manageable parts and provide ready-to-use tools for common tasks.</p>
+        </section>
+        
+        <section id="data-structures">
+            <h2>Lists</h2>
+            <p>Definition: Lists are ordered, mutable collections of items. They can store elements of different data types.</p>
+            <p>Syntax:</p>
+            <div class="code-block">
+                <pre><code># Creating a list
+        my_list = [1, 2, 3, "apple", "banana"]</code></pre>
+            </div>
+            <h4>Methods:</h4>
+            <ul>
+                <li><code>append()</code>: Adds an element to the end of the list.</li>
+                <li><code>remove()</code>: Removes the first occurrence of a specified element.</li>
+                <li><code>pop()</code>: Removes and returns the element at the specified position.</li>
+                <li><code>insert()</code>: Inserts an element at a specified position.</li>
+                <li><code>sort()</code>: Sorts the list in ascending order.</li>
+                <li><code>reverse()</code>: Reverses the order of the list.</li>
+                <li><code>extend()</code>: Adds all elements of an iterable to the end of the list.</li>
+                <li><code>index()</code>: Returns the index of the first occurrence of a specified value.</li>
+                <li><code>count()</code>: Returns the number of times a specified value appears in the list.</li>
+            </ul>
+            
+            <h4>Examples:</h4>
+            <p>Creating and Accessing a List:</p>
+            <div class="code-block">
+                <pre><code>fruits = ["apple", "banana", "cherry"]
+        print(fruits[0])  # Output: apple</code></pre>
+            </div>
+            <p>Modifying a List:</p>
+            <div class="code-block">
+                <pre><code>fruits[1] = "orange"
+        print(fruits)  # Output: ['apple', 'orange', 'cherry']</code></pre>
+            </div>
+            <p>Adding Elements:</p>
+            <div class="code-block">
+                <pre><code>fruits.append("kiwi")
+        print(fruits)  # Output: ['apple', 'orange', 'cherry', 'kiwi']</code></pre>
+            </div>
+            <p>Removing Elements:</p>
+            <div class="code-block">
+                <pre><code>fruits.remove("orange")
+        print(fruits)  # Output: ['apple', 'cherry', 'kiwi']</code></pre>
+            </div>
+            <p>Sorting a List:</p>
+            <div class="code-block">
+                <pre><code>numbers = [3, 1, 4, 1, 5, 9]
+        numbers.sort()
+        print(numbers)  # Output: [1, 1, 3, 4, 5, 9]</code></pre>
+            </div>
+        
+            <h2>Tuples</h2>
+            <p>Definition: Tuples are ordered, immutable collections of items. Once created, their elements cannot be changed.</p>
+            <p>Syntax:</p>
+            <div class="code-block">
+                <pre><code># Creating a tuple
+        my_tuple = (1, 2, 3, "apple", "banana")</code></pre>
+            </div>
+            <h4>Methods:</h4>
+            <ul>
+                <li><code>count()</code>: Returns the number of times a specified value appears in the tuple.</li>
+                <li><code>index()</code>: Returns the index of the first occurrence of a specified value.</li>
+            </ul>
+            <h4>Examples:</h4>
+            <p>Creating and Accessing a Tuple:</p>
+            <div class="code-block">
+                <pre><code>coordinates = (10.0, 20.0)
+        print(coordinates[0])  # Output: 10.0</code></pre>
+            </div>
+            <p>Using <code>count()</code> Method:</p>
+            <div class="code-block">
+                <pre><code>my_tuple = (1, 2, 2, 3, 4)
+        print(my_tuple.count(2))  # Output: 2</code></pre>
+            </div>
+            <p>Using <code>index()</code> Method:</p>
+            <div class="code-block">
+                <pre><code>my_tuple = (1, 2, 3, 4)
+        print(my_tuple.index(3))  # Output: 2</code></pre>
+            </div>
+            <p>Tuple Unpacking:</p>
+            <div class="code-block">
+                <pre><code>person = ("Alice", 30, "Engineer")
+        name, age, profession = person
+        print(name)  # Output: Alice</code></pre>
+            </div>
+            <p>Nested Tuples:</p>
+            <div class="code-block">
+                <pre><code>nested_tuple = ((1, 2), (3, 4))
+        print(nested_tuple[1][0])  # Output: 3</code></pre>
+            </div>
+        
+            <h2>Dictionaries</h2>
+            <p>Definition: Dictionaries are unordered collections of key-value pairs. They are mutable and indexed by keys.</p>
+            <p>Syntax:</p>
+            <div class="code-block">
+                <pre><code># Creating a dictionary
+        my_dict = {"name": "Alice", "age": 25}</code></pre>
+            </div>
+            <h4>Methods:</h4>
+            <ul>
+                <li><code>keys()</code>: Returns a view object of all keys.</li>
+                <li><code>values()</code>: Returns a view object of all values.</li>
+                <li><code>items()</code>: Returns a view object of all key-value pairs.</li>
+                <li><code>get()</code>: Returns the value for a specified key.</li>
+                <li><code>pop()</code>: Removes the specified key and returns the corresponding value.</li>
+                <li><code>update()</code>: Updates the dictionary with elements from another dictionary or an iterable of key-value pairs.</li>
+                <li><code>clear()</code>: Removes all elements from the dictionary.</li>
+            </ul>
+            <h4>Examples:</h4>
+            <p>Creating and Accessing a Dictionary:</p>
+            <div class="code-block">
+                <pre><code>person = {"name": "Alice", "age": 25}
+        print(person["name"])  # Output: Alice</code></pre>
+            </div>
+            <p>Modifying a Dictionary:</p>
+            <div class="code-block">
+                <pre><code>person["age"] = 26
+        print(person)  # Output: {'name': 'Alice', 'age': 26}</code></pre>
+            </div>
+            <p>Adding Key-Value Pairs:</p>
+            <div class="code-block">
+                <pre><code>person["city"] = "New York"
+        print(person)  # Output: {'name': 'Alice', 'age': 26, 'city': 'New York'}</code></pre>
+            </div>
+            <p>Removing Key-Value Pairs:</p>
+            <div class="code-block">
+                <pre><code>del person["age"]
+        print(person)  # Output: {'name': 'Alice', 'city': 'New York'}</code></pre>
+            </div>
+            <p>Using <code>items()</code> Method:</p>
+            <div class="code-block">
+                <pre><code>for key, value in person.items():
+            print(f"{key}: {value}")</code></pre>
+            </div>
+
+            <h2>Sets</h2>
+            <p>Definition: Sets are unordered collections of unique elements. They are mutable and do not allow duplicate values.</p>
+            <p>Syntax:</p>
+            <div class="code-block">
+                <pre><code># Creating a set
+        my_set = {1, 2, 3, "apple", "banana"}</code></pre>
+            </div>
+            <h4>Methods:</h4>
+            <ul>
+                <li><code>add()</code>: Adds an element to the set.</li>
+                <li><code>remove()</code>: Removes a specified element.</li>
+                <li><code>discard()</code>: Removes a specified element without raising an error if the element is not found.</li>
+                <li><code>union()</code>: Returns a set containing all elements from both sets.</li>
+                <li><code>intersection()</code>: Returns a set containing only elements present in both sets.</li>
+                <li><code>difference()</code>: Returns a set containing elements in the first set but not in the second.</li>
+                <li><code>clear()</code>: Removes all elements from the set.</li>
+            </ul>
+            <h4>Examples:</h4>
+            <p>Creating and Accessing a Set:</p>
+            <div class="code-block">
+                <pre><code>fruits = {"apple", "banana", "cherry"}
+        print(fruits)  # Output: {'apple', 'banana', 'cherry'}</code></pre>
+            </div>
+            <p>Adding Elements:</p>
+            <div class="code-block">
+                <pre><code>fruits.add("orange")
+        print(fruits)  # Output: {'apple', 'banana', 'cherry', 'orange'}</code></pre>
+            </div>
+            <p>Removing Elements:</p>
+            <div class="code-block">
+                <pre><code>fruits.remove("banana")
+        print(fruits)  # Output: {'apple', 'cherry', 'orange'}</code></pre>
+            </div>
+            <p>Union of Sets:</p>
+            <div class="code-block">
+                <pre><code>set1 = {1, 2, 3}
+        set2 = {3, 4, 5}
+        union_set = set1.union(set2)
+        print(union_set)  # Output: {1, 2, 3, 4, 5}</code></pre>
+            </div>
+            <p>Intersection of Sets:</p>
+            <div class="code-block">
+                <pre><code>set1 = {1, 2, 3}
+        set2 = {2, 3, 4}
+        intersection_set = set1.intersection(set2)
+        print(intersection_set)  # Output: {2, 3}</code></pre>
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-center">
+
+        <div class="container">
+
+            <p>&copy; 2023 Hacktrix - All Rights Reserved</p>
+
+            <p>Follow us on social media for more updates.</p>
+
+        </div>
+
+    </footer>
+
+    <!-- JavaScript, jQuery, and Popper.js for Bootstrap functionality and smooth scrolling -->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+
+        // Smooth scrolling for internal navigation
+
+        $('a.nav-link').click(function(event) {
+
+            if (this.hash !== "") {
+
+                event.preventDefault();
+
+                const hash = this.hash;
+
+                $('html, body').animate({
+
+                    scrollTop: $(hash).offset().top - 70
+
+                }, 800);
+
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>
