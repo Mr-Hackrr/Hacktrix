@@ -58,26 +58,54 @@
             </div>
         </nav>
         <!-- Title Section -->
-<div class="title-section">
-    <h1>Getting Started with Python</h1>
-</div>
+        <div class="title-section">
+            <h1>Getting Started with Python</h1>
+        </div>
 
-<style>
-    /* Title Section Styling */
-    .title-section {
-        text-align: center;
-        padding: 30px 20px;
-        background-color: #333;
-        color: #ffffff;
-        border-bottom: 5px solid #007bff;
-    }
+        <style>
+            /* Title Section Styling */
+            .title-section {
+                text-align: center;
+                padding: 20px 10px;
+                background-color: #333;
+                color: #ffffff;
+                border-bottom: 3px solid #007bff;
+                position: sticky;
+                top: 0;
+                width: 100%;
+                transition: all 0.3s ease;
+                z-index: 10;
+            }
+        
+            .title-section.shrink {
+                padding: 10px 5px;
+                font-size: 0.8em;
+                background-color: #222;
+                border-bottom: 2px solid #0056b3;
+            }
+        
+            .title-section h1 {
+                font-size: 2em;
+                margin: 0;
+                transition: font-size 0.3s ease;
+            }
+        
+            .title-section.shrink h1 {
+                font-size: 1.5em;
+            }
+        </style>
 
-    .title-section h1 {
-        font-size: 2.5em;
-        margin: 0;
-        color: #ffffff;
-    }
-</style>
+        <script>
+            // JavaScript to shrink the title section on scroll
+            window.addEventListener("scroll", function () {
+                const titleSection = document.querySelector(".title-section");
+                if (window.scrollY > 50) {
+                    titleSection.classList.add("shrink");
+                } else {
+                    titleSection.classList.remove("shrink");
+                }
+            });
+        </script>
     </header>
     <main class="container mt-5 pt-5">
         <section id="python">
