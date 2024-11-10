@@ -1,0 +1,2341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacktrix - Your Tech Resource Hub</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* Custom styling */
+        body {
+            padding-top: 80px;
+            font-family: 'Arial', sans-serif;
+            /* Added for consistency */
+        }
+
+        header {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #007bff;
+            margin-top: 2rem;
+        }
+
+        .code-block {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+
+        .nav-link:hover {
+            color: #ffdd57;
+        }
+
+        /* Title Section Styling */
+        .title-section {
+            text-align: center;
+            padding: 20px 10px;
+            background-color: #333;
+            color: #ffffff;
+            border-bottom: 3px solid #007bff;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .title-section.shrink {
+            padding: 10px 5px;
+            font-size: 0.8em;
+            background-color: #222;
+            border-bottom: 2px solid #0056b3;
+        }
+
+        .title-section h1 {
+            font-size: 2em;
+            margin: 0;
+            transition: font-size 0.3s ease;
+        }
+
+        .title-section.shrink h1 {
+            font-size: 1.5em;
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #333;
+        }
+
+        /* Question Card Styles */
+        .question-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background: #fff;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .question-card:hover {
+            transform: scale(1.02);
+        }
+
+        .question-header {
+            background-color: #3b5998;
+            color: #fff;
+            padding: 1rem 1.5rem;
+            font-size: 1.25rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .question-content {
+            padding: 1.5rem;
+            display: none;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .question-content p {
+            margin-bottom: 0;
+        }
+
+        /* Animation */
+        .fadeIn {
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /*Added Styles for Coding Questions Section*/
+        .content-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+            padding: 20px;
+        }
+
+        .content-section .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .card {
+            margin-bottom: 20px;
+        }
+
+        .card-header {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+
+        .card-body {
+            background-color: #f1f1f1;
+        }
+
+        .btn-code {
+            background-color: #28a745;
+            color: white;
+            font-weight: bold;
+        }
+
+        .btn-code:hover {
+            background-color: #218838;
+        }
+
+        .output {
+            margin-top: 10px;
+            padding: 15px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="bg-dark text-white fixed-top">
+        <nav class="container navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="#">Hacktrix</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#python">Python</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#sql">SQL</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#java">Java</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gcp">GCP</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#articles">Articles</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Title Section -->
+        <div class="title-section">
+            <h1>Top Interview Questions</h1>
+        </div>
+        <script>
+            window.addEventListener("scroll", function () {
+                const titleSection = document.querySelector(".title-section");
+                if (window.scrollY > 50) {
+                    titleSection.classList.add("shrink");
+                } else {
+                    titleSection.classList.remove("shrink");
+                }
+            });
+        </script>
+    </header>
+
+    <!-- Main Section -->
+    <section class="py-5">
+        <div class="container">
+            <h1 class="section-title">Top Python Theory Interview Questions</h1>
+            <!-- Question 1 -->
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>1. What are the main features of Python?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p>Python is an interpreted, high-level, dynamically typed language with an emphasis on readability
+                        and simplicity. It supports multiple programming paradigms such as object-oriented, procedural,
+                        and functional programming. Python also has extensive libraries and is highly portable across
+                        platforms.</p>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+
+            <div class="question-card">
+
+                <div class="question-header" onclick="toggleContent(this)">
+
+                    <span>2. Explain the difference between Python 2 and Python 3.</span>
+
+                    <i class="fas fa-chevron-down"></i>
+
+                </div>
+
+                <div class="question-content">
+
+                    <p>Python 3 is the current version, actively maintained, while Python 2 was deprecated in 2020.
+                        Differences include the 'print' function in Python 3, default Unicode support, changes in
+                        integer division, and broader library support in Python 3.</p>
+
+                </div>
+
+            </div>
+
+            <!-- Question 3 -->
+
+            <div class="question-card">
+
+                <div class="question-header" onclick="toggleContent(this)">
+
+                    <span>3. How is Python interpreted?</span>
+
+                    <i class="fas fa-chevron-down"></i>
+
+                </div>
+
+                <div class="question-content">
+
+                    <p>Python code is executed by an interpreter, which translates it line by line into machine code at
+                        runtime. The standard interpreter, CPython, compiles code into bytecode, which is then
+                        interpreted by the Python virtual machine (PVM).</p>
+
+                </div>
+
+            </div>
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>4. What is PEP 8, and why is it important?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p>PEP 8 is Python's style guide that provides conventions for writing readable and consistent code.
+                        Following PEP 8 ensures that Python code remains clean, organized, and easy to understand for
+                        developers.</p>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>5. Explain the difference between lists, tuples, and sets.</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p>Lists are mutable, ordered collections that allow duplicate items.</p>
+                    <p>Tuples are immutable, ordered collections that also allow duplicates.</p>
+                    <p>Sets are mutable but unordered collections that do not allow duplicate items and support
+                        operations like union and intersection.</p>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>6. What are Python's built-in data types?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p>Some built-in data types in Python include:</p>
+                    <ul>
+                        <li>Numeric: int, float, complex</li>
+                        <li>Sequence: list, tuple, range</li>
+                        <li>Text: str</li>
+                        <li>Mapping: dict</li>
+                        <li>Set: set, frozenset</li>
+                        <li>Boolean: bool</li>
+                        <li>Binary: bytes, bytearray, memoryview</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>7. How does type conversion work in Python?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p>Python supports implicit (automatic) and explicit (manual) type conversion. Implicit conversions
+                        happen automatically where there’s no risk of data loss, while explicit conversions (e.g.,
+                        int(), float(), str()) require explicit casting by the programmer.</p>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>8. Explain mutable and immutable types in Python.</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p>Mutable types can be changed after creation, while immutable types cannot. For example, lists and
+                        dictionaries are mutable, while strings, tuples, and frozensets are immutable.</p>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>9. What is the difference between == and is?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p>== checks if the values of two objects are the same, while is checks if two variables point to
+                        the same object in memory (i.e., identity).</p>
+                </div>
+            </div>
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>10. Explain the concept of lambda functions.</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p>A lambda function is an anonymous, one-line function defined using the lambda keyword. It’s
+                        generally used for simple operations and is often used with functions like map, filter, and
+                        reduce. Example: <code>lambda x, y: x + y</code>.</p>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>11. What are *args and **kwargs?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p><code>*args</code> allows a function to accept a variable number of positional arguments as a
+                        tuple, while <code>**kwargs</code> allows a function to accept a variable number of keyword
+                        arguments as a dictionary. They enable flexible function calling with different numbers of
+                        arguments.</p>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>12. How does Python handle variable scope and namespaces?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p>Python uses the LEGB (Local, Enclosing, Global, Built-in) rule to resolve variable scopes. Each
+                        scope (local, enclosing, global, and built-in) is a namespace that Python searches in this order
+                        to find a variable.</p>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>13. What is recursion? Give an example of its use in Python.</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p>Recursion is when a function calls itself to solve smaller subproblems of the main problem. It’s
+                        useful for problems like factorial calculation, where the function calls itself with a
+                        decreasing number until it reaches a base case.</p>
+                    <pre><code>def factorial(n):
+        return 1 if n == 0 else n * factorial(n-1)</code></pre>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>14. What is the difference between deep copy and shallow copy?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p>A shallow copy copies the reference pointers to the objects, so nested objects are shared between
+                        the original and the copy. A deep copy copies everything, including nested objects, creating
+                        independent copies of each element.</p>
+                </div>
+            </div>
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>15. What is the difference between Python lists and arrays?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p>Lists can contain elements of different data types and are more flexible, while arrays (from the
+                        array module or numpy) require elements to be of the same data type, making them more
+                        memory-efficient and faster for numerical computations.</p>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>16. What are Python decorators, and how do they work?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p>Decorators are functions that modify the behavior of another function or method. They allow you
+                        to wrap another function to extend its behavior, typically using the @decorator_name syntax.
+                        They are widely used for logging, authentication, and caching.</p>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>17. What is the purpose of the __init__ method in Python?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p>The <code>__init__</code> method is the constructor in Python classes. It initializes an instance
+                        of a class, allowing you to set initial values for object attributes when the object is created.
+                    </p>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>18. What is a generator in Python?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p>A generator is a function that yields values one at a time, using the <code>yield</code> keyword,
+                        instead of returning them all at once. Generators are memory efficient for large datasets and
+                        can be iterated lazily.</p>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>19. Explain the concept of list comprehension.</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p>List comprehension is a concise way to create lists based on existing lists. It allows you to
+                        write loops and conditional statements within square brackets, making code shorter and often
+                        faster.</p>
+                    <p>Example: <code>[x**2 for x in range(10) if x % 2 == 0]</code></p>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>20. What is the purpose of self in Python classes?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p><code>self</code> represents the instance of the class and is used to access instance attributes
+                        and methods from within the class. It must be the first parameter in any method in a class but
+                        does not need to be explicitly passed when calling the method.</p>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>21. What is method overloading? Does Python support it?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p>Method overloading refers to defining multiple methods with the same name but different
+                        parameters. Python doesn’t natively support it as other languages do. However, similar
+                        functionality can be achieved using default arguments or handling arguments within a single
+                        method.</p>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>22. What is inheritance in Python?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p>Inheritance allows a class (child class) to inherit attributes and methods from another class
+                        (parent class). Python supports single, multiple, multilevel, hierarchical, and hybrid
+                        inheritance.</p>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>23. What is polymorphism in Python?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p>Polymorphism allows methods to do different things based on the object that calls them. For
+                        instance, methods in different classes can have the same name but exhibit different behavior.
+                    </p>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>24. What is encapsulation in Python?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p>Encapsulation is the concept of bundling data and methods that work on that data within a single
+                        unit (class). It also restricts direct access to some attributes, allowing controlled access
+                        through methods (getters/setters).</p>
+                </div>
+            </div>
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>25. Explain the difference between a module and a package in Python.</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p>A module is a single file containing Python code, while a package is a collection of modules
+                        organized in directories with an <code>__init__.py</code> file. Packages enable better
+                        organization and reuse of code.</p>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>26. What is the difference between __str__ and __repr__ in Python?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p><code>__str__</code> is meant to provide a readable, informal string representation of an object
+                        (for end-users), while <code>__repr__</code> provides an official string representation that can
+                        be used to recreate the object (for developers).</p>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>27. What is monkey patching in Python?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p>Monkey patching allows you to modify or extend a class or module at runtime. It’s sometimes used
+                        to dynamically alter behavior, though it can make debugging harder.</p>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>28. What are docstrings in Python?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p>Docstrings are documentation strings that describe a function, class, or module. They are defined
+                        using triple quotes and can be accessed using <code>.__doc__</code>.</p>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>29. What is exception handling in Python, and how does it work?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p>Exception handling allows you to manage runtime errors using <code>try</code>,
+                        <code>except</code>, <code>finally</code>, and <code>else</code> blocks. The <code>try</code>
+                        block contains the code that may raise an exception, and <code>except</code> handles the
+                        exception if it occurs.
+                    </p>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>30. Explain try, except, finally, and else in Python exception handling.</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p><code>try</code>: Block where code that might raise an exception is placed.</p>
+                    <p><code>except</code>: Block that handles the exception if one is raised.</p>
+                    <p><code>finally</code>: Block that executes regardless of whether an exception occurs, often used
+                        for cleanup.</p>
+                    <p><code>else</code>: Block that runs only if no exception was raised.</p>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>31. What are iterators and iterables in Python?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p>An iterable is an object that can return an iterator, like lists, tuples, or strings. An iterator
+                        is an object that allows you to traverse through all the elements of an iterable using
+                        <code>__iter__</code> and <code>__next__</code>.
+                    </p>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>32. What is the difference between range and xrange?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p>In Python 2, <code>range</code> generates a list, while <code>xrange</code> generates values
+                        lazily as needed. In Python 3, <code>range</code> behaves like <code>xrange</code>, creating a
+                        lazy sequence generator, and <code>xrange</code> no longer exists.</p>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>33. What is a closure in Python?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p>A closure is a function defined inside another function that retains access to the outer
+                        function’s variables, even after the outer function has completed execution. Closures help in
+                        data hiding.</p>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>34. What are Python’s memory management mechanisms?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p>Python uses automatic memory management with a garbage collector to handle unused objects, as
+                        well as reference counting. Additionally, the <code>gc</code> module allows for explicit garbage
+                        collection control.</p>
+                </div>
+            </div>
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>35. What is the with statement in Python?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p>The <code>with</code> statement simplifies exception handling by encapsulating actions within a
+                        context (like file handling) and ensuring resources are properly released. It’s often used with
+                        <code>open()</code> to manage files.
+                    </p>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>36. What is a metaclass in Python?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p>A metaclass is a class for classes. It controls the creation and behavior of classes, allowing
+                        developers to modify class attributes and methods at the time of class creation.</p>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>37. What is the purpose of the __main__ variable in Python?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p><code>__main__</code> allows you to control the execution of code in a module. When the script is
+                        run directly, <code>__name__ == "__main__"</code>, but when it’s imported, <code>__name__</code>
+                        will be the module name.</p>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>38. What is the purpose of the nonlocal keyword?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p>The <code>nonlocal</code> keyword allows you to modify a variable in an enclosing (but
+                        non-global) scope, often useful in nested functions to update variables from an outer function.
+                    </p>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>39. What is the difference between shallow copy and deep copy?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p>A shallow copy copies only the references of nested objects, so changes to nested objects affect
+                        both copies. A deep copy creates copies of all nested objects, so changes are isolated.</p>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>40. What are map(), filter(), and reduce() functions?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p><code>map()</code>: Applies a function to every item in an iterable.</p>
+                    <p><code>filter()</code>: Filters items in an iterable based on a condition.</p>
+                    <p><code>reduce()</code>: Reduces an iterable to a single value based on a function (from
+                        <code>functools</code>).
+                    </p>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>41. What is the purpose of __call__ in Python?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p>The <code>__call__</code> method allows an instance of a class to be called like a function. This
+                        is useful for creating callable objects or mimicking function behavior.</p>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>42. What is the difference between staticmethod and classmethod?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p><code>staticmethod</code>: A method that does not require an instance or class reference; it acts
+                        like a regular function within a class.</p>
+                    <p><code>classmethod</code>: A method that takes a class (cls) as its first parameter and can access
+                        class-level attributes.</p>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>43. Explain the concept of duck typing in Python.</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p>Duck typing is a concept where the type or class of an object is less important than its methods
+                        and attributes. If an object behaves like the expected type, it is accepted, allowing flexible
+                        code.</p>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>44. What is the use of the gc module in Python?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p>The <code>gc</code> module provides an interface to the garbage collection mechanism in Python,
+                        allowing developers to manage and debug memory allocation.</p>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>45. What are the different types of arguments in Python?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p>Python has positional arguments, keyword arguments, default arguments, and variable-length
+                        arguments (<code>*args</code> for positional and <code>**kwargs</code> for keyword).</p>
+                </div>
+            </div>
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>46. What is the difference between synchronous and asynchronous programming in Python?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p>Synchronous programming executes tasks sequentially, waiting for each task to complete before
+                        moving to the next. Asynchronous programming allows tasks to run concurrently, using
+                        <code>async</code> and <code>await</code> keywords, improving efficiency for I/O-bound
+                        operations.
+                    </p>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>47. What are Python's comprehensions and how do they improve code readability?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p>Python comprehensions (list, set, and dictionary comprehensions) provide a concise way to create
+                        collections. They improve readability by reducing the need for explicit loops and conditional
+                        statements.</p>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>48. How does Python's context management protocol work?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p>Python's context management protocol, implemented using <code>__enter__</code> and
+                        <code>__exit__</code> methods, ensures that resources are properly managed. The
+                        <code>with</code> statement is used to wrap the execution of a block of code, ensuring that
+                        resources are released when the block is exited.
+                    </p>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>49. What are Python's data classes and how do they simplify class creation?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p>Data classes, introduced in Python 3.7, provide a decorator and functions for automatically
+                        adding special methods to user-defined classes. They simplify class creation by generating
+                        boilerplate code for methods like <code>__init__</code>, <code>__repr__</code>, and
+                        <code>__eq__</code>.
+                    </p>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-header" onclick="toggleContent(this)">
+                    <span>50. How does Python's type hinting improve code quality and readability?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="question-content">
+                    <p>Type hinting in Python allows developers to specify the expected data types of function arguments
+                        and return values. This improves code quality and readability by making the code more
+                        self-documenting and helping with static type checking.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="content-section py-5" id="python-coding">
+        <div class="container">
+            <h2 class="text-center mb-4">Top Python Coding Questions</h2>
+
+            <!-- Example Coding Question 1 -->
+            <div class="card">
+                <div class="card-header">1. Reverse a String</div>
+                <div class="card-body">
+                    <p>Write a Python function that reverses a given string without using the built-in reverse
+                        functions.</p>
+                    <button class="btn btn-code" onclick="showCode('code1')">Show Code</button>
+                    <div id="code1" class="output">
+                        <pre>
+def reverse_string(s):
+return s[::-1]
+                    </pre>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    2. Find the Largest Element in an Array
+                </div>
+                <div class="card-body">
+                    <p>Given a list of integers, write a Python function that finds the largest element in the list.</p>
+                    <button class="btn btn-code" onclick="showCode('code2')">Show Code</button>
+                    <div id="code2" class="output">
+                        <pre>
+        def find_largest(arr):
+            return max(arr)
+                    </pre>
+                    </div>
+                </div>
+            </div>
+            <!-- Question 3: Palindrome Check -->
+            <div class="card">
+
+                <div class="card-header">
+
+                    3. Palindrome Check
+
+                </div>
+
+                <div class="card-body">
+
+                    <p>Write a Python function that checks if a given string is a palindrome (reads the same backward as
+                        forward).</p>
+
+                    <button class="btn btn-code" onclick="showCode('code3')">Show Code</button>
+
+                    <div id="code3" class="output">
+
+                        <pre>
+
+    def is_palindrome(s):
+    
+        return s == s[::-1]
+    
+                            </pre>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Question 4: Fibonacci Sequence -->
+
+            <div class="card">
+
+                <div class="card-header">
+
+                    4. Fibonacci Sequence
+
+                </div>
+
+                <div class="card-body">
+
+                    <p>Write a Python function to generate the Fibonacci sequence up to the nth element.</p>
+
+                    <button class="btn btn-code" onclick="showCode('code4')">Show Code</button>
+
+                    <div id="code4" class="output">
+
+                        <pre>
+
+    def fibonacci(n):
+    
+        a, b = 0, 1
+    
+        for _ in range(n):
+    
+            a, b = b, a + b
+    
+        return a
+    
+                            </pre>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Question 5: Count Occurrences of a Character -->
+
+            <div class="card">
+
+                <div class="card-header">
+
+                    5. Count Occurrences of a Character
+
+                </div>
+
+                <div class="card-body">
+
+                    <p>Write a Python function that counts the occurrences of a specific character in a string.</p>
+
+                    <button class="btn btn-code" onclick="showCode('code5')">Show Code</button>
+
+                    <div id="code5" class="output">
+
+                        <pre>
+
+    def count_char(s, c):
+    
+        return s.count(c)
+    
+                            </pre>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- Question 6: Sum of Digits -->
+            <div class="card">
+                <div class="card-header">
+                    6. Sum of Digits
+                </div>
+                <div class="card-body">
+                    <p>Write a Python function that calculates the sum of digits of a given number.</p>
+                    <button class="btn btn-code" onclick="showCode('code6')">Show Code</button>
+                    <div id="code6" class="output">
+                        <pre>
+def sum_of_digits(n):
+    return sum(int(digit) for digit in str(n))
+            </pre>
+                    </div>
+                </div>
+            </div>
+            <!-- Question 7: Factorial of a Number -->
+            <div class="card">
+                <div class="card-header">
+                    7. Factorial of a Number
+                </div>
+                <div class="card-body">
+                    <p>Write a Python function that calculates the factorial of a given number.</p>
+                    <button class="btn btn-code" onclick="showCode('code7')">Show Code</button>
+                    <div id="code7" class="output">
+                        <pre>
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n-1)
+            </pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 8: Check Prime Number -->
+            <div class="card">
+                <div class="card-header">
+                    8. Check Prime Number
+                </div>
+                <div class="card-body">
+                    <p>Write a Python function that checks if a given number is a prime number.</p>
+                    <button class="btn btn-code" onclick="showCode('code8')">Show Code</button>
+                    <div id="code8" class="output">
+                        <pre>
+def is_prime(n):
+    if n <= 1:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+            </pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 9: Merge Two Sorted Lists -->
+            <div class="card">
+                <div class="card-header">
+                    9. Merge Two Sorted Lists
+                </div>
+                <div class="card-body">
+                    <p>Write a Python function that merges two sorted lists into a single sorted list.</p>
+                    <button class="btn btn-code" onclick="showCode('code9')">Show Code</button>
+                    <div id="code9" class="output">
+                        <pre>
+def merge_sorted_lists(list1, list2):
+    return sorted(list1 + list2)
+            </pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 10: Find GCD of Two Numbers -->
+            <div class="card">
+                <div class="card-header">
+                    10. Find GCD of Two Numbers
+                </div>
+                <div class="card-body">
+                    <p>Write a Python function that finds the greatest common divisor (GCD) of two numbers.</p>
+                    <button class="btn btn-code" onclick="showCode('code10')">Show Code</button>
+                    <div id="code10" class="output">
+                        <pre>
+def gcd(a, b):
+    while b:
+        a, b = b, a % b
+    return a
+            </pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 11: Binary Search -->
+            <div class="card">
+                <div class="card-header">
+                    11. Binary Search
+                </div>
+                <div class="card-body">
+                    <p>Write a Python function that performs a binary search on a sorted list.</p>
+                    <button class="btn btn-code" onclick="showCode('code11')">Show Code</button>
+                    <div id="code11" class="output">
+                        <pre>
+def binary_search(arr, x):
+    low, high = 0, len(arr) - 1
+    while low <= high:
+        mid = (low + high) // 2
+        if arr[mid] < x:
+            low = mid + 1
+        elif arr[mid] > x:
+            high = mid - 1
+        else:
+            return mid
+    return -1
+            </pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 12: Find Missing Number in Array -->
+            <div class="card">
+                <div class="card-header">
+                    12. Find Missing Number in Array
+                </div>
+                <div class="card-body">
+                    <p>Given an array containing n distinct numbers taken from 0, 1, 2, ..., n, write a Python function
+                        to find the one that is missing from the array.</p>
+                    <button class="btn btn-code" onclick="showCode('code12')">Show Code</button>
+                    <div id="code12" class="output">
+                        <pre>
+def find_missing_number(arr):
+    n = len(arr)
+    total = n * (n + 1) // 2
+    return total - sum(arr)
+            </pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 13: Find Duplicates in List -->
+            <div class="card">
+                <div class="card-header">
+                    13. Find Duplicates in List
+                </div>
+                <div class="card-body">
+                    <p>Write a Python function that finds all duplicates in a list.</p>
+                    <button class="btn btn-code" onclick="showCode('code13')">Show Code</button>
+                    <div id="code13" class="output">
+                        <pre>
+def find_duplicates(arr):
+    seen = set()
+    duplicates = set()
+    for num in arr:
+        if num in seen:
+            duplicates.add(num)
+        else:
+            seen.add(num)
+    return list(duplicates)
+            </pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 14: Anagram Check -->
+            <div class="card">
+                <div class="card-header">
+                    14. Anagram Check
+                </div>
+                <div class="card-body">
+                    <p>Write a Python function that checks if two strings are anagrams of each other.</p>
+                    <button class="btn btn-code" onclick="showCode('code14')">Show Code</button>
+                    <div id="code14" class="output">
+                        <pre>
+def are_anagrams(str1, str2):
+    return sorted(str1) == sorted(str2)
+            </pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 15: Find Intersection of Two Lists -->
+            <div class="card">
+                <div class="card-header">
+                    15. Find Intersection of Two Lists
+                </div>
+                <div class="card-body">
+                    <p>Write a Python function that finds the intersection of two lists.</p>
+                    <button class="btn btn-code" onclick="showCode('code15')">Show Code</button>
+                    <div id="code15" class="output">
+                        <pre>
+def intersection(list1, list2):
+    return list(set(list1) & set(list2))
+            </pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 16: Find Second Largest Element -->
+            <div class="card">
+                <div class="card-header">
+                    16. Find Second Largest Element
+                </div>
+                <div class="card-body">
+                    <p>Write a Python function that finds the second largest element in a list.</p>
+                    <button class="btn btn-code" onclick="showCode('code16')">Show Code</button>
+                    <div id="code16" class="output">
+                        <pre>
+def second_largest(arr):
+    first, second = float('-inf'), float('-inf')
+    for num in arr:
+        if num > first:
+            first, second = num, first
+        elif num > second and num != first:
+            second = num
+    return second
+            </pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 17: Remove Vowels from String -->
+            <div class="card">
+                <div class="card-header">
+                    17. Remove Vowels from String
+                </div>
+                <div class="card-body">
+                    <p>Write a Python function that removes all vowels from a given string.</p>
+                    <button class="btn btn-code" onclick="showCode('code17')">Show Code</button>
+                    <div id="code17" class="output">
+                        <pre>
+def remove_vowels(s):
+    vowels = "aeiouAEIOU"
+    return ''.join([char for char in s if char not in vowels])
+            </pre>
+                    </div>
+                    <!-- Question 18: Find the Longest Substring Without Repeating Characters -->
+                    <div class="card">
+                        <div class="card-header">
+                            18. Find the Longest Substring Without Repeating Characters
+                        </div>
+                        <div class="card-body">
+                            <p>Write a Python function that finds the length of the longest substring without repeating
+                                characters.</p>
+                            <button class="btn btn-code" onclick="showCode('code18')">Show Code</button>
+                            <div id="code18" class="output">
+                                <pre>
+def longest_unique_substring(s):
+    char_set = set()
+    left = 0
+    max_length = 0
+    for right in range(len(s)):
+        while s[right] in char_set:
+            char_set.remove(s[left])
+            left += 1
+        char_set.add(s[right])
+        max_length = max(max_length, right - left + 1)
+    return max_length
+            </pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 19: Find the First Non-Repeating Character -->
+                    <div class="card">
+                        <div class="card-header">
+                            19. Find the First Non-Repeating Character
+                        </div>
+                        <div class="card-body">
+                            <p>Write a Python function that finds the first non-repeating character in a string.</p>
+                            <button class="btn btn-code" onclick="showCode('code19')">Show Code</button>
+                            <div id="code19" class="output">
+                                <pre>
+def first_non_repeating_char(s):
+    char_count = {}
+    for char in s:
+        char_count[char] = char_count.get(char, 0) + 1
+    for char in s:
+        if char_count[char] == 1:
+            return char
+    return None
+            </pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 20: Rotate Matrix -->
+                    <div class="card">
+                        <div class="card-header">
+                            20. Rotate Matrix
+                        </div>
+                        <div class="card-body">
+                            <p>Write a Python function that rotates a given n x n matrix 90 degrees clockwise.</p>
+                            <button class="btn btn-code" onclick="showCode('code20')">Show Code</button>
+                            <div id="code20" class="output">
+                                <pre>
+def rotate_matrix(matrix):
+    n = len(matrix)
+    for i in range(n // 2):
+        for j in range(i, n - i - 1):
+            temp = matrix[i][j]
+            matrix[i][j] = matrix[n - j - 1][i]
+            matrix[n - j - 1][i] = matrix[n - i - 1][n - j - 1]
+            matrix[n - i - 1][n - j - 1] = matrix[j][n - i - 1]
+            matrix[j][n - i - 1] = temp
+    return matrix
+            </pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 21: Find the Majority Element -->
+                    <div class="card">
+                        <div class="card-header">
+                            21. Find the Majority Element
+                        </div>
+                        <div class="card-body">
+                            <p>Write a Python function that finds the majority element in an array (the element that
+                                appears more than n/2 times).</p>
+                            <button class="btn btn-code" onclick="showCode('code21')">Show Code</button>
+                            <div id="code21" class="output">
+                                <pre>
+def majority_element(nums):
+    count = 0
+    candidate = None
+    for num in nums:
+        if count == 0:
+            candidate = num
+        count += (1 if num == candidate else -1)
+    return candidate
+            </pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 22: Find the Kth Largest Element -->
+                    <div class="card">
+                        <div class="card-header">
+                            22. Find the Kth Largest Element
+                        </div>
+                        <div class="card-body">
+                            <p>Write a Python function that finds the kth largest element in an unsorted array.</p>
+                            <button class="btn btn-code" onclick="showCode('code22')">Show Code</button>
+                            <div id="code22" class="output">
+                                <pre>
+import heapq
+
+def kth_largest(nums, k):
+    return heapq.nlargest(k, nums)[-1]
+            </pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 23: Find the Minimum Window Substring -->
+                    <div class="card">
+                        <div class="card-header">
+                            23. Find the Minimum Window Substring
+                        </div>
+                        <div class="card-body">
+                            <p>Write a Python function that finds the minimum window substring of s that contains all
+                                the characters of t.</p>
+                            <button class="btn btn-code" onclick="showCode('code23')">Show Code</button>
+                            <div id="code23" class="output">
+                                <pre>
+from collections import Counter
+
+def min_window(s, t):
+    if not s or not t:
+        return ""
+    dict_t = Counter(t)
+    required = len(dict_t)
+    l, r = 0, 0
+    formed = 0
+    window_counts = {}
+    ans = float("inf"), None, None
+    while r < len(s):
+        character = s[r]
+        window_counts[character] = window_counts.get(character, 0) + 1
+        if character in dict_t and window_counts[character] == dict_t[character]:
+            formed += 1
+        while l <= r and formed == required:
+            character = s[l]
+            if r - l + 1 < ans[0]:
+                ans = (r - l + 1, l, r)
+            window_counts[character] -= 1
+            if character in dict_t and window_counts[character] < dict_t[character]:
+                formed -= 1
+            l += 1
+        r += 1
+    return "" if ans[0] == float("inf") else s[ans[1]: ans[2] + 1]
+            </pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 24: Find the Longest Palindromic Substring -->
+                    <div class="card">
+                        <div class="card-header">
+                            24. Find the Longest Palindromic Substring
+                        </div>
+                        <div class="card-body">
+                            <p>Write a Python function that finds the longest palindromic substring in a given string.
+                            </p>
+                            <button class="btn btn-code" onclick="showCode('code24')">Show Code</button>
+                            <div id="code24" class="output">
+                                <pre>
+def longest_palindromic_substring(s):
+    if len(s) == 0:
+        return ""
+    start, end = 0, 0
+    for i in range(len(s)):
+        len1 = expand_around_center(s, i, i)
+        len2 = expand_around_center(s, i, i + 1)
+        max_len = max(len1, len2)
+        if max_len > end - start:
+            start = i - (max_len - 1) // 2
+            end = i + max_len // 2
+    return s[start:end + 1]
+
+def expand_around_center(s, left, right):
+    while left >= 0 and right < len(s) and s[left] == s[right]:
+        left -= 1
+        right += 1
+    return right - left - 1
+            </pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 25: Find the Median of Two Sorted Arrays -->
+                    <div class="card">
+                        <div class="card-header">
+                            25. Find the Median of Two Sorted Arrays
+                        </div>
+                        <div class="card-body">
+                            <p>Write a Python function that finds the median of two sorted arrays.</p>
+                            <button class="btn btn-code" onclick="showCode('code25')">Show Code</button>
+                            <div id="code25" class="output">
+                                <pre>
+def find_median_sorted_arrays(nums1, nums2):
+    nums = sorted(nums1 + nums2)
+    n = len(nums)
+    if n % 2 == 1:
+        return nums[n // 2]
+    else:
+        return (nums[n // 2 - 1] + nums[n // 2]) / 2
+            </pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Question 26: Find the Longest Common Prefix -->
+<div class="card">
+    <div class="card-header">
+        26. Find the Longest Common Prefix
+    </div>
+    <div class="card-body">
+        <p>Write a Python function that finds the longest common prefix string amongst an array of strings.</p>
+        <button class="btn btn-code" onclick="showCode('code26')">Show Code</button>
+        <div id="code26" class="output">
+            <pre>
+def longest_common_prefix(strs):
+    if not strs:
+        return ""
+    prefix = strs[0]
+    for s in strs[1:]:
+        while s.find(prefix) != 0:
+            prefix = prefix[:-1]
+            if not prefix:
+                return ""
+    return prefix
+            </pre>
+        </div>
+    </div>
+</div>
+
+<!-- Question 27: Implement a Queue Using Stacks -->
+<div class="card">
+    <div class="card-header">
+        27. Implement a Queue Using Stacks
+    </div>
+    <div class="card-body">
+        <p>Write a Python function to implement a queue using two stacks.</p>
+        <button class="btn btn-code" onclick="showCode('code27')">Show Code</button>
+        <div id="code27" class="output">
+            <pre>
+class QueueUsingStacks:
+    def __init__(self):
+        self.stack1 = []
+        self.stack2 = []
+
+    def enqueue(self, x):
+        self.stack1.append(x)
+
+    def dequeue(self):
+        if not self.stack2:
+            while self.stack1:
+                self.stack2.append(self.stack1.pop())
+        return self.stack2.pop()
+            </pre>
+        </div>
+    </div>
+</div>
+
+<!-- Question 28: Find the First Missing Positive -->
+<div class="card">
+    <div class="card-header">
+        28. Find the First Missing Positive
+    </div>
+    <div class="card-body">
+        <p>Write a Python function that finds the first missing positive integer in an unsorted array.</p>
+        <button class="btn btn-code" onclick="showCode('code28')">Show Code</button>
+        <div id="code28" class="output">
+            <pre>
+def first_missing_positive(nums):
+    nums.append(0)
+    n = len(nums)
+    for i in range(len(nums)):
+        if nums[i] < 0 or nums[i] >= n:
+            nums[i] = 0
+    for i in range(len(nums)):
+        nums[nums[i] % n] += n
+    for i in range(1, len(nums)):
+        if nums[i] // n == 0:
+            return i
+    return n
+            </pre>
+        </div>
+    </div>
+</div>
+
+<!-- Question 29: Find the Maximum Subarray Sum -->
+<div class="card">
+    <div class="card-header">
+        29. Find the Maximum Subarray Sum
+    </div>
+    <div class="card-body">
+        <p>Write a Python function that finds the contiguous subarray within a one-dimensional array of numbers which has the largest sum.</p>
+        <button class="btn btn-code" onclick="showCode('code29')">Show Code</button>
+        <div id="code29" class="output">
+            <pre>
+def max_subarray_sum(nums):
+    max_sum = nums[0]
+    current_sum = nums[0]
+    for num in nums[1:]:
+        current_sum = max(num, current_sum + num)
+        max_sum = max(max_sum, current_sum)
+    return max_sum
+            </pre>
+        </div>
+    </div>
+</div>
+
+<!-- Question 30: Implement a Stack Using Queues -->
+<div class="card">
+    <div class="card-header">
+        30. Implement a Stack Using Queues
+    </div>
+    <div class="card-body">
+        <p>Write a Python function to implement a stack using two queues.</p>
+        <button class="btn btn-code" onclick="showCode('code30')">Show Code</button>
+        <div id="code30" class="output">
+            <pre>
+class StackUsingQueues:
+    def __init__(self):
+        self.queue1 = []
+        self.queue2 = []
+
+    def push(self, x):
+        self.queue1.append(x)
+
+    def pop(self):
+        while len(self.queue1) > 1:
+            self.queue2.append(self.queue1.pop(0))
+        popped = self.queue1.pop(0)
+        self.queue1, self.queue2 = self.queue2, self.queue1
+        return popped
+            </pre>
+        </div>
+    </div>
+</div>
+
+<!-- Question 31: Find the Longest Increasing Subsequence -->
+<div class="card">
+    <div class="card-header">
+        31. Find the Longest Increasing Subsequence
+    </div>
+    <div class="card-body">
+        <p>Write a Python function that finds the length of the longest increasing subsequence in an array.</p>
+        <button class="btn btn-code" onclick="showCode('code31')">Show Code</button>
+        <div id="code31" class="output">
+            <pre>
+def length_of_lis(nums):
+    if not nums:
+        return 0
+    dp = [1] * len(nums)
+    for i in range(len(nums)):
+        for j in range(i):
+            if nums[i] > nums[j]:
+                dp[i] = max(dp[i], dp[j] + 1)
+    return max(dp)
+            </pre>
+        </div>
+    </div>
+</div>
+
+<!-- Question 32: Find the Minimum Path Sum -->
+<div class="card">
+    <div class="card-header">
+        32. Find the Minimum Path Sum
+    </div>
+    <div class="card-body">
+        <p>Write a Python function that finds the minimum path sum from the top left to the bottom right of a grid.</p>
+        <button class="btn btn-code" onclick="showCode('code32')">Show Code</button>
+        <div id="code32" class="output">
+            <pre>
+def min_path_sum(grid):
+    if not grid or not grid[0]:
+        return 0
+    m, n = len(grid), len(grid[0])
+    for i in range(1, m):
+        grid[i][0] += grid[i-1][0]
+    for j in range(1, n):
+        grid[0][j] += grid[0][j-1]
+    for i in range(1, m):
+        for j in range(1, n):
+            grid[i][j] += min(grid[i-1][j], grid[i][j-1])
+    return grid[m-1][n-1]
+            </pre>
+        </div>
+    </div>
+</div>
+
+<!-- Question 33: Implement a Trie (Prefix Tree) -->
+<div class="card">
+    <div class="card-header">
+        33. Implement a Trie (Prefix Tree)
+    </div>
+    <div class="card-body">
+        <p>Write a Python function to implement a trie (prefix tree) for efficient retrieval of keys in a dataset of strings.</p>
+        <button class="btn btn-code" onclick="showCode('code33')">Show Code</button>
+        <div id="code33" class="output">
+            <pre>
+class TrieNode:
+    def __init__(self):
+        self.children = {}
+        self.is_end_of_word = False
+
+class Trie:
+    def __init__(self):
+        self.root = TrieNode()
+
+    def insert(self, word):
+        node = self.root
+        for char in word:
+            if char not in node.children:
+                node.children[char] = TrieNode()
+            node = node.children[char]
+        node.is_end_of_word = True
+
+    def search(self, word):
+        node = self.root
+        for char in word:
+            if char not in node.children:
+                return False
+            node = node.children[char]
+        return node.is_end_of_word
+
+    def starts_with(self, prefix):
+        node = self.root
+        for char in prefix:
+            if char not in node.children:
+                return False
+            node = node.children[char]
+        return True
+            </pre>
+        </div>
+    </div>
+</div>
+
+<!-- Question 34: Find the Number of Islands -->
+<div class="card">
+    <div class="card-header">
+        34. Find the Number of Islands
+    </div>
+    <div class="card-body">
+        <p>Write a Python function that finds the number of islands in a given 2D grid.</p>
+        <button class="btn btn-code" onclick="showCode('code34')">Show Code</button>
+        <div id="code34" class="output">
+            <pre>
+def num_islands(grid):
+    if not grid:
+        return 0
+
+    def dfs(grid, i, j):
+        if i < 0 or i >= len(grid) or j < 0 or j >= len(grid[0]) or grid[i][j] == '0':
+            return
+        grid[i][j] = '0'
+        dfs(grid, i + 1, j)
+        dfs(grid, i - 1, j)
+        dfs(grid, i, j + 1)
+        dfs(grid, i, j - 1)
+
+    count = 0
+    for i in range(len(grid)):
+        for j in range(len(grid[0])):
+            if grid[i][j] == '1':
+                dfs(grid, i, j)
+                count += 1
+    return count
+            </pre>
+        </div>
+    </div>
+</div>
+
+<!-- Question 35: Implement LRU Cache -->
+<div class="card">
+    <div class="card-header">
+        35. Implement LRU Cache
+    </div>
+    <div class="card-body">
+        <p>Write a Python function to implement a Least Recently Used (LRU) cache.</p>
+        <button class="btn btn-code" onclick="showCode('code35')">Show Code</button>
+        <div id="code35" class="output">
+            <pre>
+from collections import OrderedDict
+
+class LRUCache:
+    def __init__(self, capacity: int):
+        self.cache = OrderedDict()
+        self.capacity = capacity
+
+    def get(self, key: int) -> int:
+        if key not in self.cache:
+            return -1
+        else:
+            self.cache.move_to_end(key)
+            return self.cache[key]
+
+    def put(self, key: int, value: int) -> None:
+        if key in self.cache:
+            self.cache.move_to_end(key)
+        self.cache[key] = value
+        if len(self.cache) > self.capacity:
+            self.cache.popitem(last=False)
+            </pre>
+        </div>
+    </div>
+</div>
+
+<!-- Question 36: Find the Maximum Product Subarray -->
+<div class="card">
+    <div class="card-header">
+        36. Find the Maximum Product Subarray
+    </div>
+    <div class="card-body">
+        <p>Write a Python function that finds the contiguous subarray within an array (containing at least one number) which has the largest product.</p>
+        <button class="btn btn-code" onclick="showCode('code36')">Show Code</button>
+        <div id="code36" class="output">
+            <pre>
+def max_product_subarray(nums):
+    if not nums:
+        return 0
+    max_product = min_product = result = nums[0]
+    for num in nums[1:]:
+        if num < 0:
+            max_product, min_product = min_product, max_product
+        max_product = max(num, max_product * num)
+        min_product = min(num, min_product * num)
+        result = max(result, max_product)
+    return result
+            </pre>
+        </div>
+    </div>
+</div>
+
+<!-- Question 37: Implement a Circular Queue -->
+<div class="card">
+    <div class="card-header">
+        37. Implement a Circular Queue
+    </div>
+    <div class="card-body">
+        <p>Write a Python function to implement a circular queue.</p>
+        <button class="btn btn-code" onclick="showCode('code37')">Show Code</button>
+        <div id="code37" class="output">
+            <pre>
+class CircularQueue:
+    def __init__(self, k: int):
+        self.queue = [None] * k
+        self.head = self.tail = -1
+        self.size = k
+
+    def enQueue(self, value: int) -> bool:
+        if (self.tail + 1) % self.size == self.head:
+            return False
+        elif self.head == -1:
+            self.head = 0
+        self.tail = (self.tail + 1) % self.size
+        self.queue[self.tail] = value
+        return True
+
+    def deQueue(self) -> bool:
+        if self.head == -1:
+            return False
+        elif self.head == self.tail:
+            self.head = self.tail = -1
+        else:
+            self.head = (self.head + 1) % self.size
+        return True
+
+    def Front(self) -> int:
+        if self.head == -1:
+            return -1
+        return self.queue[self.head]
+
+    def Rear(self) -> int:
+        if self.tail == -1:
+            return -1
+        return self.queue[self.tail]
+
+    def isEmpty(self) -> bool:
+        return self.head == -1
+
+    def isFull(self) -> bool:
+        return (self.tail + 1) % self.size == self.head
+            </pre>
+        </div>
+    </div>
+</div>
+
+<!-- Question 38: Find the Minimum Number of Coins -->
+<div class="card">
+    <div class="card-header">
+        38. Find the Minimum Number of Coins
+    </div>
+    <div class="card-body">
+        <p>Write a Python function that finds the minimum number of coins needed to make a given amount of change.</p>
+        <button class="btn btn-code" onclick="showCode('code38')">Show Code</button>
+        <div id="code38" class="output">
+            <pre>
+def min_coins(coins, amount):
+    dp = [float('inf')] * (amount + 1)
+    dp[0] = 0
+    for coin in coins:
+        for x in range(coin, amount + 1):
+            dp[x] = min(dp[x], dp[x - coin] + 1)
+    return dp[amount] if dp[amount] != float('inf') else -1
+            </pre>
+        </div>
+    </div>
+</div>
+
+<!-- Question 39: Implement Depth-First Search (DFS) -->
+<div class="card">
+    <div class="card-header">
+        39. Implement Depth-First Search (DFS)
+    </div>
+    <div class="card-body">
+        <p>Write a Python function to implement depth-first search (DFS) for a graph.</p>
+        <button class="btn btn-code" onclick="showCode('code39')">Show Code</button>
+        <div id="code39" class="output">
+            <pre>
+def dfs(graph, start):
+    visited, stack = set(), [start]
+    while stack:
+        vertex = stack.pop()
+        if vertex not in visited:
+            visited.add(vertex)
+            stack.extend(set(graph[vertex]) - visited)
+    return visited
+            </pre>
+        </div>
+    </div>
+</div>
+
+<!-- Question 40: Implement Breadth-First Search (BFS) -->
+<div class="card">
+    <div class="card-header">
+        40. Implement Breadth-First Search (BFS)
+    </div>
+    <div class="card-body">
+        <p>Write a Python function to implement breadth-first search (BFS) for a graph.</p>
+        <button class="btn btn-code" onclick="showCode('code40')">Show Code</button>
+        <div id="code40" class="output">
+            <pre>
+def bfs(graph, start):
+    visited, queue = set(), [start]
+    while queue:
+        vertex = queue.pop(0)
+        if vertex not in visited:
+            visited.add(vertex)
+            queue.extend(set(graph[vertex]) - visited)
+    return visited
+            </pre>
+        </div>
+    </div>
+</div>
+
+<!-- Question 41: Find the Lowest Common Ancestor -->
+<div class="card">
+    <div class="card-header">
+        41. Find the Lowest Common Ancestor
+    </div>
+    <div class="card-body">
+        <p>Write a Python function that finds the lowest common ancestor of two nodes in a binary tree.</p>
+        <button class="btn btn-code" onclick="showCode('code41')">Show Code</button>
+        <div id="code41" class="output">
+            <pre>
+class TreeNode:
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
+
+def lowest_common_ancestor(root, p, q):
+    if not root or root == p or root == q:
+        return root
+    left = lowest_common_ancestor(root.left, p, q)
+    right = lowest_common_ancestor(root.right, p, q)
+    if left and right:
+        return root
+    return left if left else right
+            </pre>
+        </div>
+    </div>
+</div>
+
+<!-- Question 42: Implement a Min-Heap -->
+<div class="card">
+    <div class="card-header">
+        42. Implement a Min-Heap
+    </div>
+    <div class="card-body">
+        <p>Write a Python function to implement a min-heap.</p>
+        <button class="btn btn-code" onclick="showCode('code42')">Show Code</button>
+        <div id="code42" class="output">
+            <pre>
+import heapq
+
+class MinHeap:
+    def __init__(self):
+        self.heap = []
+
+    def push(self, val):
+        heapq.heappush(self.heap, val)
+
+    def pop(self):
+        return heapq.heappop(self.heap)
+
+    def peek(self):
+        return self.heap[0] if self.heap else None
+            </pre>
+        </div>
+    </div>
+</div>
+
+<!-- Question 43: Find the Maximum Depth of a Binary Tree -->
+<div class="card">
+    <div class="card-header">
+        43. Find the Maximum Depth of a Binary Tree
+    </div>
+    <div class="card-body">
+        <p>Write a Python function that finds the maximum depth of a binary tree.</p>
+        <button class="btn btn-code" onclick="showCode('code43')">Show Code</button>
+        <div id="code43" class="output">
+            <pre>
+class TreeNode:
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
+
+def max_depth(root):
+    if not root:
+        return 0
+    left_depth = max_depth(root.left)
+    right_depth = max_depth(root.right)
+    return max(left_depth, right_depth) + 1
+            </pre>
+        </div>
+    </div>
+</div>
+
+<!-- Question 44: Implement a Linked List -->
+<div class="card">
+    <div class="card-header">
+        44. Implement a Linked List
+    </div>
+    <div class="card-body">
+        <p>Write a Python function to implement a singly linked list.</p>
+        <button class="btn btn-code" onclick="showCode('code44')">Show Code</button>
+        <div id="code44" class="output">
+            <pre>
+class ListNode:
+    def __init__(self, x):
+        self.val = x
+        self.next = None
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def append(self, x):
+        new_node = ListNode(x)
+        if not self.head:
+            self.head = new_node
+            return
+        last = self.head
+        while last.next:
+            last = last.next
+        last.next = new_node
+
+    def display(self):
+        current = self.head
+        while current:
+            print(current.val, end=" -> ")
+            current = current.next
+        print("None")
+            </pre>
+        </div>
+    </div>
+</div>
+
+<!-- Question 45: Find the Diameter of a Binary Tree -->
+<div class="card">
+    <div class="card-header">
+        45. Find the Diameter of a Binary Tree
+    </div>
+    <div class="card-body">
+        <p>Write a Python function that finds the diameter (longest path between any two nodes) of a binary tree.</p>
+        <button class="btn btn-code" onclick="showCode('code45')">Show Code</button>
+        <div id="code45" class="output">
+            <pre>
+class TreeNode:
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
+
+def diameter_of_binary_tree(root):
+    def depth(node):
+        nonlocal diameter
+        if not node:
+            return 0
+        left = depth(node.left)
+        right = depth(node.right)
+        diameter = max(diameter, left + right)
+        return max(left, right) + 1
+
+    diameter = 0
+    depth(root)
+    return diameter
+            </pre>
+        </div>
+    </div>
+</div>
+
+<!-- Question 46: Implement a Priority Queue -->
+<div class="card">
+    <div class="card-header">
+        46. Implement a Priority Queue
+    </div>
+    <div class="card-body">
+        <p>Write a Python function to implement a priority queue.</p>
+        <button class="btn btn-code" onclick="showCode('code46')">Show Code</button>
+        <div id="code46" class="output">
+            <pre>
+import heapq
+
+class PriorityQueue:
+    def __init__(self):
+        self.queue = []
+
+    def push(self, val):
+        heapq.heappush(self.queue, val)
+
+    def pop(self):
+        return heapq.heappop(self.queue)
+
+    def peek(self):
+        return self.queue[0] if self.queue else None
+            </pre>
+        </div>
+    </div>
+</div>
+
+<!-- Question 47: Find the Inorder Successor in BST -->
+<div class="card">
+    <div class="card-header">
+        47. Find the Inorder Successor in BST
+    </div>
+    <div class="card-body">
+        <p>Write a Python function that finds the inorder successor of a given node in a binary search tree (BST).</p>
+        <button class="btn btn-code" onclick="showCode('code47')">Show Code</button>
+        <div id="code47" class="output">
+            <pre>
+class TreeNode:
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
+
+def inorder_successor(root, p):
+    successor = None
+    while root:
+        if p.val < root.val:
+            successor = root
+            root = root.left
+        else:
+            root = root.right
+    return successor
+            </pre>
+        </div>
+    </div>
+</div>
+
+<!-- Question 48: Implement a Hash Map -->
+<div class="card">
+    <div class="card-header">
+        48. Implement a Hash Map
+    </div>
+    <div class="card-body">
+        <p>Write a Python function to implement a hash map.</p>
+        <button class="btn btn-code" onclick="showCode('code48')">Show Code</button>
+        <div id="code48" class="output">
+            <pre>
+class ListNode:
+    def __init__(self, key=None, val=None):
+        self.key = key
+        self.val = val
+        self.next = None
+
+class HashMap:
+    def __init__(self, size=1000):
+        self.size = size
+        self.table = [None] * size
+
+    def put(self, key, value):
+        index = hash(key) % self.size
+        if not self.table[index]:
+            self.table[index] = ListNode(key, value)
+        else:
+            current = self.table[index]
+            while current:
+                if current.key == key:
+                    current.val = value
+                    return
+                if not current.next:
+                    break
+                current = current.next
+            current.next = ListNode(key, value)
+
+    def get(self, key):
+        index = hash(key) % self.size
+        current = self.table[index]
+        while current:
+            if current.key == key:
+                return current.val
+            current = current.next
+        return -1
+
+    def remove(self, key):
+        index = hash(key) % self.size
+        current = self.table[index]
+        if not current:
+            return
+        if current.key == key:
+            self.table[index] = current.next
+        else:
+            prev = current
+            current = current.next
+            while current:
+                if current.key == key:
+                    prev.next = current.next
+                    return
+                prev = current
+                current = current.next
+            </pre>
+        </div>
+    </div>
+</div>
+
+<!-- Question 49: Find the Maximum Profit -->
+<div class="card">
+    <div class="card-header">
+        49. Find the Maximum Profit
+    </div>
+    <div class="card-body">
+        <p>Write a Python function that finds the maximum profit from buying and selling a stock given an array of prices.</p>
+        <button class="btn btn-code" onclick="showCode('code49')">Show Code</button>
+        <div id="code49" class="output">
+            <pre>
+def max_profit(prices):
+    min_price = float('inf')
+    max_profit = 0
+    for price in prices:
+        if price < min_price:
+            min_price = price
+        elif price - min_price > max_profit:
+            max_profit = price - min_price
+    return max_profit
+            </pre>
+        </div>
+    </div>
+</div>
+<!-- Question 50: Implement a Doubly Linked List -->
+<div class="card">
+    <div class="card-header">
+        50. Implement a Doubly Linked List
+    </div>
+    <div class="card-body">
+        <p>Write a Python function to implement a doubly linked list.</p>
+        <button class="btn btn-code" onclick="showCode('code50')">Show Code</button>
+        <div id="code50" class="output">
+            <pre>
+class ListNode:
+    def __init__(self, x):
+        self.val = x
+        self.next = None
+        self.prev = None
+
+class DoublyLinkedList:
+    def __init__(self):
+        self.head = None
+
+    def append(self, x):
+        new_node = ListNode(x)
+        if not self.head:
+            self.head = new_node
+            return
+        last = self.head
+        while last.next:
+            last = last.next
+        last.next = new_node
+        new_node.prev = last
+
+    def display(self):
+        current = self.head
+        while current:
+            print(current.val, end=" <-> ")
+            current = current.next
+        print("None")
+            </pre>
+        </div>
+    </div>
+</div>
+
+
+        </div>
+
+    </section>
+
+    <!-- Bootstrap JS and custom JavaScript -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+
+        function showCode(codeId) {
+
+            var codeElement = document.getElementById(codeId);
+
+            if (codeElement.style.display === "none" || codeElement.style.display === "") {
+
+                codeElement.style.display = "block";
+
+            } else {
+
+                codeElement.style.display = "none";
+
+            }
+
+        }
+
+    </script>
+
+
+
+    </section>
+
+    <!-- Bootstrap JS and custom JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function showCode(codeId) {
+            var codeElement = document.getElementById(codeId);
+            if (codeElement.style.display === "none" || codeElement.style.display === "") {
+                codeElement.style.display = "block";
+            } else {
+                codeElement.style.display = "none";
+            }
+        }
+    </script>
+
+    <script>
+
+        function toggleContent(element) {
+
+            const content = element.nextElementSibling;
+
+            const icon = element.querySelector("i");
+
+            if (content.style.display === "block") {
+
+                content.style.display = "none";
+
+                icon.classList.replace("fa-chevron-up", "fa-chevron-down");
+
+            } else {
+
+                content.classList.add("fadeIn");
+
+                content.style.display = "block";
+
+                icon.classList.replace("fa-chevron-down", "fa-chevron-up");
+
+            }
+
+        }
+
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
