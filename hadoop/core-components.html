@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Hacktrix - Core Components of Hadoop" />
+  <meta name="keywords" content="Hacktrix, Hadoop, HDFS, Big Data, Distributed Computing" />
+  <title>Hacktrix - Core Components of Hadoop</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Global Styling */
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: #333;
+      background-color: #f4f7f6;
+      overflow-x: hidden;
+    }
+    header, footer {
+      color: #f8f9fa;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    /* Header */
+    header {
+      background: linear-gradient(45deg, #005f73, #0a9396);
+      position: relative;
+      padding: 1rem 0;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .navbar-brand {
+      font-family: 'Roboto', sans-serif;
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #f8f9fa;
+    }
+    /* Main Heading Section */
+    .heading-section {
+      background: linear-gradient(to right, #005f73, #0a9396, #94d2bd);
+      color: #f1faee;
+      padding: 100px 20px;
+      text-align: center;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    .heading-section h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      color: #edf6f9;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    .heading-section p {
+      font-size: 1.4rem;
+      margin-top: 15px;
+    }
+    /* Content Section */
+    .content-section {
+      padding: 60px 0;
+    }
+    .content-section h2 {
+      font-family: 'Roboto', sans-serif;
+      font-size: 2.5rem;
+      color: #0077b6;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .content-section p {
+      font-size: 1.1rem;
+      color: #495057;
+      line-height: 1.8;
+    }
+    /* Highlighted Card Section */
+    .highlight-card {
+      padding: 30px;
+      background-color: #e9f5f3;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .highlight-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    }
+    /* Footer */
+    footer {
+      background: #023047;
+      padding: 20px 0;
+    }
+    footer p {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      color: #f1faee;
+    }
+    footer .list-inline-item a {
+      color: #f8f9fa;
+      transition: color 0.3s;
+    }
+    footer .list-inline-item a:hover {
+      color: #a8dadc;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="bg-dark text-white">
+    <nav class="container navbar navbar-expand-lg navbar-dark">
+      <a class="navbar-brand" href="#">Hacktrix</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+          <li class="nav-item"><a class="nav-link" href="#hdfs">HDFS</a></li>
+          <li class="nav-item"><a class="nav-link" href="#yarn">YARN</a></li>
+          <li class="nav-item"><a class="nav-link" href="#mapreduce">MapReduce</a></li>
+          <li class="nav-item"><a class="nav-link" href="#security">Security</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Heading Section -->
+  <section class="heading-section">
+    <div class="container">
+      <h1>Core Components of Hadoop</h1>
+      <p>Understanding the foundational elements of the Hadoop ecosystem</p>
+    </div>
+  </section>
+
+  <!-- Content Section - HDFS -->
+  <main class="container content-section mt-5 pt-5" id="hdfs">
+    <section class="highlight-card">
+      <h2>HDFS (Hadoop Distributed File System) 🗂️</h2>
+      <p><strong>Purpose of HDFS:</strong> HDFS is the primary storage system used in the Hadoop ecosystem. It allows for distributed data storage across multiple nodes, ensuring high availability and fault tolerance. By splitting data into blocks and distributing them across a cluster of machines, HDFS provides a scalable and reliable way to manage large datasets.</p>
+      <p><strong>Key Points:</strong></p>
+      <ul>
+        <li>Distributed Storage: Data is stored across multiple nodes.</li>
+        <li>Scalability: Easily scales by adding more nodes.</li>
+        <li>Fault Tolerance: Ensures data reliability through replication.</li>
+      </ul>
+    </section>
+    
+    <section class="highlight-card">
+      <h2>HDFS Architecture 🏗️</h2>
+      <p>HDFS follows a master-slave architecture consisting of a NameNode and multiple DataNodes. Here’s a breakdown of its components:</p>
+      <ul>
+        <li><strong>NameNode:</strong> The master server that manages the file system namespace and regulates access to files by clients. It keeps track of the metadata and the locations of data blocks.</li>
+        <li><strong>DataNodes:</strong> These are the worker nodes that store the actual data. They handle read and write requests from clients and perform block creation, deletion, and replication upon instruction from the NameNode.</li>
+        <li><strong>Data Replication:</strong> To ensure fault tolerance, each data block is replicated across multiple DataNodes. The default replication factor is three.</li>
+      </ul>
+    </section>
+    
+    <section class="highlight-card">
+      <h2>Data Storage in HDFS 📦</h2>
+      <p>HDFS divides data into fixed-size blocks (typically 128 MB or 256 MB) and stores these blocks across multiple nodes. This approach ensures that even if one node fails, the data can still be accessed from other nodes with replicated blocks.</p>
+      <p><strong>Key Points:</strong></p>
+      <ul>
+        <li>Block Storage: Data is split into blocks for efficient storage.</li>
+        <li>Replication: Each block is replicated across multiple nodes.</li>
+        <li>Fault Tolerance: Ensures data availability even in case of node failures.</li>
+      </ul>
+      <p><strong>Example:</strong> A large log file from a web server is divided into several blocks and stored across different DataNodes. If one DataNode fails, the data can still be retrieved from other nodes with replicated blocks.</p>
+    </section>
+    
+    <section class="highlight-card">
+      <h2>HDFS Commands and Operations 💻</h2>
+      <p>Here are some essential HDFS commands with brief usage examples:</p>
+      <ul>
+        <li><strong>ls:</strong> Lists the contents of a directory.<br><code>hdfs dfs -ls /user/hadoop/</code></li>
+        <li><strong>put:</strong> Uploads a file from the local file system to HDFS.<br><code>hdfs dfs -put localfile.txt /user/hadoop/</code></li>
+        <li><strong>get:</strong> Downloads a file from HDFS to the local file system.<br><code>hdfs dfs -get /user/hadoop/file.txt localfile.txt</code></li>
+        <li><strong>rm:</strong> Deletes a file from HDFS.<br><code>hdfs dfs -rm /user/hadoop/file.txt</code></li>
+      </ul>
+    </section>
+    
+    <section class="highlight-card" id="yarn">
+      <h2>YARN (Yet Another Resource Negotiator) 🧩</h2>
+      <p><strong>Description:</strong> YARN is the resource management layer of Hadoop. It allocates system resources to various applications running in a Hadoop cluster, ensuring efficient resource utilization.</p>
+      <p><strong>Key Points:</strong></p>
+      <ul>
+        <li>Resource Management: Manages CPU, memory, and other resources.</li>
+        <li>Scalability: Supports thousands of nodes and applications.</li>
+        <li>Flexibility: Allows different data processing engines (e.g., MapReduce, Spark) to run on Hadoop.</li>
+      </ul>
+      <p><strong>Example:</strong> Financial institutions use YARN to manage resources for various data processing tasks, ensuring optimal performance and resource allocation.</p>
+    </section>
+    
+    <section class="highlight-card" id="mapreduce">
+      <h2>MapReduce 🔄</h2>
+      <p><strong>Description:</strong> MapReduce is a programming model and processing engine for large-scale data processing. It divides tasks into smaller sub-tasks (Map) and processes them in parallel, then combines the results (Reduce).</p>
+      <p><strong>Key Points:</strong></p>
+      <ul>
+        <li>Parallel Processing: Processes large data sets quickly.</li>
+        <li>Fault Tolerance: Automatically handles failures during processing.</li>
+        <li>Scalability: Can process data across thousands of nodes.</li>
+      </ul>
+      <p><strong>Example:</strong> E-commerce companies use MapReduce to analyze customer behavior and transaction data, providing insights for personalized marketing.</p>
+    </section>
+    
+    <section class="highlight-card" id="security">
+      <h2>Hadoop Security 🔒</h2>
+      <p><strong>Description:</strong> Hadoop security is managed through access control lists (ACLs) and Kerberos authentication. These mechanisms ensure that only authorized users can access and modify the data stored in Hadoop.</p>
+      <p><strong>Key Points:</strong></p>
+      <ul>
+        <li>Access Control Lists (ACLs): Define permissions for users and groups.</li>
+        <li>Kerberos Authentication: Provides secure authentication for users accessing Hadoop.</li>
+      </ul>
+      <p><strong>Example:</strong> A company can use ACLs to grant read-only access to certain users while allowing others to read and write data. Kerberos ensures that only authenticated users can access the Hadoop cluster.</p>
+    </section>
+    <section class="content-section" id="mapreduce">
+        <h2>MapReduce 🔄</h2>
+        <p><strong>Introduction to MapReduce:</strong> MapReduce is the core processing model in Hadoop, designed to handle large-scale data processing across distributed clusters. It simplifies the processing of vast amounts of data by breaking down tasks into smaller, manageable chunks that can be processed in parallel. This model is essential for distributed data processing, enabling efficient and scalable analysis of big data.</p>
+        <p><strong>Key Points:</strong></p>
+        <ul>
+          <li>Parallel Processing: Processes large data sets in parallel across multiple nodes.</li>
+          <li>Scalability: Easily handles increasing data volumes by distributing tasks.</li>
+          <li>Fault Tolerance: Automatically manages failures and retries tasks to ensure completion.</li>
+        </ul>
+      
+        <section class="highlight-card">
+          <h3>MapReduce Programming Model 🧩</h3>
+          <p>The MapReduce programming model consists of two main phases: Map and Reduce. Here’s a detailed breakdown of how it works:</p>
+          <h4>Map Phase:</h4>
+          <ul>
+            <li><strong>Input Splitting:</strong> The input data is divided into smaller sub-tasks, known as splits. Each split is processed independently by a map task.</li>
+            <li><strong>Mapping:</strong> The Map function processes each input record and produces intermediate key-value pairs. This phase is highly parallelizable, as each map task operates independently.</li>
+          </ul>
+          <p><strong>Example:</strong></p>
+          <pre><code class="python">
+      def map(key, value):
+          for word in value.split():
+              emit(word, 1)
+          </code></pre>
+          <p>Input: A line of text.<br>Output: Key-value pairs where the key is a word and the value is 1.</p>
+      
+          <h4>Shuffle and Sort:</h4>
+          <ul>
+            <li><strong>Shuffling:</strong> The intermediate key-value pairs produced by the map tasks are shuffled to ensure that all values associated with the same key are grouped together.</li>
+            <li><strong>Sorting:</strong> The grouped key-value pairs are sorted by key. This step prepares the data for the reduce phase.</li>
+          </ul>
+      
+          <h4>Reduce Phase:</h4>
+          <ul>
+            <li><strong>Reducing:</strong> The Reduce function processes each group of intermediate key-value pairs to produce the final output. It aggregates the values associated with each key.</li>
+          </ul>
+          <p><strong>Example:</strong></p>
+          <pre><code class="python">
+      def reduce(key, values):
+          emit(key, sum(values))
+          </code></pre>
+          <p>Input: A word and a list of counts.<br>Output: The word and its total count.</p>
+        </section>
+      
+        <section class="highlight-card">
+          <h3>MapReduce Performance Tuning ⚙️</h3>
+          <p>Optimizing MapReduce jobs can significantly improve performance. Here are some tips for tuning MapReduce performance:</p>
+          <ul>
+            <li><strong>Tuning the Number of Mappers and Reducers:</strong>
+              <ul>
+                <li><strong>Mappers:</strong> The number of mappers is determined by the number of input splits. Ensure that the input data is split into an optimal number of chunks to balance the load.</li>
+                <li><strong>Reducers:</strong> Adjust the number of reducers based on the volume of intermediate data. Too few reducers can lead to bottlenecks, while too many can cause overhead.</li>
+              </ul>
+            </li>
+            <li><strong>Optimizing Input Formats:</strong> Use appropriate input formats to minimize the amount of data read and processed. For example, use SequenceFileInputFormat for binary data and TextInputFormat for text data.</li>
+            <li><strong>Using Combiners:</strong> Combiners are mini-reducers that process intermediate data before it is sent to the reducers. They help reduce the amount of data transferred across the network.</li>
+          </ul>
+          <p><strong>Example:</strong></p>
+          <pre><code class="python">
+      def combiner(key, values):
+          emit(key, sum(values))
+          </code></pre>
+          <p>In a log analysis job, using a combiner to aggregate log counts locally on each mapper can significantly reduce the amount of data shuffled across the network, improving overall job performance.</p>
+        </section>
+      
+        <section class="highlight-card">
+          <h3>Detailed Example: Word Count Program</h3>
+          <p>To illustrate the MapReduce model, let’s dive deeper into a word count program, which counts the occurrences of each word in a large text file.</p>
+          <h4>Map Function:</h4>
+          <p>Input: A line of text.<br>Output: Key-value pairs where the key is a word and the value is 1.</p>
+          <pre><code class="python">
+      def map(key, value):
+          for word in value.split():
+              emit(word, 1)
+          </code></pre>
+      
+          <h4>Shuffle and Sort:</h4>
+          <p>Shuffling: Intermediate key-value pairs are shuffled to group all values associated with the same key.<br>Sorting: The grouped key-value pairs are sorted by key.</p>
+      
+          <h4>Reduce Function:</h4>
+          <p>Input: A word and a list of counts.<br>Output: The word and its total count.</p>
+          <pre><code class="python">
+      def reduce(key, values):
+          emit(key, sum(values))
+          </code></pre>
+      
+          <h4>Workflow:</h4>
+          <p>Input Data: “Hadoop is great. Hadoop is scalable.”</p>
+          <ul>
+            <li>Map Phase:
+              <ul>
+                <li>“Hadoop” -> 1</li>
+                <li>“is” -> 1</li>
+                <li>“great” -> 1</li>
+                <li>“Hadoop” -> 1</li>
+                <li>“is” -> 1</li>
+                <li>“scalable” -> 1</li>
+              </ul>
+            </li>
+            <li>Shuffle and Sort:
+              <ul>
+                <li>“Hadoop” -> [1, 1]</li>
+                <li>“is” -> [1, 1]</li>
+                <li>“great” -> [1]</li>
+                <li>“scalable” -> [1]</li>
+              </ul>
+            </li>
+            <li>Reduce Phase:
+              <ul>
+                <li>“Hadoop” -> 2</li>
+                <li>“is” -> 2</li>
+                <li>“great” -> 1</li>
+                <li>“scalable” -> 1</li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+      </section>
+      <section class="content-section" id="yarn">
+        <h2>YARN (Yet Another Resource Negotiator) 🧩</h2>
+        <p><strong>Introduction to YARN:</strong> YARN (Yet Another Resource Negotiator) is a critical component of the Hadoop ecosystem, responsible for managing and allocating resources for various Hadoop applications. It acts as the operating system for Hadoop, enabling multiple data processing engines such as MapReduce, Spark, and others to run and process data simultaneously. YARN’s ability to manage resources efficiently is essential for running diverse workloads, ensuring optimal performance and resource utilization.</p>
+        <p><strong>Key Points:</strong></p>
+        <ul>
+          <li>Resource Management: Allocates CPU, memory, and other resources to applications.</li>
+          <li>Scalability: Supports thousands of nodes and applications.</li>
+          <li>Flexibility: Allows different data processing engines to run on Hadoop.</li>
+        </ul>
+      
+        <section class="highlight-card">
+          <h3>YARN Architecture 🏗️</h3>
+          <p>YARN follows a master-slave architecture consisting of several key components: ResourceManager, NodeManager, and ApplicationMaster. Here’s a detailed breakdown of its architecture:</p>
+          <ul>
+            <li><strong>ResourceManager:</strong>
+              <ul>
+                <li><strong>Role:</strong> The ResourceManager is the master daemon that manages resources across the Hadoop cluster. It is responsible for allocating resources to various applications and ensuring efficient resource utilization.</li>
+                <li><strong>Components:</strong>
+                  <ul>
+                    <li><strong>Scheduler:</strong> Allocates resources to running applications based on constraints like capacities and queues. It does not monitor application status or restart failed tasks.</li>
+                    <li><strong>ApplicationsManager:</strong> Manages job submissions, negotiates the first container for the ApplicationMaster, and handles the restart of the ApplicationMaster container if it fails.</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><strong>NodeManager:</strong>
+              <ul>
+                <li><strong>Role:</strong> The NodeManager runs on each node in the cluster and is responsible for managing containers, monitoring their resource usage (CPU, memory, disk, network), and reporting this information to the ResourceManager.</li>
+                <li><strong>Function:</strong> Launches and monitors containers on the node, ensuring that resources are used efficiently.</li>
+              </ul>
+            </li>
+            <li><strong>ApplicationMaster:</strong>
+              <ul>
+                <li><strong>Role:</strong> Each application has its own ApplicationMaster, which is responsible for negotiating resources from the ResourceManager and working with the NodeManager to execute and monitor tasks.</li>
+                <li><strong>Function:</strong> Manages the lifecycle of the application, including resource requests, task execution, and monitoring.</li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+      
+        <section class="highlight-card">
+          <h3>Resource Management with YARN ⚙️</h3>
+          <p>YARN optimizes resource usage and prevents job conflicts through efficient resource allocation and management. Here’s how it works:</p>
+          <h4>Resource Allocation:</h4>
+          <ul>
+            <li><strong>Dynamic Allocation:</strong> YARN dynamically allocates resources based on the needs of running applications. This ensures that resources are used efficiently and that applications get the resources they need to run effectively.</li>
+            <li><strong>Resource Containers:</strong> Resources are allocated in the form of containers, which encapsulate a fixed amount of CPU, memory, and other resources. Containers are managed by the NodeManager on each node.</li>
+          </ul>
+          <h4>Preventing Job Conflicts:</h4>
+          <ul>
+            <li><strong>Scheduling Policies:</strong> YARN uses various scheduling policies (e.g., CapacityScheduler, FairScheduler) to allocate resources fairly among applications. These policies help prevent resource contention and ensure that no single application monopolizes the cluster resources.</li>
+            <li><strong>Resource Monitoring:</strong> The NodeManager continuously monitors resource usage and reports it to the ResourceManager. This helps in detecting and resolving resource conflicts promptly.</li>
+          </ul>
+          <p><strong>Example:</strong> In a multi-tenant environment, where multiple users and applications share the same Hadoop cluster, YARN ensures that resources are allocated fairly and efficiently. For instance, a data scientist running a Spark job and a business analyst running a Hive query can both get the resources they need without interfering with each other’s tasks.</p>
+        </section>
+      
+        <section class="highlight-card">
+          <h3>Detailed Example: Running a YARN Application</h3>
+          <p>To illustrate how YARN manages resources, let’s consider a scenario where a user submits a MapReduce job to the Hadoop cluster.</p>
+          <h4>Job Submission:</h4>
+          <ul>
+            <li>The user submits the job to the ResourceManager.</li>
+            <li>The ApplicationsManager component of the ResourceManager accepts the job and starts the ApplicationMaster for the job.</li>
+          </ul>
+          <h4>Resource Negotiation:</h4>
+          <ul>
+            <li>The ApplicationMaster negotiates resources with the ResourceManager.</li>
+            <li>The ResourceManager allocates containers on various nodes based on resource availability and scheduling policies.</li>
+          </ul>
+          <h4>Task Execution:</h4>
+          <ul>
+            <li>The NodeManager on each node launches the containers and executes the tasks assigned to them.</li>
+            <li>The ApplicationMaster monitors the progress of the tasks and handles any failures by requesting new containers if needed.</li>
+          </ul>
+          <h4>Completion:</h4>
+          <ul>
+            <li>Once all tasks are completed, the ApplicationMaster informs the ResourceManager, and the resources are released.</li>
+          </ul>
+        </section>
+      </section>
+      
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="bg-dark text-white text-center py-4">
+    <div class="container">
+      <p>© 2024 Hacktrix. All rights reserved.</p>
+      <ul class="list-inline">
+        <li class="list-inline-item"><a href="#overview">Overview</a></li>
+        <li class="list-inline-item"><a href="#contact">Contact</a></li>
+        <li class="list-inline-item"><a href="#privacy">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Smooth scrolling for links
+      $('a[href^="#"]').on('click', function(event) {
+        var target = $(this.getAttribute('href'));
+        if (target.length) {
+          event.preventDefault();
+          $('html, body').stop().animate({
+            scrollTop: target.offset().top - 70
+          }, 1000);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
