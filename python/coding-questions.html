@@ -77,108 +77,6 @@
             }
         }
     </style>
-        <style>
-        /* Existing styles */
-        .content-section {
-            background: linear-gradient(to right, #f0f8ff, #e6f7ff);
-            padding: 40px;
-            border-radius: 10px;
-            margin: 20px 0;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 1s ease-in-out;
-        }
-        .code-block {
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-        }
-        .code-block:hover {
-            transform: scale(1.05);
-            background-color: #f0f8ff;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-        .code-container {
-            position: relative;
-        }
-        .copy-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: #007bff;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .copy-btn:hover {
-            background-color: #0056b3;
-        }
-        pre {
-            background-color: #2d2d2d;
-            color: #f8f8f2;
-            padding: 15px;
-            border-radius: 5px;
-            overflow-x: auto; /* Enable horizontal scrolling */
-            transition: background-color 0.3s ease;
-            white-space: pre-wrap; /* Allow line breaks */
-            word-wrap: break-word; /* Break long words */
-            font-size: 16px; /* Default font size */
-        }
-        pre:hover {
-            background-color: #3e3e3e;
-        }
-        code {
-            font-family: 'Courier New', Courier, monospace;
-        }
-        h2 {
-            color: #007bff;
-            margin-top: 2rem;
-            text-align: center;
-            animation: fadeIn 1s ease-in-out;
-        }
-        h3 {
-            color: #0056b3;
-        }
-        ul {
-            list-style-type: disc;
-            padding-left: 20px;
-        }
-        ul li {
-            margin-bottom: 10px;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        /* Responsive styles */
-        @media (max-width: 768px) {
-            .content-section {
-                padding: 20px;
-            }
-            .code-block {
-                padding: 15px;
-            }
-            pre {
-                font-size: 12px; /* Adjust font size for smaller screens */
-            }
-            .copy-btn {
-                padding: 3px 7px;
-                font-size: 12px;
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -275,48 +173,28 @@
         <section id="variables-operators" class="content-section">
             <h2>Variables and Operators</h2>
             <div class="code-block">
-                <h3>Question 1: Variable Assignment and Data Types</h3>
+                <h3>Question 1: Arithmetic Operators</h3>
                 <p><strong>Q:</strong> What will be the output of the following code?</p>
                 <div class="code-container">
                     <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
-                    <pre><code class="language-python">x = 10
-        y = 2.5
-        z = "Hello"
-        print(type(x), type(y), type(z))</code></pre>
+                    <pre><code class="language-python">
+a = 15
+b = 4
+print(a + b)
+print(a - b)
+print(a * b)
+print(a / b)
+print(a % b)</code></pre>
                 </div>
                 <p><strong>A:</strong></p>
                 <div class="code-container">
                     <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
-                    <pre><code class="language-python"><class 'int'> <class 'float'> <class 'str'></code></pre>
-                </div>
-                <p><strong>Explanation:</strong></p>
-                <ul>
-                    <li>x is assigned an integer value 10, so type(x) returns <class 'int'>.</li>
-                    <li>y is assigned a float value 2.5, so type(y) returns <class 'float'>.</li>
-                    <li>z is assigned a string value "Hello", so type(z) returns <class 'str'>.</li>
-                </ul>
-            </div>
-            <div class="code-block">
-                <h3>Question 2: Arithmetic Operators</h3>
-                <p><strong>Q:</strong> What will be the output of the following code?</p>
-                <div class="code-container">
-                    <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
-                    <pre><code class="language-python">a = 15
-        b = 4
-        print(a + b)
-        print(a - b)
-        print(a * b)
-        print(a / b)
-        print(a % b)</code></pre>
-                </div>
-                <p><strong>A:</strong></p>
-                <div class="code-container">
-                    <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
-                    <pre><code class="language-python">19
-        11
-        60
-        3.75
-        3</code></pre>
+                    <pre><code class="language-python">
+19
+11
+60
+3.75
+3</code></pre>
                 </div>
                 <p><strong>Explanation:</strong></p>
                 <ul>
@@ -328,21 +206,23 @@
                 </ul>
             </div>
             <div class="code-block">
-                <h3>Question 3: String Operations</h3>
+                <h3>Question 2: String Operations</h3>
                 <p><strong>Q:</strong> What will be the output of the following code?</p>
                 <div class="code-container">
                     <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
-                    <pre><code class="language-python">s1 = "Hello"
-        s2 = "World"
-        s3 = s1 + " " + s2
-        print(s3)
-        print(s3 * 2)</code></pre>
+                    <pre><code class="language-python">
+s1 = "Hello"
+s2 = "World"
+s3 = s1 + " " + s2
+print(s3)
+print(s3 * 2)</code></pre>
                 </div>
                 <p><strong>A:</strong></p>
                 <div class="code-container">
                     <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
-                    <pre><code class="language-python">Hello World
-        Hello WorldHello World</code></pre>
+                    <pre><code class="language-python">
+Hello World
+Hello WorldHello World</code></pre>
                 </div>
                 <p><strong>Explanation:</strong></p>
                 <ul>
@@ -351,22 +231,24 @@
                 </ul>
             </div>
             <div class="code-block">
-                <h3>Question 4: Boolean Operators</h3>
+                <h3>Question 3: Boolean Operators</h3>
                 <p><strong>Q:</strong> What will be the output of the following code?</p>
                 <div class="code-container">
                     <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
-                    <pre><code class="language-python">x = True
-        y = False
-        print(x and y)
-        print(x or y)
-        print(not x)</code></pre>
+                    <pre><code class="language-python">
+x = True
+y = False
+print(x and y)
+print(x or y)
+print(not x)</code></pre>
                 </div>
                 <p><strong>A:</strong></p>
                 <div class="code-container">
                     <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
-                    <pre><code class="language-python">False
-        True
-        False</code></pre>
+                    <pre><code class="language-python">
+False
+True
+False</code></pre>
                 </div>
                 <p><strong>Explanation:</strong></p>
                 <ul>
@@ -376,21 +258,23 @@
                 </ul>
             </div>
             <div class="code-block">
-                <h3>Question 5: Type Casting</h3>
+                <h3>Question 4: Type Casting</h3>
                 <p><strong>Q:</strong> What will be the output of the following code?</p>
                 <div class="code-container">
                     <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
-                    <pre><code class="language-python">num_str = "123"
-        num_int = int(num_str)
-        num_float = float(num_str)
-        print(num_int + 1)
-        print(num_float + 1.5)</code></pre>
+            <pre><code class="language-python">
+num_str = "123"
+num_int = int(num_str)
+num_float = float(num_str)
+print(num_int + 1)
+print(num_float + 1.5)</code></pre>
                 </div>
                 <p><strong>A:</strong></p>
                 <div class="code-container">
                     <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
-                    <pre><code class="language-python">124
-        124.5</code></pre>
+<pre><code class="language-python">
+124
+124.5</code></pre>
                 </div>
                 <p><strong>Explanation:</strong></p>
                 <ul>
@@ -506,7 +390,7 @@
 
 
         <section id="Interger and float" class="content-section">
-            <h2>Integers and Floats</h2>
+            <h2>integers and Float</h2>
             <div class="code-block">
                 <h3>Basic Arithmetic Operations</h3>
                 <p><strong>Question:</strong> Write a Python program that takes two integers as input and performs addition, subtraction, multiplication, and division. Print the results.</p>
@@ -524,21 +408,22 @@
                 <p><strong>Solution:</strong></p>
                 <div class="code-container">
                     <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
-                    <pre><code class="language-python"># Taking two integers as input
-        num1 = int(input("Enter first integer: "))
-        num2 = int(input("Enter second integer: "))
-        
-        # Performing arithmetic operations
-        addition = num1 + num2
-        subtraction = num1 - num2
-        multiplication = num1 * num2
-        division = num1 / num2  # Note: This will give a float result
-        
-        # Printing the results
-        print(f"Addition: {addition}")
-        print(f"Subtraction: {subtraction}")
-        print(f"Multiplication: {multiplication}")
-        print(f"Division: {division}")</code></pre>
+            <pre><code class="language-python">
+# Taking two integers as input
+num1 = int(input("Enter first integer: "))
+num2 = int(input("Enter second integer: "))
+
+# Performing arithmetic operations
+addition = num1 + num2
+subtraction = num1 - num2
+multiplication = num1 * num2
+division = num1 / num2  # Note: This will give a float result
+
+# Printing the results
+print(f"Addition: {addition}")
+print(f"Subtraction: {subtraction}")
+print(f"Multiplication: {multiplication}")
+print(f"Division: {division}")</code></pre>
                 </div>
                 <p><strong>Explanation:</strong></p>
                 <ul>
@@ -564,16 +449,17 @@
                 <p><strong>Solution:</strong></p>
                 <div class="code-container">
                     <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
-                    <pre><code class="language-python">import math
-        
-        # Taking radius as input
-        radius = float(input("Enter the radius of the circle: "))
-        
-        # Calculating the area
-        area = math.pi * (radius ** 2)
-        
-        # Printing the result
-        print(f"The area of the circle is: {area}")</code></pre>
+                    <pre><code class="language-python">
+import math
+
+# Taking radius as input
+radius = float(input("Enter the radius of the circle: "))
+
+# Calculating the area
+area = math.pi * (radius ** 2)
+
+# Printing the result
+print(f"The area of the circle is: {area}")</code></pre>
                 </div>
                 <p><strong>Explanation:</strong></p>
                 <ul>
@@ -599,14 +485,15 @@
                 <p><strong>Solution:</strong></p>
                 <div class="code-container">
                     <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
-                    <pre><code class="language-python"># Taking temperature in Celsius as input
-        celsius = float(input("Enter temperature in Celsius: "))
-        
-        # Converting to Fahrenheit
-        fahrenheit = (celsius * 9/5) + 32
-        
-        # Printing the result
-        print(f"Temperature in Fahrenheit: {fahrenheit}")</code></pre>
+                    <pre><code class="language-python">
+# Taking temperature in Celsius as input
+celsius = float(input("Enter temperature in Celsius: "))
+
+# Converting to Fahrenheit
+fahrenheit = (celsius * 9/5) + 32
+
+# Printing the result
+print(f"Temperature in Fahrenheit: {fahrenheit}")</code></pre>
                 </div>
                 <p><strong>Explanation:</strong></p>
                 <ul>
@@ -632,20 +519,21 @@
                 <p><strong>Solution:</strong></p>
                 <div class="code-container">
                     <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
-                    <pre><code class="language-python"># Taking an integer as input
-        num = int(input("Enter an integer: "))
-        
-        # Initializing sum
-        sum_of_digits = 0
-        
-        # Loop to extract and sum the digits
-        while num > 0:
-            digit = num % 10
-            sum_of_digits += digit
-            num = num // 10
-        
-        # Printing the result
-        print(f"Sum of the digits: {sum_of_digits}")</code></pre>
+                    <pre><code class="language-python">
+# Taking an integer as input
+num = int(input("Enter an integer: "))
+
+# Initializing sum
+sum_of_digits = 0
+
+# Loop to extract and sum the digits
+while num > 0:
+    digit = num % 10
+    sum_of_digits += digit
+    num = num // 10
+
+# Printing the result
+print(f"Sum of the digits: {sum_of_digits}")</code></pre>
                 </div>
                 <p><strong>Explanation:</strong></p>
                 <ul>
@@ -671,15 +559,16 @@
                 <p><strong>Solution:</strong></p>
                 <div class="code-container">
                     <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
-                    <pre><code class="language-python"># Taking weight and height as input
-        weight = float(input("Enter weight in kilograms: "))
-        height = float(input("Enter height in meters: "))
-        
-        # Calculating BMI
-        bmi = weight / (height ** 2)
-        
-        # Printing the result
-        print(f"Your BMI is: {bmi}")</code></pre>
+                    <pre><code class="language-python">
+# Taking weight and height as input
+weight = float(input("Enter weight in kilograms: "))
+height = float(input("Enter height in meters: "))
+
+# Calculating BMI
+bmi = weight / (height ** 2)
+
+# Printing the result
+print(f"Your BMI is: {bmi}")</code></pre>
                 </div>
                 <p><strong>Explanation:</strong></p>
                 <ul>
@@ -809,7 +698,8 @@
         <p><strong>Solution:</strong></p>
         <div class="code-container">
             <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
-            <pre><code class="language-python"># Taking a list of integers as input
+            <pre><code class="language-python">
+# Taking a list of integers as input
 numbers = [int(x) for x in input("Enter numbers separated by space: ").split()]
 
 # Calculating the sum of elements
@@ -842,7 +732,8 @@ print(f"Sum of all elements: {total_sum}")</code></pre>
         <p><strong>Solution:</strong></p>
         <div class="code-container">
             <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
-            <pre><code class="language-python"># Taking a list of integers as input
+            <pre><code class="language-python">
+# Taking a list of integers as input
 numbers = [int(x) for x in input("Enter numbers separated by space: ").split()]
 
 # Finding the largest element
@@ -876,7 +767,8 @@ print(f"Largest element: {largest}")</code></pre>
         <p><strong>Solution:</strong></p>
         <div class="code-container">
             <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
-            <pre><code class="language-python"># Taking a list of integers as input
+            <pre><code class="language-python">
+# Taking a list of integers as input
 numbers = [int(x) for x in input("Enter numbers separated by space: ").split()]
 
 # Taking the element to count as input
@@ -913,7 +805,8 @@ print(f"Occurrences of {element}: {count}")</code></pre>
         <p><strong>Solution:</strong></p>
         <div class="code-container">
             <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
-            <pre><code class="language-python"># Taking a list of integers as input
+            <pre><code class="language-python">
+# Taking a list of integers as input
 numbers = [int(x) for x in input("Enter numbers separated by space: ").split()]
 
 # Removing duplicates
@@ -948,7 +841,8 @@ print(f"List after removing duplicates: {unique_numbers}")</code></pre>
         <p><strong>Solution:</strong></p>
         <div class="code-container">
             <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
-            <pre><code class="language-python"># Taking a list of integers as input
+            <pre><code class="language-python">
+# Taking a list of integers as input
 numbers = [int(x) for x in input("Enter numbers separated by space: ").split()]
 
 # Taking the number of steps to rotate as input
@@ -1088,7 +982,8 @@ print(f"List after rotating by {steps} steps: {rotated_list}")</code></pre>
         <p><strong>Solution:</strong></p>
         <div class="code-container">
             <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
-            <pre><code class="language-python"># Taking a string as input
+            <pre><code class="language-python">
+# Taking a string as input
 original_string = input("Enter a string: ")
 
 # Reversing the string
@@ -1122,7 +1017,8 @@ print(f"Reversed string: {reversed_string}")</code></pre>
         <p><strong>Solution:</strong></p>
         <div class="code-container">
             <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
-            <pre><code class="language-python"># Taking a string as input
+            <pre><code class="language-python">
+# Taking a string as input
 original_string = input("Enter a string: ")
 
 # Reversing the string
@@ -1160,7 +1056,8 @@ else:
         <p><strong>Solution:</strong></p>
         <div class="code-container">
             <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
-            <pre><code class="language-python"># Taking a string as input
+            <pre><code class="language-python">
+# Taking a string as input
 string = input("Enter a string: ")
 
 # Initializing vowel count
@@ -1201,7 +1098,8 @@ print(f"Number of vowels: {vowel_count}")</code></pre>
         <p><strong>Solution:</strong></p>
         <div class="code-container">
             <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
-            <pre><code class="language-python">import string
+            <pre><code class="language-python">
+import string
 
 # Taking a string as input
 original_string = input("Enter a string: ")
@@ -1237,7 +1135,8 @@ print(f"String without punctuation: {no_punctuation_string}")</code></pre>
         <p><strong>Solution:</strong></p>
         <div class="code-container">
             <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
-            <pre><code class="language-python"># Taking a string as input
+            <pre><code class="language-python">
+# Taking a string as input
 string = input("Enter a string: ")
 
 # Splitting the string into words
@@ -1377,7 +1276,8 @@ navigator.clipboard.writeText(code).then(() => {
         <p><strong>Solution:</strong></p>
         <div class="code-container">
             <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
-            <pre><code class="language-python"># Defining a tuple
+            <pre><code class="language-python">
+# Defining a tuple
 my_tuple = (10, 20, 30, 40, 50)
 
 # Accessing the first and last elements
@@ -1412,7 +1312,8 @@ print(f"Last element: {last_element}")</code></pre>
         <p><strong>Solution:</strong></p>
         <div class="code-container">
             <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
-            <pre><code class="language-python"># Defining two tuples
+            <pre><code class="language-python">
+# Defining two tuples
 tuple1 = (1, 2, 3)
 tuple2 = (4, 5, 6)
 
@@ -1446,7 +1347,8 @@ print(f"Concatenated tuple: {concatenated_tuple}")</code></pre>
         <p><strong>Solution:</strong></p>
         <div class="code-container">
             <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
-            <pre><code class="language-python"># Defining a tuple
+            <pre><code class="language-python">
+# Defining a tuple
 my_tuple = (10, 20, 30, 40, 50)
 
 # Finding the length of the tuple
@@ -1479,7 +1381,8 @@ print(f"Length of the tuple: {length}")</code></pre>
         <p><strong>Solution:</strong></p>
         <div class="code-container">
             <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
-            <pre><code class="language-python"># Defining a tuple with string elements
+            <pre><code class="language-python">
+# Defining a tuple with string elements
 my_tuple = ('H', 'e', 'l', 'l', 'o')
 
 # Converting the tuple to a string
@@ -1512,7 +1415,8 @@ print(f"String: {result_string}")</code></pre>
         <p><strong>Solution:</strong></p>
         <div class="code-container">
             <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
-            <pre><code class="language-python"># Defining a tuple
+            <pre><code class="language-python">
+# Defining a tuple
 my_tuple = (10, 20, 30, 40, 50)
 
 # Taking the element to find as input
@@ -1691,7 +1595,8 @@ print(f"Value: {value}")</code></pre>
         <p><strong>Solution:</strong></p>
         <div class="code-container">
             <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
-            <pre><code class="language-python"># Defining a dictionary
+            <pre><code class="language-python">
+# Defining a dictionary
 my_dict = {'name': 'Alice', 'age': 25, 'city': 'New York'}
 
 # Taking the new key and value as input
@@ -1730,7 +1635,8 @@ print(f"Updated dictionary: {my_dict}")</code></pre>
         <p><strong>Solution:</strong></p>
         <div class="code-container">
             <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
-            <pre><code class="language-python"># Defining a dictionary
+            <pre><code class="language-python">
+# Defining a dictionary
 my_dict = {'name': 'Alice', 'age': 25, 'city': 'New York'}
 
 # Taking the key to be removed as input
@@ -1768,12 +1674,13 @@ print(f"Updated dictionary: {my_dict}")</code></pre>
         <p><strong>Solution:</strong></p>
         <div class="code-container">
             <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
-            <pre><code class="language-python"># Defining a dictionary
+            <pre><code class="language-python">
+# Defining a dictionary
 my_dict = {'name': 'Alice', 'age': 25, 'city': 'New York'}
 
 # Iterating over the dictionary
 for key, value in my_dict.items():
-    print(f"Key: {key}, Value: {value}")</code></pre>
+print(f"Key: {key}, Value: {value}")</code></pre>
         </div>
         <p><strong>Explanation:</strong></p>
         <ul>
@@ -1799,15 +1706,16 @@ for key, value in my_dict.items():
         <p><strong>Solution:</strong></p>
         <div class="code-container">
             <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
-            <pre><code class="language-python"># Defining two dictionaries
-                dict1 = {'name': 'Alice', 'age': 25}
-                dict2 = {'city': 'New York', 'country': 'USA'}
-                
-                # Merging the dictionaries
-                dict1.update(dict2)
-                
-                # Printing the merged dictionary
-                print(f"Merged dictionary: {dict1}")</code></pre>
+            <pre><code class="language-python">
+# Defining two dictionaries
+dict1 = {'name': 'Alice', 'age': 25}
+dict2 = {'city': 'New York', 'country': 'USA'}
+
+# Merging the dictionaries
+dict1.update(dict2)
+
+# Printing the merged dictionary
+print(f"Merged dictionary: {dict1}")</code></pre>
                         </div>
                         <p><strong>Explanation:</strong></p>
                         <ul>
@@ -1938,7 +1846,8 @@ for key, value in my_dict.items():
         <p><strong>Solution:</strong></p>
         <div class="code-container">
             <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
-            <pre><code class="language-python"># Defining a set
+            <pre><code class="language-python">
+# Defining a set
 my_set = {1, 2, 3, 4, 5}
 
 # Taking the new element as input
@@ -1976,7 +1885,8 @@ print(f"Updated set: {my_set}")</code></pre>
         <p><strong>Solution:</strong></p>
         <div class="code-container">
             <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
-            <pre><code class="language-python"># Defining a set
+            <pre><code class="language-python">
+# Defining a set
 my_set = {1, 2, 3, 4, 5}
 
 # Taking the element to be removed as input
@@ -2014,7 +1924,8 @@ print(f"Updated set: {my_set}")</code></pre>
         <p><strong>Solution:</strong></p>
         <div class="code-container">
             <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
-            <pre><code class="language-python"># Defining a set
+            <pre><code class="language-python">
+# Defining a set
 my_set = {1, 2, 3, 4, 5}
 
 # Taking the element to check as input
@@ -2051,7 +1962,8 @@ else:
         <p><strong>Solution:</strong></p>
         <div class="code-container">
             <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
-            <pre><code class="language-python"># Defining two sets
+            <pre><code class="language-python">
+# Defining two sets
 set1 = {1, 2, 3}
 set2 = {3, 4, 5}
 
@@ -2085,7 +1997,8 @@ print(f"Union of the sets: {union_set}")</code></pre>
         <p><strong>Solution:</strong></p>
         <div class="code-container">
             <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
-            <pre><code class="language-python"># Defining two sets
+            <pre><code class="language-python">
+# Defining two sets
 set1 = {1, 2, 3}
 set2 = {3, 4, 5}
 
@@ -2223,7 +2136,8 @@ print(f"Intersection of the sets: {intersection_set}")</code></pre>
         <p><strong>Solution:</strong></p>
         <div class="code-container">
             <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
-            <pre><code class="language-python">def factorial(n):
+            <pre><code class="language-python">
+def factorial(n):
     """Calculate the factorial of a number."""
     if n == 0 or n == 1:
         return 1
@@ -2264,7 +2178,8 @@ print(f"Factorial of {num} is {factorial(num)}")</code></pre>
         <p><strong>Solution:</strong></p>
         <div class="code-container">
             <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
-            <pre><code class="language-python">def is_prime(n):
+            <pre><code class="language-python">
+def is_prime(n):
     """Check if a number is prime."""
     if n <= 1:
         return False
@@ -2307,7 +2222,8 @@ else:
         <p><strong>Solution:</strong></p>
         <div class="code-container">
             <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
-            <pre><code class="language-python">def longest_word(words):
+            <pre><code class="language-python">
+def longest_word(words):
     """Find the longest word in a list."""
     longest = ""
     for word in words:
@@ -2346,7 +2262,8 @@ print(f"The longest word is: {longest_word(words)}")</code></pre>
         <p><strong>Solution:</strong></p>
         <div class="code-container">
             <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
-            <pre><code class="language-python">def merge_dicts(dict1, dict2):
+            <pre><code class="language-python">
+def merge_dicts(dict1, dict2):
     """Merge two dictionaries."""
     merged_dict = dict1.copy()
     merged_dict.update(dict2)
@@ -2358,40 +2275,41 @@ dict2 = {'city': 'New York', 'country': 'USA'}
 
 # Calling the function and printing the result
 print(f"Merged dictionary: {merge_dicts(dict1, dict2)}")</code></pre>
-        </div>
-        <p><strong>Explanation:</strong></p>
+</div>
+<p><strong>Explanation:</strong></p>
+<ul>
+    <li><strong>Function Definition:</strong> The <code>merge_dicts</code> function is defined to merge two dictionaries.</li>
+    <li><strong>Merging:</strong> The <code>update()</code> method is used to merge the dictionaries.</li>
+    <li><strong>Input and Output:</strong> The function is called with predefined dictionaries, and the result is printed.</li>
+</ul>
+</div>
+<div class="code-block">
+<h3>Function to Find the Union of Two Sets</h3>
+<p><strong>Question:</strong> Write a Python function to find the union of two sets.</p>
+<p><strong>How to Approach:</strong></p>
+<ul>
+    <li>Understand the Problem: Combine all unique elements from two sets using a function.</li>
+    <li>Plan the Steps:
         <ul>
-            <li><strong>Function Definition:</strong> The <code>merge_dicts</code> function is defined to merge two dictionaries.</li>
-            <li><strong>Merging:</strong> The <code>update()</code> method is used to merge the dictionaries.</li>
-            <li><strong>Input and Output:</strong> The function is called with predefined dictionaries, and the result is printed.</li>
-        </ul>
-    </div>
-    <div class="code-block">
-        <h3>Function to Find the Union of Two Sets</h3>
-        <p><strong>Question:</strong> Write a Python function to find the union of two sets.</p>
-        <p><strong>How to Approach:</strong></p>
-        <ul>
-            <li>Understand the Problem: Combine all unique elements from two sets using a function.</li>
-            <li>Plan the Steps:
-                <ul>
-                    <li>Define a function that takes two sets as arguments.</li>
-                    <li>Use the <code>union()</code> method to find the union of the sets.</li>
-                    <li>Return the resulting set.</li>
-                    <li>Call the function and print the result.</li>
-                    <p><strong>Solution:</strong></p>
-                    <div class="code-container">
-                        <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
-                        <pre><code class="language-python">def union_sets(set1, set2):
-                """Find the union of two sets."""
-                return set1.union(set2)
-            
-            # Defining two sets
-            set1 = {1, 2, 3}
-            set2 = {3, 4, 5}
-            
-            # Calling the function and printing the result
-            print(f"Union of the sets: {union_sets(set1, set2)}")</code></pre>
-                    </div>
+            <li>Define a function that takes two sets as arguments.</li>
+            <li>Use the <code>union()</code> method to find the union of the sets.</li>
+            <li>Return the resulting set.</li>
+            <li>Call the function and print the result.</li>
+            <p><strong>Solution:</strong></p>
+            <div class="code-container">
+                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
+                <pre><code class="language-python">
+def union_sets(set1, set2):
+    """Find the union of two sets."""
+    return set1.union(set2)
+
+# Defining two sets
+set1 = {1, 2, 3}
+set2 = {3, 4, 5}
+
+# Calling the function and printing the result
+print(f"Union of the sets: {union_sets(set1, set2)}")</code></pre>
+            </div>
                     <p><strong>Explanation:</strong></p>
                     <ul>
                         <li><strong>Function Definition:</strong> The <code>union_sets</code> function is defined to find the union of two sets.</li>
@@ -2500,20 +2418,7 @@ print(f"Merged dictionary: {merge_dicts(dict1, dict2)}")</code></pre>
                     });
                 }
             </script>
-            
-
-                
-
-
         
-
-
-
-
-
-
-
-
     </main>
 
     <footer class="text-center">
