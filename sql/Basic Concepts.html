@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacktrix - Your Tech Resource Hub</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* Custom styling */
+        body {
+            padding-top: 80px;
+            background-color: #f0f2f5;
+        }
+        header {
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #007bff;
+            margin-top: 2rem;
+        }
+        .code-block {
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+        .nav-link:hover {
+           color: #ffdd57;
+        }
+        .content-section {
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .content-section h1 {
+            color: #343a40;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .highlight {
+            background-color: #ffdd57;
+            padding: 5px;
+            border-radius: 3px;
+        }
+        .btn-custom {
+            background-color: #007bff;
+            color: white;
+            border-radius: 20px;
+            padding: 10px 20px;
+            margin-top: 20px;
+        }
+        .btn-custom:hover {
+            background-color: #0056b3;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="bg-dark text-white fixed-top">
+        <nav class="container navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="#">Hacktrix</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#python">Python</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#sql">SQL</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#java">Java</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gcp">GCP</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#articles">Articles</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <script>
+            // JavaScript to shrink the title section on scroll
+            window.addEventListener("scroll", function () {
+                const titleSection = document.querySelector(".title-section");
+                if (window.scrollY > 50) {
+                    titleSection.classList.add("shrink");
+                } else {
+                    titleSection.classList.remove("shrink");
+                }
+            });
+        </script>
+    </header>
+
+    <div class="container content-section">
+        <h1>SQL Fundamentals: Master Database Management with Ease</h1>
+
+        <section id="sql">
+            <h2>Introduction to SQL</h2>
+            <p>SQL (Structured Query Language) is a standard programming language specifically designed for managing and manipulating relational databases. It allows users to create, read, update, and delete database records.</p>
+        
+            <h2>Importance of SQL in Database Management</h2>
+            <p>SQL is crucial for database management because it provides a systematic way to interact with databases. It enables efficient data retrieval, manipulation, and management, making it essential for data analysis, application development, and database administration. Here are some key reasons why SQL is important:</p>
+            <ul>
+                <li><strong>Data Retrieval:</strong> SQL allows for quick and efficient querying of large datasets, making it easier to find specific information.</li>
+                <li><strong>Data Manipulation:</strong> With SQL, you can insert, update, and delete data, ensuring that the database remains accurate and up-to-date.</li>
+                <li><strong>Data Integrity:</strong> SQL helps maintain data integrity and consistency through constraints and transactions.</li>
+                <li><strong>Scalability:</strong> SQL databases can handle large volumes of data and complex queries, making them suitable for both small and large applications.</li>
+                <li><strong>Standardization:</strong> SQL is a standardized language, which means that skills in SQL are transferable across different database systems.</li>
+            </ul>
+        
+            <h2>Basic SQL Commands and Syntax</h2>
+            <h3>SELECT Statement</h3>
+            <p>The SELECT statement is used to query data from a database. It retrieves data from one or more tables and returns it in the form of a result set.</p>
+            <div class="code-block">
+                <pre><code>SELECT column1, column2, ...
+        FROM table_name;</code></pre>
+            </div>
+            <p>Example:</p>
+            <div class="code-block">
+                <pre><code>SELECT first_name, last_name
+        FROM employees;</code></pre>
+            </div>
+        
+            <h3>WHERE Clause</h3>
+            <p>The WHERE clause is used to filter records that meet a certain condition.</p>
+            <div class="code-block">
+                <pre><code>SELECT column1, column2, ...
+        FROM table_name
+        WHERE condition;</code></pre>
+            </div>
+            <p>Example:</p>
+            <div class="code-block">
+                <pre><code>SELECT first_name, last_name
+        FROM employees
+        WHERE department = 'Sales';</code></pre>
+            </div>
+        
+            <h2>Introduction to DML Commands</h2>
+            <h3>INSERT INTO</h3>
+            <p>The INSERT INTO statement is used to add new rows to a table.</p>
+            <div class="code-block">
+                <pre><code>INSERT INTO table_name (column1, column2, ...)
+        VALUES (value1, value2, ...);</code></pre>
+            </div>
+            <p>Example:</p>
+            <div class="code-block">
+                <pre><code>INSERT INTO employees (first_name, last_name, email)
+        VALUES ('John', 'Doe', 'john.doe@example.com');</code></pre>
+            </div>
+        
+            <h3>UPDATE</h3>
+            <p>The UPDATE statement is used to modify existing records in a table.</p>
+            <div class="code-block">
+                <pre><code>UPDATE table_name
+        SET column1 = value1, column2 = value2, ...
+        WHERE condition;</code></pre>
+            </div>
+            <p>Example:</p>
+            <div class="code-block">
+                <pre><code>UPDATE employees
+        SET email = 'john.newemail@example.com'
+        WHERE first_name = 'John' AND last_name = 'Doe';</code></pre>
+            </div>
+        
+            <h3>DELETE</h3>
+            <p>The DELETE statement is used to remove existing records from a table.</p>
+            <div class="code-block">
+                <pre><code>DELETE FROM table_name
+        WHERE condition;</code></pre>
+            </div>
+            <p>Example:</p>
+            <div class="code-block">
+                <pre><code>DELETE FROM employees
+        WHERE first_name = 'John' AND last_name = 'Doe';</code></pre>
+            </div>
+        </section>
+        
+
+    </div>
+
+    <footer>
+        <div class="container text-center">
+            <p>© 2024 Hacktrix. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
