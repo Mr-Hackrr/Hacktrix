@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacktrix - Your Tech Resource Hub</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* Custom styling */
+        body {
+            padding-top: 80px;
+            background-color: #f0f2f5;
+        }
+        header {
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #007bff;
+            margin-top: 2rem;
+        }
+        .code-block {
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+        .nav-link:hover {
+           color: #ffdd57;
+        }
+        .content-section {
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .content-section h1 {
+            color: #343a40;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .highlight {
+            background-color: #ffdd57;
+            padding: 5px;
+            border-radius: 3px;
+        }
+        .btn-custom {
+            background-color: #007bff;
+            color: white;
+            border-radius: 20px;
+            padding: 10px 20px;
+            margin-top: 20px;
+        }
+        .btn-custom:hover {
+            background-color: #0056b3;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="bg-dark text-white fixed-top">
+        <nav class="container navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="#">Hacktrix</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#python">Python</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#sql">SQL</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#java">Java</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gcp">GCP</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#articles">Articles</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <script>
+            // JavaScript to shrink the title section on scroll
+            window.addEventListener("scroll", function () {
+                const titleSection = document.querySelector(".title-section");
+                if (window.scrollY > 50) {
+                    titleSection.classList.add("shrink");
+                } else {
+                    titleSection.classList.remove("shrink");
+                }
+            });
+        </script>
+    </header>

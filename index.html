@@ -1,546 +1,750 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hacktrix - Your Tech Resource Hub</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <!-- Header Section -->
     <header class="bg-dark text-white fixed-top">
-        <nav class="container navbar navbar-expand-lg navbar-dark">
-            <a class="navbar-brand" href="#">Hacktrix</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#python">Python</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#sql">SQL</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#question-bank">Question Bank</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#trending-articles">Articles</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
-            </div>
-        </nav>
+      <nav class="container navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">Hacktrix</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#python">Python</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#sql">SQL</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="#question-bank">Question Bank</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#trending-articles">Articles</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </header>
 
     <div class="hero-section">
-        <div class="overlay">
-            <h1>Welcome to Hacktrix</h1>
-            <p>Your gateway to mastering tech skills, cloud services, and coding solutions.</p>
-            <button class="btn btn-primary">Get Started</button>
-        </div>
+      <div class="overlay">
+        <h1>Welcome to Hacktrix</h1>
+        <p>
+          Your gateway to mastering tech skills, cloud services, and coding
+          solutions.
+        </p>
+        <button class="btn btn-primary">Get Started</button>
+      </div>
     </div>
 
     <!-- About Us Section -->
     <section id="about" class="container py-5">
-        <div class="text-center mb-4">
-            <h2>About Us</h2>
-            <p class="lead">LuckyBytes is your go-to resource for mastering tech skills, from beginner tutorials to expert guides.</p>
+      <div class="text-center mb-4">
+        <h2>About Us</h2>
+        <p class="lead">
+          LuckyBytes is your go-to resource for mastering tech skills, from
+          beginner tutorials to expert guides.
+        </p>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <p class="text-muted">
+            Welcome to LuckyBytes! We are dedicated to making complex technology
+            accessible and easy to understand. Our mission is to guide you
+            through cloud services, provide comprehensive coding tutorials, and
+            offer effective problem-solving techniques. Whether you’re a
+            beginner or an experienced professional, LuckyBytes is here to help
+            you stay ahead in the digital world.
+          </p>
         </div>
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <p class="text-muted">Welcome to LuckyBytes! We are dedicated to making complex technology accessible and easy to understand. Our mission is to guide you through cloud services, provide comprehensive coding tutorials, and offer effective problem-solving techniques. Whether you’re a beginner or an experienced professional, LuckyBytes is here to help you stay ahead in the digital world.</p>
-            </div>
-        </div>
+      </div>
     </section>
     <section id="testimonials" class="testimonials-section mb-5">
-        <div class="container">
-            <h2 class="text-primary text-center mb-4">What Our Users Say</h2>
-            <div class="row">
-                <div class="col-md-4 mb-3">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body">
-                            <p class="card-text">"LuckyBytes has transformed my learning experience. The tutorials are easy to follow and very informative!"</p>
-                            <p class="text-right"><strong>- Soundarya</strong></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body">
-                            <p class="card-text">"The question bank is a fantastic resource for practicing and improving my skills."</p>
-                            <p class="text-right"><strong>- Krishna</strong></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body">
-                            <p class="card-text">"I love the detailed guides on cloud services. They have been incredibly helpful for my projects."</p>
-                            <p class="text-right"><strong>- Harsha</strong></p>
-                        </div>
-                    </div>
-                </div>
+      <div class="container">
+        <h2 class="text-primary text-center mb-4">What Our Users Say</h2>
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <p class="card-text">
+                  "LuckyBytes has transformed my learning experience. The
+                  tutorials are easy to follow and very informative!"
+                </p>
+                <p class="text-right"><strong>- Soundarya</strong></p>
+              </div>
             </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <p class="card-text">
+                  "The question bank is a fantastic resource for practicing and
+                  improving my skills."
+                </p>
+                <p class="text-right"><strong>- Krishna</strong></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <p class="card-text">
+                  "I love the detailed guides on cloud services. They have been
+                  incredibly helpful for my projects."
+                </p>
+                <p class="text-right"><strong>- Harsha</strong></p>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
-    
-<div style="font-size: 24px; font-weight: bold; color: #333; text-align: center; margin: 20px 0; font-family: Arial, sans-serif;">
 
-    <h2>Learn to Code with LuckyBytes</h2>
+    <div
+      style="
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+        text-align: center;
+        margin: 20px 0;
+        font-family: Arial, sans-serif;
+      "
+    >
+      <h2>Learn to Code with LuckyBytes</h2>
+    </div>
 
-</div>
-
-    
-<div class="container my-5">
-    <section id="python" class="language-section mb-5">
+    <div class="container my-5">
+      <section id="python" class="language-section mb-5">
         <h2 class="text-primary">Python</h2>
         <p>Learn Python fundamentals, data structures, and more.</p>
         <ul>
-            <li><a href="python/basic-concepts.html">Basic Concepts</a></li>
-            <li><a href="python/intermediate-concepts.html">Intermediate Concepts</a></li>
-            <li><a href="python/advanced-concepts.html">Advanced Concepts</a></li>
-            <li><a href="python/coding-questions.html">Coding Questions</a></li>
-            <li><a href="python/exercises-projects.html">Exercise Questions</a></li>
-            <li><a href="python/interview.html">Interview Questions</a></li>
+          <li><a href="python/basic-concepts.html">Basic Concepts</a></li>
+          <li>
+            <a href="python/intermediate-concepts.html"
+              >Intermediate Concepts</a
+            >
+          </li>
+          <li><a href="python/advanced-concepts.html">Advanced Concepts</a></li>
+          <li><a href="python/coding-questions.html">Coding Questions</a></li>
+          <li>
+            <a href="python/exercises-projects.html">Exercise Questions</a>
+          </li>
+          <li><a href="python/interview.html">Interview Questions</a></li>
         </ul>
-    </section>
+      </section>
 
-    <section id="sql" class="language-section mb-5">
+      <section id="sql" class="language-section mb-5">
         <h2 class="text-primary">SQL</h2>
         <p>Master SQL for database management.</p>
         <ul>
-            <li><a href="sql/Basic Concepts.html">SQL Basics</a></li>
-            <li><a href="sql/Intermediate Concepts.html">SQL Intermediate</a></li>
-            <li><a href="sql/Advanced Concepts.html">SQL Advanced</a></li>
-            <li><a href="sql/queries.html">Practice Queries</a></li>
-            <li><a href="sql/Excercises.html">Exercise Questions</a></li>
+          <li><a href="sql/Basic Concepts.html">SQL Basics: Getting Started with SQL</a></li>
+          <li><a href="sql/database.html">Understanding SQL Language</a></li>
+          <li><a href="sql/Intermediate Concepts.html">SQL Intermediate: Enhancing Your SQL Skills</a></li>
+          <li><a href="sql/Advanced Concepts.html">SQL Advanced: Mastering Complex SQL Concept</a></li>
+          <li><a href="sql/queries.html">Practice SQL Queries: Real-World Examples
+          </a></li>
+          <li><a href="sql/Excercises.html">SQL Exercise Questions: Test Your Knowledge</a></li>
         </ul>
-    </section>
+      </section>
 
-    <section id="hadoop-ecosystem" class="language-section mb-5">
+      <section id="hadoop-ecosystem" class="language-section mb-5">
         <h2 class="text-primary">Hadoop Ecosystem</h2>
         <p>Dive into the Hadoop ecosystem and its components.</p>
         <ul>
-            <li><a href="hadoop/hdfs.html">HDFS</a></li>
-            <li><a href="hadoop/hive.html">Hive</a></li>
-            <li><a href="hadoop/spark.html">Spark</a></li>
-            <li><a href="hadoop/other-topics.html">Other Important Topics</a></li>
+          <li><a href="hadoop/hdfs.html">HDFS</a></li>
+          <li><a href="hadoop/hive.html">Hive</a></li>
+          <li><a href="hadoop/spark.html">Spark</a></li>
+          <li><a href="hadoop/other-topics.html">Other Important Topics</a></li>
         </ul>
-    </section>
+      </section>
 
-    <section id="data-analysis-tools" class="language-section mb-5">
+      <section id="data-analysis-tools" class="language-section mb-5">
         <h2 class="text-primary">Data Analysis Tools</h2>
         <p>Learn coding for data analysis with popular tools.</p>
         <ul>
-            <li><a href="data-analysis/pandas.html">Pandas</a></li>
-            <li><a href="data-analysis/numpy.html">NumPy</a></li>
-            <li><a href="data-analysis/pyspark.html">PySpark</a></li>
+          <li><a href="data-analysis/pandas.html">Pandas</a></li>
+          <li><a href="data-analysis/numpy.html">NumPy</a></li>
+          <li><a href="data-analysis/pyspark.html">PySpark</a></li>
         </ul>
-    </section>
-    
+      </section>
 
-    <section id="google-cloud-platform" class="language-section mb-5">
+      <section id="google-cloud-platform" class="language-section mb-5">
         <h2 class="text-primary">Google Cloud Platform (GCP)</h2>
         <p>Learn about GCP services and cloud computing.</p>
         <ul>
-            <li><a href="gcp/compute-engine.html">Compute Engine</a></li>
-            <li><a href="gcp/cloud-storage.html">Cloud Storage</a></li>
-            <li><a href="gcp/data-processing.html">Data Processing</a></li>
-            <li><a href="gcp/bigquery.html">BigQuery</a></li>
-            <li><a href="gcp/other-services.html">Other Important Services</a></li>
+          <li><a href="gcp/compute-engine.html">Compute Engine</a></li>
+          <li><a href="gcp/cloud-storage.html">Cloud Storage</a></li>
+          <li><a href="gcp/data-processing.html">Data Processing</a></li>
+          <li><a href="gcp/bigquery.html">BigQuery</a></li>
+          <li>
+            <a href="gcp/other-services.html">Other Important Services</a>
+          </li>
         </ul>
-    </section>
-    <section id="cloud-data-pipelines" class="language-section mb-5">
+      </section>
+      <section id="cloud-data-pipelines" class="language-section mb-5">
         <h2 class="text-primary">Data Pipeline Management in the Cloud</h2>
         <p>Expert guides for developing and overseeing cloud data pipelines.</p>
         <ul>
-            <li><a href="cloud-data-pipelines/apache-beam.html">Apache Beam</a></li>
-            <li><a href="cloud-data-pipelines/apache-airflow.html">Apache Airflow</a></li>
+          <li>
+            <a href="cloud-data-pipelines/apache-beam.html">Apache Beam</a>
+          </li>
+          <li>
+            <a href="cloud-data-pipelines/apache-airflow.html"
+              >Apache Airflow</a
+            >
+          </li>
         </ul>
+      </section>
+    </div>
+
+    <!-- Question Bank Section -->
+    <section id="question-bank" class="question-bank-section mb-5">
+      <div class="container">
+        <h2 class="text-primary text-center mb-4">Practice Question Bank</h2>
+        <p class="text-center">
+          Enhance your skills with our comprehensive question bank.
+        </p>
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body d-flex flex-column align-items-start">
+                <h5 class="card-title">
+                  <a href="question-bank/python.html"
+                    >Python Practice Questions</a
+                  >
+                </h5>
+                <p class="card-text">
+                  Test your Python knowledge with questions from basic to
+                  advanced levels.
+                </p>
+                <a
+                  href="question-bank/python.html"
+                  class="btn btn-primary mt-auto"
+                  >Start Practicing</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body d-flex flex-column align-items-start">
+                <h5 class="card-title">
+                  <a href="question-bank/sql.html">SQL Practice Questions</a>
+                </h5>
+                <p class="card-text">
+                  Improve your SQL skills with a variety of practice queries.
+                </p>
+                <a href="question-bank/sql.html" class="btn btn-primary mt-auto"
+                  >Start Practicing</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body d-flex flex-column align-items-start">
+                <h5 class="card-title">
+                  <a href="question-bank/hadoop.html"
+                    >Hadoop Practice Questions</a
+                  >
+                </h5>
+                <p class="card-text">
+                  Challenge yourself with questions on Hadoop and its ecosystem.
+                </p>
+                <a
+                  href="question-bank/hadoop.html"
+                  class="btn btn-primary mt-auto"
+                  >Start Practicing</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body d-flex flex-column align-items-start">
+                <h5 class="card-title">
+                  <a href="question-bank/data-analysis.html"
+                    >Data Analysis Practice Questions</a
+                  >
+                </h5>
+                <p class="card-text">
+                  Enhance your data analysis skills with questions on Pandas,
+                  NumPy, and PySpark.
+                </p>
+                <a
+                  href="question-bank/data-analysis.html"
+                  class="btn btn-primary mt-auto"
+                  >Start Practicing</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body d-flex flex-column align-items-start">
+                <h5 class="card-title">
+                  <a href="question-bank/gcp.html">GCP Practice Questions</a>
+                </h5>
+                <p class="card-text">
+                  Test your knowledge of Google Cloud Platform services.
+                </p>
+                <a href="question-bank/gcp.html" class="btn btn-primary mt-auto"
+                  >Start Practicing</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-</div>
-
-<!-- Question Bank Section -->
-<section id="question-bank" class="question-bank-section mb-5">
-    <div class="container">
-        <h2 class="text-primary text-center mb-4">Practice Question Bank</h2>
-        <p class="text-center">Enhance your skills with our comprehensive question bank.</p>
-        <div class="row">
-            <div class="col-md-4 mb-3">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body d-flex flex-column align-items-start">
-                        <h5 class="card-title"><a href="question-bank/python.html">Python Practice Questions</a></h5>
-                        <p class="card-text">Test your Python knowledge with questions from basic to advanced levels.</p>
-                        <a href="question-bank/python.html" class="btn btn-primary mt-auto">Start Practicing</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-3">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body d-flex flex-column align-items-start">
-                        <h5 class="card-title"><a href="question-bank/sql.html">SQL Practice Questions</a></h5>
-                        <p class="card-text">Improve your SQL skills with a variety of practice queries.</p>
-                        <a href="question-bank/sql.html" class="btn btn-primary mt-auto">Start Practicing</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-3">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body d-flex flex-column align-items-start">
-                        <h5 class="card-title"><a href="question-bank/hadoop.html">Hadoop Practice Questions</a></h5>
-                        <p class="card-text">Challenge yourself with questions on Hadoop and its ecosystem.</p>
-                        <a href="question-bank/hadoop.html" class="btn btn-primary mt-auto">Start Practicing</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-3">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body d-flex flex-column align-items-start">
-                        <h5 class="card-title"><a href="question-bank/data-analysis.html">Data Analysis Practice Questions</a></h5>
-                        <p class="card-text">Enhance your data analysis skills with questions on Pandas, NumPy, and PySpark.</p>
-                        <a href="question-bank/data-analysis.html" class="btn btn-primary mt-auto">Start Practicing</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-3">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body d-flex flex-column align-items-start">
-                        <h5 class="card-title"><a href="question-bank/gcp.html">GCP Practice Questions</a></h5>
-                        <p class="card-text">Test your knowledge of Google Cloud Platform services.</p>
-                        <a href="question-bank/gcp.html" class="btn btn-primary mt-auto">Start Practicing</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- CSS for Styling -->
-<style>
-    .question-bank-section {
+    <!-- CSS for Styling -->
+    <style>
+      .question-bank-section {
         background-color: #f9f9f9;
         padding: 40px 0;
         border-radius: 8px;
-    }
-    .question-bank-section h2 {
+      }
+      .question-bank-section h2 {
         color: #007bff;
         font-size: 2.5em;
         animation: fadeInDown 1s;
-    }
-    .question-bank-section p {
+      }
+      .question-bank-section p {
         font-size: 1.2em;
         margin-bottom: 30px;
         animation: fadeInUp 1s;
-    }
-    .question-bank-section .card {
+      }
+      .question-bank-section .card {
         transition: transform 0.3s, box-shadow 0.3s;
         border: none;
         border-radius: 10px;
-    }
-    .question-bank-section .card:hover {
+      }
+      .question-bank-section .card:hover {
         transform: translateY(-10px);
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    }
-    .question-bank-section .card-title a {
+      }
+      .question-bank-section .card-title a {
         text-decoration: none;
         color: #007bff;
         font-weight: bold;
-    }
-    .question-bank-section .card-title a:hover {
+      }
+      .question-bank-section .card-title a:hover {
         text-decoration: underline;
-    }
-    .question-bank-section .btn {
+      }
+      .question-bank-section .btn {
         background-color: #007bff;
         color: #fff;
         border: none;
         transition: background-color 0.3s;
-    }
-    .question-bank-section .btn:hover {
+      }
+      .question-bank-section .btn:hover {
         background-color: #0056b3;
-    }
-    @keyframes fadeInDown {
+      }
+      @keyframes fadeInDown {
         from {
-            opacity: 0;
-            transform: translateY(-20px);
+          opacity: 0;
+          transform: translateY(-20px);
         }
         to {
-            opacity: 1;
-            transform: translateY(0);
+          opacity: 1;
+          transform: translateY(0);
         }
-    }
-    @keyframes fadeInUp {
+      }
+      @keyframes fadeInUp {
         from {
-            opacity: 0;
-            transform: translateY(20px);
+          opacity: 0;
+          transform: translateY(20px);
         }
         to {
-            opacity: 1;
-            transform: translateY(0);
+          opacity: 1;
+          transform: translateY(0);
         }
-    }
-</style>
+      }
+    </style>
 
-<!-- JavaScript for Animations -->
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const cards = document.querySelectorAll('.question-bank-section .card');
-        cards.forEach(card => {
-            card.addEventListener('mouseover', () => {
-                card.classList.add('shadow-lg');
-            });
-            card.addEventListener('mouseout', () => {
-                card.classList.remove('shadow-lg');
-            });
+    <!-- JavaScript for Animations -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const cards = document.querySelectorAll(".question-bank-section .card");
+        cards.forEach((card) => {
+          card.addEventListener("mouseover", () => {
+            card.classList.add("shadow-lg");
+          });
+          card.addEventListener("mouseout", () => {
+            card.classList.remove("shadow-lg");
+          });
         });
-    });
-</script>
-<section id="blog" class="blog-section mb-5">
-    <div class="container">
+      });
+    </script>
+    <section id="blog" class="blog-section mb-5">
+      <div class="container">
         <h2 class="text-primary text-center mb-4">Latest Blog Posts</h2>
         <div class="row">
-            <div class="col-md-4 mb-3">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title"><a href="blog/post1.html">Understanding Cloud Security</a></h5>
-                        <p class="card-text">Learn about the best practices for securing your cloud infrastructure.</p>
-                    </div>
-                </div>
+          <div class="col-md-4 mb-3">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <a href="blog/post1.html">Understanding Cloud Security</a>
+                </h5>
+                <p class="card-text">
+                  Learn about the best practices for securing your cloud
+                  infrastructure.
+                </p>
+              </div>
             </div>
-            <div class="col-md-4 mb-3">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title"><a href="blog/post2.html">Top 5 Data Analysis Tools</a></h5>
-                        <p class="card-text">Explore the most effective tools for data analysis in 2024.</p>
-                    </div>
-                </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <a href="blog/post2.html">Top 5 Data Analysis Tools</a>
+                </h5>
+                <p class="card-text">
+                  Explore the most effective tools for data analysis in 2024.
+                </p>
+              </div>
             </div>
-            <div class="col-md-4 mb-3">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title"><a href="blog/post3.html">Getting Started with Machine Learning</a></h5>
-                        <p class="card-text">A beginner's guide to understanding and implementing machine learning.</p>
-                    </div>
-                </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <a href="blog/post3.html"
+                    >Getting Started with Machine Learning</a
+                  >
+                </h5>
+                <p class="card-text">
+                  A beginner's guide to understanding and implementing machine
+                  learning.
+                </p>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
-
-
-<!-- Trending Articles Section -->
-<section id="trending-articles" class="trending-section mb-5">
-    <div class="container">
+    <!-- Trending Articles Section -->
+    <section id="trending-articles" class="trending-section mb-5">
+      <div class="container">
         <h2 class="text-primary text-center mb-4">Trending Articles</h2>
-        <p class="text-center">Stay updated with the latest trends and insights in technology.</p>
+        <p class="text-center">
+          Stay updated with the latest trends and insights in technology.
+        </p>
         <div class="row">
-            <div class="col-md-6 mb-3">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title"><a href="articles/article1.html">Understanding the Basics of Cloud Computing</a></h5>
-                        <p class="card-text">A comprehensive guide to the fundamentals of cloud computing.</p>
-                    </div>
-                </div>
+          <div class="col-md-6 mb-3">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <a href="articles/article1.html"
+                    >Understanding the Basics of Cloud Computing</a
+                  >
+                </h5>
+                <p class="card-text">
+                  A comprehensive guide to the fundamentals of cloud computing.
+                </p>
+              </div>
             </div>
-            <div class="col-md-6 mb-3">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title"><a href="articles/article2.html">Top 10 Python Libraries for Data Science</a></h5>
-                        <p class="card-text">Explore the most popular Python libraries used in data science.</p>
-                    </div>
-                </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <a href="articles/article2.html"
+                    >Top 10 Python Libraries for Data Science</a
+                  >
+                </h5>
+                <p class="card-text">
+                  Explore the most popular Python libraries used in data
+                  science.
+                </p>
+              </div>
             </div>
-            <div class="col-md-6 mb-3">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title"><a href="articles/article3.html">How to Optimize SQL Queries for Performance</a></h5>
-                        <p class="card-text">Learn techniques to improve the performance of your SQL queries.</p>
-                    </div>
-                </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <a href="articles/article3.html"
+                    >How to Optimize SQL Queries for Performance</a
+                  >
+                </h5>
+                <p class="card-text">
+                  Learn techniques to improve the performance of your SQL
+                  queries.
+                </p>
+              </div>
             </div>
-            <div class="col-md-6 mb-3">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title"><a href="articles/article4.html">A Comprehensive Guide to Apache Spark</a></h5>
-                        <p class="card-text">An in-depth look at Apache Spark and its capabilities.</p>
-                    </div>
-                </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <a href="articles/article4.html"
+                    >A Comprehensive Guide to Apache Spark</a
+                  >
+                </h5>
+                <p class="card-text">
+                  An in-depth look at Apache Spark and its capabilities.
+                </p>
+              </div>
             </div>
-            <div class="col-md-6 mb-3">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title"><a href="articles/article5.html">Best Practices for Data Analysis with Pandas</a></h5>
-                        <p class="card-text">Discover best practices for using Pandas in data analysis.</p>
-                    </div>
-                </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <a href="articles/article5.html"
+                    >Best Practices for Data Analysis with Pandas</a
+                  >
+                </h5>
+                <p class="card-text">
+                  Discover best practices for using Pandas in data analysis.
+                </p>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
-<!-- CSS for Styling -->
-<style>
-    .trending-section {
+    <!-- CSS for Styling -->
+    <style>
+      .trending-section {
         background-color: #f9f9f9;
         padding: 40px 0;
         border-radius: 8px;
-    }
-    .trending-section h2 {
+      }
+      .trending-section h2 {
         color: #007bff;
         font-size: 2.5em;
         animation: fadeInDown 1s;
-    }
-    .trending-section p {
+      }
+      .trending-section p {
         font-size: 1.2em;
         margin-bottom: 30px;
         animation: fadeInUp 1s;
-    }
-    .trending-section .card {
+      }
+      .trending-section .card {
         transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .trending-section .card:hover {
+      }
+      .trending-section .card:hover {
         transform: translateY(-10px);
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    }
-    .trending-section .card-title a {
+      }
+      .trending-section .card-title a {
         text-decoration: none;
         color: #007bff;
         font-weight: bold;
-    }
-    .trending-section .card-title a:hover {
+      }
+      .trending-section .card-title a:hover {
         text-decoration: underline;
-    }
-    @keyframes fadeInDown {
+      }
+      @keyframes fadeInDown {
         from {
-            opacity: 0;
-            transform: translateY(-20px);
+          opacity: 0;
+          transform: translateY(-20px);
         }
         to {
-            opacity: 1;
-            transform: translateY(0);
+          opacity: 1;
+          transform: translateY(0);
         }
-    }
-    @keyframes fadeInUp {
+      }
+      @keyframes fadeInUp {
         from {
-            opacity: 0;
-            transform: translateY(20px);
+          opacity: 0;
+          transform: translateY(20px);
         }
         to {
-            opacity: 1;
-            transform: translateY(0);
+          opacity: 1;
+          transform: translateY(0);
         }
-    }
-</style>
+      }
+    </style>
 
-<!-- JavaScript for Animations -->
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const cards = document.querySelectorAll('.trending-section .card');
-        cards.forEach(card => {
-            card.addEventListener('mouseover', () => {
-                card.classList.add('shadow-lg');
-            });
-            card.addEventListener('mouseout', () => {
-                card.classList.remove('shadow-lg');
-            });
+    <!-- JavaScript for Animations -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const cards = document.querySelectorAll(".trending-section .card");
+        cards.forEach((card) => {
+          card.addEventListener("mouseover", () => {
+            card.classList.add("shadow-lg");
+          });
+          card.addEventListener("mouseout", () => {
+            card.classList.remove("shadow-lg");
+          });
         });
-    });
-</script>
-
-
-
+      });
+    </script>
 
     <!-- Services Section -->
     <section id="services" class="container py-5">
-        <div class="text-center mb-4">
-            <h2>Services</h2>
-            <p class="text-muted">Coming Soon</p>
+      <div class="text-center mb-4">
+        <h2>Services</h2>
+        <p class="text-muted">Coming Soon</p>
+      </div>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="card border-0 shadow-sm">
+            <div class="card-body text-center">
+              <h3 class="card-title">Coding Tutorials</h3>
+              <p class="card-text">
+                Python, SQL, Java - Guides from basic to advanced levels.
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="row">
-            <div class="col-md-4 mb-4">
-                <div class="card border-0 shadow-sm">
-                    <div class="card-body text-center">
-                        <h3 class="card-title">Coding Tutorials</h3>
-                        <p class="card-text">Python, SQL, Java - Guides from basic to advanced levels.</p>
-                    </div>
-                </div>
+        <div class="col-md-4 mb-4">
+          <div class="card border-0 shadow-sm">
+            <div class="card-body text-center">
+              <h3 class="card-title">Cloud Solutions</h3>
+              <p class="card-text">
+                Step-by-step GCP guides for pipelines and cloud services.
+              </p>
             </div>
-            <div class="col-md-4 mb-4">
-                <div class="card border-0 shadow-sm">
-                    <div class="card-body text-center">
-                        <h3 class="card-title">Cloud Solutions</h3>
-                        <p class="card-text">Step-by-step GCP guides for pipelines and cloud services.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card border-0 shadow-sm">
-                    <div class="card-body text-center">
-                        <h3 class="card-title">Machine Learning</h3>
-                        <p class="card-text">Comprehensive resources for ML and AI fundamentals.</p>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+        <div class="col-md-4 mb-4">
+          <div class="card border-0 shadow-sm">
+            <div class="card-body text-center">
+              <h3 class="card-title">Machine Learning</h3>
+              <p class="card-text">
+                Comprehensive resources for ML and AI fundamentals.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="container py-5 text-center">
-        <h2>Contact Us</h2>
-        <p>Have questions? Reach out to us for more information.</p>
-        <form class="mt-4">
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <input type="text" class="form-control" placeholder="Your Name" required>
-                </div>
-                <div class="form-group col-md-6">
-                    <input type="email" class="form-control" placeholder="Your Email" required>
-                </div>
-            </div>
-            <div class="form-group">
-                <textarea class="form-control" rows="4" placeholder="Your Message" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
-        </form>
+      <h2>Contact Us</h2>
+      <p>Have questions? Reach out to us for more information.</p>
+      <form class="mt-4">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Your Name"
+              required
+            />
+          </div>
+          <div class="form-group col-md-6">
+            <input
+              type="email"
+              class="form-control"
+              placeholder="Your Email"
+              required
+            />
+          </div>
+        </div>
+        <div class="form-group">
+          <textarea
+            class="form-control"
+            rows="4"
+            placeholder="Your Message"
+            required
+          ></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg">
+          Send Message
+        </button>
+      </form>
     </section>
     <section id="faq" class="faq-section mb-5">
-        <div class="container">
-            <h2 class="text-primary text-center mb-4">Frequently Asked Questions</h2>
-            <div class="accordion" id="faqAccordion">
-                <div class="card">
-                    <div class="card-header" id="headingOne">
-                        <h2 class="mb-0">
-                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                What is LuckyBytes?
-                            </button>
-                        </h2>
-                    </div>
-                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#faqAccordion">
-                        <div class="card-body">
-                            LuckyBytes is a platform dedicated to making complex technology accessible and easy to understand through comprehensive tutorials and guides.
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header" id="headingTwo">
-                        <h2 class="mb-0">
-                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                How can I contact LuckyBytes for support?
-                            </button>
-                        </h2>
-                    </div>
-                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#faqAccordion">
-                        <div class="card-body">
-                            You can reach out to us through the contact form provided in the "Contact Us" section.
-                        </div>
-                    </div>
-                </div>
+      <div class="container">
+        <h2 class="text-primary text-center mb-4">
+          Frequently Asked Questions
+        </h2>
+        <div class="accordion" id="faqAccordion">
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <h2 class="mb-0">
+                <button
+                  class="btn btn-link"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#collapseOne"
+                  aria-expanded="true"
+                  aria-controls="collapseOne"
+                >
+                  What is LuckyBytes?
+                </button>
+              </h2>
             </div>
+            <div
+              id="collapseOne"
+              class="collapse show"
+              aria-labelledby="headingOne"
+              data-parent="#faqAccordion"
+            >
+              <div class="card-body">
+                LuckyBytes is a platform dedicated to making complex technology
+                accessible and easy to understand through comprehensive
+                tutorials and guides.
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="headingTwo">
+              <h2 class="mb-0">
+                <button
+                  class="btn btn-link collapsed"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#collapseTwo"
+                  aria-expanded="false"
+                  aria-controls="collapseTwo"
+                >
+                  How can I contact LuckyBytes for support?
+                </button>
+              </h2>
+            </div>
+            <div
+              id="collapseTwo"
+              class="collapse"
+              aria-labelledby="headingTwo"
+              data-parent="#faqAccordion"
+            >
+              <div class="card-body">
+                You can reach out to us through the contact form provided in the
+                "Contact Us" section.
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
-    
 
     <!-- Footer -->
     <footer class="bg-dark text-white py-4 text-center">
-        <p>&copy; 2024 LuckyBytes. All rights reserved.</p>
+      <p>&copy; 2024 LuckyBytes. All rights reserved.</p>
     </footer>
 
     <!-- JavaScript and Bootstrap JS -->
@@ -548,5 +752,5 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
