@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LuckyByte - A Guide to NumPy</title>
+
+    <!-- Bootstrap CSS -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Font Awesome for icons -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <style>
+
+        /* Reset */
+
+        body, h1, h2, h3, p, ul {
+
+            margin: 0;
+
+            padding: 0;
+
+        }
+
+        /* Global Styles */
+
+        body {
+
+            font-family: 'Arial', sans-serif;
+
+            background-color: #f9f9f9;
+
+            color: #333;
+
+            line-height: 1.6;
+
+        }
+
+        a {
+
+            color: #0073e6;
+
+        }
+
+        a:hover {
+
+            color: #005bb5;
+
+            text-decoration: none;
+
+        }
+
+        /* Navbar */
+
+        .navbar {
+
+            background-color: #ffffff;
+
+            border-bottom: 1px solid #e6e6e6;
+
+            padding: 1rem 2rem;
+
+        }
+
+        .navbar-brand {
+
+            font-weight: 600;
+
+            color: #0073e6 !important;
+
+        }
+
+        .nav-link {
+
+            color: #666 !important;
+
+            font-weight: 500;
+
+            transition: color 0.3s;
+
+        }
+
+        /* Main Section */
+
+        .main-section {
+
+            text-align: center;
+
+            padding: 4rem 1.5rem;
+
+            background: linear-gradient(135deg, #0073e6 30%, #00aaff 70%);
+
+            color: #ffffff;
+
+        }
+
+        .main-section h1 {
+
+            font-size: 2.5rem;
+
+            margin-bottom: 1rem;
+
+            font-weight: 700;
+
+        }
+
+        .main-section p {
+
+            font-size: 1.2rem;
+
+            max-width: 800px;
+
+            margin: 0 auto 2rem;
+
+            color: #e0f7ff;
+
+        }
+
+        .main-section .btn {
+
+            background-color: #ffffff;
+
+            color: #0073e6;
+
+            border-radius: 25px;
+
+            padding: 0.75rem 1.5rem;
+
+            transition: background 0.3s, color 0.3s;
+
+        }
+
+        .main-section .btn:hover {
+
+            background-color: #00aaff;
+
+            color: #ffffff;
+
+        }
+
+        /* Content Sections */
+
+        section {
+
+            padding: 3rem 1.5rem;
+
+        }
+
+        section h2 {
+
+            font-size: 2rem;
+
+            margin-bottom: 1rem;
+
+            color: #0073e6;
+
+            position: relative;
+
+        }
+
+        section h2::after {
+
+            content: '';
+
+            width: 60px;
+
+            height: 3px;
+
+            background: #00aaff;
+
+            display: block;
+
+            margin: 8px auto 20px;
+
+        }
+
+        .content-box {
+
+            background-color: #ffffff;
+
+            border: 1px solid #e6e6e6;
+
+            border-radius: 8px;
+
+            padding: 2rem;
+
+            color: #333;
+
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05);
+
+            margin-bottom: 2rem;
+
+        }
+
+        /* Example Code Styling */
+
+        pre {
+
+            background-color: #f4f7fa;
+
+            color: #333;
+
+            padding: 1rem;
+
+            border-radius: 8px;
+
+            font-size: 1rem;
+
+            overflow-x: auto;
+
+            margin: 1rem 0;
+
+            border-left: 3px solid #0073e6;
+
+        }
+
+        /* Footer */
+
+        footer {
+
+            background: #f1f1f1;
+
+            color: #666;
+
+            padding: 1.5rem 0;
+
+            text-align: center;
+
+        }
+
+        /* Fade-in Animation */
+
+        .fade-in {
+
+            opacity: 0;
+
+            transform: translateY(30px);
+
+            transition: opacity 0.6s ease, transform 0.6s ease;
+
+        }
+
+        .fade-in.visible {
+
+            opacity: 1;
+
+            transform: translateY(0);
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<!-- Navbar -->
+
+<nav class="navbar navbar-expand-lg">
+
+    <a class="navbar-brand" href="#">LuckyByte</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+        <span class="navbar-toggler-icon"></span>
+
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+
+        <ul class="navbar-nav ml-auto">
+
+            <li class="nav-item">
+
+                <a class="nav-link" href="#intro">What is NumPy?</a>
+
+            </li>
+
+            <li class="nav-item">
+
+                <a class="nav-link" href="#features">Key Features</a>
+
+            </li>
+
+            <li class="nav-item">
+
+                <a class="nav-link" href="#importance">Importance</a>
+
+            </li>
+
+            <li class="nav-item">
+
+                <a class="nav-link" href="#example">Example Usage</a>
+
+            </li>
+
+        </ul>
+
+    </div>
+
+</nav>
+
+<!-- Main Section -->
+
+<section class="main-section">
+
+    <h1>Master NumPy with LuckyByte</h1>
+
+    <p>Explore Python's essential library for numerical computing, offering powerful array handling and an array of mathematical functions.</p>
+
+    <a href="#intro" class="btn">Learn More</a>
+
+</section>
+
+<!-- Content Sections -->
+
+<div class="container">
+
+    <!-- Introduction Section -->
+
+    <section id="intro" class="fade-in">
+
+        <h2>What is NumPy?</h2>
+
+        <div class="content-box">
+
+            <p>NumPy is the foundational library for numerical computing in Python, providing support for large, multi-dimensional arrays and a wide range of mathematical operations.</p>
+
+        </div>
+
+    </section>
+
+    <!-- Key Features Section -->
+
+    <section id="features" class="fade-in">
+
+        <h2>Key Features of NumPy</h2>
+
+        <div class="content-box">
+
+            <ul>
+
+                <li><b>Multi-Dimensional Arrays:</b> Fast and space-efficient ndarray object.</li>
+
+                <li><b>Mathematical Functions:</b> Includes trigonometric, statistical, and algebraic functions.</li>
+
+                <li><b>Broadcasting:</b> Allows operations on arrays of different shapes.</li>
+
+                <li><b>Integration:</b> Foundation for SciPy, Pandas, and Matplotlib.</li>
+
+            </ul>
+
+        </div>
+
+    </section>
+
+    <!-- Importance Section -->
+
+    <section id="importance" class="fade-in">
+
+        <h2>Importance in Data Science and Machine Learning</h2>
+
+        <div class="content-box">
+
+            <p>NumPy arrays are essential for handling large datasets efficiently, offering performance that makes it suitable for data science and machine learning workflows.</p>
+
+        </div>
+
+    </section>
+
+    <!-- Example Usage Section -->
+
+    <section id="example" class="fade-in">
+
+        <h2>Example Usage</h2>
+
+        <div class="content-box">
+
+            <pre><code>import numpy as np
+
+# Creating a NumPy array
+
+array = np.array([1, 2, 3, 4, 5])
+
+# Performing a mathematical operation
+
+squared_array = np.square(array)
+
+print(squared_array)</code></pre>
+
+            <p>This example demonstrates creating a NumPy array and performing a square operation on each element.</p>
+
+        </div>
+
+    </section>
+
+</div>
+
+<!-- Footer -->
+
+<footer>
+
+    <p>&copy; 2024 LuckyByte. All rights reserved.</p>
+
+</footer>
+
+<!-- Bootstrap JS, Popper.js, and jQuery -->
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+
+    // Scroll animation for fade-in sections
+
+    const observer = new IntersectionObserver(entries => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add('visible');
+
+            }
+
+        });
+
+    });
+
+    document.querySelectorAll('.fade-in').forEach(section => {
+
+        observer.observe(section);
+
+    });
+
+</script>
+
+</body>
+
+</html>
