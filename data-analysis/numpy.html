@@ -4,209 +4,300 @@
 
 <head>
 
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>LuckyByte | Introduction to NumPy</title>
+  <meta name="description" content="LuckyByte - A Guide to Data Engineering and Cloud with NumPy">
 
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <meta name="keywords" content="LuckyByte, Data Engineering, Cloud, NumPy, Python, Numerical Computing">
 
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <title>LuckyByte - Data Engineering & Cloud Guide</title>
 
-    <style>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-        /* Light Theme Colors */
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
-        :root {
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-            --primary-color: #f8f9fa; /* Light background */
+  <style>
 
-            --text-color: #333; /* Dark text */
+    /* Global Styling */
 
-            --highlight-color: #007bff; /* Primary accent */
+    body {
 
-            --secondary-color: #6c757d; /* Secondary color */
+      font-family: 'Montserrat', sans-serif;
 
-            --border-color: #eaeaea;
+      color: #333;
 
-        }
+      background-color: #f4f7f6;
 
-        /* General Reset */
+      line-height: 1.6;
 
-        body {
+    }
 
-            font-family: 'Roboto', sans-serif;
+    header, footer {
 
-            background-color: var(--primary-color);
+      color: #fff;
 
-            color: var(--text-color);
+    }
 
-            margin: 0;
+    /* Navbar */
 
-            padding: 0;
+    .navbar {
 
-        }
+      background: linear-gradient(45deg, #005f73, #0a9396);
 
-        /* Header */
+    }
 
-        header {
+    .navbar-brand {
 
-            padding: 2rem;
+      font-family: 'Roboto', sans-serif;
 
-            background-color: var(--highlight-color);
+      font-size: 1.8rem;
 
-            text-align: center;
+      font-weight: bold;
 
-            color: #fff;
+      color: #f8f9fa;
 
-            font-size: 1.8rem;
+    }
 
-            font-weight: bold;
+    .navbar-nav .nav-link {
 
-        }
+      color: #f8f9fa !important;
 
-        /* Main Content Styling */
+    }
 
-        .container {
+    /* Main Section */
 
-            max-width: 1100px;
+    .main-section {
 
-            padding: 2rem;
+      background: linear-gradient(to right, #005f73, #0a9396, #94d2bd);
 
-            margin: auto;
+      color: #f1faee;
 
-        }
+      padding: 80px 20px;
 
-        h2 {
+      text-align: center;
 
-            color: var(--highlight-color);
+    }
 
-            font-size: 1.8rem;
+    .main-section h1 {
 
-            margin-bottom: 1.2rem;
+      font-size: 3.5rem;
 
-        }
+      font-weight: 700;
 
-        .content-section {
+      color: #edf6f9;
 
-            background: #ffffff;
+    }
 
-            padding: 2rem;
+    .main-section p {
 
-            border-radius: 8px;
+      font-size: 1.3rem;
 
-            margin-bottom: 1.5rem;
+    }
 
-            border: 1px solid var(--border-color);
+    .main-section .btn {
 
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+      background-color: #0073e6;
 
-        }
+      color: #ffffff;
 
-        p, li {
+      padding: 0.8rem 1.6rem;
 
-            font-size: 1.1rem;
+      border-radius: 25px;
 
-            line-height: 1.6;
+      font-weight: bold;
 
-            color: var(--text-color);
+    }
 
-        }
+    /* Content Sections */
 
-        /* Code Block Styling */
+    section {
 
-        pre {
+      padding: 2rem 1.5rem;
 
-            background-color: #f1f1f1;
+      margin-top: 40px;
 
-            color: #333;
+    }
+    /* Add this to improve spacing in the installation guide */
+  #installation pre {
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 5px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    font-size: 1rem;
+  }
 
-            padding: 1rem;
+  #installation ol {
+    padding-left: 20px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
 
-            border-radius: 5px;
+  #installation h3 {
+    margin-top: 30px;
+    font-size: 1.5rem;
+    color: #0073e6;
+  }
 
-            font-size: 1.1rem;
+    .content-box {
 
-            position: relative;
+      background-color: #ffffff;
 
-            margin-top: 1.5rem;
+      border: 1px solid #e6e6e6;
 
-            font-family: 'Courier New', monospace;
+      border-radius: 8px;
 
-        }
+      padding: 2rem;
 
-        /* Copy Button */
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05);
 
-        .copy-btn {
+    }
 
-            background-color: var(--highlight-color);
+    .content-box h2 {
 
-            border: none;
+      margin-bottom: 1rem;
 
-            color: white;
+      color: #005f73;
 
-            padding: 0.5rem 1rem;
+      font-weight: 600;
 
-            border-radius: 4px;
+    }
 
-            font-weight: bold;
+    .content-box ul, .content-box ol {
 
-            cursor: pointer;
+      padding-left: 1rem;
 
-            position: absolute;
+      line-height: 1.8;
 
-            top: 10px;
+    }
 
-            right: 10px;
+    .content-box pre {
 
-            transition: background-color 0.3s;
+      background-color: #f4f7f6;
 
-        }
+      padding: 1rem;
 
-        .copy-btn:hover {
+      border-radius: 5px;
 
-            background-color: #0056b3;
+      overflow-x: auto;
 
-        }
+    }
 
-        /* Footer Styling */
+    .copy-btn {
 
-        footer {
+      margin-top: 0.5rem;
 
-            background-color: var(--highlight-color);
+      background-color: #0073e6;
 
-            padding: 1rem;
+      color: #ffffff;
 
-            text-align: center;
+      border: none;
 
-            color: white;
+      padding: 5px 10px;
 
-            font-size: 0.9rem;
+      border-radius: 5px;
 
-        }
+      cursor: pointer;
 
-        /* Animation for Scroll Effect */
+      transition: background-color 0.3s ease;
 
-        .fade-in {
+    }
 
-            opacity: 0;
+    .copy-btn:hover {
 
-            transform: translateY(20px);
+      background-color: #005f73;
 
-            transition: opacity 1s ease-out, transform 1s ease-out;
+    }
 
-        }
+    /* Footer */
 
-        .fade-in.visible {
+    footer {
 
-            opacity: 1;
+      background: #023047;
 
-            transform: translateY(0);
+      color: #f1faee;
 
-        }
+      padding: 1.5rem 0;
 
-    </style>
+      text-align: center;
+
+    }
+
+    footer a {
+
+      color: #a8dadc;
+
+    }
+
+    /* Animation */
+
+    .fade-in {
+
+      opacity: 0;
+
+      transform: translateY(30px);
+
+      transition: opacity 0.6s ease, transform 0.6s ease;
+
+    }
+
+    .fade-in.visible {
+
+      opacity: 1;
+
+      transform: translateY(0);
+
+    }
+
+    /* Scroll-to-Top Button */
+
+    .scroll-top-btn {
+
+      position: fixed;
+
+      bottom: 20px;
+
+      right: 20px;
+
+      background-color: #0073e6;
+
+      color: #ffffff;
+
+      border: none;
+
+      padding: 10px 15px;
+
+      border-radius: 50%;
+
+      display: none;
+
+      cursor: pointer;
+
+    }
+
+    /* Responsive */
+
+    @media (max-width: 768px) {
+
+      .main-section h1 {
+
+        font-size: 2.5rem;
+
+      }
+
+      .main-section p {
+
+        font-size: 1rem;
+
+      }
+
+    }
+
+  </style>
 
 </head>
 
@@ -214,63 +305,103 @@
 
 <header>
 
-    LuckyByte - Introduction to NumPy
+  <nav class="navbar navbar-expand-lg fixed-top">
+
+    <a class="navbar-brand" href="#">LuckyByte</a>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+
+      <ul class="navbar-nav ml-auto">
+
+        <li class="nav-item"><a class="nav-link" href="#intro">NumPy Guide</a></li>
+
+        <li class="nav-item"><a class="nav-link" href="#features">Key Features</a></li>
+
+        <li class="nav-item"><a class="nav-link" href="#importance">Importance</a></li>
+
+        <li class="nav-item"><a class="nav-link" href="#example">Example Usage</a></li>
+
+        <li class="nav-item"><a class="nav-link" href="#installation">Installation Guide</a></li>
+
+      </ul>
+
+    </div>
+
+  </nav>
 
 </header>
 
+<section class="main-section">
+
+  <h1>Data Engineering & Cloud Essentials</h1>
+
+  <p>Master Python's key library, NumPy, with a focus on data engineering and cloud applications.</p>
+
+  <a href="#intro" class="btn">Explore More</a>
+
+</section>
+
 <div class="container">
 
-    <h2 class="fade-in">What is NumPy? Introduction to Python's Essential Numerical Library</h2>
+  <!-- Introduction Section -->
 
-    <div class="content-section fade-in">
+  <section id="intro" class="fade-in">
 
-        <p>NumPy (Numerical Python) is a fundamental library for numerical computing in Python. It provides support for large, multi-dimensional arrays and matrices, along with a collection of mathematical functions to operate on these arrays efficiently.</p>
+    <h2>What is NumPy?</h2>
 
-    </div>
+    <div class="content-box">
 
-    <h2 class="fade-in">Key Features of NumPy</h2>
-
-    <div class="content-section fade-in">
-
-        <ul>
-
-            <li><strong>Multi-Dimensional Arrays:</strong> NumPy introduces the ndarray object, a fast and space-efficient array providing vectorized operations.</li>
-
-            <li><strong>Mathematical Functions:</strong> It includes a wide range of mathematical operations such as trigonometric, statistical, and algebraic functions.</li>
-
-            <li><strong>Broadcasting:</strong> Allows operations on arrays of different shapes, enhancing flexibility.</li>
-
-            <li><strong>Integration with Other Libraries:</strong> Serves as the foundation for many other scientific libraries like SciPy, Pandas, and Matplotlib.</li>
-
-        </ul>
+      <p>NumPy is the foundational library for numerical computing in Python, essential for data engineering, data science, and cloud computing.</p>
 
     </div>
 
-    <h2 class="fade-in">Importance in Data Science and Machine Learning</h2>
+  </section>
 
-    <div class="content-section fade-in">
+  <!-- Key Features Section -->
 
-        <ul>
+  <section id="features" class="fade-in">
 
-            <li><strong>Data Handling:</strong> NumPy arrays are essential for storing and manipulating large datasets, crucial for data analysis.</li>
+    <h2>Key Features of NumPy</h2>
 
-            <li><strong>Performance:</strong> Fast operations on NumPy arrays make it ideal for performance-critical applications.</li>
+    <div class="content-box">
 
-            <li><strong>Interoperability:</strong> Seamlessly works with other data science libraries, facilitating a smooth workflow.</li>
+      <ul>
 
-        </ul>
+        <li><b>Multi-Dimensional Arrays</b></li>
+
+        <li><b>Mathematical Functions</b></li>
+
+        <li><b>Integration with Cloud Workflows</b></li>
+
+      </ul>
 
     </div>
 
-    <h2 class="fade-in">Example Usage</h2>
+  </section>
 
-    <div class="content-section fade-in">
+  <!-- Importance Section -->
 
-        <p>Below is a code example demonstrating the ease and efficiency of using NumPy for numerical computations:</p>
+  <section id="importance" class="fade-in">
 
-        <pre id="code">
+    <h2>Importance in Data Science and Machine Learning</h2>
 
-import numpy as np
+    <div class="content-box">
+
+      <p>NumPy arrays are essential for handling large datasets efficiently, offering performance that makes it suitable for data science and machine learning workflows.</p>
+
+    </div>
+
+  </section>
+
+  <!-- Example Usage Section -->
+
+  <section id="example" class="fade-in">
+
+    <h2>Example Usage</h2>
+
+    <div class="content-box">
+
+      <pre><code>import numpy as np
 
 # Creating a NumPy array
 
@@ -280,83 +411,203 @@ array = np.array([1, 2, 3, 4, 5])
 
 squared_array = np.square(array)
 
-print(squared_array)
+print(squared_array)</code>
 
-        </pre>
+        <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
 
-        <button class="copy-btn" onclick="copyCode()">Copy Code</button>
+      </pre>
+
+      <p>This example demonstrates creating a NumPy array and performing a square operation on each element.</p>
 
     </div>
 
+  </section>
+
+  <!-- Installation Guide Section -->
+
+  <section id="installation" class="fade-in">
+
+    <h2>How to Install NumPy: Step-by-Step Guide</h2>
+
+    <div class="content-box">
+
+      <p>NumPy is a fundamental package for scientific computing in Python. This guide will walk you through the installation process using different methods: pip, conda, and from source code. We’ll also cover common issues and troubleshooting tips.</p>
+
+      
+
+      <h3>Installing NumPy with pip</h3>
+
+      <ol>
+
+        <li>Open your command prompt or terminal.</li>
+
+        <li>Ensure you have Python installed. You can check this by running:<br>
+
+          <pre><code>python --version</code></pre>
+
+        </li>
+
+        <li>If Python is not installed, download and install it from the official Python website.</li>
+
+        <li>Install pip if it’s not already installed. Check if pip is installed by running:<br>
+
+          <pre><code>pip --version</code></pre>
+
+        </li>
+
+        <li>If pip is not installed, you can install it by following the instructions on the pip installation page.</li>
+
+        <li>Install NumPy using pip. Run the following command:<br>
+
+          <pre><code>pip install numpy</code></pre>
+
+        </li>
+
+      </ol>
+
+      <h3>Installing NumPy with conda</h3>
+
+      <ol>
+
+        <li>Open your command prompt or terminal.</li>
+
+        <li>Ensure you have Anaconda or Miniconda installed. You can download Anaconda from the Anaconda website or Miniconda from the Miniconda website.</li>
+
+        <li>Install NumPy using conda. Run the following command:<br>
+
+          <pre><code>conda install numpy</code></pre>
+
+        </li>
+
+      </ol>
+
+      <h3>Installing NumPy from Source Code</h3>
+
+      <ol>
+
+        <li>Download the NumPy source code. You can get it from the NumPy GitHub repository.</li>
+
+        <li>Extract the downloaded file.</li>
+
+        <li>Open your command prompt or terminal and navigate to the extracted directory.</li>
+
+        <li>Install NumPy by running:<br>
+
+          <pre><code>python setup.py install</code></pre>
+
+        </li>
+
+      </ol>
+
+      <h3>Common Issues and Troubleshooting</h3>
+
+      <ul>
+
+        <li><b>Issue:</b> pip or conda command not found.<br>
+
+          <b>Solution:</b> Ensure that Python and Anaconda/Miniconda are correctly installed and added to your system’s PATH.
+
+        </li>
+
+        <li><b>Issue:</b> Permission denied error.<br>
+
+          <b>Solution:</b> Run the installation command with elevated privileges. For example, use sudo on Unix-based systems:<br>
+
+          <pre><code>sudo pip install numpy</code></pre>
+
+        </li>
+
+        <li><b>Issue:</b> Incompatible Python version.<br>
+
+          <b>Solution:</b> Ensure you are using a compatible version of Python. NumPy supports Python 3.7 and above.
+
+        </li>
+
+      </ul>
+
+      <p>By following these steps, you should be able to install NumPy without any issues. If you encounter any problems, refer to the official NumPy installation guide for more detailed instructions and support.</p>
+
+    </div>
+
+  </section>
+
 </div>
+
+<!-- Footer -->
 
 <footer>
 
-    &copy; 2024 LuckyByte. All rights reserved.
+  <p>© 2024 LuckyByte. All rights reserved.</p>
 
 </footer>
 
+<button onclick="scrollToTop()" class="scroll-top-btn"><i class="fas fa-chevron-up"></i></button>
+
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-<!-- Copy to Clipboard Script -->
 
 <script>
 
-    function copyCode() {
+  // IntersectionObserver for fade-in effect
 
-        const code = document.getElementById("code").innerText;
+  const observer = new IntersectionObserver(entries => {
 
-        const textArea = document.createElement("textarea");
+    entries.forEach(entry => {
 
-        textArea.value = code;
+      if (entry.isIntersecting) {
 
-        document.body.appendChild(textArea);
+        entry.target.classList.add('visible');
 
-        textArea.select();
-
-        document.execCommand("copy");
-
-        document.body.removeChild(textArea);
-
-        
-
-        const copyBtn = document.querySelector(".copy-btn");
-
-        copyBtn.innerText = "Copied!";
-
-        setTimeout(() => copyBtn.innerText = "Copy Code", 2000);
-
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-
-        const fadeElements = document.querySelectorAll(".fade-in");
-
-        const options = { threshold: 0.2, rootMargin: "0px 0px -100px 0px" };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-
-            entries.forEach(entry => {
-
-                if (entry.isIntersecting) {
-
-                    entry.target.classList.add("visible");
-
-                    observer.unobserve(entry.target);
-
-                }
-
-            });
-
-        }, options);
-
-        fadeElements.forEach(element => observer.observe(element));
+      }
 
     });
+
+  });
+
+  document.querySelectorAll('.fade-in').forEach(section => observer.observe(section));
+
+  // Scroll-to-top button
+
+  const scrollTopBtn = document.querySelector('.scroll-top-btn');
+
+  window.addEventListener('scroll', () => {
+
+    scrollTopBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+
+  });
+
+  function scrollToTop() {
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  }
+
+  // Copy code to clipboard
+
+  function copyCode(button) {
+
+    const codeBlock = button.previousElementSibling;
+
+    const textArea = document.createElement('textarea');
+
+    textArea.value = codeBlock.textContent;
+
+    document.body.appendChild(textArea);
+
+    textArea.select();
+
+    document.execCommand('copy');
+
+    document.body.removeChild(textArea);
+
+    button.innerHTML = '<i class="fas fa-check"></i> Copied!';
+
+    setTimeout(() => {
+
+      button.innerHTML = '<i class="fas fa-copy"></i> Copy';
+
+    }, 2000);
+
+  }
 
 </script>
 
