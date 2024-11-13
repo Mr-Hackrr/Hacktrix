@@ -1,616 +1,2487 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <meta name="description" content="LuckyByte - A Guide to Data Engineering and Cloud with NumPy">
-
-  <meta name="keywords" content="LuckyByte, Data Engineering, Cloud, NumPy, Python, Numerical Computing">
-
-  <title>LuckyByte - Data Engineering & Cloud Guide</title>
-
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
+  <title>What is NumPy? - An Introduction to the Power of Numerical Computing</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-
-    /* Global Styling */
-
+    /* General Setup */
+    * {
+      scroll-behavior: smooth;
+      box-sizing: border-box;
+    }
     body {
-
-      font-family: 'Montserrat', sans-serif;
-
+      font-family: Arial, sans-serif;
       color: #333;
-
-      background-color: #f4f7f6;
-
-      line-height: 1.6;
-
+      margin: 0;
+      background-color: #f5f7fa;
+      overflow-x: hidden;
     }
-
-    header, footer {
-
-      color: #fff;
-
-    }
-
-    /* Navbar */
-
-    .navbar {
-
-      background: linear-gradient(45deg, #005f73, #0a9396);
-
-    }
-
-    .navbar-brand {
-
-      font-family: 'Roboto', sans-serif;
-
-      font-size: 1.8rem;
-
-      font-weight: bold;
-
-      color: #f8f9fa;
-
-    }
-
-    .navbar-nav .nav-link {
-
-      color: #f8f9fa !important;
-
-    }
-
-    /* Main Section */
-
-    .main-section {
-
-      background: linear-gradient(to right, #005f73, #0a9396, #94d2bd);
-
-      color: #f1faee;
-
-      padding: 80px 20px;
-
-      text-align: center;
-
-    }
-
-    .main-section h1 {
-
-      font-size: 3.5rem;
-
-      font-weight: 700;
-
-      color: #edf6f9;
-
-    }
-
-    .main-section p {
-
-      font-size: 1.3rem;
-
-    }
-
-    .main-section .btn {
-
-      background-color: #0073e6;
-
+    /* Header Bar */
+    .header-bar {
+      background: linear-gradient(90deg, #1e3c72, #2a5298);
       color: #ffffff;
-
-      padding: 0.8rem 1.6rem;
-
-      border-radius: 25px;
-
-      font-weight: bold;
-
-    }
-
-    /* Content Sections */
-
-    section {
-
-      padding: 2rem 1.5rem;
-
-      margin-top: 40px;
-
-    }
-    /* Add this to improve spacing in the installation guide */
-  #installation pre {
-    background-color: #f8f9fa;
-    padding: 10px;
-    border-radius: 5px;
-    line-height: 1.6;
-    margin-bottom: 15px;
-    font-size: 1rem;
-  }
-
-  #installation ol {
-    padding-left: 20px;
-    line-height: 1.8;
-    margin-bottom: 20px;
-  }
-
-  #installation h3 {
-    margin-top: 30px;
-    font-size: 1.5rem;
-    color: #0073e6;
-  }
-
-    .content-box {
-
-      background-color: #ffffff;
-
-      border: 1px solid #e6e6e6;
-
-      border-radius: 8px;
-
-      padding: 2rem;
-
-      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05);
-
-    }
-
-    .content-box h2 {
-
-      margin-bottom: 1rem;
-
-      color: #005f73;
-
-      font-weight: 600;
-
-    }
-
-    .content-box ul, .content-box ol {
-
-      padding-left: 1rem;
-
-      line-height: 1.8;
-
-    }
-
-    .content-box pre {
-
-      background-color: #f4f7f6;
-
-      padding: 1rem;
-
-      border-radius: 5px;
-
-      overflow-x: auto;
-
-    }
-
-    .copy-btn {
-
-      margin-top: 0.5rem;
-
-      background-color: #0073e6;
-
-      color: #ffffff;
-
-      border: none;
-
-      padding: 5px 10px;
-
-      border-radius: 5px;
-
-      cursor: pointer;
-
-      transition: background-color 0.3s ease;
-
-    }
-
-    .copy-btn:hover {
-
-      background-color: #005f73;
-
-    }
-
-    /* Footer */
-
-    footer {
-
-      background: #023047;
-
-      color: #f1faee;
-
-      padding: 1.5rem 0;
-
-      text-align: center;
-
-    }
-
-    footer a {
-
-      color: #a8dadc;
-
-    }
-
-    /* Animation */
-
-    .fade-in {
-
-      opacity: 0;
-
-      transform: translateY(30px);
-
-      transition: opacity 0.6s ease, transform 0.6s ease;
-
-    }
-
-    .fade-in.visible {
-
-      opacity: 1;
-
-      transform: translateY(0);
-
-    }
-
-    /* Scroll-to-Top Button */
-
-    .scroll-top-btn {
-
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       position: fixed;
-
-      bottom: 20px;
-
-      right: 20px;
-
-      background-color: #0073e6;
-
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: all 0.3s;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    .header-bar.scrolled {
+      background: linear-gradient(90deg, #16222a, #3a6073);
+      padding: 10px 20px;
+    }
+    .header-bar .brand-name {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #ffd700;
+      transition: color 0.3s;
+    }
+    .header-bar .nav-link {
+      color: #e2e8f0 !important;
+      margin-right: 20px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .header-bar .nav-link:hover {
+      color: #ffd700 !important;
+    }
+    /* Sidebar */
+    #sidebar {
+      height: 100vh;
+      background-color: #2d3748;
       color: #ffffff;
-
+      padding-top: 20px;
+      position: fixed;
+      top: 70px;
+      left: 0;
+      width: 260px;
+      overflow-y: auto;
+      transition: width 0.3s;
+      box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.2);
+    }
+    #sidebar h2 {
+      color: #a0aec0;
+      font-weight: bold;
+      font-size: 1.4rem;
+      padding: 0 20px;
+      transition: color 0.3s;
+    }
+    #sidebar a {
+      color: #cbd5e0;
+      text-decoration: none;
+      display: block;
+      padding: 10px 20px;
+      font-size: 1rem;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    #sidebar a:hover {
+      background-color: #4a5568;
+      color: #ffffff;
+    }
+    /* Main Content */
+    #content {
+      margin-left: 280px;
+      margin-top: 100px;
+      padding: 20px;
+    }
+    #content section {
+      background: linear-gradient(145deg, #f0f4f8, #e0e8f0);
+      padding: 30px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+      transform: translateY(30px);
+      opacity: 0;
+      animation: fadeInUp 0.8s forwards;
+    }
+    h1, h2, h3 {
+      color: #2d3748;
+    }
+    /* Title Section */
+    .title-section {
+      background-color: #4a90e2;
+      color: #ffffff;
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    /* Animations */
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes pulseButton {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    .explore-btn {
+      background-color: #4a90e2;
+      color: #ffffff;
       border: none;
-
-      padding: 10px 15px;
-
-      border-radius: 50%;
-
-      display: none;
-
-      cursor: pointer;
-
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: background-color 0.3s, transform 0.3s;
+      animation: pulseButton 1.5s infinite;
     }
-
-    /* Responsive */
-
-    @media (max-width: 768px) {
-
-      .main-section h1 {
-
-        font-size: 2.5rem;
-
-      }
-
-      .main-section p {
-
-        font-size: 1rem;
-
-      }
-
+    .explore-btn:hover {
+      background-color: #003f7f;
+      transform: scale(1.1);
     }
-
+    /* Footer */
+    .footer {
+      background-color: #1a202c;
+      color: #a0aec0;
+      padding: 20px;
+      text-align: center;
+      margin-top: 20px;
+    }
   </style>
-
 </head>
-
 <body>
-
-<header>
-
-  <nav class="navbar navbar-expand-lg fixed-top">
-
-    <a class="navbar-brand" href="#">LuckyByte</a>
-
-    <div class="collapse navbar-collapse" id="navbarNav">
-
-      <ul class="navbar-nav ml-auto">
-
-        <li class="nav-item"><a class="nav-link" href="#intro">NumPy Guide</a></li>
-
-        <li class="nav-item"><a class="nav-link" href="#features">Key Features</a></li>
-
-        <li class="nav-item"><a class="nav-link" href="#importance">Importance</a></li>
-
-        <li class="nav-item"><a class="nav-link" href="#example">Example Usage</a></li>
-
-        <li class="nav-item"><a class="nav-link" href="#installation">Installation Guide</a></li>
-
+  <!-- Header Bar -->
+  <div class="header-bar">
+    <span class="brand-name">LuckyByte</span>
+    <nav class="navbar">
+      <a class="nav-link" href="#intro">Home</a>
+      <a class="nav-link" href="#features">Features</a>
+      <a class="nav-link" href="#examples">Examples</a>
+      <a class="nav-link" href="#contact">Contact</a>
+    </nav>
+  </div>
+  <!-- Sidebar -->
+  <div id="sidebar">
+    <h2>Contents</h2>
+    <a href="#intro">Introduction</a>
+    <a href="#history">A Brief History of NumPy</a>
+    <a href="#features">Core Features of NumPy</a>
+    <a href="#ecosystem">NumPy’s Role in Python’s Data Ecosystem</a>
+    <a href="#importance">Why NumPy is Essential</a>
+    <a href="#potential">Unlocking the Full Potential of Numerical Computing with NumPy</a>
+    <a href="#installation">How to Install and Set Up NumPy on Different Environments</a>
+  </div>
+  <!-- Main Content -->
+  <div id="content">
+    <div class="title-section">
+      <h1>What is NumPy? - An Introduction to the Power of Numerical Computing</h1>
+    </div>
+    <section id="intro">
+      <h2>Understanding NumPy</h2>
+      <p>NumPy, short for Numerical Python, is a powerful library for numerical computing in Python. It provides support for arrays, matrices, and a wide range of mathematical functions to operate on these data structures. NumPy is fundamental in data science, machine learning, and scientific computing due to its efficiency and ease of use.</p>
+    </section>
+    <section id="history">
+      <h2>A Brief History of NumPy</h2>
+      <p>NumPy’s origins trace back to the Numeric library, created by Jim Hugunin in 1995. In 2005, Travis Oliphant merged features from Numeric and another library called Numarray to create NumPy. This merger aimed to provide a more robust and comprehensive numerical computing tool for Python users.</p>
+    </section>
+    <section id="features">
+      <h2>Core Features of NumPy</h2>
+      <ul>
+        <li><strong>N-Dimensional Array Object:</strong> At the heart of NumPy is the ndarray, a powerful n-dimensional array object that allows for efficient storage and manipulation of large datasets.</li>
+        <li><strong>Mathematical Functions:</strong> NumPy includes a vast array of mathematical functions for operations such as linear algebra, statistical analysis, and Fourier transforms.</li>
+        <li><strong>Broadcasting:</strong> This feature allows NumPy to perform element-wise operations on arrays of different shapes, making code more concise and readable.</li>
+        <li><strong>Integration with Other Libraries:</strong> NumPy seamlessly integrates with other scientific computing libraries like SciPy, Pandas, and Matplotlib, enhancing its functionality and usability.</li>
       </ul>
+    </section>
+    <section id="ecosystem">
+      <h2>NumPy’s Role in Python’s Data Ecosystem</h2>
+      <p>NumPy serves as the foundation for many other data science and machine learning libraries in Python. Libraries such as Pandas, SciPy, and scikit-learn rely heavily on NumPy for their core operations. Its efficient handling of numerical data makes it indispensable for tasks ranging from data analysis to machine learning model development.</p>
+    </section>
+    <section id="importance">
+      <h2>Why NumPy is Essential</h2>
+      <p>NumPy’s ability to handle large datasets with ease and perform complex mathematical operations efficiently makes it a cornerstone of modern data science. Its widespread adoption and integration with other tools ensure that it remains a critical component of the Python data ecosystem.</p>
+    </section>
+    <section id="potential">
+      <h2>Unlocking the Full Potential of Numerical Computing with NumPy</h2>
+      <p>By understanding and leveraging NumPy, data scientists and researchers can unlock the full potential of numerical computing, driving innovation and discovery in various fields. Whether you’re working on data analysis, machine learning, or scientific research, mastering NumPy is essential for efficient and effective numerical computation.</p>
+    </section>
+    <section id="installation">
+      <h2 style="color: #1e3c72; margin-bottom: 20px;">How to Install and Set Up NumPy on Different Environments</h2>
+      
+      <h3 style="color: #2a5298;">Installing NumPy with Anaconda</h3>
+      <p>Anaconda is a popular distribution for data science and machine learning. It simplifies package management and deployment.</p>
+      <ol>
+        <li><strong>Open Anaconda Navigator:</strong> Launch the Anaconda Navigator from your applications menu.</li>
+        <li><strong>Create a New Environment:</strong> Click on the “Environments” tab, then “Create” to set up a new environment.</li>
+        <li><strong>Install NumPy:</strong> In the new environment, go to the “Home” tab, select your environment, and click “Install” next to NumPy.</li>
+      </ol>
+      <p>Alternatively, you can use the command line:</p>
+      <div class="code-block">
+        <pre><code>conda create -n myenv numpy
+    conda activate myenv</code></pre>
+        <button class="copy-btn" onclick="copyToClipboard('conda create -n myenv numpy\nconda activate myenv')">Copy</button>
+      </div>
+      
+      <h3 style="color: #2a5298;">Installing NumPy in Jupyter Notebook</h3>
+      <p>Jupyter Notebooks are widely used for interactive data analysis.</p>
+      <p><strong>Using Anaconda:</strong> If you have Anaconda installed, NumPy is usually included. You can check by running:</p>
+      <div class="code-block">
+        <pre><code>import numpy as np
+    print(np.__version__)</code></pre>
+        <button class="copy-btn" onclick="copyToClipboard('import numpy as np\nprint(np.__version__)')">Copy</button>
+      </div>
+      <p><strong>Using pip:</strong> If NumPy is not installed, you can install it directly from a Jupyter Notebook cell:</p>
+      <div class="code-block">
+        <pre><code>!pip install numpy</code></pre>
+        <button class="copy-btn" onclick="copyToClipboard('!pip install numpy')">Copy</button>
+      </div>
+      
+      <h3 style="color: #2a5298;">Standalone Installation Using pip</h3>
+      <p>For those who prefer a more lightweight setup without Anaconda:</p>
+      <ol>
+        <li><strong>Open Command Prompt/Terminal:</strong> Access your command line interface.</li>
+        <li><strong>Install NumPy:</strong> Use pip to install NumPy:</li>
+      </ol>
+      <div class="code-block">
+        <pre><code>pip install numpy</code></pre>
+        <button class="copy-btn" onclick="copyToClipboard('pip install numpy')">Copy</button>
+      </div>
+      
+      <h3 style="color: #2a5298;">Troubleshooting Common Installation Issues</h3>
+      <p><strong>Permission Errors:</strong> If you encounter permission issues, try using <code>--user</code> to install NumPy for the current user:</p>
+      <div class="code-block">
+        <pre><code>pip install numpy --user</code></pre>
+        <button class="copy-btn" onclick="copyToClipboard('pip install numpy --user')">Copy</button>
+      </div>
+      <p><strong>Conflicting Packages:</strong> Sometimes, other installed packages might conflict with NumPy. Creating a virtual environment can help:</p>
+      <div class="code-block">
+        <pre><code>python -m venv myenv
+    source myenv/bin/activate  # On Windows use `myenv\Scripts\activate`
+    pip install numpy</code></pre>
+        <button class="copy-btn" onclick="copyToClipboard('python -m venv myenv\nsource myenv/bin/activate\npip install numpy')">Copy</button>
+      </div>
+      <p><strong>Outdated pip or conda:</strong> Ensure your package managers are up to date:</p>
+      <div class="code-block">
+        <pre><code>pip install --upgrade pip
+    conda update conda</code></pre>
+        <button class="copy-btn" onclick="copyToClipboard('pip install --upgrade pip\nconda update conda')">Copy</button>
+      </div>
+    </section>
+    
+    <script>
+      function copyToClipboard(text) {
+        navigator.clipboard.writeText(text).then(function() {
+          alert('Copied to clipboard');
+        }, function(err) {
+          console.error('Could not copy text: ', err);
+        });
+      }
+    </script>
+    
+    <style>
+      .code-block {
+        position: relative;
+        background-color: #f5f5f5;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 20px;
+      }
+      .code-block pre {
+        margin: 0;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 14px;
+      }
+      .copy-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: #4a90e2;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 3px;
+        cursor: pointer;
+        font-size: 12px;
+      }
+      .copy-btn:hover {
+        background-color: #003f7f;
+      }
+    </style>
+    <section id="numpy-arrays" style="margin-bottom: 40px;">
+      <h2 style="color: #1e3c72; margin-bottom: 20px;">Understanding NumPy Arrays - The Backbone of NumPy</h2>
+      
+      <h3 style="color: #2a5298; margin-top: 30px;">What Are NumPy Arrays?</h3>
+      <p>NumPy arrays, or ndarrays, are the core data structure of the NumPy library. They are similar to Python lists but come with additional functionality and efficiency, making them essential for numerical computations.</p>
+      
+      <h3 style="color: #2a5298; margin-top: 30px;">Differences Between NumPy Arrays and Python Lists</h3>
+      <ul>
+        <li><strong>Homogeneity:</strong> NumPy arrays are homogeneous, meaning all elements must be of the same type. In contrast, Python lists can contain elements of different types.</li>
+        <li><strong>Memory Efficiency:</strong> NumPy arrays are more memory-efficient than Python lists. They store data in contiguous blocks of memory, which reduces overhead and improves performance.</li>
+        <li><strong>Speed:</strong> Operations on NumPy arrays are faster than on Python lists due to optimized C and Fortran code under the hood.</li>
+      </ul>
+      
+      <h3 style="color: #2a5298; margin-top: 30px;">Key Concepts of NumPy Arrays</h3>
+      
+      <h4 style="color: #3b5998; margin-top: 20px;">Dimensionality</h4>
+      <p>NumPy arrays can have multiple dimensions. A 1D array is a simple list, a 2D array is like a matrix, and higher dimensions are possible.</p>
+      <div class="code-block">
+        <pre><code>import numpy as np
+    
+    # 1D array
+    arr_1d = np.array([1, 2, 3])
+    print(arr_1d)
+    
+    # 2D array
+    arr_2d = np.array([[1, 2, 3], [4, 5, 6]])
+    print(arr_2d)
+    
+    # 3D array
+    arr_3d = np.array([[[1, 2], [3, 4]], [[5, 6], [7, 8]]])
+    print(arr_3d)</code></pre>
+        <button class="copy-btn" onclick="copyToClipboard('import numpy as np\n\n# 1D array\narr_1d = np.array([1, 2, 3])\nprint(arr_1d)\n\n# 2D array\narr_2d = np.array([[1, 2, 3], [4, 5, 6]])\nprint(arr_2d)\n\n# 3D array\narr_3d = np.array([[[1, 2], [3, 4]], [[5, 6], [7, 8]]])\nprint(arr_3d)')">Copy</button>
+      </div>
+      
+      <h4 style="color: #3b5998; margin-top: 20px;">Shape</h4>
+      <p>The shape of a NumPy array is a tuple that indicates the size of the array along each dimension.</p>
+      <div class="code-block">
+        <pre><code>print(arr_1d.shape)  # Output: (3,)
+    print(arr_2d.shape)  # Output: (2, 3)
+    print(arr_3d.shape)  # Output: (2, 2, 2)</code></pre>
+        <button class="copy-btn" onclick="copyToClipboard('print(arr_1d.shape)  # Output: (3,)\nprint(arr_2d.shape)  # Output: (2, 3)\nprint(arr_3d.shape)  # Output: (2, 2, 2)')">Copy</button>
+      </div>
+      
+      <h4 style="color: #3b5998; margin-top: 20px;">Size</h4>
+      <p>The size of a NumPy array is the total number of elements in the array.</p>
+      <div class="code-block">
+        <pre><code>print(arr_1d.size)  # Output: 3
+    print(arr_2d.size)  # Output: 6
+    print(arr_3d.size)  # Output: 8</code></pre>
+        <button class="copy-btn" onclick="copyToClipboard('print(arr_1d.size)  # Output: 3\nprint(arr_2d.size)  # Output: 6\nprint(arr_3d.size)  # Output: 8')">Copy</button>
+      </div>
+      
+      <h3 style="color: #2a5298; margin-top: 30px;">Benefits of NumPy Arrays</h3>
+      
+      <h4 style="color: #3b5998; margin-top: 20px;">Vectorized Operations</h4>
+      <p>NumPy allows for vectorized operations, which means you can perform element-wise operations without explicit loops.</p>
+      <div class="code-block">
+        <pre><code>arr = np.array([1, 2, 3])
+    print(arr + 1)  # Output: [2 3 4]</code></pre>
+        <button class="copy-btn" onclick="copyToClipboard('arr = np.array([1, 2, 3])\nprint(arr + 1)  # Output: [2 3 4]')">Copy</button>
+      </div>
+      
+      <h4 style="color: #3b5998; margin-top: 20px;">Broadcasting</h4>
+      <p>This feature enables NumPy to perform operations on arrays of different shapes.</p>
+      <div class="code-block">
+        <pre><code>arr1 = np.array([1, 2, 3])
+    arr2 = np.array([[1], [2], [3]])
+    print(arr1 + arr2)
+    # Output:
+    # [[2 3 4]
+    #  [3 4 5]
+    #  [4 5 6]]</code></pre>
+        <button class="copy-btn" onclick="copyToClipboard('arr1 = np.array([1, 2, 3])\narr2 = np.array([[1], [2], [3]])\nprint(arr1 + arr2)\n# Output:\n# [[2 3 4]\n#  [3 4 5]\n#  [4 5 6]]')">Copy</button>
+      </div>
+      
+      <h4 style="color: #3b5998; margin-top: 20px;">Efficient Aggregations</h4>
+      <p>NumPy provides efficient functions for aggregations like sum, mean, and standard deviation.</p>
+      <div class="code-block">
+        <pre><code>arr = np.array([1, 2, 3, 4, 5])
+    print(np.sum(arr))  # Output: 15
+    print(np.mean(arr))  # Output: 3.0
+    print(np.std(arr))  # Output: 1.4142135623730951</code></pre>
+        <button class="copy-btn" onclick="copyToClipboard('arr = np.array([1, 2, 3, 4, 5])\nprint(np.sum(arr))  # Output: 15\nprint(np.mean(arr))  # Output: 3.0\nprint(np.std(arr))  # Output: 1.4142135623730951')">Copy</button>
+      </div>
+      
+      <h3 style="color: #2a5298; margin-top: 30px;">Advanced Examples of NumPy Arrays</h3>
+      
+      <h4 style="color: #3b5998; margin-top: 20px;">Reshaping Arrays</h4>
+      <p>You can reshape arrays to change their dimensions without changing the data.</p>
+      <div class="code-block">
+        <pre><code>arr = np.array([1, 2, 3, 4, 5, 6])
+    reshaped_arr = arr.reshape((2, 3))
+    print(reshaped_arr)
+    # Output:
+    # [[1 2 3]
+    #  [4 5 6]]</code></pre>
+        <button class="copy-btn" onclick="copyToClipboard('arr = np.array([1, 2, 3, 4, 5, 6])\nreshaped_arr = arr.reshape((2, 3))\nprint(reshaped_arr)\n# Output:\n# [[1 2 3]\n#  [4 5 6]]')">Copy</button>
+      </div>
+      
+      <h4 style="color: #3b5998; margin-top: 20px;">Slicing and Indexing</h4>
+      <p>NumPy arrays support slicing and indexing to access subsets of the data.</p>
+      <div class="code-block">
+        <pre><code>arr = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+          print(arr[0, 1])  # Output: 2
+          print(arr[:, 1])  # Output: [2 5 8]</code></pre>
+              <button class="copy-btn" onclick="copyToClipboard('arr = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])\nprint(arr[0, 1])  # Output: 2\nprint(arr[:, 1])  # Output: [2 5 8]')">Copy</button>
+            </div>
+            
+            <h4 style="color: #3b5998; margin-top: 20px;">Boolean Indexing</h4>
+            <p>You can use boolean indexing to filter arrays based on conditions.</p>
+            <div class="code-block">
+              <pre><code>arr = np.array([1, 2, 3, 4, 5])
+          print(arr[arr > 3])  # Output: [4 5]</code></pre>
+              <button class="copy-btn" onclick="copyToClipboard('arr = np.array([1, 2, 3, 4, 5])\nprint(arr[arr > 3])  # Output: [4 5]')">Copy</button>
+            </div>
+          </section>
+          
+          <script>
+            function copyToClipboard(text) {
+              navigator.clipboard.writeText(text).then(function() {
+                alert('Copied to clipboard');
+              }, function(err) {
+                console.error('Could not copy text: ', err);
+              });
+            }
+          </script>
+          
+          <style>
+            .code-block {
+              position: relative;
+              background-color: #f5f5f5;
+              border: 1px solid #ddd;
+              border-radius: 5px;
+              padding: 10px;
+              margin-bottom: 20px;
+            }
+            .code-block pre {
+              margin: 0;
+              font-family: 'Courier New', Courier, monospace;
+              font-size: 14px;
+            }
+            .copy-btn {
+              position: absolute;
+              top: 10px;
+              right: 10px;
+              background-color: #4a90e2;
+              color: #fff;
+              border: none;
+              padding: 5px 10px;
+              border-radius: 3px;
+              cursor: pointer;
+              font-size: 12px;
+            }
+            .copy-btn:hover {
+              background-color: #003f7f;
+            }
+            section {
+              margin-bottom: 40px;
+            }
+            h3 {
+              margin-top: 30px;
+            }
+            h4 {
+              margin-top: 20px;
+            }
+            p {
+              margin-bottom: 20px;
+            }
+          </style>
+          
+          
+          
+          
+  <section id="data-types" style="margin-bottom: 40px;">
+  <h2 style="color: #1e3c72; margin-bottom: 20px;">Data Types in NumPy - An In-Depth Guide</h2>
+  
+  <h3 style="color: #2a5298; margin-top: 30px;">Overview of NumPy Data Types</h3>
+  <p>NumPy arrays support a variety of data types, which are crucial for optimizing memory usage and performance. These data types, known as dtypes, include integers, floats, complex numbers, booleans, and more. Choosing the correct dtype can significantly impact the efficiency of your computations.</p>
+  
+  <h3 style="color: #2a5298; margin-top: 30px;">Common NumPy Data Types</h3>
+  
+  <h4 style="color: #2a5298; margin-top: 20px;">Integer Types</h4>
+  <p>NumPy supports several integer types, such as int8, int16, int32, and int64. The number indicates the bit-width of the type.</p>
+  <div class="code-block">
+    <pre><code>import numpy as np
 
+int_array = np.array([1, 2, 3], dtype=np.int32)
+print(int_array.dtype)  # Output: int32</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('import numpy as np\n\nint_array = np.array([1, 2, 3], dtype=np.int32)\nprint(int_array.dtype)  # Output: int32')">Copy</button>
+  </div>
+  
+  <h4 style="color: #2a5298; margin-top: 20px;">Floating-Point Types</h4>
+  <p>These include float16, float32, and float64. The choice of float type affects precision and memory usage.</p>
+  <div class="code-block">
+    <pre><code>float_array = np.array([1.0, 2.0, 3.0], dtype=np.float64)
+print(float_array.dtype)  # Output: float64</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('float_array = np.array([1.0, 2.0, 3.0], dtype=np.float64)\nprint(float_array.dtype)  # Output: float64')">Copy</button>
+  </div>
+  
+  <h4 style="color: #2a5298; margin-top: 20px;">Boolean Type</h4>
+  <p>The bool_ type is used for boolean values.</p>
+  <div class="code-block">
+    <pre><code>bool_array = np.array([True, False, True], dtype=np.bool_)
+print(bool_array.dtype)  # Output: bool</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('bool_array = np.array([True, False, True], dtype=np.bool_)\nprint(bool_array.dtype)  # Output: bool')">Copy</button>
+  </div>
+  
+  <h4 style="color: #2a5298; margin-top: 20px;">Complex Types</h4>
+  <p>NumPy also supports complex numbers with complex64 and complex128.</p>
+  <div class="code-block">
+    <pre><code>complex_array = np.array([1+2j, 3+4j], dtype=np.complex128)
+print(complex_array.dtype)  # Output: complex128</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('complex_array = np.array([1+2j, 3+4j], dtype=np.complex128)\nprint(complex_array.dtype)  # Output: complex128')">Copy</button>
+  </div>
+  
+  <h4 style="color: #2a5298; margin-top: 20px;">String Types</h4>
+  <p>NumPy can handle fixed-size strings with the str_ and unicode_ types.</p>
+  <div class="code-block">
+    <pre><code>str_array = np.array(['a', 'b', 'c'], dtype=np.str_)
+print(str_array.dtype)  # Output: <U1</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('str_array = np.array([\'a\', \'b\', \'c\'], dtype=np.str_)\nprint(str_array.dtype)  # Output: <U1')">Copy</button>
+  </div>
+  </section>
+  <section id="creating-arrays" style="margin-bottom: 40px;">
+    <h2 style="color: #1e3c72; margin-bottom: 20px;">Creating Arrays in NumPy - Different Methods Explained</h2>
+    
+    <h3 style="color: #000000; margin-top: 30px;">Creating Arrays from Lists and Tuples</h3>
+    
+    <h4 style="color: #000000; margin-top: 20px;">From Lists</h4>
+    <p style="color: #000000;">You can create a NumPy array directly from a Python list.</p>
+    <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>import numpy as np
+  
+list_array = np.array([1, 2, 3, 4, 5])
+print(list_array)
+# Output: [1 2 3 4 5]</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('import numpy as np\n\nlist_array = np.array([1, 2, 3, 4, 5])\nprint(list_array)\n# Output: [1 2 3 4 5]')">Copy</button>
+    </div>
+    
+    <h4 style="color: #000000; margin-top: 20px;">From Tuples</h4>
+    <p style="color: #000000;">Similarly, you can create a NumPy array from a Python tuple.</p>
+    <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>tuple_array = np.array((1, 2, 3, 4, 5))
+print(tuple_array)
+# Output: [1 2 3 4 5]</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('tuple_array = np.array((1, 2, 3, 4, 5))\nprint(tuple_array)\n# Output: [1 2 3 4 5]')">Copy</button>
+    </div>
+    
+    <h3 style="color: #000000; margin-top: 30px;">Using Built-in Functions</h3>
+    <p style="color: #000000;">NumPy provides several built-in functions to create arrays with specific patterns or values.</p>
+    
+    <h4 style="color: #000000; margin-top: 20px;">zeros()</h4>
+    <p style="color: #000000;">Creates an array filled with zeros.</p>
+    <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>zeros_array = np.zeros((3, 4))
+print(zeros_array)
+# Output:
+# [[0. 0. 0. 0.]
+#  [0. 0. 0. 0.]
+#  [0. 0. 0. 0.]]</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('zeros_array = np.zeros((3, 4))\nprint(zeros_array)\n# Output:\n# [[0. 0. 0. 0.]\n#  [0. 0. 0. 0.]\n#  [0. 0. 0. 0.]]')">Copy</button>
+    </div>
+    
+    <h4 style="color: #000000; margin-top: 20px;">ones()</h4>
+    <p style="color: #000000;">Creates an array filled with ones.</p>
+    <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>ones_array = np.ones((2, 3))
+print(ones_array)
+# Output:
+# [[1. 1. 1.]
+#  [1. 1. 1.]]</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('ones_array = np.ones((2, 3))\nprint(ones_array)\n# Output:\n# [[1. 1. 1.]\n#  [1. 1. 1.]]')">Copy</button>
+    </div>
+    
+    <h4 style="color: #000000; margin-top: 20px;">arange()</h4>
+    <p style="color: #000000;">Creates an array with a range of values.</p>
+    <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>arange_array = np.arange(0, 10, 2)
+print(arange_array)
+# Output: [0 2 4 6 8]</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('arange_array = np.arange(0, 10, 2)\nprint(arange_array)\n# Output: [0 2 4 6 8]')">Copy</button>
+    </div>
+    
+    <h4 style="color: #000000; margin-top: 20px;">linspace()</h4>
+    <p style="color: #000000;">Creates an array with evenly spaced values over a specified range.</p>
+    <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>linspace_array = np.linspace(0, 1, 5)
+print(linspace_array)
+# Output: [0.   0.25 0.5  0.75 1.  ]</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('linspace_array = np.linspace(0, 1, 5)\nprint(linspace_array)\n# Output: [0.   0.25 0.5  0.75 1.  ]')">Copy</button>
+    </div>
+    
+    <h3 style="color: #000000; margin-top: 30px;">Additional Methods for Creating Arrays</h3>
+    
+    <h4 style="color: #000000; margin-top: 20px;">eye()</h4>
+    <p style="color: #000000;">Creates an identity matrix.</p>
+    <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>eye_array = np.eye(3)
+print(eye_array)
+# Output:
+# [[1. 0. 0.]
+#  [0. 1. 0.]
+#  [0. 0. 1.]]</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('eye_array = np.eye(3)\nprint(eye_array)\n# Output:\n# [[1. 0. 0.]\n#  [0. 1. 0.]\n#  [0. 0. 1.]]')">Copy</button>
+    </div>
+    
+    <h4 style="color: #000000; margin-top: 20px;">full()</h4>
+    <p style="color: #000000;">Creates an array filled with a specified value.</p>
+    <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>full_array = np.full((2, 3), 7)
+print(full_array)
+# Output:
+# [[7 7 7]
+#  [7 7 7]]</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('full_array = np.full((2, 3), 7)\nprint(full_array)\n# Output:\n# [[7 7 7]\n#  [7 7 7]]')">Copy</button>
+    </div>
+    
+    <h3 style="color: #000000; margin-top: 30px;">Examples of Each Method</h3>
+    
+    <h4 style="color: #000000; margin-top: 20px;">Creating an Array from a List</h4>
+    <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>list_array = np.array([10, 20, 30, 40, 50])
+print(list_array)
+# Output: [10 20 30 40 50]</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('list_array = np.array([10, 20, 30, 40, 50])\nprint(list_array)\n# Output: [10 20 30 40 50]')">Copy</button>
+    </div>
+    <section id="creating-arrays" style="margin-bottom: 40px;">
+      <h2 style="color: #1e3c72; margin-bottom: 20px;">Creating Arrays in NumPy - Different Methods Explained</h2>
+      
+      <h3 style="color: #1e3c72; margin-top: 30px;">Creating Arrays from Lists and Tuples</h3>
+      
+      <h4 style="color: #1e3c72; margin-top: 20px;">From Lists</h4>
+      <p style="color: #000000;">You can create a NumPy array directly from a Python list.</p>
+      <div class="code-block" style="margin-bottom: 20px;">
+        <pre style="color: #000000;"><code>import numpy as np
+    
+  list_array = np.array([1, 2, 3, 4, 5])
+  print(list_array)
+  # Output: [1 2 3 4 5]</code></pre>
+        <button class="copy-btn" onclick="copyToClipboard('import numpy as np\n\nlist_array = np.array([1, 2, 3, 4, 5])\nprint(list_array)\n# Output: [1 2 3 4 5]')">Copy</button>
+      </div>
+      
+      <h4 style="color: #1e3c72; margin-top: 20px;">From Tuples</h4>
+      <p style="color: #000000;">Similarly, you can create a NumPy array from a Python tuple.</p>
+      <div class="code-block" style="margin-bottom: 20px;">
+        <pre style="color: #000000;"><code>tuple_array = np.array((1, 2, 3, 4, 5))
+  print(tuple_array)
+  # Output: [1 2 3 4 5]</code></pre>
+        <button class="copy-btn" onclick="copyToClipboard('tuple_array = np.array((1, 2, 3, 4, 5))\nprint(tuple_array)\n# Output: [1 2 3 4 5]')">Copy</button>
+      </div>
+      
+      <h3 style="color: #1e3c72; margin-top: 30px;">Using Built-in Functions</h3>
+      <p style="color: #000000;">NumPy provides several built-in functions to create arrays with specific patterns or values.</p>
+      
+      <h4 style="color: #1e3c72; margin-top: 20px;">zeros()</h4>
+      <p style="color: #000000;">Creates an array filled with zeros.</p>
+      <div class="code-block" style="margin-bottom: 20px;">
+        <pre style="color: #000000;"><code>zeros_array = np.zeros((3, 4))
+  print(zeros_array)
+  # Output:
+  # [[0. 0. 0. 0.]
+  #  [0. 0. 0. 0.]
+  #  [0. 0. 0. 0.]]</code></pre>
+        <button class="copy-btn" onclick="copyToClipboard('zeros_array = np.zeros((3, 4))\nprint(zeros_array)\n# Output:\n# [[0. 0. 0. 0.]\n#  [0. 0. 0. 0.]\n#  [0. 0. 0. 0.]]')">Copy</button>
+      </div>
+      
+      <h4 style="color: #1e3c72; margin-top: 20px;">ones()</h4>
+      <p style="color: #000000;">Creates an array filled with ones.</p>
+      <div class="code-block" style="margin-bottom: 20px;">
+        <pre style="color: #000000;"><code>ones_array = np.ones((2, 3))
+  print(ones_array)
+  # Output:
+  # [[1. 1. 1.]
+  #  [1. 1. 1.]]</code></pre>
+        <button class="copy-btn" onclick="copyToClipboard('ones_array = np.ones((2, 3))\nprint(ones_array)\n# Output:\n# [[1. 1. 1.]\n#  [1. 1. 1.]]')">Copy</button>
+      </div>
+      
+      <h4 style="color: #1e3c72; margin-top: 20px;">arange()</h4>
+      <p style="color: #000000;">Creates an array with a range of values.</p>
+      <div class="code-block" style="margin-bottom: 20px;">
+        <pre style="color: #000000;"><code>arange_array = np.arange(0, 10, 2)
+  print(arange_array)
+  # Output: [0 2 4 6 8]</code></pre>
+        <button class="copy-btn" onclick="copyToClipboard('arange_array = np.arange(0, 10, 2)\nprint(arange_array)\n# Output: [0 2 4 6 8]')">Copy</button>
+      </div>
+      
+      <h4 style="color: #1e3c72; margin-top: 20px;">linspace()</h4>
+      <p style="color: #000000;">Creates an array with evenly spaced values over a specified range.</p>
+      <div class="code-block" style="margin-bottom: 20px;">
+        <pre style="color: #000000;"><code>linspace_array = np.linspace(0, 1, 5)
+  print(linspace_array)
+  # Output: [0.   0.25 0.5  0.75 1.  ]</code></pre>
+        <button class="copy-btn" onclick="copyToClipboard('linspace_array = np.linspace(0, 1, 5)\nprint(linspace_array)\n# Output: [0.   0.25 0.5  0.75 1.  ]')">Copy</button>
+      </div>
+      
+      <h3 style="color: #1e3c72; margin-top: 30px;">Additional Methods for Creating Arrays</h3>
+      
+      <h4 style="color: #1e3c72; margin-top: 20px;">eye()</h4>
+      <p style="color: #000000;">Creates an identity matrix.</p>
+      <div class="code-block" style="margin-bottom: 20px;">
+        <pre style="color: #000000;"><code>eye_array = np.eye(3)
+  print(eye_array)
+  # Output:
+  # [[1. 0. 0.]
+  #  [0. 1. 0.]
+  #  [0. 0. 1.]]</code></pre>
+        <button class="copy-btn" onclick="copyToClipboard('eye_array = np.eye(3)\nprint(eye_array)\n# Output:\n# [[1. 0. 0.]\n#  [0. 1. 0.]\n#  [0. 0. 1.]]')">Copy</button>
+      </div>
+      
+      <h4 style="color: #1e3c72; margin-top: 20px;">full()</h4>
+      <p style="color: #000000;">Creates an array filled with a specified value.</p>
+      <div class="code-block" style="margin-bottom: 20px;">
+        <pre style="color: #000000;"><code>full_array = np.full((2, 3), 7)
+  print(full_array)
+  # Output:
+  # [[7 7 7]
+  #  [7 7 7]]</code></pre>
+        <button class="copy-btn" onclick="copyToClipboard('full_array = np.full((2, 3), 7)\nprint(full_array)\n# Output:\n# [[7 7 7]\n#  [7 7 7]]')">Copy</button>
+      </div>
+      
+      <h3 style="color: #1e3c72; margin-top: 30px;">Examples of Each Method</h3>
+      
+      <h4 style="color: #1e3c72; margin-top: 20px;">Creating an Array from a List</h4>
+      <div class="code-block" style="margin-bottom: 20px;">
+        <pre style="color: #000000;"><code>list_array = np.array([10, 20, 30, 40, 50])
+  print(list_array)
+  # Output: [10 20 30 40 50]</code></pre>
+        <button class="copy-btn" onclick="copyToClipboard('list_array = np.array([10, 20, 30, 40, 50])\nprint(list_array)\n# Output: [10 20 30 40 50]')">Copy</button>
+      </div>
+      
+      <h4 style="color: #1e3c72; margin-top: 20px;">Creating an Array from a Tuple</h4>
+      <div class="code-block" style="margin-bottom: 20px;">
+        <pre style="color: #000000;"><code>tuple_array = np.array((10, 20, 30, 40, 50))
+  print(tuple_array)
+  # Output: [10 20 30 40 50]</code></pre>
+        <button class="copy-btn" onclick="copyToClipboard('tuple_array = np.array((10, 20, 30, 40, 50))\nprint(tuple_array)\n# Output: [10 20 30 40 50]')">Copy</button>
+      </div>
+      
+      <h4 style="color: #1e3c72; margin-top: 20px;">Using zeros()</h4>
+      <div class="code-block" style="margin-bottom: 20px;">
+        <pre style="color: #000000;"><code>zeros_array = np.zeros((2, 5))
+  print(zeros_array)
+  # Output:
+  # [[0. 0. 0. 0. 0.]
+  #  [0. 0. 0. 0. 0.]]</code></pre>
+        <button class="copy-btn" onclick="copyToClipboard('zeros_array = np.zeros((2, 5))\nprint(zeros_array)\n# Output:\n# [[0. 0. 0. 0. 0.]\n#  [0. 0. 0. 0. 0.]]')">Copy</button>
+      </div>
+      
+      <h4 style="color: #1e3c72; margin-top: 20px;">Using ones()</h4>
+      <div class="code-block" style="margin-bottom: 20px;">
+        <pre style="color: #000000;"><code>ones_array = np.ones((3, 3))
+  print(ones_array)
+  # Output:
+  # [[1. 1. 1.]
+  #  [1. 1. 1.]
+  #  [1. 1. 1.]]</code></pre>
+        <button class="copy-btn" onclick="copyToClipboard('ones_array = np.ones((3, 3))\nprint(ones_array)\n# Output:\n# [[1. 1. 1.]\n#  [1. 1. 1.]\n#  [1. 1. 1.]]')">Copy</button>
+      </div>
+      
+      <h4 style="color: #1e3c72; margin-top: 20px;">Using arange()</h4>
+      <div class="code-block" style="margin-bottom: 20px;">
+        <pre style="color: #000000;"><code>arange_array = np.arange(5, 15, 3)
+  print(arange_array)
+  # Output: [ 5  8 11 14]</code></pre>
+        <button class="copy-btn" onclick="copyToClipboard('arange_array = np.arange(5, 15, 3)\nprint(arange_array)\n# Output: [ 5  8 11 14]')">Copy</button>
+      </div>
+      
+      <h4 style="color: #1e3c72; margin-top: 20px;">Using linspace()</h4>
+      <div class="code-block" style="margin-bottom: 20px;">
+        <pre style="color: #000000;"><code>linspace_array = np.linspace(0, 2, 9)
+  print(linspace_array)
+  # Output: [0.   0.25 0.5  0.75 1.   1.25 1.5  1.75 2.  ]</code></pre>
+        <button class="copy-btn" onclick="copyToClipboard('linspace_array = np.linspace(0, 2, 9)\nprint(linspace_array)\n# Output: [0.   0.25 0.5  0.75 1.   1.25 1.5  1.75 2.  ]')">Copy</button>
+      </div>
+      
+      <h4 style="color: #1e3c72; margin-top: 20px;">Using eye()</h4>
+      <div class="code-block" style="margin-bottom: 20px;">
+        <pre style="color: #000000;"><code>eye_array = np.eye(4)
+  print(eye_array)
+  # Output:
+  # [[1. 0. 0. 0.]
+  #  [0. 1. 0. 0.]
+  #  [0. 0. 1. 0.]
+  #  [0. 0. 0. 1.]]</code></pre>
+        <button class="copy-btn" onclick="copyToClipboard('eye_array = np.eye(4)\nprint(eye_array)\n# Output:\n# [[1. 0. 0. 0.]\n#  [0. 1. 0. 0.]\n#  [0. 0. 1. 0.]\n#  [0. 0. 0. 1.]]')">Copy</button>
+      </div>
+      
+      <h4 style="color: #1e3c72; margin-top: 20px;">Using full()</h4>
+      <div class="code-block" style="margin-bottom: 20px;">
+        <pre style="color: #000000;"><code>full_array = np.full((3, 3), 9)
+  print(full_array)
+  # Output:
+  # [[9 9 9]
+  #  [9 9 9]
+  #  [9 9 9]]</code></pre>
+        <button class="copy-btn" onclick="copyToClipboard('full_array = np.full((3, 3), 9)\nprint(full_array)\n# Output:\n# [[9 9 9]\n#  [9 9 9]\n#  [9 9 9]]')">Copy</button>
+      </div>
+  </section>
+  <section id="universal-functions" style="margin-bottom: 40px;">
+    <h2 style="color: #1e3c72; margin-bottom: 20px;">Universal Functions (ufuncs) in NumPy: Enhancing Efficiency</h2>
+    
+    <h3 style="color: #1e3c72; margin-top: 30px;">Purpose of Universal Functions</h3>
+    <p style="color: #000000; line-height: 1.6;">Universal functions, or ufuncs, are a core feature of NumPy that provide fast, element-wise operations on arrays. They are designed to perform operations efficiently by leveraging low-level C and Fortran routines, which are much faster than equivalent operations in pure Python. This makes ufuncs an essential tool for scientific computing and data analysis.</p>
+    
+    <ul style="color: #000000; line-height: 1.6;">
+        <li><strong>Efficiency:</strong> Ufuncs are implemented in C, allowing for faster execution compared to Python loops.</li>
+        <li><strong>Broadcasting:</strong> They support broadcasting, enabling operations on arrays of different shapes.</li>
+        <li><strong>Vectorization:</strong> Ufuncs eliminate the need for explicit loops, making code more concise and readable.</li>
+        <li><strong>Flexibility:</strong> They can handle a variety of operations, from basic arithmetic to complex mathematical functions.</li>
+    </ul>
+    
+    <h3 style="color: #1e3c72; margin-top: 30px;">Common Universal Functions</h3>
+    
+    <h4 style="color: #1e3c72; margin-top: 20px;">Exponential Function: <code>np.exp()</code></h4>
+    <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>import numpy as np
+
+arr = np.array([1, 2, 3])
+result = np.exp(arr)
+print(result)  # Output: [ 2.71828183  7.3890561  20.08553692]</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('import numpy as np\n\narr = np.array([1, 2, 3])\nresult = np.exp(arr)\nprint(result)  # Output: [ 2.71828183  7.3890561  20.08553692]')">Copy</button>
+    </div>
+    
+    <h4 style="color: #1e3c72; margin-top: 20px;">Natural Logarithm: <code>np.log()</code></h4>
+    <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>arr = np.array([1, np.e, np.e**2])
+result = np.log(arr)
+print(result)  # Output: [0. 1. 2.]</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('arr = np.array([1, np.e, np.e**2])\nresult = np.log(arr)\nprint(result)  # Output: [0. 1. 2.]')">Copy</button>
+    </div>
+    
+    <h4 style="color: #1e3c72; margin-top: 20px;">Trigonometric Functions: <code>np.sin()</code>, <code>np.cos()</code>, <code>np.tan()</code></h4>
+    <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>angles = np.array([0, np.pi/2, np.pi])
+sin_values = np.sin(angles)
+cos_values = np.cos(angles)
+tan_values = np.tan(angles)
+
+print("Sine:", sin_values)  # Output: [0. 1. 0.]
+print("Cosine:", cos_values)  # Output: [ 1.  0. -1.]
+print("Tangent:", tan_values)  # Output: [ 0.  1.63312394e+16 -1.22464680e-16]</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('angles = np.array([0, np.pi/2, np.pi])\nsin_values = np.sin(angles)\ncos_values = np.cos(angles)\ntan_values = np.tan(angles)\n\nprint("Sine:", sin_values)  # Output: [0. 1. 0.]\nprint("Cosine:", cos_values)  # Output: [ 1.  0. -1.]\nprint("Tangent:", tan_values)  # Output: [ 0.  1.63312394e+16 -1.22464680e-16]')">Copy</button>
+    </div>
+    
+    <h3 style="color: #1e3c72; margin-top: 30px;">Enhancing Efficiency with Ufuncs</h3>
+    
+    <h4 style="color: #1e3c72; margin-top: 20px;">Element-wise Operations</h4>
+    <p style="color: #000000; line-height: 1.6;">Perform operations on each element of an array without the need for explicit loops.</p>
+    
+    <h4 style="color: #1e3c72; margin-top: 20px;">Broadcasting</h4>
+    <p style="color: #000000; line-height: 1.6;">Automatically expand the dimensions of arrays to make them compatible for element-wise operations.</p>
+    
+    <h4 style="color: #1e3c72; margin-top: 20px;">In-place Operations</h4>
+    <p style="color: #000000; line-height: 1.6;">Modify arrays in place to save memory and improve performance.</p>
+    
+    <h4 style="color: #1e3c72; margin-top: 20px;">Example: Broadcasting with Ufuncs</h4>
+    <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>arr1 = np.array([1, 2, 3])
+arr2 = np.array([4, 5, 6])
+result = np.add(arr1, arr2)
+print(result)  # Output: [5 7 9]</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('arr1 = np.array([1, 2, 3])\narr2 = np.array([4, 5, 6])\nresult = np.add(arr1, arr2)\nprint(result)  # Output: [5 7 9]')">Copy</button>
+    </div>
+    
+    <h4 style="color: #1e3c72; margin-top: 20px;">Example: In-place Operations</h4>
+    <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>arr = np.array([1, 2, 3])
+np.add(arr, 1, out=arr)
+print(arr)  # Output: [2 3 4]</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('arr = np.array([1, 2, 3])\nnp.add(arr, 1, out=arr)\nprint(arr)  # Output: [2 3 4]')">Copy</button>
+    </div>
+</section>
+<section id="indexing-slicing" style="margin-bottom: 40px;">
+  <h2 style="color: #1e3c72; margin-bottom: 20px;">Indexing and Slicing: Accessing Data in NumPy Arrays</h2>
+  <p style="color: #000000; line-height: 1.6;">Indexing and slicing are fundamental techniques for accessing and manipulating data within NumPy arrays. These methods allow you to retrieve specific elements, rows, columns, or subarrays from your data, making it easier to analyze and process large datasets.</p>
+  
+  <h3 style="color: #1e3c72; margin-top: 30px;">Basics of Indexing</h3>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Single Element Indexing</h4>
+  <p style="color: #000000; line-height: 1.6;">Access elements using their position.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>import numpy as np
+
+arr = np.array([10, 20, 30, 40, 50])
+print(arr[0])  # Output: 10
+print(arr[4])  # Output: 50</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('import numpy as np\n\narr = np.array([10, 20, 30, 40, 50])\nprint(arr[0])  # Output: 10\nprint(arr[4])  # Output: 50')">Copy</button>
+  </div>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">2D Array Indexing</h4>
+  <p style="color: #000000; line-height: 1.6;">Access elements in a 2D array using row and column indices.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>arr_2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+print(arr_2d[1, 2])  # Output: 6
+print(arr_2d[0, 0])  # Output: 1</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('arr_2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])\nprint(arr_2d[1, 2])  # Output: 6\nprint(arr_2d[0, 0])  # Output: 1')">Copy</button>
+  </div>
+  
+  <h3 style="color: #1e3c72; margin-top: 30px;">Basics of Slicing</h3>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">1D Array Slicing</h4>
+  <p style="color: #000000; line-height: 1.6;">Extract a subarray using the start:stop:step syntax.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>arr = np.array([10, 20, 30, 40, 50])
+print(arr[1:4])  # Output: [20 30 40]
+print(arr[:3])   # Output: [10 20 30]
+print(arr[::2])  # Output: [10 30 50]</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('arr = np.array([10, 20, 30, 40, 50])\nprint(arr[1:4])  # Output: [20 30 40]\nprint(arr[:3])   # Output: [10 20 30]\nprint(arr[::2])  # Output: [10 30 50]')">Copy</button>
+  </div>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">2D Array Slicing</h4>
+  <p style="color: #000000; line-height: 1.6;">Extract subarrays from a 2D array.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>arr_2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+print(arr_2d[:2, 1:3])  # Output: [[2 3]
+                      #          [5 6]]
+print(arr_2d[1:, :2])   # Output: [[4 5]
+                      #          [7 8]]</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('arr_2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])\nprint(arr_2d[:2, 1:3])  # Output: [[2 3]\n                        #          [5 6]]\nprint(arr_2d[1:, :2])   # Output: [[4 5]\n                        #          [7 8]]')">Copy</button>
+  </div>
+  
+  <h3 style="color: #1e3c72; margin-top: 30px;">Advanced Indexing Techniques</h3>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Boolean Indexing</h4>
+  <p style="color: #000000; line-height: 1.6;">Use boolean arrays to select elements that meet specific conditions.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>arr = np.array([10, 20, 30, 40, 50])
+bool_idx = arr > 30
+print(arr[bool_idx])  # Output: [40 50]</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('arr = np.array([10, 20, 30, 40, 50])\nbool_idx = arr > 30\nprint(arr[bool_idx])  # Output: [40 50]')">Copy</button>
+  </div>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Fancy Indexing</h4>
+  <p style="color: #000000; line-height: 1.6;">Use arrays of indices to access multiple array elements.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>arr = np.array([10, 20, 30, 40, 50])
+idx = [0, 2, 4]
+print(arr[idx])  # Output: [10 30 50]</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('arr = np.array([10, 20, 30, 40, 50])\nidx = [0, 2, 4]\nprint(arr[idx])  # Output: [10 30 50]')">Copy</button>
+  </div>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">2D Fancy Indexing</h4>
+  <p style="color: #000000; line-height: 1.6;">Access elements in a 2D array using arrays of row and column indices.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>arr_2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+row_idx = [0, 1, 2]
+col_idx = [2, 1, 0]
+print(arr_2d[row_idx, col_idx])  # Output: [3 5 7]</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('arr_2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])\nrow_idx = [0, 1, 2]\ncol_idx = [2, 1, 0]\nprint(arr_2d[row_idx, col_idx])  # Output: [3 5 7]')">Copy</button>
+  </div>
+  
+  <h3 style="color: #1e3c72; margin-top: 30px;">Combining Indexing and Slicing</h3>
+  <p style="color: #000000; line-height: 1.6;">You can combine indexing and slicing to access more complex subarrays.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>arr_2d = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]])
+print(arr_2d[1:, 1:3])  # Output: [[ 6  7]
+                      #          [10 11]]</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('arr_2d = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]])\nprint(arr_2d[1:, 1:3])  # Output: [[ 6  7]\n                        #          [10 11]]')">Copy</button>
+  </div>
+  
+  <h3 style="color: #1e3c72; margin-top: 30px;">Modifying Arrays with Indexing and Slicing</h3>
+  <p style="color: #000000; line-height: 1.6;">You can also modify elements of an array using indexing and slicing.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>arr = np.array([10, 20, 30, 40, 50])
+arr[1:4] = [21, 31, 41]
+print(arr)  # Output: [10 21 31 41 50]</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('arr = np.array([10, 20, 30, 40, 50])\narr[1:4] = [21, 31, 41]\nprint(arr)  # Output: [10 21 31 41 50]')">Copy</button>
+  </div>
+  
+  <h3 style="color: #1e3c72; margin-top: 30px;">Practical Applications</h3>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Filtering Data</h4>
+  <p style="color: #000000; line-height: 1.6;">Use boolean indexing to filter data based on conditions.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>data = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9])
+filtered_data = data[data % 2 == 0]
+print(filtered_data)  # Output: [2 4 6 8]</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('data = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9])\nfiltered_data = data[data % 2 == 0]\nprint(filtered_data)  # Output: [2 4 6 8]')">Copy</button>
+  </div>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Selecting Specific Rows and Columns</h4>
+  <p style="color: #000000; line-height: 1.6;">Use slicing and indexing to select specific rows and columns from a dataset.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+selected_rows = matrix[1:3, :]
+selected_columns = matrix[:, 1:3]
+print("Selected Rows:\n", selected_rows)
+print("Selected Columns:\n", selected_columns)</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])\nselected_rows = matrix[1:3, :]\nselected_columns = matrix[:, 1:3]\nprint("Selected Rows:\n", selected_rows)\nprint("Selected Columns:\n", selected_columns)')">Copy</button>
+  </div>
+</section>
+<section id="reshaping-arrays" style="margin-bottom: 40px;">
+  <h2 style="color: #1e3c72; margin-bottom: 20px;">Reshaping Arrays in NumPy: Transforming Data Without Copying</h2>
+  <p style="color: #000000; line-height: 1.6;">Reshaping arrays in NumPy allows you to change the dimensionality of your data without altering its underlying data. This is particularly useful for preparing data for machine learning models, visualizations, or other analytical tasks. The primary functions for reshaping arrays are <code>reshape()</code> and <code>flatten()</code>, among others.</p>
+  
+  <h3 style="color: #1e3c72; margin-top: 30px;">Basics of Reshaping</h3>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Using <code>reshape()</code></h4>
+  <p style="color: #000000; line-height: 1.6;">This function changes the shape of an array without modifying its data.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>import numpy as np
+
+arr = np.array([1, 2, 3, 4, 5, 6])
+reshaped_arr = arr.reshape((2, 3))
+print(reshaped_arr)
+# Output:
+# [[1 2 3]
+#  [4 5 6]]</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('import numpy as np\n\narr = np.array([1, 2, 3, 4, 5, 6])\nreshaped_arr = arr.reshape((2, 3))\nprint(reshaped_arr)\n# Output:\n# [[1 2 3]\n#  [4 5 6]]')">Copy</button>
+  </div>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Using <code>flatten()</code></h4>
+  <p style="color: #000000; line-height: 1.6;">This method converts a multi-dimensional array into a one-dimensional array.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>arr_2d = np.array([[1, 2, 3], [4, 5, 6]])
+flattened_arr = arr_2d.flatten()
+print(flattened_arr)  # Output: [1 2 3 4 5 6]</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('arr_2d = np.array([[1, 2, 3], [4, 5, 6]])\nflattened_arr = arr_2d.flatten()\nprint(flattened_arr)  # Output: [1 2 3 4 5 6]')">Copy</button>
+  </div>
+  
+  <h3 style="color: #1e3c72; margin-top: 30px;">Advanced Reshaping Techniques</h3>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Using <code>ravel()</code></h4>
+  <p style="color: #000000; line-height: 1.6;">Similar to <code>flatten()</code>, but returns a flattened array that is a view of the original array whenever possible.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>arr_2d = np.array([[1, 2, 3], [4, 5, 6]])
+raveled_arr = arr_2d.ravel()
+print(raveled_arr)  # Output: [1 2 3 4 5 6]</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('arr_2d = np.array([[1, 2, 3], [4, 5, 6]])\nraveled_arr = arr_2d.ravel()\nprint(raveled_arr)  # Output: [1 2 3 4 5 6]')">Copy</button>
+  </div>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Using <code>transpose()</code></h4>
+  <p style="color: #000000; line-height: 1.6;">This function swaps the axes of an array.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>arr_2d = np.array([[1, 2, 3], [4, 5, 6]])
+transposed_arr = arr_2d.transpose()
+print(transposed_arr)
+# Output:
+# [[1 4]
+#  [2 5]
+#  [3 6]]</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('arr_2d = np.array([[1, 2, 3], [4, 5, 6]])\ntransposed_arr = arr_2d.transpose()\nprint(transposed_arr)\n# Output:\n# [[1 4]\n#  [2 5]\n#  [3 6]]')">Copy</button>
+  </div>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Using <code>reshape()</code> with -1</h4>
+  <p style="color: #000000; line-height: 1.6;">Automatically calculates the size of one dimension.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>arr = np.array([1, 2, 3, 4, 5, 6])
+reshaped_arr = arr.reshape((3, -1))
+print(reshaped_arr)
+# Output:
+# [[1 2]
+#  [3 4]
+#  [5 6]]</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('arr = np.array([1, 2, 3, 4, 5, 6])\nreshaped_arr = arr.reshape((3, -1))\nprint(reshaped_arr)\n# Output:\n# [[1 2]\n#  [3 4]\n#  [5 6]]')">Copy</button>
+  </div>
+  
+  <h3 style="color: #1e3c72; margin-top: 30px;">When Does Reshaping Copy Data?</h3>
+  <p style="color: #000000; line-height: 1.6;">Reshaping an array does not always copy the data. Here are some scenarios:</p>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">No Copy</h4>
+  <p style="color: #000000; line-height: 1.6;">If the new shape is compatible with the original shape, <code>reshape()</code> returns a view of the original array.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>arr = np.array([1, 2, 3, 4, 5, 6])
+reshaped_arr = arr.reshape((2, 3))
+reshaped_arr[0, 0] = 99
+print(arr)  # Output: [99  2  3  4  5  6]</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('arr = np.array([1, 2, 3, 4, 5, 6])\nreshaped_arr = arr.reshape((2, 3))\nreshaped_arr[0, 0] = 99\nprint(arr)  # Output: [99  2  3  4  5  6]')">Copy</button>
+  </div>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Copy</h4>
+  <p style="color: #000000; line-height: 1.6;">If the new shape requires rearranging the data in memory, a copy is made.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>arr = np.array([1, 2, 3, 4, 5, 6])
+reshaped_arr = arr.reshape((3, 2), order='F')
+reshaped_arr[0, 0] = 99
+print(arr)  # Output: [1 2 3 4 5 6]</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('arr = np.array([1, 2, 3, 4, 5, 6])\nreshaped_arr = arr.reshape((3, 2), order=\'F\')\nreshaped_arr[0, 0] = 99\nprint(arr)  # Output: [1 2 3 4 5 6]')">Copy</button>
+    </div>
+    
+    <h3 style="color: #1e3c72; margin-top: 30px;">Practical Applications of Reshaping</h3>
+    
+    <h4 style="color: #1e3c72; margin-top: 20px;">Preparing Data for Machine Learning</h4>
+    <p style="color: #000000; line-height: 1.6;">Reshaping is often used to prepare data for machine learning models. For example, converting a 1D array of pixel values into a 2D array for image processing.</p>
+    <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>pixels = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8])
+image = pixels.reshape((3, 3))
+print(image)
+# Output:
+# [[0 1 2]
+#  [3 4 5]
+#  [6 7 8]]</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('pixels = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8])\nimage = pixels.reshape((3, 3))\nprint(image)\n# Output:\n# [[0 1 2]\n#  [3 4 5]\n#  [6 7 8]]')">Copy</button>
+    </div>
+    
+    <h4 style="color: #1e3c72; margin-top: 20px;">Efficient Data Manipulation</h4>
+    <p style="color: #000000; line-height: 1.6;">Reshaping can help in efficiently manipulating data for various analytical tasks.</p>
+    <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>data = np.arange(12)
+reshaped_data = data.reshape((3, 4))
+print(reshaped_data)
+# Output:
+# [[ 0  1  2  3]
+#  [ 4  5  6  7]
+#  [ 8  9 10 11]]</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('data = np.arange(12)\nreshaped_data = data.reshape((3, 4))\nprint(reshaped_data)\n# Output:\n# [[ 0  1  2  3]\n#  [ 4  5  6  7]\n#  [ 8  9 10 11]]')">Copy</button>
+    </div>
+</section>
+<section id="combining-splitting-arrays" style="margin-bottom: 40px;">
+  <h2 style="color: #1e3c72; margin-bottom: 20px;">Combining and Splitting Arrays in NumPy: Efficient Data Manipulation</h2>
+  <p style="color: #000000; line-height: 1.6;">Combining and splitting arrays are essential operations in NumPy that allow you to manipulate and transform data efficiently. These operations enable you to merge multiple arrays into one or divide a single array into multiple subarrays, facilitating various data processing tasks.</p>
+  
+  <h3 style="color: #1e3c72; margin-top: 30px;">Combining Arrays</h3>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Using <code>concatenate()</code></h4>
+  <p style="color: #000000; line-height: 1.6;">This function joins a sequence of arrays along an existing axis.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>import numpy as np
+
+arr1 = np.array([1, 2, 3])
+arr2 = np.array([4, 5, 6])
+combined_arr = np.concatenate((arr1, arr2))
+print(combined_arr)  # Output: [1 2 3 4 5 6]</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('import numpy as np\n\narr1 = np.array([1, 2, 3])\narr2 = np.array([4, 5, 6])\ncombined_arr = np.concatenate((arr1, arr2))\nprint(combined_arr)  # Output: [1 2 3 4 5 6]')">Copy</button>
+  </div>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Using <code>stack()</code></h4>
+  <p style="color: #000000; line-height: 1.6;">This function joins a sequence of arrays along a new axis.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>arr1 = np.array([1, 2, 3])
+arr2 = np.array([4, 5, 6])
+stacked_arr = np.stack((arr1, arr2), axis=0)
+print(stacked_arr)
+# Output:
+# [[1 2 3]
+#  [4 5 6]]</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('arr1 = np.array([1, 2, 3])\narr2 = np.array([4, 5, 6])\nstacked_arr = np.stack((arr1, arr2), axis=0)\nprint(stacked_arr)\n# Output:\n# [[1 2 3]\n#  [4 5 6]]')">Copy</button>
+  </div>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Using <code>hstack()</code> and <code>vstack()</code></h4>
+  <p style="color: #000000; line-height: 1.6;">These functions stack arrays in sequence horizontally (column-wise) or vertically (row-wise).</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>arr1 = np.array([1, 2, 3])
+arr2 = np.array([4, 5, 6])
+hstacked_arr = np.hstack((arr1, arr2))
+vstacked_arr = np.vstack((arr1, arr2))
+print(hstacked_arr)  # Output: [1 2 3 4 5 6]
+print(vstacked_arr)
+# Output:
+# [[1 2 3]
+#  [4 5 6]]</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('arr1 = np.array([1, 2, 3])\narr2 = np.array([4, 5, 6])\nhstacked_arr = np.hstack((arr1, arr2))\nvstacked_arr = np.vstack((arr1, arr2))\nprint(hstacked_arr)  # Output: [1 2 3 4 5 6]\nprint(vstacked_arr)\n# Output:\n# [[1 2 3]\n#  [4 5 6]]')">Copy</button>
+  </div>
+  
+  <h3 style="color: #1e3c72; margin-top: 30px;">Splitting Arrays</h3>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Using <code>split()</code></h4>
+  <p style="color: #000000; line-height: 1.6;">This function splits an array into multiple subarrays.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>arr = np.array([1, 2, 3, 4, 5, 6])
+split_arr = np.split(arr, 3)
+print(split_arr)  # Output: [array([1, 2]), array([3, 4]), array([5, 6])]</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('arr = np.array([1, 2, 3, 4, 5, 6])\nsplit_arr = np.split(arr, 3)\nprint(split_arr)  # Output: [array([1, 2]), array([3, 4]), array([5, 6])]')">Copy</button>
+  </div>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Using <code>hsplit()</code></h4>
+  <p style="color: #000000; line-height: 1.6;">This function splits an array horizontally (column-wise).</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>arr = np.array([[1, 2, 3], [4, 5, 6]])
+hsplit_arr = np.hsplit(arr, 3)
+print(hsplit_arr)
+# Output:
+# [array([[1],
+#         [4]]),
+#  array([[2],
+#         [5]]),
+#  array([[3],
+#         [6]])]</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('arr = np.array([[1, 2, 3], [4, 5, 6]])\nhsplit_arr = np.hsplit(arr, 3)\nprint(hsplit_arr)\n# Output:\n# [array([[1],\n#         [4]]),\n#  array([[2],\n#         [5]]),\n#  array([[3],\n#         [6]])]')">Copy</button>
+  </div>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Using <code>vsplit()</code></h4>
+  <p style="color: #000000; line-height: 1.6;">This function splits an array vertically (row-wise).</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>arr = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+vsplit_arr = np.vsplit(arr, 3)
+print(vsplit_arr)
+# Output:
+# [array([[1, 2, 3]]),
+#  array([[4, 5, 6]]),
+#  array([[7, 8, 9]])]</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('arr = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])\nvsplit_arr = np.vsplit(arr, 3)\nprint(vsplit_arr)\n# Output:\n# [array([[1, 2, 3]]),\n#  array([[4, 5, 6]]),\n#  array([[7, 8, 9]])]')">Copy</button>
+  </div>
+  
+  <h3 style="color: #1e3c72; margin-top: 30px;">How These Functions Help with Data Transformation</h3>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Data Preparation</h4>
+  <p style="color: #000000; line-height: 1.6;">Combining and splitting arrays can help prepare data for machine learning models by merging training and testing datasets or dividing data into smaller, manageable chunks.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code># Combining training and testing datasets
+train_data = np.array([[1, 2], [3, 4]])
+test_data = np.array([[5, 6], [7, 8]])
+combined_data = np.vstack((train_data, test_data))
+print(combined_data)
+# Output:
+# [[1 2]
+#  [3 4]
+#  [5 6]
+#  [7 8]]</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('# Combining training and testing datasets\ntrain_data = np.array([[1, 2], [3, 4]])\ntest_data = np.array([[5, 6], [7, 8]])\ncombined_data = np.vstack((train_data, test_data))\nprint(combined_data)\n# Output:\n# [[1 2]\n#  [3 4]\n#  [5 6]\n#  [7 8]]')">Copy</button>
+  </div>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Data Cleaning</h4>
+  <p style="color: #000000; line-height: 1.6;">These functions can be used to clean and organize data, such as merging multiple data sources or splitting large datasets into smaller parts for easier processing.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code># Splitting a large dataset into smaller parts
+large_data = np.arange(12).reshape((3, 4))
+split_data = np.hsplit(large_data, 2)
+print(split_data)
+# Output:
+# [array([[0, 1],
+#         [4, 5],
+#         [8, 9]]),
+#  array([[ 2,  3],
+#         [ 6,  7],
+#         [10, 11]])]</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('# Splitting a large dataset into smaller parts\nlarge_data = np.arange(12).reshape((3, 4))\nsplit_data = np.hsplit(large_data, 2)\nprint(split_data)\n# Output:\n# [array([[0, 1],\n#         [4, 5],\n#         [8, 9]]),\n#  array([[ 2,  3],\n#         [ 6,  7],\n#         [10, 11]])]')">Copy</button>
+  </div>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Data Analysis</h4>
+  <p style="color: #000000; line-height: 1.6;">Efficiently manipulate and transform data to fit the requirements of various analytical tasks, such as reshaping data for visualization or statistical analysis.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code># Reshaping data for visualization
+data = np.array([1, 2, 3, 4, 5, 6])
+reshaped_data = data.reshape((2, 3))
+print(reshaped_data)
+# Output:
+# [[1 2 3]
+#  [4 5 6]]</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('# Reshaping data for visualization\ndata = np.array([1, 2, 3, 4, 5, 6])\nreshaped_data = data.reshape((2, 3))\nprint(reshaped_data)\n# Output:\n# [[1 2 3]\n#  [4 5 6]]')">Copy</button>
+  </div>
+</section>
+<section id="broadcasting" style="margin-bottom: 40px;">
+  <h2 style="color: #1e3c72; margin-bottom: 20px;">Broadcasting in NumPy: Efficient Computations with Different Shapes</h2>
+  <p style="color: #000000; line-height: 1.6;">Broadcasting is a powerful feature in NumPy that allows you to perform arithmetic operations on arrays of different shapes. It simplifies code and increases efficiency by automatically expanding the smaller array to match the shape of the larger array without making unnecessary copies of data.</p>
+  
+  <h3 style="color: #1e3c72; margin-top: 30px;">How Broadcasting Works</h3>
+  <p style="color: #000000; line-height: 1.6;">Broadcasting follows a set of rules to determine how arrays of different shapes can be combined:</p>
+  <ul style="color: #000000; line-height: 1.6;">
+      <li><strong>Rule 1:</strong> If the arrays do not have the same number of dimensions, prepend 1s to the shape of the smaller array until both shapes have the same length.</li>
+      <li><strong>Rule 2:</strong> Arrays are compatible for broadcasting if, for each dimension, the dimension sizes are either equal or one of them is 1.</li>
+  </ul>
+  
+  <h3 style="color: #1e3c72; margin-top: 30px;">Examples of Broadcasting</h3>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Scalar and Array</h4>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>import numpy as np
+
+arr = np.array([1, 2, 3])
+result = arr + 5
+print(result)  # Output: [6 7 8]</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('import numpy as np\n\narr = np.array([1, 2, 3])\nresult = arr + 5\nprint(result)  # Output: [6 7 8]')">Copy</button>
+  </div>
+  <p style="color: #000000; line-height: 1.6;">Here, the scalar 5 is broadcasted to match the shape of <code>arr</code>.</p>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Two Arrays of Different Shapes</h4>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>arr1 = np.array([[1, 2, 3], [4, 5, 6]])
+arr2 = np.array([1, 2, 3])
+result = arr1 + arr2
+print(result)
+# Output:
+# [[2 4 6]
+#  [5 7 9]]</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('arr1 = np.array([[1, 2, 3], [4, 5, 6]])\narr2 = np.array([1, 2, 3])\nresult = arr1 + arr2\nprint(result)\n# Output:\n# [[2 4 6]\n#  [5 7 9]]')">Copy</button>
+  </div>
+  <p style="color: #000000; line-height: 1.6;">In this example, <code>arr2</code> is broadcasted to match the shape of <code>arr1</code>.</p>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Higher Dimensional Arrays</h4>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>arr1 = np.array([[[1], [2], [3]], [[4], [5], [6]]])
+arr2 = np.array([10, 20, 30])
+result = arr1 + arr2
+print(result)
+# Output:
+# [[[11 21 31]
+#   [12 22 32]
+#   [13 23 33]]
+
+#  [[14 24 34]
+#   [15 25 35]
+#   [16 26 36]]]</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('arr1 = np.array([[[1], [2], [3]], [[4], [5], [6]]])\narr2 = np.array([10, 20, 30])\nresult = arr1 + arr2\nprint(result)\n# Output:\n# [[[11 21 31]\n#   [12 22 32]\n#   [13 23 33]]\n\n#  [[14 24 34]\n#   [15 25 35]\n#   [16 26 36]]]')">Copy</button>
+  </div>
+  <p style="color: #000000; line-height: 1.6;">Here, <code>arr2</code> is broadcasted across the last dimension of <code>arr1</code>.</p>
+  
+  <h3 style="color: #1e3c72; margin-top: 30px;">Benefits of Broadcasting</h3>
+  <ul style="color: #000000; line-height: 1.6;">
+      <li><strong>Simplifies Code:</strong> Broadcasting eliminates the need for explicit loops, making the code more concise and readable.</li>
+      <li><strong>Increases Efficiency:</strong> By avoiding unnecessary data replication, broadcasting reduces memory usage and speeds up computations.</li>
+      <li><strong>Flexibility:</strong> It allows operations on arrays of different shapes, making it easier to perform complex mathematical operations.</li>
+  </ul>
+  
+  <h3 style="color: #1e3c72; margin-top: 30px;">Practical Example: Normalizing Data</h3>
+  <p style="color: #000000; line-height: 1.6;">Broadcasting can be used to normalize data efficiently:</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>data = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+mean = np.mean(data, axis=0)
+std = np.std(data, axis=0)
+normalized_data = (data - mean) / std
+print(normalized_data)
+# Output:
+# [[-1.22474487 -1.22474487 -1.22474487]
+#  [ 0.          0.          0.        ]
+#  [ 1.22474487  1.22474487  1.22474487]]</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('data = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])\nmean = np.mean(data, axis=0)\nstd = np.std(data, axis=0)\nnormalized_data = (data - mean) / std\nprint(normalized_data)\n# Output:\n# [[-1.22474487 -1.22474487 -1.22474487]\n#  [ 0.          0.          0.        ]\n#  [ 1.22474487  1.22474487  1.22474487]]')">Copy</button>
+  </div>
+  <p style="color: #000000; line-height: 1.6;">In this example, the mean and standard deviation arrays are broadcasted to match the shape of <code>data</code>.</p>
+  
+  <h3 style="color: #1e3c72; margin-top: 30px;">Additional Examples of Broadcasting</h3>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Element-wise Multiplication</h4>
+  <p style="color: #000000; line-height: 1.6;">Broadcasting can be used for element-wise multiplication of arrays with different shapes.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>arr1 = np.array([[1, 2, 3], [4, 5, 6]])
+arr2 = np.array([1, 2, 3])
+result = arr1 * arr2
+print(result)
+# Output:
+# [[ 1  4  9]
+#  [ 4 10 18]]</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('arr1 = np.array([[1, 2, 3], [4, 5, 6]])\narr2 = np.array([1, 2, 3])\nresult = arr1 * arr2\nprint(result)\n# Output:\n# [[ 1  4  9]\n#  [ 4 10 18]]')">Copy</button>
+  </div>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Adding a Vector to Each Row of a Matrix</h4>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+vector = np.array([1, 0, -1])
+result = matrix + vector
+print(result)
+# Output:
+# [[2 2 2]
+#  [5 5 5]
+#  [8 8 8]]</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])\nvector = np.array([1, 0, -1])\nresult = matrix + vector\nprint(result)\n# Output:\n# [[2 2 2]\n#  [5 5 5]\n#  [8 8 8]]')">Copy</button>
+  </div>
+</section>
+<section id="statistical-functions" style="margin-bottom: 40px;">
+  <h2 style="color: #1e3c72; margin-bottom: 20px;">NumPy Statistical Functions: Essential Aggregations</h2>
+  <p style="color: #000000; line-height: 1.6;">NumPy provides a suite of statistical functions that are essential for data analysis. These functions allow you to compute various statistical measures such as mean, median, standard deviation, and variance, which are crucial for understanding the distribution and variability of your data.</p>
+  
+  <h3 style="color: #1e3c72; margin-top: 30px;">Common Statistical Functions</h3>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Mean (<code>np.mean()</code>)</h4>
+  <p style="color: #000000; line-height: 1.6;">Calculates the average of the array elements.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>import numpy as np
+
+data = np.array([1, 2, 3, 4, 5])
+mean_value = np.mean(data)
+print(mean_value)  # Output: 3.0</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('import numpy as np\n\ndata = np.array([1, 2, 3, 4, 5])\nmean_value = np.mean(data)\nprint(mean_value)  # Output: 3.0')">Copy</button>
+  </div>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Median (<code>np.median()</code>)</h4>
+  <p style="color: #000000; line-height: 1.6;">Finds the middle value of the array elements.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>median_value = np.median(data)
+print(median_value)  # Output: 3.0</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('median_value = np.median(data)\nprint(median_value)  # Output: 3.0')">Copy</button>
+  </div>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Standard Deviation (<code>np.std()</code>)</h4>
+  <p style="color: #000000; line-height: 1.6;">Measures the amount of variation or dispersion of the array elements.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>std_value = np.std(data)
+print(std_value)  # Output: 1.4142135623730951</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('std_value = np.std(data)\nprint(std_value)  # Output: 1.4142135623730951')">Copy</button>
+  </div>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Variance (<code>np.var()</code>)</h4>
+  <p style="color: #000000; line-height: 1.6;">Computes the average of the squared differences from the mean.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>var_value = np.var(data)
+print(var_value)  # Output: 2.0</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('var_value = np.var(data)\nprint(var_value)  # Output: 2.0')">Copy</button>
+  </div>
+  
+  <h3 style="color: #1e3c72; margin-top: 30px;">Applications of Statistical Functions</h3>
+  <ul style="color: #000000; line-height: 1.6;">
+      <li><strong>Data Analysis:</strong> These functions help summarize and describe the main features of a dataset.</li>
+      <li><strong>Machine Learning:</strong> Used for feature scaling and normalization.</li>
+      <li><strong>Quality Control:</strong> Monitor and control the variability in manufacturing processes.</li>
+  </ul>
+  
+  <h3 style="color: #1e3c72; margin-top: 30px;">Applying Functions Across Different Axes</h3>
+  <p style="color: #000000; line-height: 1.6;">NumPy allows you to apply these statistical functions across different axes of an array, which is particularly useful for multi-dimensional data.</p>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Mean Across Rows and Columns</h4>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>data_2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+mean_rows = np.mean(data_2d, axis=1)
+mean_columns = np.mean(data_2d, axis=0)
+print("Mean across rows:", mean_rows)  # Output: [2. 5. 8.]
+print("Mean across columns:", mean_columns)  # Output: [4. 5. 6.]</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('data_2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])\nmean_rows = np.mean(data_2d, axis=1)\nmean_columns = np.mean(data_2d, axis=0)\nprint("Mean across rows:", mean_rows)  # Output: [2. 5. 8.]\nprint("Mean across columns:", mean_columns)  # Output: [4. 5. 6.]')">Copy</button>
+  </div>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Median Across Rows and Columns</h4>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>median_rows = np.median(data_2d, axis=1)
+median_columns = np.median(data_2d, axis=0)
+print("Median across rows:", median_rows)  # Output: [2. 5. 8.]
+print("Median across columns:", median_columns)  # Output: [4. 5. 6.]</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('median_rows = np.median(data_2d, axis=1)\nmedian_columns = np.median(data_2d, axis=0)\nprint("Median across rows:", median_rows)  # Output: [2. 5. 8.]\nprint("Median across columns:", median_columns)  # Output: [4. 5. 6.]')">Copy</button>
+  </div>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Standard Deviation Across Rows and Columns</h4>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>std_rows = np.std(data_2d, axis=1)
+std_columns = np.std(data_2d, axis=0)
+print("Standard deviation across rows:", std_rows)  # Output: [0.81649658 0.81649658 0.81649658]
+print("Standard deviation across columns:", std_columns)  # Output: [2.44948974 2.44948974 2.44948974]</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('std_rows = np.std(data_2d, axis=1)\nstd_columns = np.std(data_2d, axis=0)\nprint("Standard deviation across rows:", std_rows)  # Output: [0.81649658 0.81649658 0.81649658]\nprint("Standard deviation across columns:", std_columns)  # Output: [2.44948974 2.44948974 2.44948974]')">Copy</button>
+  </div>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Variance Across Rows and Columns</h4>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>var_rows = np.var(data_2d, axis=1)
+var_columns = np.var(data_2d, axis=0)
+print("Variance across rows:", var_rows)  # Output: [0.66666667 0.66666667 0.66666667]
+print("Variance across columns:", var_columns)  # Output: [6. 6. 6.]</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('var_rows = np.var(data_2d, axis=1)\nvar_columns = np.var(data_2d, axis=0)\nprint("Variance across rows:", var_rows)  # Output: [0.66666667 0.66666667 0.66666667]\nprint("Variance across columns:", var_columns)  # Output: [6. 6. 6.]')">Copy</button>
+    </div>
+    
+    <h3 style="color: #1e3c72; margin-top: 30px;">Practical Applications of Statistical Functions</h3>
+    
+    <h4 style="color: #1e3c72; margin-top: 20px;">Data Analysis</h4>
+    <p style="color: #000000; line-height: 1.6;">Statistical functions are fundamental in summarizing and describing datasets, providing insights into the central tendency and variability of the data.</p>
+    <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>data = np.random.randn(1000)
+mean = np.mean(data)
+std = np.std(data)
+print(f"Mean: {mean}, Standard Deviation: {std}")</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('data = np.random.randn(1000)\nmean = np.mean(data)\nstd = np.std(data)\nprint(f"Mean: {mean}, Standard Deviation: {std}")')">Copy</button>
+    </div>
+    
+    <h4 style="color: #1e3c72; margin-top: 20px;">Machine Learning</h4>
+    <p style="color: #000000; line-height: 1.6;">In machine learning, these functions are used for feature scaling and normalization, which are crucial steps in preprocessing data for model training.</p>
+    <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>data = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+normalized_data = (data - np.mean(data, axis=0)) / np.std(data, axis=0)
+print(normalized_data)</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('data = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])\nnormalized_data = (data - np.mean(data, axis=0)) / np.std(data, axis=0)\nprint(normalized_data)')">Copy</button>
+    </div>
+    
+    <h4 style="color: #1e3c72; margin-top: 20px;">Quality Control</h4>
+    <p style="color: #000000; line-height: 1.6;">In manufacturing, statistical functions help monitor and control the variability in processes, ensuring product quality and consistency.</p>
+    <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>measurements = np.array([10.1, 10.2, 10.3, 10.4, 10.5])
+mean_measurement = np.mean(measurements)
+std_measurement = np.std(measurements)
+print(f"Mean Measurement: {mean_measurement}, Standard Deviation: {std_measurement}")</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('measurements = np.array([10.1, 10.2, 10.3, 10.4, 10.5])\nmean_measurement = np.mean(measurements)\nstd_measurement = np.std(measurements)\nprint(f"Mean Measurement: {mean_measurement}, Standard Deviation: {std_measurement}")')">Copy</button>
+    </div>
+</section>
+<section id="vectorization" style="margin-bottom: 40px;">
+  <h2 style="color: #1e3c72; margin-bottom: 20px;">Vectorization in NumPy: Writing Fast, Efficient Code</h2>
+  <p style="color: #000000; line-height: 1.6;">Vectorization is a technique in NumPy that allows you to perform operations on entire arrays without the need for explicit loops. This approach leverages low-level optimizations and parallel processing, resulting in significantly faster and more efficient code.</p>
+  
+  <h3 style="color: #1e3c72; margin-top: 30px;">How Vectorization Works</h3>
+  <p style="color: #000000; line-height: 1.6;">Vectorization takes advantage of NumPy’s ability to perform element-wise operations directly on arrays. Instead of iterating through each element with a loop, you can apply operations to the entire array at once. This not only simplifies the code but also enhances performance by utilizing optimized C and Fortran libraries under the hood.</p>
+  
+  <h3 style="color: #1e3c72; margin-top: 30px;">Benefits of Vectorization</h3>
+  <ul style="color: #000000; line-height: 1.6;">
+      <li><strong>Speed:</strong> Vectorized operations are much faster than their loop-based counterparts.</li>
+      <li><strong>Simplicity:</strong> Code becomes more concise and easier to read.</li>
+      <li><strong>Efficiency:</strong> Reduces the overhead associated with Python loops, leading to better performance.</li>
+  </ul>
+  
+  <h3 style="color: #1e3c72; margin-top: 30px;">Examples of Vectorized vs. Non-Vectorized Approaches</h3>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Element-wise Addition</h4>
+  <p style="color: #000000; line-height: 1.6;">Non-Vectorized Approach:</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>import numpy as np
+
+arr1 = np.array([1, 2, 3, 4, 5])
+arr2 = np.array([5, 4, 3, 2, 1])
+result = np.zeros(5)
+
+for i in range(len(arr1)):
+  result[i] = arr1[i] + arr2[i]
+
+print(result)  # Output: [6. 6. 6. 6. 6.]</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('import numpy as np\n\narr1 = np.array([1, 2, 3, 4, 5])\narr2 = np.array([5, 4, 3, 2, 1])\nresult = np.zeros(5)\n\nfor i in range(len(arr1)):\n    result[i] = arr1[i] + arr2[i]\n\nprint(result)  # Output: [6. 6. 6. 6. 6.]')">Copy</button>
+  </div>
+  <p style="color: #000000; line-height: 1.6;">Vectorized Approach:</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>result = arr1 + arr2
+print(result)  # Output: [6 6 6 6 6]</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('result = arr1 + arr2\nprint(result)  # Output: [6 6 6 6 6]')">Copy</button>
+  </div>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Element-wise Multiplication</h4>
+  <p style="color: #000000; line-height: 1.6;">Non-Vectorized Approach:</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>result = np.zeros(5)
+
+for i in range(len(arr1)):
+  result[i] = arr1[i] * arr2[i]
+
+print(result)  # Output: [5. 8. 9. 8. 5.]</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('result = np.zeros(5)\n\nfor i in range(len(arr1)):\n    result[i] = arr1[i] * arr2[i]\n\nprint(result)  # Output: [5. 8. 9. 8. 5.]')">Copy</button>
+  </div>
+  <p style="color: #000000; line-height: 1.6;">Vectorized Approach:</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>result = arr1 * arr2
+print(result)  # Output: [5 8 9 8 5]</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('result = arr1 * arr2\nprint(result)  # Output: [5 8 9 8 5]')">Copy</button>
+  </div>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Computing the Dot Product</h4>
+  <p style="color: #000000; line-height: 1.6;">Non-Vectorized Approach:</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>dot_product = 0
+
+for i in range(len(arr1)):
+  dot_product += arr1[i] * arr2[i]
+
+print(dot_product)  # Output: 35</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('dot_product = 0\n\nfor i in range(len(arr1)):\n    dot_product += arr1[i] * arr2[i]\n\nprint(dot_product)  # Output: 35')">Copy</button>
+  </div>
+  <p style="color: #000000; line-height: 1.6;">Vectorized Approach:</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>dot_product = np.dot(arr1, arr2)
+print(dot_product)  # Output: 35</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('dot_product = np.dot(arr1, arr2)\nprint(dot_product)  # Output: 35')">Copy</button>
+  </div>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Practical Example: Applying a Mathematical Function</h4>
+  <p style="color: #000000; line-height: 1.6;">Consider applying a mathematical function, such as the sine function, to each element of an array.</p>
+  <p style="color: #000000; line-height: 1.6;">Non-Vectorized Approach:</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>import math
+
+arr = np.array([0, np.pi/2, np.pi, 3*np.pi/2, 2*np.pi])
+result = np.zeros(5)
+
+for i in range(len(arr)):
+  result[i] = math.sin(arr[i])
+
+print(result)  # Output: [ 0.  1.  0. -1.  0.]</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('import math\n\narr = np.array([0, np.pi/2, np.pi, 3*np.pi/2, 2*np.pi])\nresult = np.zeros(5)\n\nfor i in range(len(arr)):\n    result[i] = math.sin(arr[i])\n\nprint(result)  # Output: [ 0.  1.  0. -1.  0.]')">Copy</button>
+  </div>
+  <p style="color: #000000; line-height: 1.6;">Vectorized Approach:</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>result = np.sin(arr)
+print(result)  # Output: [ 0.  1.  0. -1.  0.]</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('result = np.sin(arr)\nprint(result)  # Output: [ 0.  1.  0. -1.  0.]')">Copy</button>
+  </div>
+  <h3 style="color: #1e3c72; margin-top: 30px;">Advantages of Vectorization in Real-World Applications</h3>
+    
+  <h4 style="color: #1e3c72; margin-top: 20px;">Data Analysis</h4>
+  <p style="color: #000000; line-height: 1.6;">Vectorization is crucial in data analysis for performing operations on large datasets efficiently. For example, calculating the mean of a large dataset can be done quickly using vectorized operations.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>data = np.random.rand(1000000)
+mean_value = np.mean(data)
+print(mean_value)</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('data = np.random.rand(1000000)\nmean_value = np.mean(data)\nprint(mean_value)')">Copy</button>
+  </div>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Machine Learning</h4>
+  <p style="color: #000000; line-height: 1.6;">In machine learning, vectorization is used to speed up the training process by performing operations on entire datasets at once. This is particularly important for gradient descent and other optimization algorithms.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>weights = np.random.rand(1000)
+features = np.random.rand(1000, 100)
+predictions = np.dot(features, weights)</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('weights = np.random.rand(1000)\nfeatures = np.random.rand(1000, 100)\npredictions = np.dot(features, weights)')">Copy</button>
+  </div>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Image Processing</h4>
+  <p style="color: #000000; line-height: 1.6;">Vectorization is also used in image processing to apply filters and transformations to images efficiently.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <pre style="color: #000000;"><code>image = np.random.rand(256, 256)
+blurred_image = np.convolve(image.flatten(), np.ones(9)/9, mode='same').reshape(256, 256)</code></pre>
+    <button class="copy-btn" onclick="copyToClipboard('image = np.random.rand(256, 256)\nblurred_image = np.convolve(image.flatten(), np.ones(9)/9, mode=\'same\').reshape(256, 256)')">Copy</button>
+  </div>
+</section>
+<section>
+  <h4 style="color: #1e3c72; margin-top: 20px;">Data Analysis</h4>
+  <p style="color: #000000; line-height: 1.6;">Vectorization is crucial in data analysis for performing operations on large datasets efficiently. For example, calculating the mean of a large dataset can be done quickly using vectorized operations.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>data = np.random.rand(1000000)
+mean_value = np.mean(data)
+print(mean_value)</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('data = np.random.rand(1000000)\nmean_value = np.mean(data)\nprint(mean_value)')">Copy</button>
+  </div>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">Machine Learning</h4>
+  <p style="color: #000000; line-height: 1.6;">In machine learning, vectorization is used to speed up the training process by performing operations on entire datasets at once. This is particularly important for gradient descent and other optimization algorithms.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>weights = np.random.rand(1000)
+features = np.random.rand(1000, 100)
+predictions = np.dot(features, weights)</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('weights = np.random.rand(1000)\nfeatures = np.random.rand(1000, 100)\npredictions = np.dot(features, weights)')">Copy</button>
+  </div>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">Image Processing</h4>
+  <p style="color: #000000; line-height: 1.6;">Vectorization is also used in image processing to apply filters and transformations to images efficiently.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>image = np.random.rand(256, 256)
+blurred_image = np.convolve(image.flatten(), np.ones(9)/9, mode='same').reshape(256, 256)</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('image = np.random.rand(256, 256)\nblurred_image = np.convolve(image.flatten(), np.ones(9)/9, mode=\'same\').reshape(256, 256)')">Copy</button>
+  </div>
+
+  <h3 style="color: #1e3c72; margin-top: 30px;">Linear Algebra with NumPy: A Quick Overview</h3>
+  <p style="color: #000000; line-height: 1.6;">NumPy provides a comprehensive suite of linear algebra functions that are essential for various scientific and engineering applications. These functions enable efficient computation of matrix operations, which are fundamental in fields like machine learning, physics, and engineering.</p>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">Basic Linear Algebra Functions</h4>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Dot Product (np.dot())</h4>
+  <p style="color: #000000; line-height: 1.6;">Computes the dot product of two arrays.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>import numpy as np
+
+A = np.array([[1, 2], [3, 4]])
+B = np.array([[5, 6], [7, 8]])
+dot_product = np.dot(A, B)
+print(dot_product)
+# Output:
+# [[19 22]
+#  [43 50]]</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('import numpy as np\n\nA = np.array([[1, 2], [3, 4]])\nB = np.array([[5, 6], [7, 8]])\ndot_product = np.dot(A, B)\nprint(dot_product)\n# Output:\n# [[19 22]\n#  [43 50]]')">Copy</button>
+  </div>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">Transpose (np.transpose())</h4>
+  <p style="color: #000000; line-height: 1.6;">Returns the transpose of an array, swapping its rows and columns.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>A = np.array([[1, 2], [3, 4]])
+transpose_A = np.transpose(A)
+print(transpose_A)
+# Output:
+# [[1 3]
+#  [2 4]]</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('A = np.array([[1, 2], [3, 4]])\ntranspose_A = np.transpose(A)\nprint(transpose_A)\n# Output:\n# [[1 3]\n#  [2 4]]')">Copy</button>
+  </div>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">Inverse (np.linalg.inv())</h4>
+  <p style="color: #000000; line-height: 1.6;">Computes the inverse of a square matrix.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>A = np.array([[1, 2], [3, 4]])
+inverse_A = np.linalg.inv(A)
+print(inverse_A)
+# Output:
+# [[-2.   1. ]
+#  [ 1.5 -0.5]]</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('A = np.array([[1, 2], [3, 4]])\ninverse_A = np.linalg.inv(A)\nprint(inverse_A)\n# Output:\n# [[-2.   1. ]\n#  [ 1.5 -0.5]]')">Copy</button>
+  </div>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">Eigenvalues and Eigenvectors (np.linalg.eig())</h4>
+  <p style="color: #000000; line-height: 1.6;">Computes the eigenvalues and right eigenvectors of a square array.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>A = np.array([[1, 2], [3, 4]])
+eigenvalues, eigenvectors = np.linalg.eig(A)
+print("Eigenvalues:", eigenvalues)
+print("Eigenvectors:", eigenvectors)
+# Output:
+# Eigenvalues: [-0.37228132  5.37228132]
+# Eigenvectors: [[-0.82456484 -0.41597356]
+#                [ 0.56576746 -0.90937671]]</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('A = np.array([[1, 2], [3, 4]])\neigenvalues, eigenvectors = np.linalg.eig(A)\nprint("Eigenvalues:", eigenvalues)\nprint("Eigenvectors:", eigenvectors)\n# Output:\n# Eigenvalues: [-0.37228132  5.37228132]\n# Eigenvectors: [[-0.82456484 -0.41597356]\n#                [ 0.56576746 -0.90937671]]')">Copy</button>
+  </div>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">Applications in Machine Learning and Engineering</h4>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Machine Learning</h4>
+  <p style="color: #000000; line-height: 1.6;">Linear algebra is the backbone of many machine learning algorithms. For example, the dot product is used in neural networks for forward and backward propagation, while matrix inversion is crucial for solving linear regression problems.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+    <button class="copy-btn" onclick="copyToClipboard('# Example: Linear Regression using matrix inversion\nX = np.array([[1, 1], [1, 2], [2, 2], [2, 3]])\ny = np.dot(X, np.array([1, 2])) + 3\nbeta = np.linalg.inv(X.T @ X) @ X.T @ y\nprint(beta)  # Output: [3. 2.]')">Copy</button>
+  </div>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">Engineering</h4>
+  <p style="color: #000000; line-height: 1.6;">Engineers use linear algebra for structural analysis, electrical circuit design, and control systems. Eigenvalues and eigenvectors are particularly important in stability analysis and vibration analysis.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code># Example: Vibration analysis using eigenvalues
+M = np.array([[2, 1], [1, 2]])
+K = np.array([[4, -1], [-1, 4]])
+eigenvalues, eigenvectors = np.linalg.eig(np.linalg.inv(M) @ K)
+print("Natural frequencies:", np.sqrt(eigenvalues))</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('# Example: Vibration analysis using eigenvalues\nM = np.array([[2, 1], [1, 2]])\nK = np.array([[4, -1], [-1, 4]])\neigenvalues, eigenvectors = np.linalg.eig(np.linalg.inv(M) @ K)\nprint("Natural frequencies:", np.sqrt(eigenvalues))')">Copy</button>
+  </div>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">Data Transformation</h4>
+  <p style="color: #000000; line-height: 1.6;">Transposing matrices is often required when manipulating datasets, such as converting between row-major and column-major formats.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code># Example: Transposing a dataset
+data = np.array([[1, 2, 3], [4, 5, 6]])
+transposed_data = data.T
+print(transposed_data)
+# Output:
+# [[1 4]
+#  [2 5]
+#  [3 6]]</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('# Example: Transposing a dataset\ndata = np.array([[1, 2, 3], [4, 5, 6]])\ntransposed_data = data.T\nprint(transposed_data)\n# Output:\n# [[1 4]\n#  [2 5]\n#  [3 6]]')">Copy</button>
+  </div>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">Optimization</h4>
+  <p style="color: #000000; line-height: 1.6;">Many optimization problems in engineering and machine learning involve solving systems of linear equations, which rely on matrix operations like inversion and multiplication.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code># Example: Solving a system of linear equations
+A = np.array([[3, 1], [1, 2]])
+b = np.array([9, 8])
+x = np.linalg.solve(A, b)
+print(x)  # Output: [2. 3.]</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('# Example: Solving a system of linear equations\nA = np.array([[3, 1], [1, 2]])\nb = np.array([9, 8])\nx = np.linalg.solve(A, b)\nprint(x)  # Output: [2. 3.]')">Copy</button>
+  </div>
+</section>
+<section>
+  <h3 style="color: #1e3c72; margin-top: 30px;">Random Sampling in NumPy: Generating Random Numbers</h3>
+  <p style="color: #000000; line-height: 1.6;">The <code>np.random</code> module in NumPy provides a variety of functions to generate random numbers and arrays. These functions are essential for simulations, statistical sampling, and testing algorithms. Let’s explore some of the most commonly used functions: <code>rand()</code>, <code>randint()</code>, and <code>choice()</code>.</p>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">Generating Random Numbers and Arrays</h4>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">rand()</h4>
+  <p style="color: #000000; line-height: 1.6;">Generates an array of given shape with random samples from a uniform distribution over [0, 1).</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>import numpy as np
+
+random_array = np.random.rand(3, 2)
+print(random_array)
+# Output: A 3x2 array with random values between 0 and 1</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('import numpy as np\n\nrandom_array = np.random.rand(3, 2)\nprint(random_array)\n# Output: A 3x2 array with random values between 0 and 1')">Copy</button>
+  </div>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">randint()</h4>
+  <p style="color: #000000; line-height: 1.6;">Generates random integers from a specified range.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>random_integers = np.random.randint(1, 10, size=(3, 3))
+print(random_integers)
+# Output: A 3x3 array with random integers between 1 and 9</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('random_integers = np.random.randint(1, 10, size=(3, 3))\nprint(random_integers)\n# Output: A 3x3 array with random integers between 1 and 9')">Copy</button>
+  </div>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">choice()</h4>
+  <p style="color: #000000; line-height: 1.6;">Generates a random sample from a given 1-D array.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>elements = [10, 20, 30, 40, 50]
+random_choice = np.random.choice(elements, size=3)
+print(random_choice)
+# Output: An array with 3 randomly chosen elements from the list</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('elements = [10, 20, 30, 40, 50]\nrandom_choice = np.random.choice(elements, size=3)\nprint(random_choice)\n# Output: An array with 3 randomly chosen elements from the list')">Copy</button>
+  </div>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">Use Cases for Simulations and Testing</h4>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Simulations</h4>
+  <p style="color: #000000; line-height: 1.6;">Random sampling is crucial for simulations in various fields such as finance, physics, and biology. For example, Monte Carlo simulations rely on random sampling to model the probability of different outcomes.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code># Simulating a simple random walk
+steps = 1000
+random_steps = np.random.choice([-1, 1], size=steps)
+position = np.cumsum(random_steps)</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('# Simulating a simple random walk\nsteps = 1000\nrandom_steps = np.random.choice([-1, 1], size=steps)\nposition = np.cumsum(random_steps)')">Copy</button>
+  </div>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">Statistical Sampling</h4>
+  <p style="color: #000000; line-height: 1.6;">Random sampling is used to create representative samples from larger datasets, which is essential for statistical analysis and hypothesis testing.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code># Creating a random sample from a dataset
+dataset = np.arange(100)
+sample = np.random.choice(dataset, size=10, replace=False)
+print(sample)
+# Output: A random sample of 10 unique elements from the dataset</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('# Creating a random sample from a dataset\ndataset = np.arange(100)\nsample = np.random.choice(dataset, size=10, replace=False)\nprint(sample)\n# Output: A random sample of 10 unique elements from the dataset')">Copy</button>
+  </div>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">Testing Algorithms</h4>
+  <p style="color: #000000; line-height: 1.6;">Random data generation is often used to test the performance and robustness of algorithms. For instance, generating random matrices to test matrix operations or random sequences to test sorting algorithms.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code># Generating random matrices for testing
+matrix_a = np.random.rand(3, 3)
+matrix_b = np.random.rand(3, 3)
+result = np.dot(matrix_a, matrix_b)
+print(result)
+# Output: A 3x3 matrix resulting from the dot product of matrix_a and matrix_b</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('# Generating random matrices for testing\nmatrix_a = np.random.rand(3, 3)\nmatrix_b = np.random.rand(3, 3)\nresult = np.dot(matrix_a, matrix_b)\nprint(result)\n# Output: A 3x3 matrix resulting from the dot product of matrix_a and matrix_b')">Copy</button>
+  </div>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">Practical Applications of Random Sampling</h4>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Monte Carlo Simulations</h4>
+  <p style="color: #000000; line-height: 1.6;">Monte Carlo simulations use random sampling to understand the impact of risk and uncertainty in prediction and forecasting models.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code># Example: Estimating the value of Pi using Monte Carlo simulation
+num_samples = 10000
+x = np.random.rand(num_samples)
+y = np.random.rand(num_samples)
+inside_circle = (x**2 + y**2) <= 1
+pi_estimate = (inside_circle.sum() / num_samples) * 4
+print(pi_estimate)</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('# Example: Estimating the value of Pi using Monte Carlo simulation\nnum_samples = 10000\nx = np.random.rand(num_samples)\ny = np.random.rand(num_samples)\ninside_circle = (x**2 + y**2) <= 1\npi_estimate = (inside_circle.sum() / num_samples) * 4\nprint(pi_estimate)')">Copy</button>
+  </div>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">Bootstrapping</h4>
+  <p style="color: #000000; line-height: 1.6;">Bootstrapping is a statistical method that involves random sampling with replacement to estimate the distribution of a statistic.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code># Example: Bootstrapping to estimate the mean
+data = np.random.randn(100)
+bootstrap_samples = np.random.choice(data, size=(1000, 100), replace=True)
+bootstrap_means = np.mean(bootstrap_samples, axis=1)
+mean_estimate = np.mean(bootstrap_means)
+print(mean_estimate)</code></pre>
+        <button class="copy-btn" onclick="copyToClipboard('# Example: Bootstrapping to estimate the mean\ndata = np.random.randn(100)\nbootstrap_samples = np.random.choice(data, size=(1000, 100), replace=True)\nbootstrap_means = np.mean(bootstrap_samples, axis=1)\nmean_estimate = np.mean(bootstrap_means)\nprint(mean_estimate)')">Copy</button>
     </div>
 
-  </nav>
+    <h4 style="color: #1e3c72; margin-top: 20px;">Randomized Algorithms</h4>
+    <p style="color: #000000; line-height: 1.6;">Randomized algorithms use random sampling to make decisions within the algorithm, often leading to simpler and faster solutions.</p>
+    <div class="code-block" style="margin-bottom: 20px;">
+        <pre style="color: #000000;"><code># Example: Randomized quicksort
+def randomized_quicksort(arr):
+    if len(arr) <= 1:
+        return arr
+    pivot = np.random.choice(arr)
+    less = [x for x in arr if x < pivot]
+    equal = [x for x in arr if x == pivot]
+    greater = [x for x in arr if x > pivot]
+    return randomized_quicksort(less) + equal + randomized_quicksort(greater)
 
-</header>
+arr = np.random.randint(0, 100, size=10)
+sorted_arr = randomized_quicksort(arr)
+print(sorted_arr)</code></pre>
+        <button class="copy-btn" onclick="copyToClipboard('# Example: Randomized quicksort\ndef randomized_quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = np.random.choice(arr)\n    less = [x for x in arr if x < pivot]\n    equal = [x for x in arr if x == pivot]\n    greater = [x for x in arr if x > pivot]\n    return randomized_quicksort(less) + equal + randomized_quicksort(greater)\n\narr = np.random.randint(0, 100, size=10)\nsorted_arr = randomized_quicksort(arr)\nprint(sorted_arr)')">Copy</button>
+    </div>
+</section>
+<section>
+  <h3 style="color: #1e3c72; margin-top: 30px;">Integrating NumPy with Pandas: A Data Manipulation Powerhouse</h3>
+  <p style="color: #000000; line-height: 1.6;">Integrating NumPy with Pandas combines the strengths of both libraries, enabling efficient data manipulation and analysis. NumPy arrays can be used within Pandas DataFrames to optimize performance, especially when dealing with large datasets.</p>
 
-<section class="main-section">
+  <h4 style="color: #1e3c72; margin-top: 20px;">Using NumPy Arrays within Pandas</h4>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Creating DataFrames from NumPy Arrays</h4>
+  <p style="color: #000000; line-height: 1.6;">You can create a Pandas DataFrame directly from a NumPy array.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>import numpy as np
+import pandas as pd
 
-  <h1>Data Engineering & Cloud Essentials</h1>
+data = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+df = pd.DataFrame(data, columns=['A', 'B', 'C'])
+print(df)
+# Output:
+#    A  B  C
+# 0  1  2  3
+# 1  4  5  6
+# 2  7  8  9</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('import numpy as np\nimport pandas as pd\n\ndata = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])\ndf = pd.DataFrame(data, columns=[\'A\', \'B\', \'C\'])\nprint(df)\n# Output:\n#    A  B  C\n# 0  1  2  3\n# 1  4  5  6\n# 2  7  8  9')">Copy</button>
+  </div>
 
-  <p>Master Python's key library, NumPy, with a focus on data engineering and cloud applications.</p>
+  <h4 style="color: #1e3c72; margin-top: 20px;">Replacing DataFrame Columns with NumPy Arrays</h4>
+  <p style="color: #000000; line-height: 1.6;">For performance optimization, you can replace DataFrame columns with NumPy arrays.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>df['A'] = np.array([10, 20, 30])
+print(df)
+# Output:
+#     A  B  C
+# 0  10  2  3
+# 1  20  5  6
+# 2  30  8  9</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('df[\'A\'] = np.array([10, 20, 30])\nprint(df)\n# Output:\n#     A  B  C\n# 0  10  2  3\n# 1  20  5  6\n# 2  30  8  9')">Copy</button>
+  </div>
 
-  <a href="#intro" class="btn">Explore More</a>
+  <h4 style="color: #1e3c72; margin-top: 20px;">Using NumPy Functions on DataFrame Columns</h4>
+  <p style="color: #000000; line-height: 1.6;">Apply NumPy functions directly to DataFrame columns for efficient computations.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>df['B'] = np.log(df['B'])
+print(df)
+# Output:
+#     A         B  C
+# 0  10  0.693147  3
+# 1  20  1.609438  6
+# 2  30  2.079442  9</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('df[\'B\'] = np.log(df[\'B\'])\nprint(df)\n# Output:\n#     A         B  C\n# 0  10  0.693147  3\n# 1  20  1.609438  6\n# 2  30  2.079442  9')">Copy</button>
+  </div>
 
+  <h4 style="color: #1e3c72; margin-top: 20px;">Scenarios for Performance Optimization</h4>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Large-Scale Data Processing</h4>
+  <p style="color: #000000; line-height: 1.6;">When dealing with large datasets, replacing DataFrame columns with NumPy arrays can significantly speed up operations due to NumPy’s optimized performance.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>large_data = np.random.rand(1000000, 3)
+df_large = pd.DataFrame(large_data, columns=['A', 'B', 'C'])</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('large_data = np.random.rand(1000000, 3)\ndf_large = pd.DataFrame(large_data, columns=[\'A\', \'B\', \'C\'])')">Copy</button>
+  </div>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">Vectorized Operations</h4>
+  <p style="color: #000000; line-height: 1.6;">NumPy’s vectorized operations are faster than Pandas’ row-wise operations. Using NumPy arrays for mathematical computations can enhance performance.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>df_large['A'] = np.sqrt(df_large['A'])</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('df_large[\'A\'] = np.sqrt(df_large[\'A\'])')">Copy</button>
+  </div>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">Memory Efficiency</h4>
+  <p style="color: #000000; line-height: 1.6;">NumPy arrays are more memory-efficient than Pandas Series. For memory-intensive applications, using NumPy arrays can reduce memory usage.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>df_large['B'] = np.array(df_large['B'], dtype='float32')</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('df_large[\'B\'] = np.array(df_large[\'B\'], dtype=\'float32\')')">Copy</button>
+  </div>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">Practical Applications of Integrating NumPy with Pandas</h4>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Data Cleaning and Transformation</h4>
+  <p style="color: #000000; line-height: 1.6;">Using NumPy arrays within Pandas can streamline data cleaning and transformation tasks, making them more efficient.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code># Example: Normalizing a DataFrame column
+df_large['C'] = (df_large['C'] - np.mean(df_large['C'])) / np.std(df_large['C'])</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('# Example: Normalizing a DataFrame column\ndf_large[\'C\'] = (df_large[\'C\'] - np.mean(df_large[\'C\'])) / np.std(df_large[\'C\'])')">Copy</button>
+  </div>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">Feature Engineering</h4>
+  <p style="color: #000000; line-height: 1.6;">In machine learning, feature engineering often involves creating new features from existing data. NumPy functions can be applied to DataFrame columns to create these new features efficiently.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code># Example: Creating a new feature based on existing columns
+        df_large['D'] = df_large['A'] * df_large['B'])</code></pre>
+        <button class="copy-btn" onclick="copyToClipboard('# Example: Creating a new feature based on existing columns\ndf_large[\'D\'] = df_large[\'A\'] * df_large[\'B\']')">Copy</button>
+    </div>
+
+    <h4 style="color: #1e3c72; margin-top: 20px;">Statistical Analysis</h4>
+    <p style="color: #000000; line-height: 1.6;">NumPy’s statistical functions can be used on DataFrame columns to perform various statistical analyses.</p>
+    <div class="code-block" style="margin-bottom: 20px;">
+        <pre style="color: #000000;"><code># Example: Calculating the correlation between two columns
+correlation = np.corrcoef(df_large['A'], df_large['B'])[0, 1]
+print(correlation)</code></pre>
+        <button class="copy-btn" onclick="copyToClipboard('# Example: Calculating the correlation between two columns\ncorrelation = np.corrcoef(df_large[\'A\'], df_large[\'B\'])[0, 1]\nprint(correlation)')">Copy</button>
+    </div>
+</section>
+<section>
+  <h3 style="color: #1e3c72; margin-top: 30px;">Visualizing NumPy Arrays with Matplotlib</h3>
+  <p style="color: #000000; line-height: 1.6;">Matplotlib is a powerful library for creating visualizations in Python. It works seamlessly with NumPy arrays, making it easy to visualize data stored in these arrays. Here, we’ll demonstrate how to create a sample line plot, a heatmap, a bar plot, and a scatter plot using Matplotlib.</p>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">Sample Line Plot</h4>
+  <p style="color: #000000; line-height: 1.6;">Let’s start with a simple line plot of the sine function.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>import numpy as np
+import matplotlib.pyplot as plt
+
+# Sample data for line plot
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+
+# Create a line plot
+plt.figure(figsize=(10, 5))
+plt.plot(x, y, label='sin(x)')
+plt.title('Line Plot of sin(x)')
+plt.xlabel('x')
+plt.ylabel('sin(x)')
+plt.legend()
+plt.grid(True)
+plt.show()</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('import numpy as np\nimport matplotlib.pyplot as plt\n\n# Sample data for line plot\nx = np.linspace(0, 10, 100)\ny = np.sin(x)\n\n# Create a line plot\nplt.figure(figsize=(10, 5))\nplt.plot(x, y, label=\'sin(x)\')\nplt.title(\'Line Plot of sin(x)\')\nplt.xlabel(\'x\')\nplt.ylabel(\'sin(x)\')\nplt.legend()\nplt.grid(True)\nplt.show()')">Copy</button>
+  </div>
+  <p style="color: #000000; line-height: 1.6;">This code generates a line plot of the sine function over the interval [0, 10]. The <code>np.linspace</code> function creates an array of 100 evenly spaced values between 0 and 10, and <code>np.sin</code> computes the sine of each value.</p>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">Sample Heatmap</h4>
+  <p style="color: #000000; line-height: 1.6;">Next, let’s create a heatmap of random data.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code># Sample data for heatmap
+data = np.random.rand(10, 10)
+
+# Create a heatmap
+plt.figure(figsize=(8, 6))
+plt.imshow(data, cmap='viridis', interpolation='nearest')
+plt.title('Heatmap of Random Data')
+plt.colorbar()
+plt.show()</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('# Sample data for heatmap\ndata = np.random.rand(10, 10)\n\n# Create a heatmap\nplt.figure(figsize=(8, 6))\nplt.imshow(data, cmap=\'viridis\', interpolation=\'nearest\')\nplt.title(\'Heatmap of Random Data\')\nplt.colorbar()\nplt.show()')">Copy</button>
+  </div>
+  <p style="color: #000000; line-height: 1.6;">This code generates a heatmap of random values in a 10x10 array.</p>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">Additional Visualizations with Matplotlib</h4>
+  <p style="color: #000000; line-height: 1.6;">Let’s explore a few more ways to visualize data stored in NumPy arrays using Matplotlib. We’ll create a bar plot and a scatter plot to demonstrate the versatility of Matplotlib.</p>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">Sample Bar Plot</h4>
+  <p style="color: #000000; line-height: 1.6;">A bar plot is useful for comparing quantities across different categories.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>import numpy as np
+import matplotlib.pyplot as plt
+
+# Sample data for bar plot
+categories = ['A', 'B', 'C', 'D', 'E']
+values = np.random.randint(1, 10, size=5)
+
+# Create a bar plot
+plt.figure(figsize=(10, 5))
+plt.bar(categories, values, color='skyblue')
+plt.title('Bar Plot of Random Values')
+plt.xlabel('Categories')
+plt.ylabel('Values')
+plt.show()</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('import numpy as np\nimport matplotlib.pyplot as plt\n\n# Sample data for bar plot\ncategories = [\'A\', \'B\', \'C\', \'D\', \'E\']\nvalues = np.random.randint(1, 10, size=5)\n\n# Create a bar plot\nplt.figure(figsize=(10, 5))\nplt.bar(categories, values, color=\'skyblue\')\nplt.title(\'Bar Plot of Random Values\')\nplt.xlabel(\'Categories\')\nplt.ylabel(\'Values\')\nplt.show()')">Copy</button>
+  </div>
+  <p style="color: #000000; line-height: 1.6;">This code generates a bar plot with random values for five categories. The <code>np.random.randint</code> function creates an array of random integers between 1 and 10.</p>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">Sample Scatter Plot</h4>
+  <p style="color: #000000; line-height: 1.6;">A scatter plot is useful for visualizing the relationship between two variables.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code># Sample data for scatter plot
+x = np.random.rand(100)
+y = np.random.rand(100)
+
+# Create a scatter plot
+plt.figure(figsize=(10, 5))
+plt.scatter(x, y, color='purple')
+plt.title('Scatter Plot of Random Data')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.grid(True)
+plt.show()</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('# Sample data for scatter plot\nx = np.random.rand(100)\ny = np.random.rand(100)\n\n# Create a scatter plot\nplt.figure(figsize=(10, 5))\nplt.scatter(x, y, color=\'purple\')\nplt.title(\'Scatter Plot of Random Data\')\nplt.xlabel(\'x\')\nplt.ylabel(\'y\')\nplt.grid(True)\nplt.show()')">Copy</button>
+  </div>
+  <p style="color: #000000; line-height: 1.6;">This code generates a scatter plot of 100 random points. The <code>np.random.rand</code> function creates arrays of random values between 0 and 1 for both the x and y coordinates.</p>
+</section>
+<section>
+  <h3 style="color: #1e3c72; margin-top: 30px;">Memory Management and Optimization Tips for NumPy</h3>
+  <p style="color: #000000; line-height: 1.6;">Optimizing memory usage in NumPy is crucial when working with large datasets or performing intensive computations. Here are some techniques to help you manage memory efficiently:</p>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">Choosing Appropriate Data Types</h4>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Use Smaller Data Types</h4>
+  <p style="color: #000000; line-height: 1.6;">Selecting the smallest data type that can hold your data reduces memory usage.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>import numpy as np
+
+# Using float64 (default)
+arr_float64 = np.array([1.0, 2.0, 3.0], dtype=np.float64)
+print(arr_float64.nbytes)  # Output: 24 bytes
+
+# Using float32
+arr_float32 = np.array([1.0, 2.0, 3.0], dtype=np.float32)
+print(arr_float32.nbytes)  # Output: 12 bytes</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('import numpy as np\n\n# Using float64 (default)\narr_float64 = np.array([1.0, 2.0, 3.0], dtype=np.float64)\nprint(arr_float64.nbytes)  # Output: 24 bytes\n\n# Using float32\narr_float32 = np.array([1.0, 2.0, 3.0], dtype=np.float32)\nprint(arr_float32.nbytes)  # Output: 12 bytes')">Copy</button>
+  </div>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">Use Integer Types When Possible</h4>
+  <p style="color: #000000; line-height: 1.6;">If your data consists of integers, use integer data types instead of floating-point types.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code># Using int32
+arr_int32 = np.array([1, 2, 3], dtype=np.int32)
+print(arr_int32.nbytes)  # Output: 12 bytes
+
+# Using int16
+arr_int16 = np.array([1, 2, 3], dtype=np.int16)
+print(arr_int16.nbytes)  # Output: 6 bytes</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('# Using int32\narr_int32 = np.array([1, 2, 3], dtype=np.int32)\nprint(arr_int32.nbytes)  # Output: 12 bytes\n\n# Using int16\narr_int16 = np.array([1, 2, 3], dtype=np.int16)\nprint(arr_int16.nbytes)  # Output: 6 bytes')">Copy</button>
+  </div>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">Using In-Place Operations</h4>
+  <p style="color: #000000; line-height: 1.6;">In-place operations modify the data directly in memory, reducing the need for additional memory allocation.</p>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">In-Place Addition</h4>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>arr = np.array([1, 2, 3])
+arr += 1
+print(arr)  # Output: [2 3 4]</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('arr = np.array([1, 2, 3])\narr += 1\nprint(arr)  # Output: [2 3 4]')">Copy</button>
+  </div>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">In-Place Multiplication</h4>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>arr *= 2
+print(arr)  # Output: [4 6 8]</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('arr *= 2\nprint(arr)  # Output: [4 6 8]')">Copy</button>
+  </div>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">Reducing Memory Overhead in Large Data Operations</h4>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Use Views Instead of Copies</h4>
+  <p style="color: #000000; line-height: 1.6;">Views share the same data buffer as the original array, avoiding the overhead of copying data.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>arr = np.array([1, 2, 3, 4, 5])
+view = arr[1:4]
+view[0] = 99
+print(arr)  # Output: [ 1 99  3  4  5]</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('arr = np.array([1, 2, 3, 4, 5])\nview = arr[1:4]\nview[0] = 99\nprint(arr)  # Output: [ 1 99  3  4  5]')">Copy</button>
+  </div>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">Delete Unnecessary Arrays</h4>
+  <p style="color: #000000; line-height: 1.6;">Free up memory by deleting arrays that are no longer needed.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>arr1 = np.random.rand(1000000)
+arr2 = np.random.rand(1000000)
+result = arr1 + arr2
+del arr1, arr2  # Free up memory</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('arr1 = np.random.rand(1000000)\narr2 = np.random.rand(1000000)\nresult = arr1 + arr2\ndel arr1, arr2  # Free up memory')">Copy</button>
+  </div>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">Use Memory-Mapped Files</h4>
+  <p style="color: #000000; line-height: 1.6;">For very large datasets, use memory-mapped files to access data on disk as if it were in memory.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code># Create a memory-mapped file
+fp = np.memmap('data.dat', dtype='float32', mode='w+', shape=(1000, 1000))
+fp[:] = np.random.rand(1000, 1000)
+del fp  # Flush changes to disk</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('# Create a memory-mapped file\nfp = np.memmap(\'data.dat\', dtype=\'float32\', mode=\'w+\', shape=(1000, 1000))\nfp[:] = np.random.rand(1000, 1000)\ndel fp  # Flush changes to disk')">Copy</button>
+  </div>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">Practical Applications of Memory Management</h4>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Efficient Data Processing</h4>
+  <p style="color: #000000; line-height: 1.6;">By choosing appropriate data types and using in-place operations, you can process large datasets more efficiently.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code># Example: Efficiently processing a large dataset
+large_data = np.random.rand(1000000).astype(np.float32)
+large_data *= 2</code></pre>
+        <button class="copy-btn" onclick="copyToClipboard('# Example: Efficiently processing a large dataset\nlarge_data = np.random.rand(1000000).astype(np.float32)\nlarge_data *= 2')">Copy</button>
+    </div>
+
+    <h4 style="color: #1e3c72; margin-top: 20px;">Optimizing Machine Learning Workflows</h4>
+    <p style="color: #000000; line-height: 1.6;">Memory management is crucial in machine learning workflows, where large datasets and models can quickly consume available memory.</p>
+    <div class="code-block" style="margin-bottom: 20px;">
+        <pre style="color: #000000;"><code># Example: Optimizing memory usage in a machine learning workflow
+features = np.random.rand(1000000, 10).astype(np.float32)
+labels = np.random.randint(0, 2, size=1000000).astype(np.int8)</code></pre>
+        <button class="copy-btn" onclick="copyToClipboard('# Example: Optimizing memory usage in a machine learning workflow\nfeatures = np.random.rand(1000000, 10).astype(np.float32)\nlabels = np.random.randint(0, 2, size=1000000).astype(np.int8)')">Copy</button>
+    </div>
+
+    <h4 style="color: #1e3c72; margin-top: 20px;">Handling Big Data</h4>
+    <p style="color: #000000; line-height: 1.6;">Using memory-mapped files allows you to handle datasets that are larger than your available RAM.</p>
+    <div class="code-block" style="margin-bottom: 20px;">
+        <pre style="color: #000000;"><code># Example: Handling big data with memory-mapped files
+big_data = np.memmap('big_data.dat', dtype='float32', mode='w+', shape=(10000, 10000))
+big_data[:] = np.random.rand(10000, 10000)
+del big_data  # Ensure data is written to disk</code></pre>
+        <button class="copy-btn" onclick="copyToClipboard('# Example: Handling big data with memory-mapped files\nbig_data = np.memmap(\'big_data.dat\', dtype=\'float32\', mode=\'w+\', shape=(10000, 10000))\nbig_data[:] = np.random.rand(10000, 10000)\ndel big_data  # Ensure data is written to disk')">Copy</button>
+    </div>
+</section>
+<section>
+  <h3 style="color: #1e3c72; margin-top: 30px;">Top Use Cases of NumPy: Applications in Real-World Scenarios</h3>
+  <p style="color: #000000; line-height: 1.6;">NumPy is a versatile library that finds applications across various fields, including data science, machine learning, image processing, and engineering. Here are some real-world scenarios where NumPy plays a crucial role:</p>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">1. Data Science</h4>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Data Manipulation and Analysis</h4>
+  <p style="color: #000000; line-height: 1.6;">NumPy is fundamental for handling and manipulating large datasets. It provides efficient array operations that are essential for data cleaning, transformation, and aggregation.</p>
+  <p style="color: #000000; line-height: 1.6;"><strong>Example:</strong> Calculating summary statistics (mean, median, standard deviation) for a dataset.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>import numpy as np
+
+data = np.random.rand(1000)
+mean = np.mean(data)
+median = np.median(data)
+std_dev = np.std(data)
+print(f"Mean: {mean}, Median: {median}, Standard Deviation: {std_dev}")</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('import numpy as np\n\ndata = np.random.rand(1000)\nmean = np.mean(data)\nmedian = np.median(data)\nstd_dev = np.std(data)\nprint(f"Mean: {mean}, Median: {median}, Standard Deviation: {std_dev}")')">Copy</button>
+  </div>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">2. Machine Learning</h4>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Feature Engineering and Data Preprocessing</h4>
+  <p style="color: #000000; line-height: 1.6;">NumPy is used to preprocess data before feeding it into machine learning models. This includes normalization, scaling, and creating polynomial features.</p>
+  <p style="color: #000000; line-height: 1.6;"><strong>Example:</strong> Normalizing a dataset.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>data = np.random.rand(100, 3)
+normalized_data = (data - np.mean(data, axis=0)) / np.std(data, axis=0)</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('data = np.random.rand(100, 3)\nnormalized_data = (data - np.mean(data, axis=0)) / np.std(data, axis=0)')">Copy</button>
+  </div>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">Linear Algebra Operations</h4>
+  <p style="color: #000000; line-height: 1.6;">Many machine learning algorithms rely on linear algebra operations such as matrix multiplication, which are efficiently handled by NumPy.</p>
+  <p style="color: #000000; line-height: 1.6;"><strong>Example:</strong> Computing the dot product of two matrices.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>A = np.random.rand(100, 50)
+B = np.random.rand(50, 10)
+result = np.dot(A, B)</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('A = np.random.rand(100, 50)\nB = np.random.rand(50, 10)\nresult = np.dot(A, B)')">Copy</button>
+  </div>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">3. Image Processing</h4>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Image Manipulation</h4>
+  <p style="color: #000000; line-height: 1.6;">NumPy arrays are used to represent images, allowing for efficient manipulation and processing. Operations such as resizing, cropping, and filtering can be performed using NumPy.</p>
+  <p style="color: #000000; line-height: 1.6;"><strong>Example:</strong> Converting an image to grayscale.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>import numpy as np
+from PIL import Image
+
+image = Image.open('example.jpg')
+image_array = np.array(image)
+grayscale_image = np.mean(image_array, axis=2)</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('import numpy as np\nfrom PIL import Image\n\nimage = Image.open(\'example.jpg\')\nimage_array = np.array(image)\ngrayscale_image = np.mean(image_array, axis=2)')">Copy</button>
+  </div>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">Image Filtering</h4>
+  <p style="color: #000000; line-height: 1.6;">Applying filters to images, such as Gaussian blur or edge detection, can be done using NumPy operations.</p>
+  <p style="color: #000000; line-height: 1.6;"><strong>Example:</strong> Applying a simple edge detection filter.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>kernel = np.array([[-1, -1, -1], [-1, 8, -1], [-1, -1, -1]])
+filtered_image = np.convolve(image_array.flatten(), kernel.flatten(), mode='same').reshape(image_array.shape)</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('kernel = np.array([[-1, -1, -1], [-1, 8, -1], [-1, -1, -1]])\nfiltered_image = np.convolve(image_array.flatten(), kernel.flatten(), mode=\'same\').reshape(image_array.shape)')">Copy</button>
+  </div>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">4. Engineering</h4>
+  
+  <h4 style="color: #1e3c72; margin-top: 20px;">Signal Processing</h4>
+  <p style="color: #000000; line-height: 1.6;">NumPy is used in signal processing for tasks such as Fourier transforms, filtering, and convolution.</p>
+  <p style="color: #000000; line-height: 1.6;"><strong>Example:</strong> Performing a Fast Fourier Transform (FFT) on a signal.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>
+signal = np.random.rand(1024)
+fft_result = np.fft.fft(signal)</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('signal = np.random.rand(1024)\nfft_result = np.fft.fft(signal)')">Copy</button>
+  </div>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">Simulation and Modeling</h4>
+  <p style="color: #000000; line-height: 1.6;">Engineers use NumPy for simulations and modeling physical systems, such as solving differential equations and performing numerical integration.</p>
+  <p style="color: #000000; line-height: 1.6;"><strong>Example:</strong> Solving a differential equation using Euler’s method.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>
+def f(y, t):
+  return -2 * y + np.sin(t)
+
+y0 = 1
+t = np.linspace(0, 10, 100)
+y = np.zeros_like(t)
+y[0] = y0
+
+for i in range(1, len(t)):
+  dt = t[i] - t[i-1]
+  y[i] = y[i-1] + f(y[i-1], t[i-1]) * dt</code></pre>
+  <button class="copy-btn" onclick="copyToClipboard('def f(y, t):\n    return -2 * y + np.sin(t)\n\ny0 = 1\nt = np.linspace(0, 10, 100)\ny = np.zeros_like(t)\ny[0] = y0\n\nfor i in range(1, len(t)):\n    dt = t[i] - t[i-1]\n    y[i] = y[i-1] + f(y[i-1], t[i-1]) * dt')">Copy</button>
+</div>
+</section>
+<section>
+  <h3 style="color: #1e3c72; margin-top: 30px;">Frequently Asked Questions About NumPy</h3>
+  <p style="color: #000000; line-height: 1.6;">NumPy is a powerful library, but it can sometimes be tricky to navigate. Here are answers to some common questions that users often have about NumPy.</p>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">How Do I Create a 3D Array?</h4>
+  <p style="color: #000000; line-height: 1.6;">Creating a 3D array in NumPy is straightforward. You can use the <code>np.array()</code> function and provide a list of lists of lists.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>import numpy as np
+
+# Creating a 3D array
+array_3d = np.array([[[1, 2, 3], [4, 5, 6]], [[7, 8, 9], [10, 11, 12]]])
+print(array_3d)
+# Output:
+# [[[ 1  2  3]
+#   [ 4  5  6]]
+#
+#  [[ 7  8  9]
+#   [10 11 12]]]</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('import numpy as np\n\n# Creating a 3D array\narray_3d = np.array([[[1, 2, 3], [4, 5, 6]], [[7, 8, 9], [10, 11, 12]]])\nprint(array_3d)\n# Output:\n# [[[ 1  2  3]\n#   [ 4  5  6]]\n#\n#  [[ 7  8  9]\n#   [10 11 12]]]')">Copy</button>
+  </div>
+  <p style="color: #000000; line-height: 1.6;">You can also use functions like <code>np.zeros()</code>, <code>np.ones()</code>, or <code>np.random.rand()</code> to create 3D arrays with specific values or random numbers.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code># Creating a 3D array of zeros
+zeros_3d = np.zeros((2, 3, 4))
+print(zeros_3d)
+# Output: A 2x3x4 array filled with zeros</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('# Creating a 3D array of zeros\nzeros_3d = np.zeros((2, 3, 4))\nprint(zeros_3d)\n# Output: A 2x3x4 array filled with zeros')">Copy</button>
+  </div>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">What’s the Difference Between <code>np.sum()</code> and <code>np.add()</code>?</h4>
+  <p style="color: #000000; line-height: 1.6;">Both <code>np.sum()</code> and <code>np.add()</code> are used for addition, but they serve different purposes.</p>
+  <p style="color: #000000; line-height: 1.6;"><code>np.sum()</code>: This function adds up all the elements of an array or along a specified axis.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>arr = np.array([[1, 2, 3], [4, 5, 6]])
+total_sum = np.sum(arr)
+sum_along_axis0 = np.sum(arr, axis=0)
+sum_along_axis1 = np.sum(arr, axis=1)
+print(total_sum)  # Output: 21
+print(sum_along_axis0)  # Output: [5 7 9]
+print(sum_along_axis1)  # Output: [ 6 15]</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('arr = np.array([[1, 2, 3], [4, 5, 6]])\ntotal_sum = np.sum(arr)\nsum_along_axis0 = np.sum(arr, axis=0)\nsum_along_axis1 = np.sum(arr, axis=1)\nprint(total_sum)  # Output: 21\nprint(sum_along_axis0)  # Output: [5 7 9]\nprint(sum_along_axis1)  # Output: [ 6 15]')">Copy</button>
+  </div>
+  <p style="color: #000000; line-height: 1.6;"><code>np.add()</code>: This function performs element-wise addition of two arrays.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>arr1 = np.array([1, 2, 3])
+arr2 = np.array([4, 5, 6])
+result = np.add(arr1, arr2)
+print(result)  # Output: [5 7 9]</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('arr1 = np.array([1, 2, 3])\narr2 = np.array([4, 5, 6])\nresult = np.add(arr1, arr2)\nprint(result)  # Output: [5 7 9]')">Copy</button>
+  </div>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">How Do I Reshape an Array?</h4>
+  <p style="color: #000000; line-height: 1.6;">You can use the <code>reshape()</code> method to change the shape of an array without changing its data.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>arr = np.array([1, 2, 3, 4, 5, 6])
+reshaped_arr = arr.reshape((2, 3))
+print(reshaped_arr)
+# Output:
+# [[1 2 3]
+#  [4 5 6]]</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('arr = np.array([1, 2, 3, 4, 5, 6])\nreshaped_arr = arr.reshape((2, 3))\nprint(reshaped_arr)\n# Output:\n# [[1 2 3]\n#  [4 5 6]]')">Copy</button>
+  </div>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">How Can I Find the Index of the Maximum Value in an Array?</h4>
+  <p style="color: #000000; line-height: 1.6;">Use the <code>np.argmax()</code> function to find the index of the maximum value in an array.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>arr = np.array([1, 3, 7, 2, 5])
+max_index = np.argmax(arr)
+print(max_index)  # Output: 2</code></pre>
+      <button class="copy-btn" onclick="copyToClipboard('arr = np.array([1, 3, 7, 2, 5])\nmax_index = np.argmax(arr)\nprint(max_index)  # Output: 2')">Copy</button>
+  </div>
+  <p style="color: #000000; line-height: 1.6;">For multi-dimensional arrays, you can specify the axis along which to find the maximum value.</p>
+  <div class="code-block" style="margin-bottom: 20px;">
+      <pre style="color: #000000;"><code>arr_2d = np.array([[1, 3, 7], [2, 5, 6]])
+max_index_axis0 = np.argmax(arr_2d, axis=0)
+max_index_axis1 = np.argmax(arr_2d, axis=1)
+print(max_index_axis0)  # Output: [1 1 0]
+print(max_index_axis1)  # Output: [2 1]</code></pre>
+        <button class="copy-btn" onclick="copyToClipboard('arr_2d = np.array([[1, 3, 7], [2, 5, 6]])\nmax_index_axis0 = np.argmax(arr_2d, axis=0)\nmax_index_axis1 = np.argmax(arr_2d, axis=1)\nprint(max_index_axis0)  # Output: [1 1 0]\nprint(max_index_axis1)  # Output: [2 1]')">Copy</button>
+    </div>
+
+    <h4 style="color: #1e3c72; margin-top: 20px;">How Do I Generate Random Numbers?</h4>
+    <p style="color: #000000; line-height: 1.6;">NumPy provides several functions to generate random numbers, such as <code>np.random.rand()</code>, <code>np.random.randint()</code>, and <code>np.random.choice()</code>.</p>
+    <div class="code-block" style="margin-bottom: 20px;">
+        <pre style="color: #000000;"><code># Random numbers between 0 and 1
+random_numbers = np.random.rand(5)
+print(random_numbers)
+
+# Random integers between 1 and 10
+random_integers = np.random.randint(1, 10, size=5)
+print(random_integers)
+
+# Random choice from a list
+elements = [10, 20, 30, 40, 50]
+random_choice = np.random.choice(elements, size=3)
+print(random_choice)</code></pre>
+        <button class="copy-btn" onclick="copyToClipboard('# Random numbers between 0 and 1\nrandom_numbers = np.random.rand(5)\nprint(random_numbers)\n\n# Random integers between 1 and 10\nrandom_integers = np.random.randint(1, 10, size=5)\nprint(random_integers)\n\n# Random choice from a list\nelements = [10, 20, 30, 40, 50]\nrandom_choice = np.random.choice(elements, size=3)\nprint(random_choice)')">Copy</button>
+    </div>
+</section>
+<section>
+  <h3 style="color: #1e3c72; margin-top: 30px;">Additional Resources to Learn NumPy - Books, Tutorials, and Documentation</h3>
+  <p style="color: #000000; line-height: 1.6;">If you’re looking to deepen your understanding of NumPy, there are plenty of excellent resources available. Here are some recommended books, online tutorials, and official documentation links to help you get started.</p>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">Recommended Books</h4>
+  
+  <p style="color: #000000; line-height: 1.6;"><strong>“Python for Data Analysis” by Wes McKinney</strong><br>
+  This book is written by the creator of Pandas and covers data analysis with Python, including extensive use of NumPy.</p>
+  <p style="color: #000000; line-height: 1.6;">Amazon Link</p>
+  
+  <p style="color: #000000; line-height: 1.6;"><strong>“NumPy Cookbook” by Ivan Idris</strong><br>
+  A practical guide with recipes for performing complex data analysis with NumPy.</p>
+  <p style="color: #000000; line-height: 1.6;">Amazon Link</p>
+  
+  <p style="color: #000000; line-height: 1.6;"><strong>“Python Data Science Handbook” by Jake VanderPlas</strong><br>
+  This book provides a comprehensive introduction to data science with Python, including detailed chapters on NumPy.</p>
+  <p style="color: #000000; line-height: 1.6;">Amazon Link</p>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">Online Tutorials</h4>
+  
+  <p style="color: #000000; line-height: 1.6;"><strong>NumPy Official Tutorial</strong><br>
+  The official NumPy tutorial is a great starting point for beginners and covers all the basics.</p>
+  <p style="color: #000000; line-height: 1.6;">NumPy Tutorial</p>
+  
+  <p style="color: #000000; line-height: 1.6;"><strong>W3Schools NumPy Tutorial</strong><br>
+  A beginner-friendly tutorial that covers the fundamentals of NumPy with interactive examples.</p>
+  <p style="color: #000000; line-height: 1.6;">W3Schools NumPy Tutorial</p>
+  
+  <p style="color: #000000; line-height: 1.6;"><strong>Real Python NumPy Tutorial</strong><br>
+  A detailed tutorial that walks you through the basics and advanced features of NumPy.</p>
+  <p style="color: #000000; line-height: 1.6;">Real Python NumPy Tutorial</p>
+  
+  <p style="color: #000000; line-height: 1.6;"><strong>Kaggle Learn NumPy</strong><br>
+  An interactive course on Kaggle that teaches NumPy through hands-on exercises.</p>
+  <p style="color: #000000; line-height: 1.6;">Kaggle Learn NumPy</p>
+
+  <h4 style="color: #1e3c72; margin-top: 20px;">Official Documentation</h4>
+  
+  <p style="color: #000000; line-height: 1.6;"><strong>NumPy Documentation</strong><br>
+  The official NumPy documentation is the most comprehensive resource for learning about all the features and functions of NumPy.</p>
+  <p style="color: #000000; line-height: 1.6;">NumPy Documentation</p>
+  
+  <p style="color: #000000; line-height: 1.6;"><strong>NumPy User Guide</strong><br>
+  A detailed guide that covers various aspects of NumPy, including installation, usage, and advanced topics.</p>
+  <p style="color: #000000; line-height: 1.6;">NumPy User Guide</p>
+  
+  <p style="color: #000000; line-height: 1.6;"><strong>NumPy Reference Guide</strong><br>
+  A complete reference for all NumPy functions and modules.</p>
+  <p style="color: #000000; line-height: 1.6;">NumPy Reference Guide</p>
 </section>
 
-<div class="container">
-
-  <!-- Introduction Section -->
-
-  <section id="intro" class="fade-in">
-
-    <h2>What is NumPy?</h2>
-
-    <div class="content-box">
-
-      <p>NumPy is the foundational library for numerical computing in Python, essential for data engineering, data science, and cloud computing.</p>
-
-    </div>
-
-  </section>
-
-  <!-- Key Features Section -->
-
-  <section id="features" class="fade-in">
-
-    <h2>Key Features of NumPy</h2>
-
-    <div class="content-box">
-
-      <ul>
-
-        <li><b>Multi-Dimensional Arrays</b></li>
-
-        <li><b>Mathematical Functions</b></li>
-
-        <li><b>Integration with Cloud Workflows</b></li>
-
-      </ul>
-
-    </div>
-
-  </section>
-
-  <!-- Importance Section -->
-
-  <section id="importance" class="fade-in">
-
-    <h2>Importance in Data Science and Machine Learning</h2>
-
-    <div class="content-box">
-
-      <p>NumPy arrays are essential for handling large datasets efficiently, offering performance that makes it suitable for data science and machine learning workflows.</p>
-
-    </div>
-
-  </section>
-
-  <!-- Example Usage Section -->
-
-  <section id="example" class="fade-in">
-
-    <h2>Example Usage</h2>
-
-    <div class="content-box">
-
-      <pre><code>import numpy as np
-
-# Creating a NumPy array
-
-array = np.array([1, 2, 3, 4, 5])
-
-# Performing a mathematical operation
-
-squared_array = np.square(array)
-
-print(squared_array)</code>
-
-        <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
-
-      </pre>
-
-      <p>This example demonstrates creating a NumPy array and performing a square operation on each element.</p>
-
-    </div>
-
-  </section>
-
-  <!-- Installation Guide Section -->
-
-  <section id="installation" class="fade-in">
-
-    <h2>How to Install NumPy: Step-by-Step Guide</h2>
-
-    <div class="content-box">
-
-      <p>NumPy is a fundamental package for scientific computing in Python. This guide will walk you through the installation process using different methods: pip, conda, and from source code. We’ll also cover common issues and troubleshooting tips.</p>
-
-      
-
-      <h3>Installing NumPy with pip</h3>
-
-      <ol>
-
-        <li>Open your command prompt or terminal.</li>
-
-        <li>Ensure you have Python installed. You can check this by running:<br>
-
-          <pre><code>python --version</code></pre>
-
-        </li>
-
-        <li>If Python is not installed, download and install it from the official Python website.</li>
-
-        <li>Install pip if it’s not already installed. Check if pip is installed by running:<br>
-
-          <pre><code>pip --version</code></pre>
-
-        </li>
-
-        <li>If pip is not installed, you can install it by following the instructions on the pip installation page.</li>
-
-        <li>Install NumPy using pip. Run the following command:<br>
-
-          <pre><code>pip install numpy</code></pre>
-
-        </li>
-
-      </ol>
-
-      <h3>Installing NumPy with conda</h3>
-
-      <ol>
-
-        <li>Open your command prompt or terminal.</li>
-
-        <li>Ensure you have Anaconda or Miniconda installed. You can download Anaconda from the Anaconda website or Miniconda from the Miniconda website.</li>
-
-        <li>Install NumPy using conda. Run the following command:<br>
-
-          <pre><code>conda install numpy</code></pre>
-
-        </li>
-
-      </ol>
-
-      <h3>Installing NumPy from Source Code</h3>
-
-      <ol>
-
-        <li>Download the NumPy source code. You can get it from the NumPy GitHub repository.</li>
-
-        <li>Extract the downloaded file.</li>
-
-        <li>Open your command prompt or terminal and navigate to the extracted directory.</li>
-
-        <li>Install NumPy by running:<br>
-
-          <pre><code>python setup.py install</code></pre>
-
-        </li>
-
-      </ol>
-
-      <h3>Common Issues and Troubleshooting</h3>
-
-      <ul>
-
-        <li><b>Issue:</b> pip or conda command not found.<br>
-
-          <b>Solution:</b> Ensure that Python and Anaconda/Miniconda are correctly installed and added to your system’s PATH.
-
-        </li>
-
-        <li><b>Issue:</b> Permission denied error.<br>
-
-          <b>Solution:</b> Run the installation command with elevated privileges. For example, use sudo on Unix-based systems:<br>
-
-          <pre><code>sudo pip install numpy</code></pre>
-
-        </li>
-
-        <li><b>Issue:</b> Incompatible Python version.<br>
-
-          <b>Solution:</b> Ensure you are using a compatible version of Python. NumPy supports Python 3.7 and above.
-
-        </li>
-
-      </ul>
-
-      <p>By following these steps, you should be able to install NumPy without any issues. If you encounter any problems, refer to the official NumPy installation guide for more detailed instructions and support.</p>
-
-    </div>
-
-  </section>
-
-</div>
-
-<!-- Footer -->
-
-<footer>
-
-  <p>© 2024 LuckyByte. All rights reserved.</p>
-
-</footer>
-
-<button onclick="scrollToTop()" class="scroll-top-btn"><i class="fas fa-chevron-up"></i></button>
-
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
 <script>
-
-  // IntersectionObserver for fade-in effect
-
-  const observer = new IntersectionObserver(entries => {
-
-    entries.forEach(entry => {
-
-      if (entry.isIntersecting) {
-
-        entry.target.classList.add('visible');
-
-      }
-
+  function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(function() {
+      alert('Copied to clipboard');
+    }, function(err) {
+      console.error('Could not copy text: ', err);
     });
-
-  });
-
-  document.querySelectorAll('.fade-in').forEach(section => observer.observe(section));
-
-  // Scroll-to-top button
-
-  const scrollTopBtn = document.querySelector('.scroll-top-btn');
-
-  window.addEventListener('scroll', () => {
-
-    scrollTopBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
-
-  });
-
-  function scrollToTop() {
-
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-
   }
-
-  // Copy code to clipboard
-
-  function copyCode(button) {
-
-    const codeBlock = button.previousElementSibling;
-
-    const textArea = document.createElement('textarea');
-
-    textArea.value = codeBlock.textContent;
-
-    document.body.appendChild(textArea);
-
-    textArea.select();
-
-    document.execCommand('copy');
-
-    document.body.removeChild(textArea);
-
-    button.innerHTML = '<i class="fas fa-check"></i> Copied!';
-
-    setTimeout(() => {
-
-      button.innerHTML = '<i class="fas fa-copy"></i> Copy';
-
-    }, 2000);
-
-  }
-
 </script>
 
-</body>
+<style>
+  .code-block {
+    position: relative;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  .code-block pre {
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+  }
+  .copy-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #4a90e2;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px;
+  }
+  .copy-btn:hover {
+    background-color: #003f7f;
+  }
+  section {
+    margin-bottom: 40px;
+  }
+  h2 {
+    color: #1e3c72;
+    margin-bottom: 20px;
+  }
+  h3 {
+    color: #2a5298;
+    margin-top: 30px;
+  }
+  h4 {
+    color: #2a5298;
+    margin-top: 20px;
+  }
+  p {
+    margin-bottom: 20px;
+  }
+  ul {
+    margin-bottom: 20px;
+  }
+  li {
+    margin-bottom: 10px;
+  }
+</style>
 
+          
+          
+  </div>
+  <!-- Footer -->
+  <div class="footer">
+    <p>© 2024 LuckyByte. All rights reserved.</p>
+  </div>
+  <script>
+    // Smooth scroll for sidebar links
+    document.querySelectorAll('#sidebar a').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+    // Header shrink effect on scroll
+    window.addEventListener('scroll', function () {
+      document.querySelector('.header-bar').classList.toggle('scrolled', window.scrollY > 50);
+    });
+  </script>
+</body>
 </html>

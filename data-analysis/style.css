@@ -1,0 +1,208 @@
+/* General Setup */
+* {
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    background-color: #f5f7fa;
+    overflow-x: hidden;
+  }
+  /* Header Bar */
+  .header-bar {
+    background: linear-gradient(90deg, #1e3c72, #2a5298);
+    color: #ffffff;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: all 0.3s;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  .header-bar.scrolled {
+    background: linear-gradient(90deg, #16222a, #3a6073);
+    padding: 10px 20px;
+  }
+  .header-bar .brand-name {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #a0b63f;
+    transition: color 0.3s;
+  }
+  .header-bar .nav-link {
+    color: #e2e8f0 !important;
+    margin-right: 20px;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  .header-bar .nav-link:hover {
+    color: #ffd700 !important;
+  }
+  /* Sidebar */
+  #sidebar {
+    height: 100vh;
+    background-color: #2d3748;
+    color: #ffffff;
+    padding-top: 20px;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 260px;
+    overflow-y: auto;
+    transition: width 0.3s;
+    box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+  #sidebar h2 {
+    color: #a0aec0;
+    font-weight: bold;
+    font-size: 1.4rem;
+    padding: 0 20px;
+    transition: color 0.3s;
+  }
+  #sidebar a {
+    color: #cbd5e0;
+    text-decoration: none;
+    display: block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  #sidebar a:hover {
+    background-color: #4a5568;
+    color: #ffffff;
+  }
+  /* Main Content */
+  #content {
+    margin-left: 280px;
+    margin-top: 100px;
+    padding: 20px;
+  }
+  #content section {
+    background: linear-gradient(145deg, #f0f4f8, #e0e8f0);
+    padding: 30px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(30px);
+    opacity: 0;
+    animation: fadeInUp 0.8s forwards;
+  }
+  #content h1, #content h2 {
+    color: #007bff;;
+  }
+  .seo-friendly-heading {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color:  #0f0c0c; /* Deep Navy Blue */
+  }
+  
+  /* Animations */
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Code Box Styles */
+.code-box {
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .code-box pre {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .code-box code {
+    font-family: 'Monaco', monospace;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #333;
+  }
+  
+  .copy-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #4a90e2;
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .copy-button:hover {
+    background-color: #3e7cb3;
+  }
+  
+  /* Highlight.js for Syntax Highlighting (optional) */
+  .language-python {
+    color: #333;
+  }
+  
+  .language-python .token.comment {
+    color: #008000;
+  }
+  
+  .language-python .token.keyword {
+    color: #0000ff;
+  }
+  
+  .language-python .token.string {
+    color: #ff0000;
+  }
+  .data-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.data-table th,
+.data-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.data-table th {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+.data-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.data-table tr:hover {
+  background-color: #f2f2f2;
+}
+
+  
+  /* Footer */
+  footer {
+    background-color: #1a202c;
+    color: #a0aec0;
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
