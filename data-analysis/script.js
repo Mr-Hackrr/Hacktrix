@@ -1,3 +1,5 @@
+console.log("javascript loaded");
+
 // Smooth scroll for sidebar links
 document.querySelectorAll('#sidebar a').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -65,7 +67,46 @@ window.addEventListener('scroll', function () {
       scrollTopButton.style.display = 'none';
     }
   });
- 
+
+  function toggleSidebar() {
+    const sidebar = document.getElementById("sidebar");
+    const menuBtn = document.querySelector(".menu-btn");
+    
+    if (window.innerWidth < 769) { // For mobile devices
+      sidebar.classList.toggle("active");
+    } else { // For larger screens
+      sidebar.classList.toggle("hidden");
+      menuBtn.classList.toggle("active");
+    }
+  }
+  
+
+  // Toggle sidebar on larger screens
+document.querySelector('.toggle-btn').addEventListener('click', function() {
+  document.getElementById('sidebar').classList.toggle('hidden');
+});
+
+// Toggle sidebar on smaller screens (mobile)
+document.querySelector('.menu-btn').addEventListener('click', function() {
+  document.getElementById('sidebar').classList.toggle('active');
+});
+
+// Hide sidebar on smaller screens when content is clicked
+document.getElementById('content').addEventListener('click', function() {
+  if (window.innerWidth < 769) { // Check if smaller screen
+    document.getElementById('sidebar').classList.remove('active');
+  }
+});
+
+// Navigate to respective content and hide sidebar on smaller screens
+document.querySelectorAll('#sidebar a').forEach(link => {
+  link.addEventListener('click', function() {
+    if (window.innerWidth < 769) { // Check if smaller screen
+      document.getElementById('sidebar').classList.remove('active');
+    }
+  });
+});
+
   
   // Copy Code Button Functionality (Improved)
 const copyButtons = document.querySelectorAll('.copy-button');
