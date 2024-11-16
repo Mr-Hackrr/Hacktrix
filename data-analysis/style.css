@@ -78,11 +78,6 @@ a:hover {
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* .header-bar.scrolled {
-  background: linear-gradient(90deg, #16222a, #3a6073);
-  padding: 10px 20px;
-} */
-
 .header-bar .brand-name {
   font-size: 1.8rem;
   font-weight: bold;
@@ -107,21 +102,19 @@ a:hover {
   gap: 10px;
   margin: 0;
   padding: 0;
+  margin-right: 30px;
 }
-
 
 /* Content */
 #content {
   padding: 30px 20px;
   transition: margin-left 0.5s; /* Smooth transition */
-  margin-left: 15px;
 }
 
 /* This is the ONLY rule to control left margin; it's added/removed by JS */
 #content.content-shifted {
-  margin-left: -300px; /* Negative margin shifts it to the LEFT */
+  margin-left: 300px; /* Shift to the RIGHT for sidebar */
 }
-
 
 /* SEO Friendly Heading */
 .seo-friendly-heading {
@@ -216,23 +209,12 @@ a:hover {
   color: #ADD8E6; /* Sky Blue */
 }
 
-/* Animations */
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
+/* Sidebar Styles */
 .sideMenu {
   height: 100%;
   background-color: #2d3748;
   color: #ffffff;
-  width: 0;
+  width: 0; /* Initially hidden on all screens */
   position: fixed;
   z-index: 1;
   top: 54px;
@@ -240,6 +222,10 @@ a:hover {
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
+}
+
+.sideMenu.open {
+  width: 300px; /* Open width */
 }
 
 .sideMenu a {
@@ -270,80 +256,82 @@ a:hover {
   margin-left: 50px;
   cursor: pointer; /* Added cursor style */
 }
-.sideMenu.open {
-  width: 300px;
-}
 
-
+/* Toggle Button Styles */
 div.toggle-menu {
   position: fixed;
-  top: 60px;
-  left: 0; /* Changed to right side */
-  background-color: lightgray; /* Example styling */
-  padding: 10px;
+  top: 15px;
+  right: 20px;
+  z-index: 1000;
+  background-color: #0078d4;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
   cursor: pointer;
+  display: block; /* Always show toggle button */
 }
 
-ul.sidebar-links {
-list-style-type: none; /* Remove bullet points */
-padding: 0;
-margin: 0;
+div.toggle-menu:hover {
+  background-color: #005fa3;
 }
-
-ul.sidebar-links li {
-  margin-bottom: 5px; /*add spacing between list items*/
-}
-
-ul.sidebar-links a {
-  display: block; /* Make links fill the entire list item */
-  padding: 5px 10px;  /*add padding to the links */
-  text-decoration: none; /* Remove underlines */
-}
-
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-  #sideMenu {
-      width: 100%; /* Full-width sidebar on smaller screens */
-      left: 0;
-      
+  /* Header Bar */
+  .header-bar {
+    padding: 20px 20px;
   }
-
-  #sideMenu.open {
-      width: 80%; /* Full-width when open */
-  }
-  #content{
-      margin-left: 0;
-  }
-  #content.content-shifted {
-      left: 0; /* No shift on smaller screens */
-  }
-
-  div.toggle-menu{
-      position: fixed;
-      top: 55px;
-      left: 0;
-      z-index: 1001;
-  }
-
+  
   .header-bar .brand-name {
     font-size: 1rem;
-    font-weight: bold;
-    color: #a0b63f; /* Golden */
-    transition: color 0.3s;
   }
-
+  
   .header-bar .nav-link {
-    color: #e2e8f0 !important; /* Soft White */
+    font-size: 0.8rem;
+    margin-right: 10px;
+  }
+  
+  /* Toggle Button (always visible on smaller screens) */
+  div.toggle-menu {
+    top: 5px;
+    right: 5px;
+  }
+  
+  /* Sidebar (hidden by default, toggled by button) */
+  .sideMenu {
+    top: 54px; /* Adjusted to match header height on smaller screens */
+  }
+  
+  /* Content */
+  #content {
+    padding: 20px;
+  }
+  
+  /* Adjust sidebar open width for smaller screens */
+  .sideMenu.open {
+    width: 250px; /* Smaller open width */
+  }
+}
+
+@media (max-width: 480px) {
+  /* Further adjustments for very small screens */
+  .header-bar .nav-link {
+    font-size: 0.7rem;
+  }
+  .header-bar nav ul {
+    display: flex;
+    gap: 5px;
     margin-right: 20px;
-    font-weight: 400;
-    font-size: 0.5rem;
-    transition: color 0.3s;
+  }
+  
+  div.toggle-menu {
+    top: 10px;
+    right: 5px;
     
   }
-  ul.nav-links {
-    gap: 2px; /* Adjust the gap value as needed */
-    display: flex; /* Ensure that it's a flexbox or grid;  it probably is in your case */
-    flex-direction: row; /*  Make it vertical if you're not using grid. */
+  
+  .sideMenu.open {
+    width: 200px; /* Even smaller open width */
   }
 }
