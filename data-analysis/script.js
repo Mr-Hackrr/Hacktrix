@@ -1,131 +1,103 @@
-console.log("javascript loaded");
+const toggleButton = document.querySelector('.toggle-menu'); //Get the toggle button element
+const sideMenu = document.getElementById("sideMenu"); //Get the sidebar element
+const contentArea = document.getElementById("content"); //Get the content element
 
-// Smooth scroll for sidebar links
-document.querySelectorAll('#sidebar a').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-            targetElement.scrollIntoView({ behavior: 'smooth' });
-        }
-    });
-});
-  
- // Header shrink effect on scroll
-window.addEventListener('scroll', function () {
-    document.querySelector('.header-bar').classList.toggle('scrolled', window.scrollY > 50);
-});
-  
-  // Animation for main content sections
-  const sections = document.querySelectorAll('#content section');
-  sections.forEach(section => {
-    section.addEventListener('mouseenter', () => {
-      section.style.transform = 'scale(1.01)';
-      section.style.boxShadow = '0px 4px 12px rgba(0, 0, 0, 0.2)';
-    });
-    section.addEventListener('mouseleave', () => {
-      section.style.transform = 'scale(1)';
-      section.style.boxShadow = '0px 4px 12px rgba(0, 0, 0, 0.1)';
-    });
-  });
-  
-  // Fade-in animation for main content sections on page load
-  window.addEventListener('load', () => {
-    sections.forEach(section => {
-      section.style.opacity = '1';
-      section.style.transform = 'translateY(0)';
-    });
-  });
-  
-  // Scroll-to-top button
-  const scrollTopButton = document.createElement('button');
-  scrollTopButton.textContent = '↑';
-  scrollTopButton.style.position = 'fixed';
-  scrollTopButton.style.bottom = '20px';
-  scrollTopButton.style.right = '20px';
-  scrollTopButton.style.padding = '10px';
-  scrollTopButton.style.borderRadius = '50%';
-  scrollTopButton.style.border = 'none';
-  scrollTopButton.style.backgroundColor = '#4a90e2';
-  scrollTopButton.style.color = '#ffffff';
-  scrollTopButton.style.cursor = 'pointer';
-  scrollTopButton.style.fontSize = '1.5rem';
-  scrollTopButton.addEventListener('click', () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  });
-  document.body.appendChild(scrollTopButton);
-  
-  // Show/hide scroll-to-top button
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 500) {
-      scrollTopButton.style.display = 'block';
+let isMenuOpen = false; //Track the current state of the menu
+
+
+toggleButton.addEventListener('click', () => {
+    isMenuOpen = !isMenuOpen; // Toggle the menu state
+
+    if (isMenuOpen) {
+        openNav();
     } else {
-      scrollTopButton.style.display = 'none';
+        closeNav();
     }
-  });
+});
 
-  function toggleSidebar() {
-    const sidebar = document.getElementById("sidebar");
-    const menuBtn = document.querySelector(".menu-btn");
-    
-    if (window.innerWidth < 769) { // For mobile devices
-      sidebar.classList.toggle("active");
-    } else { // For larger screens
-      sidebar.classList.toggle("hidden");
-      menuBtn.classList.toggle("active");
-    }
+function closeSidebarAfterNavigation() {
+  if (window.innerWidth <= 768) { // Check if it's a mobile device
+      sideMenu.classList.remove('open');
+      content.classList.remove('content-shifted');
   }
-  
+}
 
-  // Toggle sidebar on larger screens
-document.querySelector('.toggle-btn').addEventListener('click', function() {
-  document.getElementById('sidebar').classList.toggle('hidden');
+// Add event listeners to the sidebar links to close the sidebar after navigation
+const sidebarLinks = document.querySelectorAll('#sideMenu a');
+sidebarLinks.forEach(link => {
+  link.addEventListener('click', closeSidebarAfterNavigation);
 });
 
-// Toggle sidebar on smaller screens (mobile)
-document.querySelector('.menu-btn').addEventListener('click', function() {
-  document.getElementById('sidebar').classList.toggle('active');
-});
 
-// Hide sidebar on smaller screens when content is clicked
-document.getElementById('content').addEventListener('click', function() {
-  if (window.innerWidth < 769) { // Check if smaller screen
-    document.getElementById('sidebar').classList.remove('active');
+window.addEventListener('scroll', handleScroll);
+
+function handleScroll() {
+  const header = document.querySelector('.header-bar');
+  const scrollThreshold = 10; // Adjust as needed
+
+  if (window.pageYOffset > scrollThreshold) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
   }
-});
+}
 
-// Navigate to respective content and hide sidebar on smaller screens
-document.querySelectorAll('#sidebar a').forEach(link => {
-  link.addEventListener('click', function() {
-    if (window.innerWidth < 769) { // Check if smaller screen
-      document.getElementById('sidebar').classList.remove('active');
-    }
-  });
-});
+function openNav() {
+    sideMenu.style.width = "300px";
+    contentArea.style.marginLeft = "300px";
+}
 
-  
-  // Copy Code Button Functionality (Improved)
+function closeNav() {
+    sideMenu.style.width = "0";
+    contentArea.style.marginLeft = "0";
+}
+
+
+// Copy Code Button Functionality (Improved)
 const copyButtons = document.querySelectorAll('.copy-button');
 
 copyButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const code = button.previousElementSibling.textContent.trim(); //Improved selector
-        navigator.clipboard.writeText(code)
-            .then(() => {
-                button.textContent = 'Copied!';
-                setTimeout(() => button.textContent = 'Copy Code', 1500);
-            })
-            .catch(err => {
-                console.error('Failed to copy: ', err);
-                button.textContent = 'Copy Failed!';
-            });
-    });
+  button.addEventListener('click', () => {
+    const code = button.previousElementSibling.textContent.trim(); //Improved selector
+    navigator.clipboard.writeText(code)
+      .then(() => {
+        button.textContent = 'Copied!';
+        setTimeout(() => button.textContent = 'Copy Code', 1500);
+      })
+      .catch(err => {
+        console.error('Failed to copy: ', err);
+        button.textContent = 'Copy Failed!';
+      });
+  });
 });
 
-hljs.highlightAll(); //Initialize Highlight.js after the page loads
 
+// Scroll-to-top button
+const scrollTopButton = document.createElement('button');
+scrollTopButton.textContent = '↑';
+scrollTopButton.style.position = 'fixed';
+scrollTopButton.style.bottom = '20px';
+scrollTopButton.style.right = '20px';
+scrollTopButton.style.padding = '10px';
+scrollTopButton.style.borderRadius = '50%';
+scrollTopButton.style.border = 'none';
+scrollTopButton.style.backgroundColor = '#4a90e2';
+scrollTopButton.style.color = '#ffffff';
+scrollTopButton.style.cursor = 'pointer';
+scrollTopButton.style.fontSize = '1.5rem';
+scrollTopButton.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+document.body.appendChild(scrollTopButton);
 
+// Show/hide scroll-to-top button
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 500) {
+    scrollTopButton.style.display = 'block';
+  } else {
+    scrollTopButton.style.display = 'none';
+  }
+});

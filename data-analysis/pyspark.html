@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
 <script>hljs.highlightAll();</script>
 
@@ -13,21 +14,17 @@
 </head>
 <body>
 <!-- Header Bar -->
-<div class="header-bar">
+<div class="header-bar">      
 <span class="brand-name">Hacktrix</span>
 <nav class="navbar">
-    <button class="open-btn" onclick="toggleSidebar()">Menu</button>
-<a class="nav-link" href="#introduction-to-pyspark">PySpark</a>
-<a class="nav-link" href="#pyspark-sql">PySpark SQL</a>
-<a class="nav-link" href="#pyspark-streaming">PySpark Streaming</a>
-<a class="nav-link" href="#project-examples">PySpark Project</a>
+<a class="nav-link" href="Hacktrix/index.html/#about">about</a>
+<a class="nav-link" href="#Hacktrix/index.html/Exercise">Exercise</a>
+<a class="nav-link" href="project">Project</a>
+<a class="nav-link" href="Hacktrix/index.html/Contact">Contact us</a>
 </nav>
 </div>
 <!-- Sidebar -->
-<div id="sidebar" class="navbar">
-    <button class="toggle-btn">&times;</button> <!-- X button for larger screens -->
-    console.log("sidebar toggles");
-<h2>Menu</h2>
+<div id="sidebar" class="navbar" class="show">
 <a href="#introduction-to-pyspark">Introduction to PySpark</a>
 <a href="#pyspark-setup">PySpark Setup and Installation</a>
 <a href="#core-concepts">Core PySpark Concepts</a>
@@ -43,9 +40,8 @@
 <a href="#additional-resources">Additional Resources and FAQs</a>
 </div>
 
-<!-- Floating Menu Button (for larger screens when sidebar is hidden) -->
-<button class="menu-btn">&#9776;</button> <!-- Menu button for larger screens -->
-<div id="content">
+
+<div id="content" class="show">
 <h1 id="main-heading" class="seo-friendly-heading">Mastering PySpark for Efficient Big Data Processing and Analytics</h1>
 
 <section id="introduction-to-pyspark" style="line-height: 1.6; margin-bottom: 20px;">
@@ -2850,6 +2846,7 @@ cvModel = crossval.fit(df)</code></pre>
     </li>
 </ol>
 </section>
+
 </div>
 <script src="script.js"></script>
 </body>

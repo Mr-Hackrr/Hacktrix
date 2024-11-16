@@ -6,15 +6,65 @@
 
 body {
   font-family: Arial, sans-serif;
-  color: #333;
+  color: #333; /* Deep Gray */
   margin: 0;
-  background-color: #f5f7fa;
+  background-color: #f5f7fa; /* Light Gray */
   overflow-x: hidden;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 10px;
+}
+
+h1 {
+  font-family: 'Open Sans', sans-serif; /* Or your chosen font */
+  font-size: 36px;
+  font-weight: 700;
+  color: #1c55e6; /* Deep Blue */
+  margin-top: 60px;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2); /* Subtle shadow */
+  padding: 10px 20px; /*adds padding*/
+  background-color: #e6f2ff; /* light blue background */ /*optional */
+  border-radius: 5px; /*optional, rounds the corners*/
+}
+
+h2 {
+  font-size: 28px;
+  color: #4682B4; /* Steel Blue */
+}
+
+h3 {
+  font-size: 22px;
+  color: #87CEEB; /* Light Blue */
+}
+
+h4, h5, h6 {
+  font-size: 18px;
+  color: #212121; /* Dark Blue */
+}
+
+p {
+  margin-bottom: 15px;
+  color: #666; /* Softer Black */
+}
+
+a {
+  text-decoration: none;
+  color: #87CEEB; /* Light Blue */
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #ADD8E6; /* Sky Blue */
 }
 
 /* Header Bar */
 .header-bar {
-  background: linear-gradient(90deg, #1e3c72, #2a5298);
+  background: linear-gradient(90deg, #1e3c72, #2a5298); /* Blue Gradient */
   color: #ffffff;
   padding: 15px 20px;
   display: flex;
@@ -28,123 +78,50 @@ body {
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-.header-bar.scrolled {
+/* .header-bar.scrolled {
   background: linear-gradient(90deg, #16222a, #3a6073);
   padding: 10px 20px;
-}
+} */
 
 .header-bar .brand-name {
   font-size: 1.8rem;
   font-weight: bold;
-  color: #a0b63f;
+  color: #a0b63f; /* Golden */
   transition: color 0.3s;
 }
 
 .header-bar .nav-link {
-  color: #e2e8f0 !important;
+  color: #e2e8f0 !important; /* Soft White */
   margin-right: 20px;
   font-weight: 500;
   transition: color 0.3s;
 }
 
 .header-bar .nav-link:hover {
-  color: #ffd700 !important;
+  color: #ffd700 !important; /* Bright Yellow */
 }
 
-.navbar {
+.header-bar nav ul {
   display: flex;
   list-style: none;
+  gap: 10px;
   margin: 0;
   padding: 0;
-  align-items: center;
 }
 
-.navbar a {
-  text-decoration: none;
-  color: inherit;
-  padding: 10px 15px;
-  margin: 0 10px;
-}
-
-/* Sidebar */
-#sidebar {
-  height: 100vh;
-  background-color: #2d3748;
-  color: #ffffff;
-  padding-top: 20px;
-  position: fixed;
-  top: 0;
-  width: 260px;
-  overflow-y: auto;
-  transition: left 0.3s;
-  box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.2);
-  z-index: 999;
-  left: 0; /* Visible by default on larger screens */
-}
-
-/* Toggle Button (X) */
-.toggle-btn {
-  background: none;
-  color: white;
-  border: none;
-  font-size: 1.5em;
-  cursor: pointer;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
-
-/* Floating Menu Button (for larger screens when sidebar is hidden) */
-.menu-btn {
-  background-color: #333;
-  color: white;
-  border: none;
-  font-size: 1.2em;
-  cursor: pointer;
-  padding: 10px 15px;
-  position: fixed;
-  top: 10px;
-  left: -45px; /* Initially hidden */
-  transition: left 0.3s;
-  z-index: 1000;
-}
-
-/* Larger Screens (Desktop, Laptop) */
-@media (min-width: 769px) {
-  #content {
-    margin-left: 260px; /* Adjust content based on sidebar width */
-  }
-  #sidebar.hidden {
-    left: -260px; /* Hide sidebar when button is clicked */
-  }
-  #sidebar.hidden + .menu-btn {
-    left: 0; /* Show menu button when sidebar is hidden */
-  }
-}
-
-/* Smaller Screens (Mobile) */
-@media (max-width: 768px) {
-  #sidebar {
-    left: -260px; /* Hide sidebar by default */
-  }
-  #sidebar.active {
-    left: 0; /* Show sidebar when menu button is clicked */
-    z-index: 1000; /* Ensure sidebar overlaps content */
-  }
-  .menu-btn {
-    left: 0; /* Show menu button by default */
-  }
-  #content {
-    margin-left: 0; /* No margin when sidebar is hidden */
-  }
-}
 
 /* Content */
 #content {
-  margin-top: 80px;
-  padding: 20px;
-  transition: margin-left 0.3s;
+  padding: 30px 20px;
+  transition: margin-left 0.5s; /* Smooth transition */
+  margin-left: 15px;
 }
+
+/* This is the ONLY rule to control left margin; it's added/removed by JS */
+#content.content-shifted {
+  margin-left: -300px; /* Negative margin shifts it to the LEFT */
+}
+
 
 /* SEO Friendly Heading */
 .seo-friendly-heading {
@@ -153,7 +130,6 @@ body {
   text-align: center;
   color: #0f0c0c; /* Deep Navy Blue */
 }
-
 
 /* Code Box Styles */
 .code-box {
@@ -211,6 +187,7 @@ body {
 .data-table th {
   background-color: #f0f0f0;
   font-weight: bold;
+  color: #4682B4; /* Steel Blue */
 }
 
 .data-table tr:nth-child(even) {
@@ -222,12 +199,21 @@ body {
 }
 
 /* Footer Styles */
-footer {
+.footer {
   background-color: #1a202c;
   color: #a0aec0;
   padding: 20px;
   text-align: center;
   margin-top: 20px;
+}
+
+.footer a {
+  color: #87CEEB; /* Light Blue */
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #ADD8E6; /* Sky Blue */
 }
 
 /* Animations */
@@ -242,60 +228,122 @@ footer {
   }
 }
 
-/* Highlight.js for Syntax Highlighting (optional) */
-.language-python {
-  color: #333;
+.sideMenu {
+  height: 100%;
+  background-color: #2d3748;
+  color: #ffffff;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 54px;
+  left: 0;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
 }
 
-.language-python .token.comment {
-  color: #008000;
+.sideMenu a {
+  padding: 7px 7px;
+  text-decoration: none;
+  font-size: 1rem;
+  color: #fff;
+  display: block;
+  transition: 0.3s;
+  margin-bottom: 20px;
+  font-weight: bold;
 }
 
-.language-python .token.keyword {
-  color: #0000ff;
+.sideMenu a:hover {
+  color: #fff;
+  background-color: #111;
 }
 
-.language-python .token.string {
-  color: #ff0000;
+.sideMenu a i {
+  padding-right: 15px;
 }
 
-/* Media Queries for Responsive Design */
-@media (max-width: 600px) {
-  .header-bar {
-    padding: 10px;
+.sideMenu .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  cursor: pointer; /* Added cursor style */
+}
+.sideMenu.open {
+  width: 300px;
+}
+
+
+div.toggle-menu {
+  position: fixed;
+  top: 60px;
+  left: 0; /* Changed to right side */
+  background-color: lightgray; /* Example styling */
+  padding: 10px;
+  cursor: pointer;
+}
+
+ul.sidebar-links {
+list-style-type: none; /* Remove bullet points */
+padding: 0;
+margin: 0;
+}
+
+ul.sidebar-links li {
+  margin-bottom: 5px; /*add spacing between list items*/
+}
+
+ul.sidebar-links a {
+  display: block; /* Make links fill the entire list item */
+  padding: 5px 10px;  /*add padding to the links */
+  text-decoration: none; /* Remove underlines */
+}
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  #sideMenu {
+      width: 100%; /* Full-width sidebar on smaller screens */
+      left: 0;
+      
   }
+
+  #sideMenu.open {
+      width: 80%; /* Full-width when open */
+  }
+  #content{
+      margin-left: 0;
+  }
+  #content.content-shifted {
+      left: 0; /* No shift on smaller screens */
+  }
+
+  div.toggle-menu{
+      position: fixed;
+      top: 55px;
+      left: 0;
+      z-index: 1001;
+  }
+
   .header-bar .brand-name {
-    font-size: 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #a0b63f; /* Golden */
+    transition: color 0.3s;
   }
-  .navbar {
-    flex-direction: column;
+
+  .header-bar .nav-link {
+    color: #e2e8f0 !important; /* Soft White */
+    margin-right: 20px;
+    font-weight: 400;
+    font-size: 0.5rem;
+    transition: color 0.3s;
+    
   }
-  .navbar a {
-    padding: 10px;
-  }
-  #sidebar {
-    width: 200px;
-  }
-  #content {
-    margin-top: 60px;
+  ul.nav-links {
+    gap: 2px; /* Adjust the gap value as needed */
+    display: flex; /* Ensure that it's a flexbox or grid;  it probably is in your case */
+    flex-direction: row; /*  Make it vertical if you're not using grid. */
   }
 }
-
-@media (max-width: 480px) {
-  .header-bar {
-    padding: 5px;
-  }
-  .header-bar .brand-name {
-    font-size: 1.2rem;
-  }
-  .navbar {
-    display: none;
-  }
-  #sidebar {
-    width: 150px;
-  }
-  #content {
-    margin-top: 40px;
-  }
-}
-
