@@ -6,6 +6,7 @@
   <title>Hacktrix - Unlocking Data Potential</title>
   <meta name="description" content="Explore the power of PySpark for big data processing and analytics. Learn how to unlock your data's potential with Hacktrix.">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
   <link rel="stylesheet" href="style.css">
@@ -28,7 +29,6 @@
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
     <nav class="sidebar-nav">
       <ul class="sidebar-links">
-        
         <li class="sidebar-link"><a href="#introduction-to-pyspark" tabindex="0">Introduction to PySpark</a></li>
         <li class="sidebar-link"><a href="#pyspark-setup" tabindex="0">PySpark Setup and Installation</a></li>
         <li class="sidebar-link"><a href="#core-concepts" tabindex="0">Core PySpark Concepts</a></li>
@@ -95,7 +95,11 @@
     <li class="list-item"><strong>Install PySpark:</strong> Use pip to install PySpark:
       <div class="code-box">
         <pre><code class="language-bash">pip install pyspark</code></pre>
-        <button class="copy-button">Copy Code</button>
+        <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
       </div>
     </li>
   </ol>
@@ -105,7 +109,11 @@
     <li class="list-item"><strong>Install Java:</strong> Use Homebrew to install Java:
       <div class="code-box">
         <pre><code class="language-bash">brew install openjdk</code></pre>
-        <button class="copy-button">Copy Code</button>
+        <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
       </div>
     </li>
     <li class="list-item"><strong>Download Spark:</strong> Extract the Spark package.</li>
@@ -113,7 +121,11 @@
     <li class="list-item"><strong>Install PySpark:</strong> Use pip to install PySpark:
       <div class="code-box">
         <pre><code class="language-bash">pip install pyspark</code></pre>
-        <button class="copy-button">Copy Code</button>
+        <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
       </div>
     </li>
   </ol>
@@ -123,7 +135,11 @@
     <li class="list-item"><strong>Install Java:</strong> Use your package manager to install Java:
       <div class="code-box">
         <pre><code class="language-bash">sudo apt-get install openjdk-8-jdk</code></pre>
-        <button class="copy-button">Copy Code</button>
+        <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
       </div>
     </li>
     <li class="list-item"><strong>Download Spark:</strong> Extract the Spark package.</li>
@@ -131,7 +147,11 @@
     <li class="list-item"><strong>Install PySpark:</strong> Use pip to install PySpark:
       <div class="code-box">
         <pre><code class="language-bash">pip install pyspark</code></pre>
-        <button class="copy-button">Copy Code</button>
+        <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
       </div>
     </li>
   </ol>
@@ -147,7 +167,11 @@
     <li class="list-item"><strong>Run PySpark:</strong> Start PySpark by running:
       <div class="code-box">
         <pre><code class="language-bash">pyspark</code></pre>
-        <button class="copy-button">Copy Code</button>
+        <button class="copy-button">
+            <i class="fas fa-copy"></i>
+            <span class="copy-text">Copy</span>
+          </button>
+
       </div>
     </li>
   </ol>
@@ -160,7 +184,11 @@
     <li class="list-item"><strong>Run PySpark:</strong> Start PySpark by running:
       <div class="code-box">
         <pre><code class="language-bash">pyspark</code></pre>
-        <button class="copy-button">Copy Code</button>
+        <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
       </div>
     </li>
   </ol>
@@ -173,7 +201,11 @@
     <li class="list-item"><strong>Run PySpark:</strong> Start PySpark by running:
       <div class="code-box">
         <pre><code class="language-bash">pyspark</code></pre>
-        <button class="copy-button">Copy Code</button>
+        <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
       </div>
     </li>
   </ol>
@@ -184,14 +216,22 @@
   <h4 class="subsubsection-title">Install Jupyter Notebook:</h4>
   <div class="code-box">
     <pre><code class="language-bash">pip install notebook</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
   
   <h4 class="subsubsection-title">Configure PySpark with Jupyter:</h4>
   <p class="paragraph">Create a pyspark profile for Jupyter:</p>
   <div class="code-box">
     <pre><code class="language-bash">jupyter notebook --generate-config</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
   
   <p class="paragraph">Add the following to your Jupyter configuration file:</p>
@@ -212,13 +252,21 @@ from pyspark.sql import SparkSession
 conf = SparkConf().setAppName('Jupyter PySpark').setMaster('local')
 sc = SparkContext(conf=conf)
 spark = SparkSession(sc)</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
   
   <h4 class="subsubsection-title">Start Jupyter Notebook:</h4>
   <div class="code-box">
     <pre><code class="language-bash">jupyter notebook</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
   
   <h4 class="subsubsection-title">Create a New Notebook:</h4>
@@ -229,7 +277,11 @@ spark = SparkSession(sc)</code></pre>
 spark = SparkSession.builder.appName('example').getOrCreate()
 df = spark.read.csv('path/to/your/csvfile.csv')
 df.show()</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
 </section>
 
@@ -257,21 +309,33 @@ df.show()</code></pre>
       <div class="code-box">
         <pre><code class="language-python">rdd = sc.parallelize([1, 2, 3, 4])
 rdd2 = rdd.map(lambda x: x * 2)</code></pre>
-        <button class="copy-button">Copy Code</button>
+        <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
       </div>
     </li>
     <li class="list-item"><strong>filter:</strong> Filters elements based on a condition.
       <div class="code-box">
         <pre><code class="language-python">rdd = sc.parallelize([1, 2, 3, 4])
 rdd2 = rdd.filter(lambda x: x % 2 == 0)</code></pre>
-        <button class="copy-button">Copy Code</button>
+        <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
       </div>
     </li>
     <li class="list-item"><strong>reduceByKey:</strong> Aggregates values by key.
       <div class="code-box">
         <pre><code class="language-python">rdd = sc.parallelize([('a', 1), ('b', 2), ('a', 3)])
 rdd2 = rdd.reduceByKey(lambda x, y: x + y)</code></pre>
-        <button class="copy-button">Copy Code</button>
+        <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
       </div>
     </li>
   </ul>
@@ -283,21 +347,33 @@ rdd2 = rdd.reduceByKey(lambda x, y: x + y)</code></pre>
       <div class="code-box">
         <pre><code class="language-python">rdd = sc.parallelize([1, 2, 3, 4])
 result = rdd.collect()</code></pre>
-        <button class="copy-button">Copy Code</button>
+        <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
       </div>
     </li>
     <li class="list-item"><strong>count:</strong> Returns the number of elements in the RDD.
       <div class="code-box">
         <pre><code class="language-python">rdd = sc.parallelize([1, 2, 3, 4])
 result = rdd.count()</code></pre>
-        <button class="copy-button">Copy Code</button>
+        <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
       </div>
     </li>
     <li class="list-item"><strong>reduce:</strong> Aggregates elements using a specified function.
       <div class="code-box">
         <pre><code class="language-python">rdd = sc.parallelize([1, 2, 3, 4])
 result = rdd.reduce(lambda x, y: x + y)</code></pre>
-        <button class="copy-button">Copy Code</button>
+        <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
       </div>
     </li>
   </ul>
@@ -318,7 +394,11 @@ result = rdd.reduce(lambda x, y: x + y)</code></pre>
 rdd2 = rdd.map(lambda x: x * 2)
 rdd3 = rdd2.filter(lambda x: x > 4)
 result = rdd3.collect()</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
   <p class="paragraph">In this example, the map and filter transformations are not executed until the collect action is called. Spark optimizes the execution plan before running the transformations, ensuring efficient data processing.</p>
   
@@ -329,14 +409,22 @@ result = rdd3.collect()</code></pre>
 words = text.flatMap(lambda x: x.split())
 word_counts = words.map(lambda x: (x, 1)).reduceByKey(lambda x, y: x + y)
 result = word_counts.collect()</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
   
   <p class="paragraph"><strong>Data Aggregation</strong></p>
   <div class="code-box">
     <pre><code class="language-python">data = sc.parallelize([(1, 2), (2, 3), (1, 4)])
 result = data.reduceByKey(lambda x, y: x + y).collect()</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
   
   <p class="paragraph">By mastering the core concepts of PySpark, including RDDs, transformations, actions, and lazy evaluation, you can efficiently process and analyze large datasets.</p>
@@ -363,21 +451,33 @@ result = data.reduceByKey(lambda x, y: x + y).collect()</code></pre>
 spark = SparkSession.builder.appName("example").getOrCreate()
 df_csv = spark.read.csv("path/to/file.csv", header=True, inferSchema=True)
 df_csv.show()</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
   
   <h4 class="subsubsection-title">Example 2: Creating DataFrame from JSON</h4>
   <div class="code-box">
     <pre><code class="language-python">df_json = spark.read.json("path/to/file.json")
 df_json.show()</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
   
   <h4 class="subsubsection-title">Example 3: Creating DataFrame from Parquet</h4>
   <div class="code-box">
     <pre><code class="language-python">df_parquet = spark.read.parquet("path/to/file.parquet")
 df_parquet.show()</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
   
   <h4 class="subsubsection-title">Example 4: Creating DataFrame from Database</h4>
@@ -390,7 +490,11 @@ df_parquet.show()</code></pre>
     password="password"
 ).load()
 df_db.show()</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
   
   <h3 class="subsection-title">Basic DataFrame Operations</h3>
@@ -400,21 +504,33 @@ df_db.show()</code></pre>
   <div class="code-box">
     <pre><code class="language-python">df_select = df_csv.select("column1", "column2")
 df_select.show()</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
   
   <h4 class="subsubsection-title">Example 2: Filtering Rows</h4>
   <div class="code-box">
     <pre><code class="language-python">df_filter = df_csv.filter(df_csv["column1"] > 100)
 df_filter.show()</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
   
   <h4 class="subsubsection-title">Example 3: Performing Aggregations</h4>
   <div class="code-box">
     <pre><code class="language-python">df_agg = df_csv.groupBy("column2").agg({"column1": "sum"})
 df_agg.show()</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
   
   <h3 class="subsection-title">Schema Inference and Manual Schema Definition</h3>
@@ -424,7 +540,11 @@ df_agg.show()</code></pre>
   <div class="code-box">
     <pre><code class="language-python">df_infer = spark.read.csv("path/to/file.csv", header=True, inferSchema=True)
 df_infer.printSchema()</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
   
   <h4 class="subsubsection-title">Example 2: Manual Schema Definition</h4>
@@ -438,7 +558,11 @@ schema = StructType([
 
 df_manual = spark.read.csv("path/to/file.csv", header=True, schema=schema)
 df_manual.printSchema()</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
   
   <h4 class="subsubsection-title">Example 3: Creating DataFrame with Manual Schema</h4>
@@ -451,7 +575,11 @@ schema = StructType([
 
 df_manual_data = spark.createDataFrame(data, schema)
 df_manual_data.show()</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
   
   <h3 class="subsection-title">Additional Examples</h3>
@@ -463,21 +591,33 @@ df2 = spark.read.csv("path/to/file2.csv", header=True, inferSchema=True)
 
 df_merged = df1.union(df2)
 df_merged.show()</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
   
   <h4 class="subsubsection-title">Data Aggregation</h4>
   <div class="code-box">
     <pre><code class="language-python">df_agg = df_csv.groupBy("column2").agg({"column1": "sum", "column3": "avg"})
 df_agg.show()</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
   
   <h4 class="subsubsection-title">Data Filtering</h4>
   <div class="code-box">
     <pre><code class="language-python">df_filter = df_csv.filter(df_csv["column1"] > 100).filter(df_csv["column2"] == "value")
 df_filter.show()</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
 </section>
       
@@ -492,13 +632,21 @@ df_filter.show()</code></pre>
   <h4 class="subsubsection-title">Example 1: Dropping Missing Values</h4>
   <div class="code-box">
     <pre><code class="language-python">df.dropna().show()</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
   
   <h4 class="subsubsection-title">Example 2: Filling Missing Values</h4>
   <div class="code-box">
     <pre><code class="language-python">df.fillna({'column1': 0, 'column2': 'unknown'}).show()</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
   
   <h3 class="subsection-title">Data Normalization</h3>
@@ -511,7 +659,11 @@ scaler = MinMaxScaler(inputCol="features", outputCol="scaledFeatures")
 scalerModel = scaler.fit(df)
 scaledData = scalerModel.transform(df)
 scaledData.show()</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
   
   <h4 class="subsubsection-title">Example 2: Standard Scaling</h4>
@@ -521,7 +673,11 @@ scaler = StandardScaler(inputCol="features", outputCol="scaledFeatures", withStd
 scalerModel = scaler.fit(df)
 scaledData = scalerModel.transform(df)
 scaledData.show()</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
   
   <h3 class="subsection-title">Data Transformation</h3>
@@ -530,13 +686,21 @@ scaledData.show()</code></pre>
   <h4 class="subsubsection-title">Example 1: Grouping Data</h4>
   <div class="code-box">
     <pre><code class="language-python">df.groupBy("column1").agg({"column2": "sum"}).show()</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
   
   <h4 class="subsubsection-title">Example 2: Pivoting Data</h4>
   <div class="code-box">
     <pre><code class="language-python">df.groupBy("column1").pivot("column2").sum("column3").show()</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
 </section>
 
@@ -561,20 +725,32 @@ scaledData.show()</code></pre>
 spark = SparkSession.builder.appName("example").getOrCreate()
 df = spark.read.csv("path/to/file.csv", header=True, inferSchema=True)
 df.createOrReplaceTempView("table_name")</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
   
   <h4 class="subsubsection-title">Example 2: Registering Multiple DataFrames</h4>
   <div class="code-box">
     <pre><code class="language-python">df1.createOrReplaceTempView("table1")
 df2.createOrReplaceTempView("table2")</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
   
   <h4 class="subsubsection-title">Example 3: Registering with a Different Name</h4>
   <div class="code-box">
     <pre><code class="language-python">df.createOrReplaceTempView("different_table_name")</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
   
   <h3 class="subsection-title">Executing SQL Queries in PySpark</h3>
@@ -584,7 +760,11 @@ df2.createOrReplaceTempView("table2")</code></pre>
   <div class="code-box">
     <pre><code class="language-python">result = spark.sql("SELECT * FROM table_name WHERE column1 > 100")
 result.show()</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
   
   <h4 class="subsubsection-title">Example 2: Joining Tables</h4>
@@ -595,14 +775,22 @@ result.show()</code></pre>
     JOIN table2 b ON a.id = b.id
 """)
 result.show()</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
   
   <h4 class="subsubsection-title">Example 3: Aggregation Query</h4>
   <div class="code-box">
     <pre><code class="language-python">result = spark.sql("SELECT column1, SUM(column2) as total FROM table_name GROUP BY column1")
 result.show()</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
   
   <h3 class="subsection-title">Window Functions in PySpark</h3>
@@ -616,7 +804,11 @@ from pyspark.sql.functions import rank
 window_spec = Window.partitionBy("column1").orderBy("column2")
 df_rank = df.withColumn("rank", rank().over(window_spec))
 df_rank.show()</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
   
   <h4 class="subsubsection-title">Example 2: Cumulative Sum</h4>
@@ -626,7 +818,11 @@ df_rank.show()</code></pre>
 window_spec = Window.partitionBy("column1").orderBy("column2").rowsBetween(Window.unboundedPreceding, Window.currentRow)
 df_cumsum = df.withColumn("cumulative_sum", sum("column2").over(window_spec))
 df_cumsum.show()</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
   
   <h4 class="subsubsection-title">Example 3: Rolling Average</h4>
@@ -636,7 +832,11 @@ df_cumsum.show()</code></pre>
 window_spec = Window.partitionBy("column1").orderBy("column2").rowsBetween(-2, 0)
 df_rolling_avg = df.withColumn("rolling_avg", avg("column2").over(window_spec))
 df_rolling_avg.show()</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
 </section>
 
@@ -669,7 +869,11 @@ scaler = StandardScaler(inputCol="features", outputCol="scaledFeatures", withStd
 scalerModel = scaler.fit(df)
 scaledData = scalerModel.transform(df)
 scaledData.show()</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
   
   <h4 class="subsubsection-title">Example 2: Normalizing Data</h4>
@@ -679,7 +883,11 @@ scaledData.show()</code></pre>
 normalizer = Normalizer(inputCol="features", outputCol="normFeatures", p=1.0)
 normData = normalizer.transform(df)
 normData.show()</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
   
   <h4 class="subsubsection-title">Example 3: Encoding Categorical Data</h4>
@@ -692,7 +900,11 @@ df = spark.createDataFrame(data, ["id", "category"])
 indexer = StringIndexer(inputCol="category", outputCol="categoryIndex")
 indexed = indexer.fit(df).transform(df)
 indexed.show()</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
   
   <h3 class="subsection-title">Classification, Regression, and Clustering</h3>
@@ -709,7 +921,11 @@ lr = LinearRegression(featuresCol="feature", labelCol="label")
 lrModel = lr.fit(df)
 predictions = lrModel.transform(df)
 predictions.show()</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
   
   <h4 class="subsubsection-title">Example 2: Decision Trees</h4>
@@ -724,7 +940,11 @@ dt = DecisionTreeClassifier(featuresCol="features", labelCol="label")
 dtModel = dt.fit(df)
 predictions = dtModel.transform(df)
 predictions.show()</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
   
   <h4 class="subsubsection-title">Example 3: K-means Clustering</h4>
@@ -738,7 +958,11 @@ kmeans = KMeans(k=2, seed=1)
 model = kmeans.fit(df)
 predictions = model.transform(df)
 predictions.show()</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
   
   <h3 class="subsection-title">Model Evaluation and Cross-Validation</h3>
@@ -751,7 +975,11 @@ predictions.show()</code></pre>
 evaluator = RegressionEvaluator(predictionCol="prediction", labelCol="label", metricName="rmse")
 rmse = evaluator.evaluate(predictions)
 print(f"Root Mean Squared Error (RMSE): {rmse}")</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
   
   <h4 class="subsubsection-title">Example 2: Cross-Validation</h4>
@@ -761,7 +989,11 @@ print(f"Root Mean Squared Error (RMSE): {rmse}")</code></pre>
 paramGrid = ParamGridBuilder().addGrid(lr.regParam, [0.1, 0.01]).build()
 crossval = CrossValidator(estimator=lr, estimatorParamMaps=paramGrid, evaluator=evaluator, numFolds=3)
 cvModel = crossval.fit(df)</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
 </section>
 
@@ -785,17 +1017,29 @@ cvModel = crossval.fit(df)</code></pre>
     <div class="code-box">
       <pre><code class="language-python">from pyspark import SparkContext
 from pyspark.streaming import StreamingContext</code></pre>
-      <button class="copy-button">Copy Code</button>
+      <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
     </div>
     <li class="list-item"><strong>Create a Spark Context:</strong></li>
     <div class="code-box">
       <pre><code class="language-python">sc = SparkContext("local[2]", "NetworkWordCount")</code></pre>
-      <button class="copy-button">Copy Code</button>
+      <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
     </div>
     <li class="list-item"><strong>Initialize Streaming Context:</strong></li>
     <div class="code-box">
       <pre><code class="language-python">ssc = StreamingContext(sc, 1)  # 1-second batch interval</code></pre>
-      <button class="copy-button">Copy Code</button>
+      <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
     </div>
   </ol>
   
@@ -808,7 +1052,11 @@ from pyspark.streaming import StreamingContext</code></pre>
   <h3 class="subsection-title">Creating DStreams:</h3>
   <div class="code-box">
     <pre><code class="language-python">lines = ssc.socketTextStream("localhost", 9999)</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
   
   <h3 class="subsection-title">Transformations and Actions:</h3>
@@ -817,12 +1065,20 @@ from pyspark.streaming import StreamingContext</code></pre>
     <pre><code class="language-python">words = lines.flatMap(lambda line: line.split(" "))
 pairs = words.map(lambda word: (word, 1))
 wordCounts = pairs.reduceByKey(lambda x, y: x + y)</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
   <p class="paragraph">Actions are operations that return a result to the driver program or write it to an external storage system.</p>
   <div class="code-box">
     <pre><code class="language-python">wordCounts.pprint()</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
   
   <h2 class="section-title">Window Operations on Streaming Data</h2>
@@ -833,7 +1089,11 @@ wordCounts = pairs.reduceByKey(lambda x, y: x + y)</code></pre>
     <li class="list-item"><strong>Define Window Duration and Sliding Interval:</strong></li>
     <div class="code-box">
       <pre><code class="language-python">windowedWordCounts = wordCounts.reduceByKeyAndWindow(lambda x, y: x + y, 30, 10)</code></pre>
-      <button class="copy-button">Copy Code</button>
+      <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
     </div>
   </ol>
   <p class="paragraph">Window duration is the length of the window, and sliding interval is how often the window slides.</p>
@@ -841,7 +1101,11 @@ wordCounts = pairs.reduceByKey(lambda x, y: x + y)</code></pre>
   <h3 class="subsection-title">Example:</h3>
   <div class="code-box">
     <pre><code class="language-python">windowedWordCounts.pprint()</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
   
   <h2 class="section-title">Advanced Features and Deep Dive</h2>
@@ -858,7 +1122,11 @@ wordCounts = pairs.reduceByKey(lambda x, y: x + y)</code></pre>
     <pre><code class="language-python">from pyspark.streaming.kafka import KafkaUtils
 
 kafkaStream = KafkaUtils.createStream(ssc, "localhost:2181", "spark-streaming", {"test-topic": 1})</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
   
   <h3 class="subsection-title">Structured Streaming</h3>
@@ -884,7 +1152,11 @@ wordCounts = words.groupBy("word").count()
 query = wordCounts.writeStream.outputMode("complete").format("console").start()
 
 query.awaitTermination()</code></pre>
-    <button class="copy-button">Copy Code</button>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text">Copy</span>
+</button>
+
   </div>
   
   <h3 class="subsection-title">Performance Tuning</h3>
@@ -1157,6 +1429,7 @@ query.awaitTermination()</code></pre>
   </section>
   
   </main>
+
   <script src="script.js"></script>
   <div class="footer">
     <p>© 2024 LuckyByte. All rights reserved.</p>

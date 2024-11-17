@@ -73,7 +73,7 @@ a:hover {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 999;
   transition: all 0.3s;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
 }
@@ -126,12 +126,18 @@ a:hover {
 
 /* Code Box Styles */
 .code-box {
-  background-color: #f7f7f7;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 15px;
+  background-color: #f0f0f0; /* Soft Gray */
+  border: 1px solid #ccc; /* Light Gray Border */
+  border-radius: 8px; /* Slightly increased radius for a softer look */
+  padding: 20px; /* Increased padding for better code readability */
   position: relative;
   overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: box-shadow 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.code-box:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Increased shadow on hover for emphasis */
 }
 
 .code-box pre {
@@ -141,26 +147,45 @@ a:hover {
 
 .code-box code {
   font-family: 'Monaco', monospace;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #333;
+  font-size: 0.95rem; /* Slightly reduced font size for better fit */
+  line-height: 1.6; /* Increased line height for readability */
+  color: #333; /* Deep Gray for code text */
+  word-wrap: break-word; /* Ensure long lines wrap */
+  white-space: pre-wrap; /* Preserve whitespace but allow wrapping */
 }
 
 .copy-button {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: #4a90e2;
+  top: 12px;
+  right: 12px;
+  background-color: #4a90e2; /* Consistent blue tone */
   color: #ffffff;
   border: none;
-  padding: 5px 10px;
-  font-size: 1rem;
+  padding: 6px 12px;
+  font-size: 0.95rem; /* Matched font size with code */
   cursor: pointer;
+  border-radius: 4px; /* Softer corner radius */
+  transition: background-color 0.2s ease; /* Smooth transition for hover */
 }
 
 .copy-button:hover {
-  background-color: #3e7cb3;
+  background-color: #3e7cb3; /* Darker blue on hover */
 }
+
+.copy-button i {
+  margin-right: 5px; /* Added margin for better spacing with the copy icon */
+}
+
+/* Added Font Awesome copy icon for a more visual cue */
+.copy-button {
+  display: flex;
+  align-items: center;
+}
+
+.copy-button i.fas.fa-copy {
+  font-size: 1.1rem; /* Slightly larger icon for visibility */
+}
+
 
 /* Data Table Styles */
 .data-table {

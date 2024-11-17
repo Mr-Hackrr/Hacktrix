@@ -1,36 +1,47 @@
-const toggleButton = document.querySelector('.toggle-menu'); //Get the toggle button element
-const sideMenu = document.getElementById("sideMenu"); //Get the sidebar element
-const contentArea = document.getElementById("content"); //Get the content element
+// **Improved JavaScript Code**
 
-let isMenuOpen = false; //Track the current state of the menu
+// **Variables and Selectors**
+const toggleButton = document.querySelector('.toggle-menu'); // Get the toggle button element
+const sideMenu = document.getElementById("sideMenu"); // Get the sidebar element
+const contentArea = document.getElementById("content"); // Get the content element
+const scrollTopButton = document.createElement('button'); // Create the scroll-to-top button
 
+let isMenuOpen = false; // Track the current state of the menu
 
-toggleButton.addEventListener('click', () => {
-    isMenuOpen = !isMenuOpen; // Toggle the menu state
-
-    if (isMenuOpen) {
-        openNav();
-    } else {
-        closeNav();
-    }
+// **Debounced Scroll Event Listener**
+let scrollTimeout = null;
+window.addEventListener('scroll', () => {
+  clearTimeout(scrollTimeout);
+  scrollTimeout = setTimeout(handleScroll, 100); // Debounce scroll event
 });
 
+// **Improved Functionality**
+
+// 1. **Sidebar Toggle**
+toggleButton.addEventListener('click', () => {
+  isMenuOpen = !isMenuOpen; // Toggle the menu state
+
+  if (isMenuOpen) {
+    openNav();
+  } else {
+    closeNav();
+  }
+});
+
+// 2. **Close Sidebar After Navigation (Mobile Devices)**
 function closeSidebarAfterNavigation() {
   if (window.innerWidth <= 768) { // Check if it's a mobile device
-      sideMenu.classList.remove('open');
-      content.classList.remove('content-shifted');
+    sideMenu.classList.remove('open');
+    contentArea.classList.remove('content-shifted');
   }
 }
 
-// Add event listeners to the sidebar links to close the sidebar after navigation
 const sidebarLinks = document.querySelectorAll('#sideMenu a');
 sidebarLinks.forEach(link => {
   link.addEventListener('click', closeSidebarAfterNavigation);
 });
 
-
-window.addEventListener('scroll', handleScroll);
-
+// 3. **Header Scroll Effect**
 function handleScroll() {
   const header = document.querySelector('.header-bar');
   const scrollThreshold = 10; // Adjust as needed
@@ -40,25 +51,21 @@ function handleScroll() {
   } else {
     header.classList.remove('scrolled');
   }
+
+  // **Show/Hide Scroll-to-Top Button**
+  if (window.scrollY > 500) {
+    scrollTopButton.style.display = 'block';
+  } else {
+    scrollTopButton.style.display = 'none';
+  }
 }
 
-function openNav() {
-    sideMenu.style.width = "300px";
-    contentArea.style.marginLeft = "300px";
-}
-
-function closeNav() {
-    sideMenu.style.width = "0";
-    contentArea.style.marginLeft = "0";
-}
-
-
-// Copy Code Button Functionality (Improved)
+// 4. **Copy Code Button Functionality**
 const copyButtons = document.querySelectorAll('.copy-button');
 
 copyButtons.forEach(button => {
   button.addEventListener('click', () => {
-    const code = button.previousElementSibling.textContent.trim(); //Improved selector
+    const code = button.previousElementSibling.textContent.trim(); // Improved selector
     navigator.clipboard.writeText(code)
       .then(() => {
         button.textContent = 'Copied!';
@@ -71,9 +78,7 @@ copyButtons.forEach(button => {
   });
 });
 
-
-// Scroll-to-top button
-const scrollTopButton = document.createElement('button');
+// 5. **Scroll-to-Top Button**
 scrollTopButton.textContent = '↑';
 scrollTopButton.style.position = 'fixed';
 scrollTopButton.style.bottom = '20px';
@@ -93,11 +98,17 @@ scrollTopButton.addEventListener('click', () => {
 });
 document.body.appendChild(scrollTopButton);
 
-// Show/hide scroll-to-top button
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 500) {
-    scrollTopButton.style.display = 'block';
-  } else {
-    scrollTopButton.style.display = 'none';
-  }
-});
+// **Sidebar Toggle Functions**
+function openNav() {
+  sideMenu.style.width = "300px";
+  contentArea.style.marginLeft = "300px";
+  sideMenu.classList.add('open');
+  contentArea.classList.add('content-shifted');
+}
+
+function closeNav() {
+  sideMenu.style.width = "0";
+  contentArea.style.marginLeft = "0";
+  sideMenu.classList.remove('open');
+  contentArea.classList.remove('content-shifted');
+}
