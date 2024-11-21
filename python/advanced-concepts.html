@@ -3,144 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacktrix - Your Tech Resource Hub</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        /* Custom styling */
-        body {
-            padding-top: 80px;
-            background-color: #f4f4f9;
-        }
-        header {
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        h2 {
-            color: #007bff;
-            margin-top: 2rem;
-        }
-        .code-block {
-            background-color: #272822;
-            color: #f8f8f2;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 10px 0;
-            font-family: 'Courier New', Courier, monospace;
-        }
-        footer {
-            background-color: #343a40;
-            color: white;
-            padding: 20px 0;
-            margin-top: 50px;
-        }
-        .nav-link:hover {
-           color: #ffdd57;
-        }
-        .title-section {
-            text-align: center;
-            padding: 20px 10px;
-            background-color: #333;
-            color: #ffffff;
-            border-bottom: 3px solid #007bff;
-            position: sticky;
-            top: 0;
-            width: 100%;
-            transition: all 0.3s ease;
-            z-index: 10;
-        }
-        .title-section.shrink {
-            padding: 10px 5px;
-            font-size: 0.8em;
-            background-color: #222;
-            border-bottom: 2px solid #0056b3;
-        }
-        .title-section h1 {
-            font-size: 2em;
-            margin: 0;
-            transition: font-size 0.3s ease;
-        }
-        .title-section.shrink h1 {
-            font-size: 1.5em;
-        }
-        .content-section {
-            padding: 40px 20px;
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            margin-top: 20px;
-        }
-        .content-section h2 {
-            margin-bottom: 20px;
-        }
-        .content-section p, .content-section ul {
-            margin-bottom: 15px;
-        }
-        .content-section ul {
-            list-style-type: disc;
-            padding-left: 20px;
-        }
-        .content-section ul li {
-            margin-bottom: 10px;
-        }
-        .content-section .code-block {
-            background-color: #272822;
-            color: #f8f8f2;
-        }
-        .content-section .code-block code {
-            color: #f8f8f2;
-        }
-    </style>
-    <script>
-        // JavaScript to shrink the title section on scroll
-        window.addEventListener("scroll", function () {
-            const titleSection = document.querySelector(".title-section");
-            if (window.scrollY > 50) {
-                titleSection.classList.add("shrink");
-            } else {
-                titleSection.classList.remove("shrink");
-            }
-        });
-    </script>
+    <title>Hacktrix - Advanced Python Topics</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
-    <header class="bg-dark text-white fixed-top">
-        <nav class="container navbar navbar-expand-lg navbar-dark">
-            <a class="navbar-brand" href="#">Hacktrix</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#python">Python</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#sql">SQL</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#java">Java</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#gcp">GCP</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#articles">Articles</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
-            </div>
+    <div class="header-bar">
+        <div class="brand-name">Hacktrix</div>
+        <nav>
+            <ul>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#exercise" class="nav-link">Exercise</a></li>
+                <li><a href="#project" class="nav-link">Project</a></li>
+                <li><a href="#contact" class="nav-link">Contact Us</a></li>
+            </ul>
         </nav>
-        <div class="title-section">
-            <h1>OOPs in Python</h1>
-        </div>
-    </header>
-    
+    </div>
 
-    <section id="python-oop" class="container content-section">
-        <h2>Classes and Objects in Python</h2>
-        <p><strong>Class:</strong> Think of a class as a blueprint or a recipe. Just like a recipe tells you how to make a cake, a class tells the computer how to create something.</p>
-        <p><strong>Object:</strong> An object is like the actual cake you make using the recipe. It’s a specific instance of the class.</p>
-        
-        <h3>Real-Life Example</h3>
-        <p>Imagine you have a blueprint for building a toy car. This blueprint is the class. When you use the blueprint to build an actual toy car, that toy car is an object.</p>
-        <p><strong>Class:</strong> “Imagine you have a drawing that shows how to make a toy car. This drawing is called a ‘class.’ It tells you everything you need to know to make the toy car.”</p>
-        <p><strong>Object:</strong> “Now, when you actually build the toy car using the drawing, the toy car you made is called an ‘object.’ It’s a real thing you can play with!”</p>
-        
-        <h3>Python Code Example</h3>
-        <div class="code-block">
-            <pre><code class="language-python">
+    <div id="sideMenu" class="sideMenu">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#classes-objects">Classes and Objects</a>
+        <a href="#attributes-methods">Attributes and Methods</a>
+        <a href="#encapsulation">Encapsulation</a>
+        <a href="#inheritance">Inheritance</a>
+        <a href="#polymorphism">Polymorphism</a>
+        <a href="#abstraction">Abstraction</a>
+        <a href="#class-instance-variables">Class vs. Instance Variables</a>
+        <a href="#static-class-methods">Static and Class Methods</a>
+        <a href="#operator-overloading">Operator Overloading</a>
+        <a href="#magic-methods">Magic Methods</a>
+        <a href="#property-decorators">Property Decorators</a>
+    </div>
+
+<div class="toggle-menu" onclick="openNav()">☰</div>
+<div id="content"> 
+<h1 class="seo-friendly-heading">Mastering Advanced Python for Efficient Programming</h1>
+
+<section id="classes-objects">
+    <h2>Classes and Objects in Python</h2>
+    <p>
+        <strong>Class:</strong> Think of a class as a blueprint or a recipe. Just like a recipe tells you how to make a cake, a class tells the computer how to create something.
+        <br>
+        <strong>Object:</strong> An object is like the actual cake you make using the recipe. It’s a specific instance of the class.
+    </p>
+    
+    <h3>Real-Life Example</h3>
+    <p>
+        Imagine you have a blueprint for building a toy car. This blueprint is the class. When you use the blueprint to build an actual toy car, that toy car is an object.
+        <br>
+        <strong>Class:</strong> “Imagine you have a drawing that shows how to make a toy car. This drawing is called a ‘class.’ It tells you everything you need to know to make the toy car.”
+        <br>
+        <strong>Object:</strong> “Now, when you actually build the toy car using the drawing, the toy car you made is called an ‘object.’ It’s a real thing you can play with!”
+    </p>
+    
+    <h3>Python Code Example</h3>
+    <div class="code-box">
+        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <pre><code>
 # Define a class called ToyCar
 class ToyCar:
     def __init__(self, color, size):
@@ -155,37 +77,46 @@ my_toy_car = ToyCar("red", "small")
 
 # Use the object
 my_toy_car.drive()
-            </code></pre>
-        </div>
-        <p>In this example:</p>
-        <ul>
-            <li><strong>ToyCar</strong> is the class (the blueprint).</li>
-            <li><strong>my_toy_car</strong> is the object (the actual toy car).</li>
-        </ul>
-        
-        <h3>Five Different Examples</h3>
-        <ul>
-            <li><strong>Class:</strong> Animal, <strong>Object:</strong> Dog</li>
-            <li><strong>Class:</strong> Book, <strong>Object:</strong> Harry Potter</li>
-            <li><strong>Class:</strong> House, <strong>Object:</strong> My House</li>
-            <li><strong>Class:</strong> Phone, <strong>Object:</strong> iPhone</li>
-            <li><strong>Class:</strong> Car, <strong>Object:</strong> Tesla Model S</li>
-        </ul>
-    </section>
+        </code></pre>
+    </div>
+    
+    <p>In this example:</p>
+    <ul>
+        <li><strong>ToyCar</strong> is the class (the blueprint).</li>
+        <li><strong>my_toy_car</strong> is the object (the actual toy car).</li>
+    </ul>
+    
+    <h3>Five Different Examples</h3>
+    <ul>
+        <li><strong>Class:</strong> Animal, <strong>Object:</strong> Dog</li>
+        <li><strong>Class:</strong> Book, <strong>Object:</strong> Harry Potter</li>
+        <li><strong>Class:</strong> House, <strong>Object:</strong> My House</li>
+        <li><strong>Class:</strong> Phone, <strong>Object:</strong> iPhone</li>
+        <li><strong>Class:</strong> Car, <strong>Object:</strong> Tesla Model S</li>
+    </ul>
+</section>
 
-    <section id="python-attributes-methods" class="container content-section">
-        <h2>Attributes and Methods in Python</h2>
-        <p><strong>Attributes:</strong> Think of attributes as the characteristics or properties of an object. They are like the details that describe the object.</p>
-        <p><strong>Methods:</strong> Methods are actions that objects can perform. They are like the things the object can do.</p>
-        
-        <h3>Real-Life Example</h3>
-        <p>Imagine you have a pet dog. The dog’s attributes are things like its name, color, and age. The methods are the actions the dog can do, like barking or fetching a ball.</p>
-        <p><strong>Attributes:</strong> “Imagine you have a pet dog. The dog’s name is ‘Buddy,’ its color is brown, and it is 3 years old. These details about Buddy are called ‘attributes.’”</p>
-        <p><strong>Methods:</strong> “Now, Buddy can do things like bark and fetch a ball. These actions Buddy can do are called ‘methods.’”</p>
-        
-        <h3>Python Code Example</h3>
-        <div class="code-block">
-            <pre><code class="language-python">
+<section id="attributes-methods">
+    <h2>Attributes and Methods in Python</h2>
+    <p>
+        <strong>Attributes:</strong> Think of attributes as the characteristics or properties of an object. They are like the details that describe the object.
+        <br>
+        <strong>Methods:</strong> Methods are actions that objects can perform. They are like the things the object can do.
+    </p>
+    
+    <h3>Real-Life Example</h3>
+    <p>
+        Imagine you have a pet dog. The dog’s attributes are things like its name, color, and age. The methods are the actions the dog can do, like barking or fetching a ball.
+        <br>
+        <strong>Attributes:</strong> “Imagine you have a pet dog. The dog’s name is ‘Buddy,’ its color is brown, and it is 3 years old. These details about Buddy are called ‘attributes.’”
+        <br>
+        <strong>Methods:</strong> “Now, Buddy can do things like bark and fetch a ball. These actions Buddy can do are called ‘methods.’”
+    </p>
+    
+    <h3>Python Code Example</h3>
+    <div class="code-box">
+        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <pre><code>
 # Define a class called Dog
 class Dog:
     def __init__(self, name, color, age):
@@ -205,1205 +136,1409 @@ my_dog = Dog("Buddy", "brown", 3)
 # Use the object's methods
 my_dog.bark()
 my_dog.fetch()
-            </code></pre>
-        </div>
-        <p>In this example:</p>
-        <ul>
-            <li><strong>name</strong>, <strong>color</strong>, and <strong>age</strong> are attributes (characteristics of the dog).</li>
-            <li><strong>bark</strong> and <strong>fetch</strong> are methods (actions the dog can perform).</li>
-        </ul>
-        
-        <h3>Five Different Examples</h3>
-        <ul>
-            <li><strong>Class:</strong> Car, <strong>Attributes:</strong> color, model, year; <strong>Methods:</strong> drive, honk</li>
-            <li><strong>Class:</strong> Book, <strong>Attributes:</strong> title, author, pages; <strong>Methods:</strong> read, bookmark</li>
-            <li><strong>Class:</strong> Phone, <strong>Attributes:</strong> brand, model, battery_life; <strong>Methods:</strong> call, text</li>
-            <li><strong>Class:</strong> Student, <strong>Attributes:</strong> name, grade, student_id; <strong>Methods:</strong> study, take_exam</li>
-            <li><strong>Class:</strong> Plant, <strong>Attributes:</strong> species, height, age; <strong>Methods:</strong> grow, photosynthesize</li>
-        </ul>
-    </section>
-    <section id="python-encapsulation" class="container content-section">
-        <h2>Understanding Encapsulation in Python</h2>
-        <p><strong>Encapsulation:</strong> Encapsulation is like putting all the important things related to an object inside a box. This box keeps everything together and protects it from the outside world. In programming, encapsulation means bundling the data (attributes) and the methods (functions) that operate on the data into a single unit, which is usually a class.</p>
-        
-        <h3>Real-Life Example</h3>
-        <p>Imagine you have a toy box. Inside this toy box, you keep all your toy cars and the instructions on how to play with them. The toy box keeps everything organized and safe.</p>
-        <p><strong>Encapsulation:</strong> “Imagine you have a special toy box. Inside this box, you keep all your toy cars and the instructions on how to play with them. This toy box keeps everything together and makes sure nothing gets lost. In programming, we do something similar by putting all the important information and actions related to an object inside a class.”</p>
-        
-        <h3>Python Code Example</h3>
-        <div class="code-block">
-            <pre><code class="language-python">
-    # Define a class called ToyBox
-    class ToyBox:
-        def __init__(self):
-            self.toys = []  # Attribute to store toys
+        </code></pre>
+    </div>
     
-        def add_toy(self, toy):  # Method to add a toy
-            self.toys.append(toy)
-            print(f"{toy} has been added to the toy box.")
+    <p>In this example:</p>
+    <ul>
+        <li><strong>name, color, and age</strong> are attributes (characteristics of the dog).</li>
+        <li><strong>bark and fetch</strong> are methods (actions the dog can perform).</li>
+    </ul>
     
-        def list_toys(self):  # Method to list all toys
-            print("Toys in the box:")
-            for toy in self.toys:
-                print(toy)
-    
-    # Create an object of the ToyBox class
-    my_toy_box = ToyBox()
-    
-    # Use the object's methods
-    my_toy_box.add_toy("Red Car")
-    my_toy_box.add_toy("Blue Truck")
-    my_toy_box.list_toys()
-            </code></pre>
-        </div>
-        <p>In this example:</p>
-        <ul>
-            <li>The <strong>ToyBox</strong> class encapsulates the <strong>toys</strong> attribute and the methods <strong>add_toy</strong> and <strong>list_toys</strong>.</li>
-            <li>The <strong>toys</strong> attribute stores the list of toys.</li>
-            <li>The <strong>add_toy</strong> method allows adding a new toy to the box.</li>
-            <li>The <strong>list_toys</strong> method lists all the toys in the box.</li>
-        </ul>
-        
-        <h3>Real-Life Examples of Encapsulation</h3>
-        <ul>
-            <li><strong>Bank Account</strong><br>
-                <strong>Class:</strong> BankAccount<br>
-                <strong>Attributes:</strong> account_number, balance<br>
-                <strong>Methods:</strong> deposit, withdraw, check_balance<br>
-                <strong>Explanation:</strong> A bank account class keeps the account number and balance private. The methods allow you to deposit money, withdraw money, and check the balance, ensuring that the balance is updated correctly and securely.
-            </li>
-            <li><strong>School</strong><br>
-                <strong>Class:</strong> School<br>
-                <strong>Attributes:</strong> name, students<br>
-                <strong>Methods:</strong> add_student, remove_student, list_students<br>
-                <strong>Explanation:</strong> A school class keeps the name of the school and the list of students. The methods allow adding and removing students and listing all students, keeping the student data organized and protected.
-            </li>
-            <li><strong>Library</strong><br>
-                <strong>Class:</strong> Library<br>
-                <strong>Attributes:</strong> books<br>
-                <strong>Methods:</strong> add_book, remove_book, list_books<br>
-                <strong>Explanation:</strong> A library class keeps a list of books. The methods allow adding and removing books and listing all books, ensuring that the book collection is managed properly.
-            </li>
-            <li><strong>Smartphone</strong><br>
-                <strong>Class:</strong> Smartphone<br>
-                <strong>Attributes:</strong> brand, model, apps<br>
-                <strong>Methods:</strong> install_app, uninstall_app, list_apps<br>
-                <strong>Explanation:</strong> A smartphone class keeps the brand, model, and list of installed apps. The methods allow installing and uninstalling apps and listing all installed apps, managing the phone’s functionality.
-            </li>
-            <li><strong>Recipe Book</strong><br>
-                <strong>Class:</strong> RecipeBook<br>
-                <strong>Attributes:</strong> recipes<br>
-                <strong>Methods:</strong> add_recipe, remove_recipe, list_recipes<br>
-                <strong>Explanation:</strong> A recipe book class keeps a list of recipes. The methods allow adding and removing recipes and listing all recipes, keeping the recipe collection organized.
-            </li>
-        </ul>
-    </section>
-    <section id="python-inheritance" class="container content-section">
-        <h2>Understanding Inheritance in Python</h2>
-        <p><strong>Inheritance:</strong> Inheritance is like a family trait that gets passed down from parents to children. In programming, inheritance allows one class (the child class) to inherit attributes and methods from another class (the parent class).</p>
-        
-        <h3>Real-Life Example</h3>
-        <p>Imagine you have a family where the parents have certain traits, like eye color and hair color. These traits can be passed down to their children.</p>
-        <p><strong>Inheritance:</strong> “Imagine you have a family. Your parents have certain traits, like brown eyes and curly hair. You might inherit these traits from your parents. In programming, we do something similar by allowing one class to inherit traits (attributes and methods) from another class.”</p>
-        
-        <h3>Python Code Example</h3>
-        <div class="code-block">
-            <pre><code class="language-python">
-    # Define a parent class called Animal
-    class Animal:
-        def __init__(self, name):
-            self.name = name  # Attribute
-    
-        def speak(self):  # Method
-            print(f"{self.name} makes a sound.")
-    
-    # Define a child class called Dog that inherits from Animal
-    class Dog(Animal):
-        def speak(self):  # Method
-            print(f"{self.name} barks.")
-    
-    # Create an object of the Dog class
-    my_dog = Dog("Buddy")
-    
-    # Use the object's method
-    my_dog.speak()
-            </code></pre>
-        </div>
-        <p>In this example:</p>
-        <ul>
-            <li><strong>Animal</strong> is the parent class with an attribute <strong>name</strong> and a method <strong>speak</strong>.</li>
-            <li><strong>Dog</strong> is the child class that inherits from <strong>Animal</strong> and overrides the <strong>speak</strong> method to provide a specific implementation for dogs.</li>
-        </ul>
-        
-        <h3>Real-Life Examples of Inheritance</h3>
-        <ul>
-            <li><strong>Vehicles</strong><br>
-                <strong>Parent Class:</strong> Vehicle<br>
-                <strong>Attributes:</strong> make, model<br>
-                <strong>Methods:</strong> start, stop<br>
-                <strong>Child Class:</strong> Car<br>
-                <strong>Methods:</strong> honk<br>
-                <strong>Explanation:</strong> A Car class can inherit the attributes and methods from the Vehicle class and add its own specific method like honk.
-            </li>
-            <li><strong>Electronics</strong><br>
-                <strong>Parent Class:</strong> ElectronicDevice<br>
-                <strong>Attributes:</strong> brand, power<br>
-                <strong>Methods:</strong> turn_on, turn_off<br>
-                <strong>Child Class:</strong> Smartphone<br>
-                <strong>Methods:</strong> make_call, send_message<br>
-                <strong>Explanation:</strong> A Smartphone class can inherit the attributes and methods from the ElectronicDevice class and add its own specific methods like make_call and send_message.
-            </li>
-            <li><strong>Employees</strong><br>
-                <strong>Parent Class:</strong> Employee<br>
-                <strong>Attributes:</strong> name, employee_id<br>
-                <strong>Methods:</strong> work, take_break<br>
-                <strong>Child Class:</strong> Manager<br>
-                <strong>Methods:</strong> conduct_meeting<br>
-                <strong>Explanation:</strong> A Manager class can inherit the attributes and methods from the Employee class and add its own specific method like conduct_meeting.
-            </li>
-            <li><strong>Plants</strong><br>
-                <strong>Parent Class:</strong> Plant<br>
-                <strong>Attributes:</strong> species, height<br>
-                <strong>Methods:</strong> grow<br>
-                <strong>Child Class:</strong> Flower<br>
-                <strong>Methods:</strong> bloom<br>
-                <strong>Explanation:</strong> A Flower class can inherit the attributes and methods from the Plant class and add its own specific method like bloom.
-            </li>
-            <li><strong>Musical Instruments</strong><br>
-                <strong>Parent Class:</strong> Instrument<br>
-                <strong>Attributes:</strong> name, type<br>
-                <strong>Methods:</strong> play<br>
-                <strong>Child Class:</strong> Guitar<br>
-                <strong>Methods:</strong> strum<br>
-                <strong>Explanation:</strong> A Guitar class can inherit the attributes and methods from the Instrument class and add its own specific method like strum.
-            </li>
-        </ul>
-    </section>
-    <section id="python-polymorphism" class="container content-section">
-        <h2>Understanding Polymorphism in Python</h2>
-        <p><strong>Polymorphism:</strong> Polymorphism is like having a magic wand that can transform into different tools depending on what you need. In programming, polymorphism allows us to use a common interface to interact with different data types or objects.</p>
-        
-        <h3>Real-Life Example</h3>
-        <p>Imagine you have a remote control that can operate different devices like a TV, a fan, and a toy car. Even though the devices are different, you can use the same remote control to interact with all of them.</p>
-        <p><strong>Polymorphism:</strong> “Imagine you have a special remote control. This remote control can be used to turn on the TV, start the fan, and drive a toy car. Even though the TV, fan, and toy car are different things, you can use the same remote control to operate all of them. In programming, we do something similar by using a common interface to interact with different objects.”</p>
-        
-        <h3>Python Code Example</h3>
-        <div class="code-block">
-            <pre><code class="language-python">
-    # Define a parent class called Animal
-    class Animal:
-        def speak(self):
-            pass
-    
-    # Define child classes that inherit from Animal
-    class Dog(Animal):
-        def speak(self):
-            return "Bark"
-    
-    class Cat(Animal):
-        def speak(self):
-            return "Meow"
-    
-    class Cow(Animal):
-        def speak(self):
-            return "Moo"
-    
-    # Function to make an animal speak
-    def make_animal_speak(animal):
-        print(animal.speak())
-    
-    # Create objects of different classes
-    dog = Dog()
-    cat = Cat()
-    cow = Cow()
-    
-    # Use the common interface to interact with different objects
-    make_animal_speak(dog)
-    make_animal_speak(cat)
-    make_animal_speak(cow)
-            </code></pre>
-        </div>
-        <p>In this example:</p>
-        <ul>
-            <li><strong>Animal</strong> is the parent class with a method <strong>speak</strong>.</li>
-            <li><strong>Dog</strong>, <strong>Cat</strong>, and <strong>Cow</strong> are child classes that inherit from <strong>Animal</strong> and provide their own implementation of the <strong>speak</strong> method.</li>
-            <li>The function <strong>make_animal_speak</strong> uses the common interface <strong>speak</strong> to interact with different objects.</li>
-        </ul>
-        
-        <h3>Real-Life Examples of Polymorphism</h3>
-        <ul>
-            <li><strong>Drawing Shapes</strong><br>
-                <strong>Parent Class:</strong> Shape<br>
-                <strong>Method:</strong> draw<br>
-                <strong>Child Classes:</strong> Circle, Square, Triangle<br>
-                <strong>Method Implementation:</strong> Each class provides its own way to draw the shape.<br>
-                <strong>Explanation:</strong> You can use the draw method to draw any shape, whether it’s a circle, square, or triangle.
-            </li>
-            <li><strong>Payment Systems</strong><br>
-                <strong>Parent Class:</strong> Payment<br>
-                <strong>Method:</strong> process_payment<br>
-                <strong>Child Classes:</strong> CreditCardPayment, PayPalPayment, BankTransferPayment<br>
-                <strong>Method Implementation:</strong> Each class processes the payment in its own way.<br>
-                <strong>Explanation:</strong> You can use the process_payment method to handle payments, regardless of the payment method.
-            </li>
-            <li><strong>File Handling</strong><br>
-                <strong>Parent Class:</strong> File<br>
-                <strong>Method:</strong> open<br>
-                <strong>Child Classes:</strong> TextFile, ImageFile, AudioFile<br>
-                <strong>Method Implementation:</strong> Each class opens the file in its own way.<br>
-                <strong>Explanation:</strong> You can use the open method to open any type of file, whether it’s a text file, image file, or audio file.
-            </li>
-            <li><strong>Transportation</strong><br>
-                <strong>Parent Class:</strong> Vehicle<br>
-                <strong>Method:</strong> move<br>
-                <strong>Child Classes:</strong> Car, Bicycle, Boat<br>
-                <strong>Method Implementation:</strong> Each class moves in its own way.<br>
-                <strong>Explanation:</strong> You can use the move method to make any vehicle move, whether it’s a car, bicycle, or boat.
-            </li>
-            <li><strong>Communication Devices</strong><br>
-                <strong>Parent Class:</strong> CommunicationDevice<br>
-                <strong>Method:</strong> send_message<br>
-                <strong>Child Classes:</strong> Phone, Email, Radio<br>
-                <strong>Method Implementation:</strong> Each class sends a message in its own way.<br>
-                <strong>Explanation:</strong> You can use the send_message method to send a message, whether it’s through a phone, email, or radio.
-            </li>
-        </ul>
-    </section>
-    <section id="python-abstraction" class="container content-section">
-        <h2>Understanding Abstraction in Python</h2>
-        <p><strong>Abstraction:</strong> Abstraction is like a magic trick where you only see the amazing result without knowing how it was done. In programming, abstraction means hiding the complex implementation details and showing only the necessary features of an object.</p>
-        
-        <h3>Real-Life Example</h3>
-        <p>Imagine you have a TV remote. You press a button to change the channel, but you don’t need to know how the remote sends signals to the TV. You just see the channel change.</p>
-        <p><strong>Abstraction:</strong> “Imagine you have a TV remote. When you press a button, the channel changes. You don’t need to know how the remote works inside; you just need to know which button to press. In programming, we do something similar by hiding the complex details and showing only what you need to use.”</p>
-        
-        <h3>Python Code Example</h3>
-        <div class="code-block">
-            <pre><code class="language-python">
-    from abc import ABC, abstractmethod
-    
-    # Define an abstract class called RemoteControl
-    class RemoteControl(ABC):
-        @abstractmethod
-        def press_button(self):
-            pass
-    
-    # Define a concrete class that inherits from RemoteControl
-    class TVRemote(RemoteControl):
-        def press_button(self):
-            print("Changing the TV channel")
-    
-    # Create an object of the TVRemote class
-    my_remote = TVRemote()
-    
-    # Use the object's method
-    my_remote.press_button()
-            </code></pre>
-        </div>
-        <p>In this example:</p>
-        <ul>
-            <li><strong>RemoteControl</strong> is an abstract class with an abstract method <strong>press_button</strong>.</li>
-            <li><strong>TVRemote</strong> is a concrete class that inherits from <strong>RemoteControl</strong> and provides an implementation for the <strong>press_button</strong> method.</li>
-            <li>The user interacts with the <strong>press_button</strong> method without needing to know how it works internally.</li>
-        </ul>
-        
-        <h3>Real-Life Examples of Abstraction</h3>
-        <ul>
-            <li><strong>Coffee Machine</strong><br>
-                <strong>Class:</strong> CoffeeMachine<br>
-                <strong>Method:</strong> make_coffee<br>
-                <strong>Explanation:</strong> When you press a button to make coffee, you don’t need to know how the machine grinds the beans and brews the coffee. You just get your coffee.
-            </li>
-            <li><strong>Car</strong><br>
-                <strong>Class:</strong> Car<br>
-                <strong>Method:</strong> start_engine<br>
-                <strong>Explanation:</strong> When you turn the key or press a button to start the car, you don’t need to know how the engine works. You just need to know how to start it.
-            </li>
-            <li><strong>Smartphone</strong><br>
-                <strong>Class:</strong> Smartphone<br>
-                <strong>Method:</strong> take_photo<br>
-                <strong>Explanation:</strong> When you press a button to take a photo, you don’t need to know how the camera processes the image. You just get the photo.
-            </li>
-            <li><strong>ATM Machine</strong><br>
-                <strong>Class:</strong> ATM<br>
-                <strong>Method:</strong> withdraw_money<br>
-                <strong>Explanation:</strong> When you enter your PIN and request money, you don’t need to know how the ATM processes the transaction. You just get your cash.
-            </li>
-            <li><strong>Music Player</strong><br>
-                <strong>Class:</strong> MusicPlayer<br>
-                <strong>Method:</strong> play_song<br>
-                <strong>Explanation:</strong> When you press play, you don’t need to know how the music player decodes and plays the audio file. You just hear the music.
-            </li>
-        </ul>
-    </section>
-    <section id="python-class-instance-variables" class="container content-section">
-        <h2>Understanding Class Variables in Python: Shared Attributes Across Instances</h2>
-        <p><strong>Class Variables:</strong> Class variables are attributes that are shared among all instances of a class. They are like a common property that every object of the class can access and modify.</p>
-        
-        <h3>Real-Life Example of Class Variables</h3>
-        <p>Imagine you are in a classroom. The classroom has a whiteboard that everyone can see and use. This whiteboard is like a class variable.</p>
-        <p><strong>Explanation:</strong> “Imagine you are in a classroom. There is a whiteboard that everyone in the class can see and write on. This whiteboard is like a class variable in programming. It’s something that everyone in the class shares.”</p>
-        
-        <h3>Python Code Example for Class Variables</h3>
-        <div class="code-block">
-            <pre><code class="language-python">
-    class Classroom:
-        whiteboard = "This is a shared whiteboard."  # Class variable
-    
-    # Create two objects of the Classroom class
-    class1 = Classroom()
-    class2 = Classroom()
-    
-    # Access the class variable
-    print(class1.whiteboard)
-    print(class2.whiteboard)
-    
-    # Modify the class variable
-    Classroom.whiteboard = "The whiteboard has been updated."
-    
-    # Access the modified class variable
-    print(class1.whiteboard)
-    print(class2.whiteboard)
-            </code></pre>
-        </div>
-        <p>In this example:</p>
-        <ul>
-            <li><strong>whiteboard</strong> is a class variable shared by all instances of the <strong>Classroom</strong> class.</li>
-        </ul>
-        
-        <h2>Understanding Instance Variables in Python: Unique Attributes for Each Instance</h2>
-        <p><strong>Instance Variables:</strong> Instance variables are attributes that are unique to each instance of a class. They are like personal properties that belong to each object.</p>
-        
-        <h3>Real-Life Example of Instance Variables</h3>
-        <p>Imagine each student in the classroom has their own notebook. Each notebook is unique to the student and contains their own notes. This notebook is like an instance variable.</p>
-        <p><strong>Explanation:</strong> “Imagine each student in the classroom has their own notebook. Each notebook is unique to the student and contains their own notes. This notebook is like an instance variable in programming. It’s something that belongs to each student individually.”</p>
-        
-        <h3>Python Code Example for Instance Variables</h3>
-        <div class="code-block">
-            <pre><code class="language-python">
-    class Student:
-        def __init__(self, name):
-            self.name = name  # Instance variable
-    
-    # Create two objects of the Student class
-    student1 = Student("Alice")
-    student2 = Student("Bob")
-    
-    # Access the instance variables
-    print(student1.name)
-    print(student2.name)
-            </code></pre>
-        </div>
-        <p>In this example:</p>
-        <ul>
-            <li><strong>name</strong> is an instance variable unique to each <strong>Student</strong> object.</li>
-        </ul>
-        
-        <h3>Real-Life Examples of Class and Instance Variables</h3>
-        <ul>
-            <li><strong>Library System</strong><br>
-                <strong>Class Variable:</strong> total_books (shared by all libraries)<br>
-                <strong>Instance Variable:</strong> books (unique to each library)
-            </li>
-            <li><strong>Car Dealership Network</strong><br>
-                <strong>Class Variable:</strong> total_cars_sold (shared by all dealerships)<br>
-                <strong>Instance Variable:</strong> cars_in_stock (unique to each dealership)
-            </li>
-            <li><strong>Educational Institution</strong><br>
-                <strong>Class Variable:</strong> school_name (shared by all students)<br>
-                <strong>Instance Variable:</strong> student_name (unique to each student)
-            </li>
-            <li><strong>Corporate Organization</strong><br>
-                <strong>Class Variable:</strong> company_policy (shared by all employees)<br>
-                <strong>Instance Variable:</strong> employee_id (unique to each employee)
-            </li>
-            <li><strong>Sports Team</strong><br>
-                <strong>Class Variable:</strong> team_name (shared by all players)<br>
-                <strong>Instance Variable:</strong> player_number (unique to each player)
-            </li>
-        </ul>
-    </section>
-    <section id="python-static-class-methods" class="container content-section">
-        <h2>Mastering Static and Class Methods in Python: A Detailed Guide</h2>
-        <p>Static methods and class methods are essential concepts in Python that offer different ways to interact with class data. Let’s dive into their definitions, uses, and real-life examples to understand them better.</p>
-        
-        <h3>What are Static Methods in Python?</h3>
-        <p><strong>Static Methods:</strong> Static methods are defined using the <code>@staticmethod</code> decorator. They do not require access to the instance (self) or the class (cls). Essentially, they are regular functions that belong to the class’s namespace.</p>
-        
-        <h3>Real-Life Example of Static Methods</h3>
-        <p>Consider a calculator that can perform addition. You can use it to add numbers without needing to know anything about the calculator itself. This function of adding numbers is akin to a static method.</p>
-        
-        <h3>Python Code Example for Static Methods</h3>
-        <div class="code-block">
-            <pre><code class="language-python">
-    class Calculator:
-        @staticmethod
-        def add(a, b):
-            return a + b
-    
-    # Use the static method
-    result = Calculator.add(5, 3)
-    print(result)  # Output: 8
-            </code></pre>
-        </div>
-        <p>In this example:</p>
-        <ul>
-            <li><strong>add</strong> is a static method that adds two numbers and belongs to the <strong>Calculator</strong> class.</li>
-        </ul>
-        
-        <h3>What are Class Methods in Python?</h3>
-        <p><strong>Class Methods:</strong> Class methods are defined using the <code>@classmethod</code> decorator. They take a reference to the class (cls) as their first parameter and can modify class state that applies across all instances of the class.</p>
-        
-        <h3>Real-Life Example of Class Methods</h3>
-        <p>Imagine a school that can announce a holiday for all students. This announcement affects the entire class (school) and not just one student, similar to how a class method operates.</p>
-        
-        <h3>Python Code Example for Class Methods</h3>
-        <div class="code-block">
-            <pre><code class="language-python">
-    class School:
-        school_name = "Greenwood High"
-    
-        @classmethod
-        def change_school_name(cls, new_name):
-            cls.school_name = new_name
-    
-    # Use the class method
-    School.change_school_name("Sunnydale High")
-    print(School.school_name)  # Output: Sunnydale High
-            </code></pre>
-        </div>
-        <p>In this example:</p>
-        <ul>
-            <li><strong>change_school_name</strong> is a class method that changes the name of the school for all instances of the <strong>School</strong> class.</li>
-        </ul>
-        
-        <h3>Practical Examples of Static and Class Methods</h3>
-        <ul>
-            <li><strong>Utility Functions in a Math Class</strong><br>
-                <strong>Static Method:</strong> <code>@staticmethod def calculate_area(radius):</code> (calculates the area of a circle)<br>
-                <strong>Class Method:</strong> <code>@classmethod def set_pi(cls, value):</code> (sets the value of π for all calculations)
-            </li>
-            <li><strong>Configuration Settings in an Application</strong><br>
-                <strong>Static Method:</strong> <code>@staticmethod def validate_config(config):</code> (validates a configuration file)<br>
-                <strong>Class Method:</strong> <code>@classmethod def update_config(cls, new_config):</code> (updates the configuration for the entire application)
-            </li>
-            <li><strong>Employee Management in a Company</strong><br>
-                <strong>Static Method:</strong> <code>@staticmethod def calculate_bonus(salary):</code> (calculates bonus based on salary)<br>
-                <strong>Class Method:</strong> <code>@classmethod def set_company_policy(cls, policy):</code> (sets a new company policy)
-            </li>
-            <li><strong>Game Development</strong><br>
-                <strong>Static Method:</strong> <code>@staticmethod def calculate_score(points):</code> (calculates the score based on points)<br>
-                <strong>Class Method:</strong> <code>@classmethod def set_difficulty_level(cls, level):</code> (sets the difficulty level for the game)
-            </li>
-            <li><strong>Library System</strong><br>
-                <strong>Static Method:</strong> <code>@staticmethod def is_valid_isbn(isbn):</code> (checks if an ISBN is valid)<br>
-                <strong>Class Method:</strong> <code>@classmethod def set_library_name(cls, name):</code> (sets the name of the library)
-            </li>
-        </ul>
-    </section>
-    <section id="python-operator-overloading" class="container content-section">
-        <h2>Mastering Operator Overloading in Python: A Deep Dive with Examples</h2>
-        <p>Operator overloading allows you to define custom behavior for operators when they are used with objects of your class. This powerful feature enables you to make your classes more intuitive and easier to use.</p>
-        
-        <h3>What is Operator Overloading?</h3>
-        <p><strong>Operator Overloading:</strong> Operator overloading is the process of defining how operators (like +, -, *, etc.) work with user-defined objects. By overloading operators, you can specify custom behavior for these operators when they are used with instances of your class.</p>
-        
-        <h3>Deep Dive into Operator Overloading</h3>
-        <p>Let’s take a closer look at how operator overloading works by exploring a detailed example with a custom Vector class.</p>
-        
-        <h3>Example: Overloading the + Operator for a Vector Class</h3>
-        <p>Consider a Vector class that represents a vector in 2D space. We can overload the + operator to add two vectors together.</p>
-        
-        <div class="code-block">
-            <pre><code class="language-python">
-    class Vector:
-        def __init__(self, x, y):
-            self.x = x
-            self.y = y
-    
-        def __add__(self, other):
-            return Vector(self.x + other.x, self.y + other.y)
-    
-        def __sub__(self, other):
-            return Vector(self.x - other.x, self.y - other.y)
-    
-        def __mul__(self, scalar):
-            return Vector(self.x * scalar, self.y * scalar)
-    
-        def __str__(self):
-            return f"Vector({self.x}, {self.y})"
-    
-    # Create two Vector objects
-    v1 = Vector(2, 3)
-    v2 = Vector(4, 5)
-    
-    # Use the overloaded + operator
-    v3 = v1 + v2
-    print(v3)  # Output: Vector(6, 8)
-    
-    # Use the overloaded - operator
-    v4 = v1 - v2
-    print(v4)  # Output: Vector(-2, -2)
-    
-    # Use the overloaded * operator
-    v5 = v1 * 3
-    print(v5)  # Output: Vector(6, 9)
-            </code></pre>
-        </div>
-        <p>In this example:</p>
-        <ul>
-            <li>The <code>__add__</code> method is overloaded to define how the + operator works with <strong>Vector</strong> objects.</li>
-            <li>The <code>__sub__</code> method is overloaded to define how the - operator works with <strong>Vector</strong> objects.</li>
-            <li>The <code>__mul__</code> method is overloaded to define how the * operator works with <strong>Vector</strong> objects and a scalar.</li>
-            <li>The <code>__str__</code> method provides a string representation of the <strong>Vector</strong> object for easy printing.</li>
-        </ul>
-        
-        <h3>Practical Examples of Operator Overloading</h3>
-        <ul>
-            <li><strong>Complex Numbers</strong><br>
-                <strong>Class:</strong> ComplexNumber<br>
-                <strong>Overloaded Operators:</strong> +, -, *, /<br>
-                <strong>Explanation:</strong> Define how to add, subtract, multiply, and divide complex numbers.
-                <div class="code-block">
-                    <pre><code class="language-python">
-    class ComplexNumber:
-        def __init__(self, real, imag):
-            self.real = real
-            self.imag = imag
-    
-        def __add__(self, other):
-            return ComplexNumber(self.real + other.real, self.imag + other.imag)
-    
-        def __sub__(self, other):
-            return ComplexNumber(self.real - other.real, self.imag - other.imag)
-    
-        def __mul__(self, other):
-            return ComplexNumber(self.real * other.real - self.imag * other.imag,
-                                 self.real * other.imag + self.imag * other.real)
-    
-        def __truediv__(self, other):
-            denom = other.real ** 2 + other.imag ** 2
-            return ComplexNumber((self.real * other.real + self.imag * other.imag) / denom,
-                                 (self.imag * other.real - self.real * other.imag) / denom)
-    
-        def __str__(self):
-            return f"{self.real} + {self.imag}i"
-    
-    # Create two ComplexNumber objects
-    c1 = ComplexNumber(1, 2)
-    c2 = ComplexNumber(3, 4)
-    
-    # Use the overloaded operators
-    print(c1 + c2)  # Output: 4 + 6i
-    print(c1 - c2)  # Output: -2 + -2i
-    print(c1 * c2)  # Output: -5 + 10i
-    print(c1 / c2)  # Output: 0.44 + 0.08i
-                    </code></pre>
-                </div>
-            </li>
-            <li><strong>Fractions</strong><br>
-                <strong>Class:</strong> Fraction<br>
-                <strong>Overloaded Operators:</strong> +, -, *, /<br>
-                <strong>Explanation:</strong> Define how to perform arithmetic operations with fractions.
-                <div class="code-block">
-                    <pre><code class="language-python">
-    from fractions import Fraction
-    
-    f1 = Fraction(1, 2)
-    f2 = Fraction(3, 4)
-    
-    # Use the overloaded operators
-    print(f1 + f2)  # Output: 5/4
-    print(f1 - f2)  # Output: -1/4
-    print(f1 * f2)  # Output: 3/8
-    print(f1 / f2)  # Output: 2/3
-                    </code></pre>
-                </div>
-            </li>
-            <li><strong>Matrices</strong><br>
-                <strong>Class:</strong> Matrix<br>
-                <strong>Overloaded Operators:</strong> +, -, *<br>
-                <strong>Explanation:</strong> Define how to add, subtract, and multiply matrices.
-                <div class="code-block">
-                    <pre><code class="language-python">
-    class Matrix:
-        def __init__(self, data):
-            self.data = data
-    
-        def __add__(self, other):
-            result = [[self.data[i][j] + other.data[i][j] for j in range(len(self.data[0]))] for i in range(len(self.data))]
-            return Matrix(result)
-    
-        def __sub__(self, other):
-            result = [[self.data[i][j] - other.data[i][j] for j in range(len(self.data[0]))] for i in range(len(self.data))]
-            return Matrix(result)
-    
-        def __mul__(self, other):
-            result = [[sum(a * b for a, b in zip(self_row, other_col)) for other_col in zip(*other.data)] for self_row in self.data]
-            return Matrix(result)
-    
-        def __str__(self):
-            return '\n'.join([' '.join(map(str, row)) for row in self.data])
-    
-    # Create two Matrix objects
-    m1 = Matrix([[1, 2], [3, 4]])
-    m2 = Matrix([[5, 6], [7, 8]])
-    
-    # Use the overloaded operators
-    print(m1 + m2)
-    # Output:
-    # 6 8
-    # 10 12
-    
-    print(m1 - m2)
-    # Output:
-    # -4 -4
-    # -4 -4
-    
-    print(m1 * m2)
-    # Output:
-    # 19 22
-    # 43 50
-                    </code></pre>
-                </div>
-            </li>
-            <li><strong>Points in 2D Space</strong><br>
-                <strong>Class:</strong> Point<br>
-                <strong>Overloaded Operators:</strong> +, -<br>
-                <strong>Explanation:</strong> Define how to add and subtract points in a 2D space.
-                <div class="code-block">
-                    <pre><code class="language-python">
-    class Point:
-        def __init__(self, x, y):
-            self.x = x
-            self.y = y
-    
-        def __add__(self, other):
-            return Point(self.x + other.x, self.y + other.y)
-    
-        def __sub__(self, other):
-            return Point(self.x - other.x, self.y - other.y)
-    
-        def __str__(self):
-            return f"Point({self.x}, {self.y})"
-    
-    # Create two Point objects
-    p1 = Point(1, 2)
-    p2 = Point(3, 4)
-    
-    # Use the overloaded operators
-    print(p1 + p2)  # Output: Point(4, 6)
-    print(p1 - p2)  # Output: Point(-2, -2)
-                    </code></pre>
-                </div>
-            </li>
-            </ul>
-        </section>
-        <section id="python-magic-methods" class="container content-section">
-            <h2>Mastering Magic Methods in Python: A Comprehensive Guide with Examples</h2>
-            <p>Magic methods (also known as dunder methods) are special methods in Python that have double underscores at the beginning and end of their names. These methods allow you to define how objects of your class behave with built-in functions and operators.</p>
-            
-            <h3>What are Magic Methods?</h3>
-            <p><strong>Magic Methods:</strong> Magic methods are special methods that start and end with double underscores (<code>__</code>). They enable you to customize the behavior of your objects for built-in operations like printing, addition, and more.</p>
-            
-            <h3>Deep Dive into Common Magic Methods</h3>
-            <p>Let’s explore some of the most commonly used magic methods with detailed examples.</p>
-            
-            <h4>1. <code>__str__</code> and <code>__repr__</code>: String Representation of Objects</h4>
-            <p><code>__str__</code>: Defines the “informal” or nicely printable string representation of an object, used by the <code>print()</code> function.</p>
-            <p><code>__repr__</code>: Defines the “official” string representation of an object, used by the <code>repr()</code> function and in the interactive interpreter.</p>
-            <div class="code-block">
-                <pre><code class="language-python">
-        class Person:
-            def __init__(self, name, age):
-                self.name = name
-                self.age = age
-        
-            def __str__(self):
-                return f"Person(name={self.name}, age={self.age})"
-        
-            def __repr__(self):
-                return f"Person('{self.name}', {self.age})"
-        
-        # Create a Person object
-        p = Person("Alice", 30)
-        
-        # Use the __str__ and __repr__ methods
-        print(str(p))  # Output: Person(name=Alice, age=30)
-        print(repr(p))  # Output: Person('Alice', 30)
-                </code></pre>
-            </div>
-            
-            <h4>2. <code>__add__</code>: Overloading the Addition Operator</h4>
-            <p><code>__add__</code>: Defines the behavior of the + operator for objects of your class.</p>
-            <div class="code-block">
-                <pre><code class="language-python">
-        class Point:
-            def __init__(self, x, y):
-                self.x = x
-                self.y = y
-        
-            def __add__(self, other):
-                return Point(self.x + other.x, self.y + other.y)
-        
-            def __str__(self):
-                return f"Point({self.x}, {self.y})"
-        
-        # Create two Point objects
-        p1 = Point(1, 2)
-        p2 = Point(3, 4)
-        
-        # Use the overloaded + operator
-        p3 = p1 + p2
-        print(p3)  # Output: Point(4, 6)
-                </code></pre>
-            </div>
-            
-            <h4>3. <code>__len__</code>: Defining the Length of an Object</h4>
-            <p><code>__len__</code>: Defines the behavior of the <code>len()</code> function for objects of your class.</p>
-            <div class="code-block">
-                <pre><code class="language-python">
-        class CustomList:
-            def __init__(self, items):
-                self.items = items
-        
-            def __len__(self):
-                return len(self.items)
-        
-        # Create a CustomList object
-        cl = CustomList([1, 2, 3, 4, 5])
-        
-        # Use the len() function
-        print(len(cl))  # Output: 5
-                </code></pre>
-            </div>
-            
-            <h4>4. <code>__getitem__</code> and <code>__setitem__</code>: Indexing and Assignment</h4>
-            <p><code>__getitem__</code>: Defines the behavior of indexing (<code>obj[key]</code>) for objects of your class.</p>
-            <p><code>__setitem__</code>: Defines the behavior of item assignment (<code>obj[key] = value</code>) for objects of your class.</p>
-            <div class="code-block">
-                <pre><code class="language-python">
-        class CustomDict:
-            def __init__(self):
-                self.data = {}
-        
-            def __getitem__(self, key):
-                return self.data[key]
-        
-            def __setitem__(self, key, value):
-                self.data[key] = value
-        
-        # Create a CustomDict object
-        cd = CustomDict()
-        
-        # Use the __setitem__ and __getitem__ methods
-        cd['name'] = 'Alice'
-        print(cd['name'])  # Output: Alice
-                </code></pre>
-            </div>
-            
-            <h4>5. <code>__call__</code>: Making an Object Callable</h4>
-            <p><code>__call__</code>: Defines the behavior of calling an object as a function.</p>
-            <div class="code-block">
-                <pre><code class="language-python">
-        class Multiplier:
-            def __init__(self, factor):
-                self.factor = factor
-        
-            def __call__(self, value):
-                return value * self.factor
-        
-        # Create a Multiplier object
-        double = Multiplier(2)
-        
-        # Use the object as a function
-        print(double(5))  # Output: 10
-                </code></pre>
-            </div>
-            
-            <h3>Practical Examples of Magic Methods</h3>
-            <ul>
-                <li><strong>Custom Container Class</strong><br>
-                    <strong>Magic Methods:</strong> <code>__len__</code>, <code>__getitem__</code>, <code>__setitem__</code>, <code>__delitem__</code><br>
-                    <strong>Explanation:</strong> Define how to get the length, access items, set items, and delete items in a custom container.
-                    <div class="code-block">
-                        <pre><code class="language-python">
-        class CustomContainer:
-            def __init__(self):
-                self.data = []
-        
-            def __len__(self):
-                return len(self.data)
-        
-            def __getitem__(self, index):
-                return self.data[index]
-        
-            def __setitem__(self, index, value):
-                self.data[index] = value
-        
-            def __delitem__(self, index):
-                del self.data[index]
-        
-        # Create a CustomContainer object
-        cc = CustomContainer()
-        cc.data = [1, 2, 3, 4, 5]
-        
-        # Use the magic methods
-        print(len(cc))  # Output: 5
-        print(cc[2])    # Output: 3
-        cc[2] = 10
-        print(cc[2])    # Output: 10
-        del cc[2]
-        print(cc.data)  # Output: [1, 2, 4, 5]
-                        </code></pre>
-                    </div>
-                </li>
-                <li><strong>Custom Numeric Class</strong><br>
-                    <strong>Magic Methods:</strong> <code>__add__</code>, <code>__sub__</code>, <code>__mul__</code>, <code>__truediv__</code><br>
-                    <strong>Explanation:</strong> Define how to add, subtract, multiply, and divide custom numeric objects.
-                    <div class="code-block">
-                        <pre><code class="language-python">
-        class CustomNumber:
-            def __init__(self, value):
-                self.value = value
-        
-            def __add__(self, other):
-                return CustomNumber(self.value + other.value)
-        
-            def __sub__(self, other):
-                return CustomNumber(self.value - other.value)
-        
-            def __mul__(self, other):
-                return CustomNumber(self.value * other.value)
-        
-            def __truediv__(self, other):
-                return CustomNumber(self.value / other.value)
-        
-            def __str__(self):
-                return str(self.value)
-        
-        # Create CustomNumber objects
-        n1 = CustomNumber(10)
-        n2 = CustomNumber(5)
-        
-        # Use the magic methods
-        print(n1 + n2)  # Output: 15
-        print(n1 - n2)  # Output: 5
-        print(n1 * n2)  # Output: 50
-        print(n1 / n2)  # Output: 2.0
-                        </code></pre>
-                    </div>
-                </li>
-                <li><strong>Custom Iterator Class</strong><br>
-                    <strong>Magic Methods:</strong> <code>__iter__</code>, <code>__next__</code><br>
-                    <strong>Explanation:</strong> Define how to create an iterator for custom objects.
-                    <div class="code-block">
-                        <pre><code class="language-python">
-        class CustomIterator:
-            def __init__(self, start, end):
-                self.current = start
-                self.end = end
-        
-            def __iter__(self):
-                return self
-        
-            def __next__(self):
-                if self.current >= self.end:
-                    raise StopIteration
-                self.current += 1
-                return self.current - 1
-        
-                # Create a CustomIterator object
-                ci = CustomIterator(1, 5)
-                
-                # Use the iterator
-                for num in ci:
-                    print(num)  # Output: 1 2 3 4
-                                </code></pre>
-                            </div>
-                        </li>
-                    </ul>
-                </section>
+    <h3>Five Different Examples</h3>
+    <ul>
+        <li><strong>Class:</strong> Car, <strong>Attributes:</strong> color, model, year; <strong>Methods:</strong> drive, honk</li>
+        <li><strong>Class:</strong> Book, <strong>Attributes:</strong> title, author, pages; <strong>Methods:</strong> read, bookmark</li>
+        <li><strong>Class:</strong> Phone, <strong>Attributes:</strong> brand, model, battery_life; <strong>Methods:</strong> call, text</li>
+        <li><strong>Class:</strong> Student, <strong>Attributes:</strong> name, grade, student_id; <strong>Methods:</strong> study, take_exam</li>
+        <li><strong>Class:</strong> Plant, <strong>Attributes:</strong> species, height, age; <strong>Methods:</strong> grow, photosynthesize</li>
+    </ul>
+</section>
 
-                <section id="python-property-decorators" class="container content-section">
-                    <h2>Mastering Property Decorators in Python: A Deep Dive with Examples</h2>
-                    <p>Property decorators in Python provide a way to manage the attributes of a class by defining getters, setters, and deleters. This allows for controlled access to private attributes and can help in maintaining encapsulation.</p>
+<section id="encapsulation">
+    <h2>Understanding Encapsulation in Python</h2>
+    <p>
+        <strong>Encapsulation:</strong> Encapsulation is like putting all the important things related to an object inside a box. This box keeps everything together and protects it from the outside world. In programming, encapsulation means bundling the data (attributes) and the methods (functions) that operate on the data into a single unit, which is usually a class.
+    </p>
+    
+    <h3>Real-Life Example</h3>
+    <p>
+        Imagine you have a toy box. Inside this toy box, you keep all your toy cars and the instructions on how to play with them. The toy box keeps everything organized and safe.
+        <br>
+        <strong>Encapsulation:</strong> “Imagine you have a special toy box. Inside this box, you keep all your toy cars and the instructions on how to play with them. This toy box keeps everything together and makes sure nothing gets lost. In programming, we do something similar by putting all the important information and actions related to an object inside a class.”
+    </p>
+    
+    <h3>Python Code Example</h3>
+    <div class="code-box">
+        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <pre><code>
+# Define a class called ToyBox
+class ToyBox:
+    def __init__(self):
+        self.toys = []  # Attribute to store toys
+
+    def add_toy(self, toy):  # Method to add a toy
+        self.toys.append(toy)
+        print(f"{toy} has been added to the toy box.")
+
+    def list_toys(self):  # Method to list all toys
+        print("Toys in the box:")
+        for toy in self.toys:
+            print(toy)
+
+# Create an object of the ToyBox class
+my_toy_box = ToyBox()
+
+# Use the object's methods
+my_toy_box.add_toy("Red Car")
+my_toy_box.add_toy("Blue Truck")
+my_toy_box.list_toys()
+        </code></pre>
+    </div>
+    
+    <p>In this example:</p>
+    <ul>
+        <li>The <strong>ToyBox</strong> class encapsulates the <strong>toys</strong> attribute and the methods <strong>add_toy</strong> and <strong>list_toys</strong>.</li>
+        <li>The <strong>toys</strong> attribute stores the list of toys.</li>
+        <li>The <strong>add_toy</strong> method allows adding a new toy to the box.</li>
+        <li>The <strong>list_toys</strong> method lists all the toys in the box.</li>
+    </ul>
+    
+    <h3>Real-Life Examples of Encapsulation</h3>
+    <ul>
+        <li>
+            <strong>Bank Account</strong>
+            <ul>
+                <li><strong>Class:</strong> BankAccount</li>
+                <li><strong>Attributes:</strong> account_number, balance</li>
+                <li><strong>Methods:</strong> deposit, withdraw, check_balance</li>
+                <li><strong>Explanation:</strong> A bank account class keeps the account number and balance private. The methods allow you to deposit money, withdraw money, and check the balance, ensuring that the balance is updated correctly and securely.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>School</strong>
+            <ul>
+                <li><strong>Class:</strong> School</li>
+                <li><strong>Attributes:</strong> name, students</li>
+                <li><strong>Methods:</strong> add_student, remove_student, list_students</li>
+                <li><strong>Explanation:</strong> A school class keeps the name of the school and the list of students. The methods allow adding and removing students and listing all students, keeping the student data organized and protected.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Library</strong>
+            <ul>
+                <li><strong>Class:</strong> Library</li>
+                <li><strong>Attributes:</strong> books</li>
+                <li><strong>Methods:</strong> add_book, remove_book, list_books</li>
+                <li><strong>Explanation:</strong> A library class keeps a list of books. The methods allow adding and removing books and listing all books, ensuring that the book collection is managed properly.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Smartphone</strong>
+            <ul>
+                <li><strong>Class:</strong> Smartphone</li>
+                <li><strong>Attributes:</strong> brand, model, apps</li>
+                <li><strong>Methods:</strong> install_app, uninstall_app, list_apps</li>
+                <li><strong>Explanation:</strong> A smartphone class keeps the brand, model, and list of installed apps. The methods allow installing and uninstalling apps and listing all installed apps, managing the phone’s functionality.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Recipe Book</strong>
+            <ul>
+                <li><strong>Class:</strong> RecipeBook</li>
+                <li><strong>Attributes:</strong> recipes</li>
+                <li><strong>Methods:</strong> add_recipe, remove_recipe, list_recipes</li>
+                <li><strong>Explanation:</strong> A recipe book class keeps a list of recipes. The methods allow adding and removing recipes and listing all recipes, keeping the recipe collection organized.</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section id="inheritance">
+    <h2>Understanding Inheritance in Python</h2>
+    <p>
+        <strong>Inheritance:</strong> Inheritance is like a family trait that gets passed down from parents to children. In programming, inheritance allows one class (the child class) to inherit attributes and methods from another class (the parent class).
+    </p>
+    
+    <h3>Real-Life Example</h3>
+    <p>
+        Imagine you have a family where the parents have certain traits, like eye color and hair color. These traits can be passed down to their children.
+        <br>
+        <strong>Inheritance:</strong> “Imagine you have a family. Your parents have certain traits, like brown eyes and curly hair. You might inherit these traits from your parents. In programming, we do something similar by allowing one class to inherit traits (attributes and methods) from another class.”
+    </p>
+    
+    <h3>Python Code Example</h3>
+    <div class="code-box">
+        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <pre><code>
+# Define a parent class called Animal
+class Animal:
+    def __init__(self, name):
+        self.name = name  # Attribute
+
+    def speak(self):  # Method
+        print(f"{self.name} makes a sound.")
+
+# Define a child class called Dog that inherits from Animal
+class Dog(Animal):
+    def speak(self):  # Method
+        print(f"{self.name} barks.")
+
+# Create an object of the Dog class
+my_dog = Dog("Buddy")
+
+# Use the object's method
+my_dog.speak()
+        </code></pre>
+    </div>
+    
+    <p>In this example:</p>
+    <ul>
+        <li><strong>Animal</strong> is the parent class with an attribute <strong>name</strong> and a method <strong>speak</strong>.</li>
+        <li><strong>Dog</strong> is the child class that inherits from <strong>Animal</strong> and overrides the <strong>speak</strong> method to provide a specific implementation for dogs.</li>
+    </ul>
+    
+    <h3>Real-Life Examples of Inheritance</h3>
+    <ul>
+        <li>
+            <strong>Vehicles</strong>
+            <ul>
+                <li><strong>Parent Class:</strong> Vehicle</li>
+                <li><strong>Attributes:</strong> make, model</li>
+                <li><strong>Methods:</strong> start, stop</li>
+                <li><strong>Child Class:</strong> Car</li>
+                <li><strong>Methods:</strong> honk</li>
+                <li><strong>Explanation:</strong> A Car class can inherit the attributes and methods from the Vehicle class and add its own specific method like honk.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Electronics</strong>
+            <ul>
+                <li><strong>Parent Class:</strong> ElectronicDevice</li>
+                <li><strong>Attributes:</strong> brand, power</li>
+                <li><strong>Methods:</strong> turn_on, turn_off</li>
+                <li><strong>Child Class:</strong> Smartphone</li>
+                <li><strong>Methods:</strong> make_call, send_message</li>
+                <li><strong>Explanation:</strong> A Smartphone class can inherit the attributes and methods from the ElectronicDevice class and add its own specific methods like make_call and send_message.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Employees</strong>
+            <ul>
+                <li><strong>Parent Class:</strong> Employee</li>
+                <li><strong>Attributes:</strong> name, employee_id</li>
+                <li><strong>Methods:</strong> work, take_break</li>
+                <li><strong>Child Class:</strong> Manager</li>
+                <li><strong>Methods:</strong> conduct_meeting</li>
+                <li><strong>Explanation:</strong> A Manager class can inherit the attributes and methods from the Employee class and add its own specific method like conduct_meeting.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Plants</strong>
+            <ul>
+                <li><strong>Parent Class:</strong> Plant</li>
+                <li><strong>Attributes:</strong> species, height</li>
+                <li><strong>Methods:</strong> grow</li>
+                <li><strong>Child Class:</strong> Flower</li>
+                <li><strong>Methods:</strong> bloom</li>
+                <li><strong>Explanation:</strong> A Flower class can inherit the attributes and methods from the Plant class and add its own specific method like bloom.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Musical Instruments</strong>
+            <ul>
+                <li><strong>Parent Class:</strong> Instrument</li>
+                <li><strong>Attributes:</strong> name, type</li>
+                <li><strong>Methods:</strong> play</li>
+                <li><strong>Child Class:</strong> Guitar</li>
+                <li><strong>Methods:</strong> strum</li>
+                <li><strong>Explanation:</strong> A Guitar class can inherit the attributes and methods from the Instrument class and add its own specific method like strum.</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section id="polymorphism">
+    <h2>Understanding Polymorphism in Python</h2>
+    <p>
+        <strong>Polymorphism:</strong> Polymorphism is like having a magic wand that can transform into different tools depending on what you need. In programming, polymorphism allows us to use a common interface to interact with different data types or objects.
+    </p>
+    
+    <h3>Real-Life Example</h3>
+    <p>
+        Imagine you have a remote control that can operate different devices like a TV, a fan, and a toy car. Even though the devices are different, you can use the same remote control to interact with all of them.
+        <br>
+        <strong>Polymorphism:</strong> “Imagine you have a special remote control. This remote control can be used to turn on the TV, start the fan, and drive a toy car. Even though the TV, fan, and toy car are different things, you can use the same remote control to operate all of them. In programming, we do something similar by using a common interface to interact with different objects.”
+    </p>
+    
+    <h3>Python Code Example</h3>
+    <div class="code-box">
+        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <pre><code>
+# Define a parent class called Animal
+class Animal:
+    def speak(self):
+        pass
+
+# Define child classes that inherit from Animal
+class Dog(Animal):
+    def speak(self):
+        return "Bark"
+
+class Cat(Animal):
+    def speak(self):
+        return "Meow"
+
+class Cow(Animal):
+    def speak(self):
+        return "Moo"
+
+# Function to make an animal speak
+def make_animal_speak(animal):
+    print(animal.speak())
+
+# Create objects of different classes
+dog = Dog()
+cat = Cat()
+cow = Cow()
+
+# Use the common interface to interact with different objects
+make_animal_speak(dog)
+make_animal_speak(cat)
+make_animal_speak(cow)
+        </code></pre>
+    </div>
+    
+    <p>In this example:</p>
+    <ul>
+        <li><strong>Animal</strong> is the parent class with a method <strong>speak</strong>.</li>
+        <li><strong>Dog</strong>, <strong>Cat</strong>, and <strong>Cow</strong> are child classes that inherit from <strong>Animal</strong> and provide their own implementation of the <strong>speak</strong> method.</li>
+        <li>The function <strong>make_animal_speak</strong> uses the common interface <strong>speak</strong> to interact with different objects.</li>
+    </ul>
+    
+    <h3>Real-Life Examples of Polymorphism</h3>
+    <ul>
+        <li>
+            <strong>Drawing Shapes</strong>
+            <ul>
+                <li><strong>Parent Class:</strong> Shape</li>
+                <li><strong>Method:</strong> draw</li>
+                <li><strong>Child Classes:</strong> Circle, Square, Triangle</li>
+                <li><strong>Method Implementation:</strong> Each class provides its own way to draw the shape.</li>
+                <li><strong>Explanation:</strong> You can use the draw method to draw any shape, whether it’s a circle, square, or triangle.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Payment Systems</strong>
+            <ul>
+                <li><strong>Parent Class:</strong> Payment</li>
+                <li><strong>Method:</strong> process_payment</li>
+                <li><strong>Child Classes:</strong> CreditCardPayment, PayPalPayment, BankTransferPayment</li>
+                <li><strong>Method Implementation:</strong> Each class processes the payment in its own way.</li>
+                <li><strong>Explanation:</strong> You can use the process_payment method to handle payments, regardless of the payment method.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>File Handling</strong>
+            <ul>
+                <li><strong>Parent Class:</strong> File</li>
+                <li><strong>Method:</strong> open</li>
+                <li><strong>Child Classes:</strong> TextFile, ImageFile, AudioFile</li>
+                <li><strong>Method Implementation:</strong> Each class opens the file in its own way.</li>
+                <li><strong>Explanation:</strong> You can use the open method to open any type of file, whether it’s a text file, image file, or audio file.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Transportation</strong>
+            <ul>
+                <li><strong>Parent Class:</strong> Vehicle</li>
+                <li><strong>Method:</strong> move</li>
+                <li><strong>Child Classes:</strong> Car, Bicycle, Boat</li>
+                <li><strong>Method Implementation:</strong> Each class moves in its own way.</li>
+                <li><strong>Explanation:</strong> You can use the move method to make any vehicle move, whether it’s a car, bicycle, or boat.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Communication Devices</strong>
+            <ul>
+                <li><strong>Parent Class:</strong> CommunicationDevice</li>
+                <li><strong>Method:</strong> send_message</li>
+                <li><strong>Child Classes:</strong> Phone, Email, Radio</li>
+                <li><strong>Method Implementation:</strong> Each class sends a message in its own way.</li>
+                <li><strong>Explanation:</strong> You can use the send_message method to send a message, whether it’s through a phone, email, or radio.</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section id="abstraction">
+    <h2>Understanding Abstraction in Python</h2>
+    <p>
+        <strong>Abstraction:</strong> Abstraction is like a magic trick where you only see the amazing result without knowing how it was done. In programming, abstraction means hiding the complex implementation details and showing only the necessary features of an object.
+    </p>
+    
+    <h3>Real-Life Example</h3>
+    <p>
+        Imagine you have a TV remote. You press a button to change the channel, but you don’t need to know how the remote sends signals to the TV. You just see the channel change.
+        <br>
+        <strong>Abstraction:</strong> “Imagine you have a TV remote. When you press a button, the channel changes. You don’t need to know how the remote works inside; you just need to know which button to press. In programming, we do something similar by hiding the complex details and showing only what you need to use.”
+    </p>
+    
+    <h3>Python Code Example</h3>
+    <div class="code-box">
+        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <pre><code>
+from abc import ABC, abstractmethod
+
+# Define an abstract class called RemoteControl
+class RemoteControl(ABC):
+    @abstractmethod
+    def press_button(self):
+        pass
+
+# Define a concrete class that inherits from RemoteControl
+class TVRemote(RemoteControl):
+    def press_button(self):
+        print("Changing the TV channel")
+
+# Create an object of the TVRemote class
+my_remote = TVRemote()
+
+# Use the object's method
+my_remote.press_button()
+        </code></pre>
+    </div>
+    
+    <p>In this example:</p>
+    <ul>
+        <li><strong>RemoteControl</strong> is an abstract class with an abstract method <strong>press_button</strong>.</li>
+        <li><strong>TVRemote</strong> is a concrete class that inherits from <strong>RemoteControl</strong> and provides an implementation for the <strong>press_button</strong> method.</li>
+        <li>The user interacts with the <strong>press_button</strong> method without needing to know how it works internally.</li>
+    </ul>
+    
+    <h3>Real-Life Examples of Abstraction</h3>
+    <ul>
+        <li>
+            <strong>Coffee Machine</strong>
+            <ul>
+                <li><strong>Class:</strong> CoffeeMachine</li>
+                <li><strong>Method:</strong> make_coffee</li>
+                <li><strong>Explanation:</strong> When you press a button to make coffee, you don’t need to know how the machine grinds the beans and brews the coffee. You just get your coffee.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Car</strong>
+            <ul>
+                <li><strong>Class:</strong> Car</li>
+                <li><strong>Method:</strong> start_engine</li>
+                <li><strong>Explanation:</strong> When you turn the key or press a button to start the car, you don’t need to know how the engine works. You just need to know how to start it.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Smartphone</strong>
+            <ul>
+                <li><strong>Class:</strong> Smartphone</li>
+                <li><strong>Method:</strong> take_photo</li>
+                <li><strong>Explanation:</strong> When you press a button to take a photo, you don’t need to know how the camera processes the image. You just get the photo.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>ATM Machine</strong>
+            <ul>
+                <li><strong>Class:</strong> ATM</li>
+                <li><strong>Method:</strong> withdraw_money</li>
+                <li><strong>Explanation:</strong> When you enter your PIN and request money, you don’t need to know how the ATM processes the transaction. You just get your cash.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Music Player</strong>
+            <ul>
+                <li><strong>Class:</strong> MusicPlayer</li>
+                <li><strong>Method:</strong> play_song</li>
+                <li><strong>Explanation:</strong> When you press play, you don’t need to know how the music player decodes and plays the audio file. You just hear the music.</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section id="class-instance-variables">
+    <h2>Understanding Class Variables in Python: Shared Attributes Across Instances</h2>
+    <p>
+        <strong>Class Variables:</strong> Class variables are attributes that are shared among all instances of a class. They are like a common property that every object of the class can access and modify.
+    </p>
+    
+    <h3>Real-Life Example of Class Variables</h3>
+    <p>
+        Imagine you are in a classroom. The classroom has a whiteboard that everyone can see and use. This whiteboard is like a class variable.
+        <br>
+        <strong>Explanation:</strong> “Imagine you are in a classroom. There is a whiteboard that everyone in the class can see and write on. This whiteboard is like a class variable in programming. It’s something that everyone in the class shares.”
+    </p>
+    
+    <h3>Python Code Example for Class Variables</h3>
+    <div class="code-box">
+        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <pre><code>
+class Classroom:
+    whiteboard = "This is a shared whiteboard."  # Class variable
+
+# Create two objects of the Classroom class
+class1 = Classroom()
+class2 = Classroom()
+
+# Access the class variable
+print(class1.whiteboard)
+print(class2.whiteboard)
+
+# Modify the class variable
+Classroom.whiteboard = "The whiteboard has been updated."
+
+# Access the modified class variable
+print(class1.whiteboard)
+print(class2.whiteboard)
+        </code></pre>
+    </div>
+    
+    <p>In this example:</p>
+    <ul>
+        <li><strong>whiteboard</strong> is a class variable shared by all instances of the <strong>Classroom</strong> class.</li>
+    </ul>
+    
+    <h2>Understanding Instance Variables in Python: Unique Attributes for Each Instance</h2>
+    <p>
+        <strong>Instance Variables:</strong> Instance variables are attributes that are unique to each instance of a class. They are like personal properties that belong to each object.
+    </p>
+    
+    <h3>Real-Life Example of Instance Variables</h3>
+    <p>
+        Imagine each student in the classroom has their own notebook. Each notebook is unique to the student and contains their own notes. This notebook is like an instance variable.
+        <br>
+        <strong>Explanation:</strong> “Imagine each student in the classroom has their own notebook. Each notebook is unique to the student and contains their own notes. This notebook is like an instance variable in programming. It’s something that belongs to each student individually.”
+    </p>
+    
+    <h3>Python Code Example for Instance Variables</h3>
+    <div class="code-box">
+        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <pre><code>
+class Student:
+    def __init__(self, name):
+        self.name = name  # Instance variable
+
+# Create two objects of the Student class
+student1 = Student("Alice")
+student2 = Student("Bob")
+
+# Access the instance variables
+print(student1.name)
+print(student2.name)
+        </code></pre>
+    </div>
+    
+    <p>In this example:</p>
+    <ul>
+        <li><strong>name</strong> is an instance variable unique to each <strong>Student</strong> object.</li>
+    </ul>
+    
+    <h3>Real-Life Examples of Class and Instance Variables</h3>
+    <ul>
+        <li>
+            <strong>Library System</strong>
+            <ul>
+                <li><strong>Class Variable:</strong> total_books (shared by all libraries)</li>
+                <li><strong>Instance Variable:</strong> books (unique to each library)</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Car Dealership Network</strong>
+            <ul>
+                <li><strong>Class Variable:</strong> total_cars_sold (shared by all dealerships)</li>
+                <li><strong>Instance Variable:</strong> cars_in_stock (unique to each dealership)</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Educational Institution</strong>
+            <ul>
+                <li><strong>Class Variable:</strong> school_name (shared by all students)</li>
+                <li><strong>Instance Variable:</strong> student_name (unique to each student)</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Corporate Organization</strong>
+            <ul>
+                <li><strong>Class Variable:</strong> company_policy (shared by all employees)</li>
+                <li><strong>Instance Variable:</strong> employee_id (unique to each employee)</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Sports Team</strong>
+            <ul>
+                <li><strong>Class Variable:</strong> team_name (shared by all players)</li>
+                <li><strong>Instance Variable:</strong> player_number (unique to each player)</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section id="static-class-methods">
+    <h2>Mastering Static and Class Methods in Python: A Detailed Guide</h2>
+    <p>
+        Static methods and class methods are essential concepts in Python that offer different ways to interact with class data. Let’s dive into their definitions, uses, and real-life examples to understand them better.
+    </p>
+    
+    <h3>What are Static Methods in Python?</h3>
+    <p>
+        <strong>Static Methods:</strong> Static methods are defined using the <code>@staticmethod</code> decorator. They do not require access to the instance (self) or the class (cls). Essentially, they are regular functions that belong to the class’s namespace.
+    </p>
+    
+    <h3>Real-Life Example of Static Methods</h3>
+    <p>
+        Consider a calculator that can perform addition. You can use it to add numbers without needing to know anything about the calculator itself. This function of adding numbers is akin to a static method.
+    </p>
+    
+    <h3>Python Code Example for Static Methods</h3>
+    <div class="code-box">
+        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <pre><code>
+class Calculator:
+    @staticmethod
+    def add(a, b):
+        return a + b
+
+# Use the static method
+result = Calculator.add(5, 3)
+print(result)  # Output: 8
+        </code></pre>
+    </div>
+    
+    <p>In this example:</p>
+    <ul>
+        <li><strong>add</strong> is a static method that adds two numbers and belongs to the <strong>Calculator</strong> class.</li>
+    </ul>
+    
+    <h3>What are Class Methods in Python?</h3>
+    <p>
+        <strong>Class Methods:</strong> Class methods are defined using the <code>@classmethod</code> decorator. They take a reference to the class (cls) as their first parameter and can modify class state that applies across all instances of the class.
+    </p>
+    
+    <h3>Real-Life Example of Class Methods</h3>
+    <p>
+        Imagine a school that can announce a holiday for all students. This announcement affects the entire class (school) and not just one student, similar to how a class method operates.
+    </p>
+    
+    <h3>Python Code Example for Class Methods</h3>
+    <div class="code-box">
+        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <pre><code>
+class School:
+    school_name = "Greenwood High"
+
+    @classmethod
+    def change_school_name(cls, new_name):
+        cls.school_name = new_name
+
+# Use the class method
+School.change_school_name("Sunnydale High")
+print(School.school_name)  # Output: Sunnydale High
+        </code></pre>
+    </div>
+    
+    <p>In this example:</p>
+    <ul>
+        <li><strong>change_school_name</strong> is a class method that changes the name of the school for all instances of the <strong>School</strong> class.</li>
+    </ul>
+    
+    <h3>Practical Examples of Static and Class Methods</h3>
+    <ul>
+        <li>
+            <strong>Utility Functions in a Math Class</strong>
+            <ul>
+                <li><strong>Static Method:</strong> <code>@staticmethod def calculate_area(radius):</code> (calculates the area of a circle)</li>
+                <li><strong>Class Method:</strong> <code>@classmethod def set_pi(cls, value):</code> (sets the value of π for all calculations)</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Configuration Settings in an Application</strong>
+            <ul>
+                <li><strong>Static Method:</strong> <code>@staticmethod def validate_config(config):</code> (validates a configuration file)</li>
+                <li><strong>Class Method:</strong> <code>@classmethod def update_config(cls, new_config):</code> (updates the configuration for the entire application)</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Employee Management in a Company</strong>
+            <ul>
+                <li><strong>Static Method:</strong> <code>@staticmethod def calculate_bonus(salary):</code> (calculates bonus based on salary)</li>
+                <li><strong>Class Method:</strong> <code>@classmethod def set_company_policy(cls, policy):</code> (sets a new company policy)</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Game Development</strong>
+            <ul>
+                <li><strong>Static Method:</strong> <code>@staticmethod def calculate_score(points):</code> (calculates the score based on points)</li>
+                <li><strong>Class Method:</strong> <code>@classmethod def set_difficulty_level(cls, level):</code> (sets the difficulty level for the game)</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Library System</strong>
+            <ul>
+                <li><strong>Static Method:</strong> <code>@staticmethod def is_valid_isbn(isbn):</code> (checks if an ISBN is valid)</li>
+                <li><strong>Class Method:</strong> <code>@classmethod def set_library_name(cls, name):</code> (sets the name of the library)</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section id="operator-overloading">
+    <h2>Mastering Operator Overloading in Python: A Deep Dive with Examples</h2>
+    <p>
+        Operator overloading allows you to define custom behavior for operators when they are used with objects of your class. This powerful feature enables you to make your classes more intuitive and easier to use.
+    </p>
+    
+    <h3>What is Operator Overloading?</h3>
+    <p>
+        <strong>Operator Overloading:</strong> Operator overloading is the process of defining how operators (like +, -, *, etc.) work with user-defined objects. By overloading operators, you can specify custom behavior for these operators when they are used with instances of your class.
+    </p>
+    
+    <h3>Deep Dive into Operator Overloading</h3>
+    <p>Let’s take a closer look at how operator overloading works by exploring a detailed example with a custom Vector class.</p>
+    
+    <h3>Example: Overloading the + Operator for a Vector Class</h3>
+    <p>Consider a Vector class that represents a vector in 2D space. We can overload the + operator to add two vectors together.</p>
+    
+    <div class="code-box">
+        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <pre><code>
+class Vector:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __add__(self, other):
+        return Vector(self.x + other.x, self.y + other.y)
+
+    def __sub__(self, other):
+        return Vector(self.x - other.x, self.y - other.y)
+
+    def __mul__(self, scalar):
+        return Vector(self.x * scalar, self.y * scalar)
+
+    def __str__(self):
+        return f"Vector({self.x}, {self.y})"
+
+# Create two Vector objects
+v1 = Vector(2, 3)
+v2 = Vector(4, 5)
+
+# Use the overloaded + operator
+v3 = v1 + v2
+print(v3)  # Output: Vector(6, 8)
+
+# Use the overloaded - operator
+v4 = v1 - v2
+print(v4)  # Output: Vector(-2, -2)
+
+# Use the overloaded * operator
+v5 = v1 * 3
+print(v5)  # Output: Vector(6, 9)
+        </code></pre>
+    </div>
+    
+    <p>In this example:</p>
+    <ul>
+        <li>The <strong>__add__</strong> method is overloaded to define how the + operator works with <strong>Vector</strong> objects.</li>
+        <li>The <strong>__sub__</strong> method is overloaded to define how the - operator works with <strong>Vector</strong> objects.</li>
+        <li>The <strong>__mul__</strong> method is overloaded to define how the * operator works with <strong>Vector</strong> objects and a scalar.</li>
+        <li>The <strong>__str__</strong> method provides a string representation of the <strong>Vector</strong> object for easy printing.</li>
+    </ul>
+    
+    <h3>Practical Examples of Operator Overloading</h3>
+    <ul>
+        <li>
+            <strong>Complex Numbers</strong>
+            <ul>
+                <li><strong>Class:</strong> ComplexNumber</li>
+                <li><strong>Overloaded Operators:</strong> +, -, *, /</li>
+                <li><strong>Explanation:</strong> Define how to add, subtract, multiply, and divide complex numbers.</li>
+                <div class="code-box">
+                    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+                    <pre><code>
+class ComplexNumber:
+    def __init__(self, real, imag):
+        self.real = real
+        self.imag = imag
+
+    def __add__(self, other):
+        return ComplexNumber(self.real + other.real, self.imag + other.imag)
+
+    def __sub__(self, other):
+        return ComplexNumber(self.real - other.real, self.imag - other.imag)
+
+    def __mul__(self, other):
+        return ComplexNumber(self.real * other.real - self.imag * other.imag,
+                                self.real * other.imag + self.imag * other.real)
+
+    def __truediv__(self, other):
+        denom = other.real ** 2 + other.imag ** 2
+        return ComplexNumber((self.real * other.real + self.imag * other.imag) / denom,
+                                (self.imag * other.real - self.real * other.imag) / denom)
+
+    def __str__(self):
+        return f"{self.real} + {self.imag}i"
+
+# Create two ComplexNumber objects
+c1 = ComplexNumber(1, 2)
+c2 = ComplexNumber(3, 4)
+
+# Use the overloaded operators
+print(c1 + c2)  # Output: 4 + 6i
+print(c1 - c2)  # Output: -2 + -2i
+print(c1 * c2)  # Output: -5 + 10i
+print(c1 / c2)  # Output: 0.44 + 0.08i
+                    </code></pre>
+                </div>
+            </ul>
+        </li>
+        <li>
+            <strong>Fractions</strong>
+            <ul>
+                <li><strong>Class:</strong> Fraction</li>
+                <li><strong>Overloaded Operators:</strong> +, -, *, /</li>
+                <li><strong>Explanation:</strong> Define how to perform arithmetic operations with fractions.</li>
+                <div class="code-box">
+                    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+                    <pre><code>
+from fractions import Fraction
+
+f1 = Fraction(1, 2)
+f2 = Fraction(3, 4)
+
+# Use the overloaded operators
+print(f1 + f2)  # Output: 5/4
+print(f1 - f2)  # Output: -1/4
+print(f1 * f2)  # Output: 3/8
+print(f1 / f2)  # Output: 2/3
+                    </code></pre>
+                </div>
+            </ul>
+        </li>
+        <li>
+            <strong>Matrices</strong>
+            <ul>
+                <li><strong>Class:</strong> Matrix</li>
+                <li><strong>Overloaded Operators:</strong> +, -, *</li>
+                <li><strong>Explanation:</strong> Define how to add, subtract, and multiply matrices.</li>
+                <div class="code-box">
+                    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+                    <pre><code>
+class Matrix:
+    def __init__(self, data):
+        self.data = data
+
+    def __add__(self, other):
+        result = [[self.data[i][j] + other.data[i][j] for j in range(len(self.data[0]))] for i in range(len(self.data))]
+        return Matrix(result)
+
+    def __sub__(self, other):
+        result = [[self.data[i][j] - other.data[i][j] for j in range(len(self.data[0]))] for i in range(len(self.data))]
+        return Matrix(result)
+
+    def __mul__(self, other):
+        result = [[sum(a * b for a, b in zip(self_row, other_col)) for other_col in zip(*other.data)] for self_row in self.data]
+        return Matrix(result)
+
+    def __str__(self):
+        return '\n'.join([' '.join(map(str, row)) for row in self.data])
+
+# Create two Matrix objects
+m1 = Matrix([[1, 2], [3, 4]])
+m2 = Matrix([[5, 6], [7, 8]])
+
+# Use the overloaded operators
+print(m1 + m2)
+# Output:
+# 6 8
+# 10 12
+
+print(m1 - m2)
+# Output:
+# -4 -4
+# -4 -4
+
+print(m1 * m2)
+# Output:
+# 19 22
+# 43 50
+                    </code></pre>
+                </div>
+            </ul>
+        </li>
+        <li>
+            <strong>Points in 2D Space</strong>
+            <ul>
+                <li><strong>Class:</strong> Point</li>
+                <li><strong>Overloaded Operators:</strong> +, -</li>
+                <li><strong>Explanation:</strong> Define how to add and subtract points in a 2D space.</li>
+                <div class="code-box">
+                    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+                    <pre><code>
+                        Sure, let's continue with the section on "Points in 2D Space":
+
+                        ```html
+                        class Point:
+                            def __init__(self, x, y):
+                                self.x = x
+                                self.y = y
+                        
+                            def __add__(self, other):
+                                return Point(self.x + other.x, self.y + other.y)
+                        
+                            def __sub__(self, other):
+                                return Point(self.x - other.x, self.y - other.y)
+                        
+                            def __str__(self):
+                                return f"Point({self.x}, {self.y})"
+                        
+                        # Create two Point objects
+                        p1 = Point(1, 2)
+                        p2 = Point(3, 4)
+                        
+                        # Use the overloaded operators
+                        print(p1 + p2)  # Output: Point(4, 6)
+                        print(p1 - p2)  # Output: Point(-2, -2)
+                                            </code></pre>
+                                        </div>
+                                    </ul>
+                                </li>
+                            </ul>
+</section>
+                               
+<section id="magic-methods">
+    <h2>Mastering Magic Methods in Python: A Comprehensive Guide with Examples</h2>
+    <p>
+        Magic methods (also known as dunder methods) are special methods in Python that have double underscores at the beginning and end of their names. These methods allow you to define how objects of your class behave with built-in functions and operators.
+    </p>
+    
+    <h3>What are Magic Methods?</h3>
+    <p>
+        <strong>Magic Methods:</strong> Magic methods are special methods that start and end with double underscores (__). They enable you to customize the behavior of your objects for built-in operations like printing, addition, and more.
+    </p>
+    
+    <h3>Deep Dive into Common Magic Methods</h3>
+    <p>Let’s explore some of the most commonly used magic methods with detailed examples.</p>
+    
+    <h4>1. __str__ and __repr__: String Representation of Objects</h4>
+    <p>
+        <strong>__str__:</strong> Defines the “informal” or nicely printable string representation of an object, used by the <code>print()</code> function.
+        <br>
+        <strong>__repr__:</strong> Defines the “official” string representation of an object, used by the <code>repr()</code> function and in the interactive interpreter.
+    </p>
+    
+    <div class="code-box">
+        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <pre><code>
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def __str__(self):
+        return f"Person(name={self.name}, age={self.age})"
+
+    def __repr__(self):
+        return f"Person('{self.name}', {self.age})"
+
+# Create a Person object
+p = Person("Alice", 30)
+
+# Use the __str__ and __repr__ methods
+print(str(p))  # Output: Person(name=Alice, age=30)
+print(repr(p))  # Output: Person('Alice', 30)
+        </code></pre>
+    </div>
+    
+    <h4>2. __add__: Overloading the Addition Operator</h4>
+    <p><strong>__add__:</strong> Defines the behavior of the + operator for objects of your class.</p>
+    
+    <div class="code-box">
+        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <pre><code>
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __add__(self, other):
+        return Point(self.x + other.x, self.y + other.y)
+
+    def __str__(self):
+        return f"Point({self.x}, {self.y})"
+
+# Create two Point objects
+p1 = Point(1, 2)
+p2 = Point(3, 4)
+
+# Use the overloaded + operator
+p3 = p1 + p2
+print(p3)  # Output: Point(4, 6)
+        </code></pre>
+    </div>
+    
+    <h4>3. __len__: Defining the Length of an Object</h4>
+    <p><strong>__len__:</strong> Defines the behavior of the <code>len()</code> function for objects of your class.</p>
+    
+    <div class="code-box">
+        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <pre><code>
+class CustomList:
+    def __init__(self, items):
+        self.items = items
+
+    def __len__(self):
+        return len(self.items)
+
+# Create a CustomList object
+cl = CustomList([1, 2, 3, 4, 5])
+
+# Use the len() function
+print(len(cl))  # Output: 5
+        </code></pre>
+    </div>
+    
+    <h4>4. __getitem__ and __setitem__: Indexing and Assignment</h4>
+    <p>
+        <strong>__getitem__:</strong> Defines the behavior of indexing (<code>obj[key]</code>) for objects of your class.
+        <br>
+        <strong>__setitem__:</strong> Defines the behavior of item assignment (<code>obj[key] = value</code>) for objects of your class.
+    </p>
+    
+    <div class="code-box">
+        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <pre><code>
+class CustomDict:
+    def __init__(self):
+        self.data = {}
+
+    def __getitem__(self, key):
+        return self.data[key]
+
+    def __setitem__(self, key, value):
+        self.data[key] = value
+
+# Create a CustomDict object
+cd = CustomDict()
+
+# Use the __setitem__ and __getitem__ methods
+cd['name'] = 'Alice'
+print(cd['name'])  # Output: Alice
+        </code></pre>
+    </div>
+    
+    <h4>5. __call__: Making an Object Callable</h4>
+    <p><strong>__call__:</strong> Defines the behavior of calling an object as a function.</p>
+    
+    <div class="code-box">
+        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <pre><code>
+class Multiplier:
+    def __init__(self, factor):
+        self.factor = factor
+
+    def __call__(self, value):
+        return value * self.factor
+
+# Create a Multiplier object
+double = Multiplier(2)
+
+# Use the object as a function
+print(double(5))  # Output: 10
+        </code></pre>
+    </div>
+    
+    <h3>Practical Examples of Magic Methods</h3>
+    <ul>
+        <li>
+            <strong>Custom Container Class</strong>
+            <ul>
+                <li><strong>Magic Methods:</strong> __len__, __getitem__, __setitem__, __delitem__</li>
+                <li><strong>Explanation:</strong> Define how to get the length, access items, set items, and delete items in a custom container.</li>
+                <div class="code-box">
+                    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+                    <pre><code>
+class CustomContainer:
+    def __init__(self):
+        self.data = []
+
+    def __len__(self):
+        return len(self.data)
+
+    def __getitem__(self, index):
+        return self.data[index]
+
+    def __setitem__(self, index, value):
+        self.data[index] = value
+
+    def __delitem__(self, index):
+        del self.data[index]
+
+# Create a CustomContainer object
+cc = CustomContainer()
+cc.data = [1, 2, 3, 4, 5]
+
+# Use the magic methods
+print(len(cc))  # Output: 5
+print(cc[2])    # Output: 3
+cc[2] = 10
+print(cc[2])    # Output: 10
+del cc[2]
+print(cc.data)  # Output: [1, 2, 4, 5]
+                    </code></pre>
+                </div>
+            </ul>
+        </li>
+        <li>
+            <strong>Custom Numeric Class</strong>
+            <ul>
+                <li><strong>Magic Methods:</strong> __add__, __sub__, __mul__, __truediv__</li>
+                <li><strong>Explanation:</strong> Define how to add, subtract, multiply, and divide custom numeric objects.</li>
+                <div class="code-box">
+                    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+                    <pre><code>
+                        class CustomIterator:
+                        def __init__(self, start, end):
+                            self.current = start
+                            self.end = end
                     
-                    <h3>What are Property Decorators?</h3>
-                    <p><strong>Property Decorators:</strong> Property decorators are used to define methods in a class that act as getters, setters, and deleters for an attribute. The <code>@property</code> decorator is used for the getter method, <code>@<property_name>.setter</code> for the setter method, and <code>@<property_name>.deleter</code> for the deleter method.</p>
+                        def __iter__(self):
+                            return self
                     
-                    <h3>Deep Dive into Property Decorators</h3>
-                    <p>Let’s explore how property decorators work with detailed examples.</p>
+                        def __next__(self):
+                            if self.current >= self.end:
+                                raise StopIteration
+                            self.current += 1
+                            return self.current - 1
                     
-                    <h4>Example: Using <code>@property</code> for Getters</h4>
-                    <p>The <code>@property</code> decorator allows you to define a method that gets called automatically when you access an attribute.</p>
-                    <div class="code-block">
-                        <pre><code class="language-python">
-                class Circle:
-                    def __init__(self, radius):
-                        self._radius = radius
-                
-                    @property
-                    def radius(self):
-                        return self._radius
-                
-                # Create a Circle object
-                c = Circle(5)
-                
-                # Access the radius property
-                print(c.radius)  # Output: 5
-                        </code></pre>
-                    </div>
-                    <p>In this example:</p>
-                    <ul>
-                        <li>The <code>radius</code> method is decorated with <code>@property</code>, making it a getter for the <code>_radius</code> attribute.</li>
-                    </ul>
+                    # Create a CustomIterator object
+                    ci = CustomIterator(1, 5)
                     
-                    <h4>Example: Using <code>@<property_name>.setter</code> for Setters</h4>
-                    <p>The <code>@<property_name>.setter</code> decorator allows you to define a method that gets called automatically when you set an attribute.</p>
-                    <div class="code-block">
-                        <pre><code class="language-python">
-                class Circle:
-                    def __init__(self, radius):
-                        self._radius = radius
-                
-                    @property
-                    def radius(self):
-                        return self._radius
-                
-                    @radius.setter
-                    def radius(self, value):
-                        if value < 0:
-                            raise ValueError("Radius cannot be negative")
-                        self._radius = value
-                
-                # Create a Circle object
-                c = Circle(5)
-                
-                # Set the radius property
-                c.radius = 10
-                print(c.radius)  # Output: 10
-                
-                # Attempt to set a negative radius
-                try:
-                    c.radius = -5
-                except ValueError as e:
-                    print(e)  # Output: Radius cannot be negative
-                        </code></pre>
-                    </div>
-                    <p>In this example:</p>
-                    <ul>
-                        <li>The <code>radius</code> method is decorated with <code>@property</code> to act as a getter.</li>
-                        <li>The <code>radius</code> method is also decorated with <code>@radius.setter</code> to act as a setter, which includes validation to prevent negative values.</li>
-                    </ul>
-                    
-                    <h4>Example: Using <code>@<property_name>.deleter</code> for Deleters</h4>
-                    <p>The <code>@<property_name>.deleter</code> decorator allows you to define a method that gets called automatically when you delete an attribute.</p>
-                    <div class="code-block">
-                        <pre><code class="language-python">
-                class Circle:
-                    def __init__(self, radius):
-                        self._radius = radius
-                
-                    @property
-                    def radius(self):
-                        return self._radius
-                
-                    @radius.setter
-                    def radius(self, value):
-                        if value < 0:
-                            raise ValueError("Radius cannot be negative")
-                        self._radius = value
-                
-                    @radius.deleter
-                    def radius(self):
-                        print("Deleting radius")
-                        del self._radius
-                
-                # Create a Circle object
-                c = Circle(5)
-                
-                # Delete the radius property
-                del c.radius
-                        </code></pre>
-                    </div>
-                    <p>In this example:</p>
-                    <ul>
-                        <li>The <code>radius</code> method is decorated with <code>@property</code> to act as a getter.</li>
-                        <li>The <code>radius</code> method is also decorated with <code>@radius.setter</code> to act as a setter.</li>
-                        <li>The <code>radius</code> method is further decorated with <code>@radius.deleter</code> to act as a deleter, which prints a message and deletes the <code>_radius</code> attribute.</li>
-                    </ul>
-                    
-                    <h3>Practical Examples of Property Decorators</h3>
-                    <ul>
-                        <li><strong>Temperature Conversion</strong><br>
-                            <strong>Class:</strong> Temperature<br>
-                            <strong>Properties:</strong> celsius, fahrenheit<br>
-                            <strong>Explanation:</strong> Use property decorators to convert between Celsius and Fahrenheit.
-                            <div class="code-block">
-                                <pre><code class="language-python">
-                class Temperature:
-                    def __init__(self, celsius):
-                        self._celsius = celsius
-                
-                    @property
-                    def celsius(self):
-                        return self._celsius
-                
-                    @celsius.setter
-                    def celsius(self, value):
-                        self._celsius = value
-                
-                    @property
-                    def fahrenheit(self):
-                        return (self._celsius * 9/5) + 32
-                
-                    @fahrenheit.setter
-                    def fahrenheit(self, value):
-                        self._celsius = (value - 32) * 5/9
-                
-                # Create a Temperature object
-                temp = Temperature(25)
-                
-                # Access and set properties
-                print(temp.celsius)  # Output: 25
-                print(temp.fahrenheit)  # Output: 77.0
-                
-                temp.fahrenheit = 100
-                print(temp.celsius)  # Output: 37.77777777777778
-                                </code></pre>
-                            </div>
-                        </li>
-                        <li><strong>Bank Account Balance</strong><br>
-                            <strong>Class:</strong> BankAccount<br>
-                            <strong>Properties:</strong> balance<br>
-                            <strong>Explanation:</strong> Use property decorators to manage the balance with validation.
-                            <div class="code-block">
-                                <pre><code class="language-python">
-                class BankAccount:
-                    def __init__(self, balance):
-                        self._balance = balance
-                
-                    @property
-                    def balance(self):
-                        return self._balance
-                
-                    @balance.setter
-                    def balance(self, value):
-                        if value < 0:
-                            raise ValueError("Balance cannot be negative")
-                        self._balance = value
-                
-                # Create a BankAccount object
-                account = BankAccount(1000)
-                
-                # Access and set properties
-                print(account.balance)  # Output: 1000
-                
-                account.balance = 1500
-                print(account.balance)  # Output: 1500
-                
-                try:
-                    account.balance = -500
-                except ValueError as e:
-                    print(e)  # Output: Balance cannot be negative
-                                </code></pre>
-                            </div>
-                        </li>
-                        <li><strong>Rectangle Area and Perimeter</strong><br>
-                            <strong>Class:</strong> Rectangle<br>
-                            <strong>Properties:</strong> width, height, area, perimeter<br>
-                            <strong>Explanation:</strong> Use property decorators to calculate area and perimeter.
-                            <div class="code-block">
-                                <pre><code class="language-python">
-                class Rectangle:
-                    def __init__(self, width, height):
-                        self._width = width
-                        self._height = height
-                
-                    @property
-                    def width(self):
-                        return self._width
-                
-                    @width.setter
-                    def width(self, value):
-                        if value < 0:
-                            raise ValueError("Width cannot be negative")
-                        self._width = value
-                
-                    @property
-                    def height(self):
-                        return self._height
-                
-                    @height.setter
-                    def height(self, value):
-                        if value < 0:
-                            raise ValueError("Height cannot be negative")
-                        self._height = value
-                
-                    @property
-                    def area(self):
-                        return self._width * self._height
-                
-                    @property
-                    def perimeter(self):
-                        return 2 * (self._width + self._height)
-                
-                # Create a Rectangle object
-                rect = Rectangle(4, 5)
-                
-                # Access properties
-                print(rect.area)  # Output: 20
-                print(rect.perimeter)  # Output: 18
-                
-                # Set properties
-                rect.width = 6
-                print(rect.area)  # Output: 30
-                                </code></pre>
-                            </div>
-                        </li>
-                        <li><strong>Employee Salary</strong><br>
-                            <strong>Class:</strong> Employee<br>
-                            <strong>Properties:</strong> salary, bonus<br>
-                            <strong>Explanation:</strong> Use property decorators to manage salary and calculate bonus.
-                            <div class="code-block">
-                                <pre><code class="language-python">
-                class Employee:
-                    def __init__(self, salary):
-                        self._salary = salary
-                
-                    @property
-                    def salary(self):
-                        return self._salary
-                
-                    @salary.setter
-                    def salary(self, value):
-                        if value < 0:
-                            raise ValueError("Salary cannot be negative")
-                        self._salary = value
-                
-                    @property
-                    def bonus(self):
-                        return self._salary * 0.1
-                
-                # Create an Employee object
-                emp = Employee(50000)
-                
-                # Access properties
-                print(emp.salary)  # Output: 50000
-                print(emp.bonus)  # Output: 5000.0
-                
-                # Set properties
-                emp.salary = 60000
-                print(emp.bonus)  # Output: 6000.0
-                                </code></pre>
-                            </div>
-                        </li>
-                    </ul>
-                </section>
-            
-    <footer class="bg-dark text-white text-center">
-        <p>© 2024 Hacktrix. All rights reserved.</p>
-    </footer>
+                    # Use the iterator
+                    for num in ci:
+                        print(num)  # Output: 1 2 3 4
+                                        </code></pre>
+                                    </div>
+                                </ul>
+                            </li>
+                        </ul>
+</section>
+
+<section id="property-decorators">
+                                                        <h2>Mastering Property Decorators in Python: A Deep Dive with Examples</h2>
+                                                        <p>
+                                                            Property decorators in Python provide a way to manage the attributes of a class by defining getters, setters, and deleters. This allows for controlled access to private attributes and can help in maintaining encapsulation.
+                                                        </p>
+                                                        
+                                                        <h3>What are Property Decorators?</h3>
+                                                        <p>
+                                                            <strong>Property Decorators:</strong> Property decorators are used to define methods in a class that act as getters, setters, and deleters for an attribute. The <code>@property</code> decorator is used for the getter method, <code>@.setter</code> for the setter method, and <code>@.deleter</code> for the deleter method.
+                                                        </p>
+                                                        
+                                                        <h3>Deep Dive into Property Decorators</h3>
+                                                        <p>Let’s explore how property decorators work with detailed examples.</p>
+                                                        
+                                                        <h4>Example: Using @property for Getters</h4>
+                                                        <p>The <code>@property</code> decorator allows you to define a method that gets called automatically when you access an attribute.</p>
+                                                        
+                                                        <div class="code-box">
+                                                            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+                                                            <pre><code>
+                                                    class Circle:
+                                                        def __init__(self, radius):
+                                                            self._radius = radius
+                                                    
+                                                        @property
+                                                        def radius(self):
+                                                            return self._radius
+                                                    
+                                                    # Create a Circle object
+                                                    c = Circle(5)
+                                                    
+                                                    # Access the radius property
+                                                    print(c.radius)  # Output: 5
+                                                            </code></pre>
+                                                        </div>
+                                                        
+                                                        <p>In this example:</p>
+                                                        <ul>
+                                                            <li>The <strong>radius</strong> method is decorated with <code>@property</code>, making it a getter for the <strong>_radius</strong> attribute.</li>
+                                                        </ul>
+                                                        
+                                                        <h4>Example: Using @.setter for Setters</h4>
+                                                        <p>The <code>@.setter</code> decorator allows you to define a method that gets called automatically when you set an attribute.</p>
+                                                        
+                                                        <div class="code-box">
+                                                            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+                                                            <pre><code>
+                                                    class Circle:
+                                                        def __init__(self, radius):
+                                                            self._radius = radius
+                                                    
+                                                        @property
+                                                        def radius(self):
+                                                            return self._radius
+                                                    
+                                                        @radius.setter
+                                                        def radius(self, value):
+                                                            if value < 0:
+                                                                raise ValueError("Radius cannot be negative")
+                                                            self._radius = value
+                                                    
+                                                    # Create a Circle object
+                                                    c = Circle(5)
+                                                    
+                                                    # Set the radius property
+                                                    c.radius = 10
+                                                    print(c.radius)  # Output: 10
+                                                    
+                                                    # Attempt to set a negative radius
+                                                    try:
+                                                        c.radius = -5
+                                                    except ValueError as e:
+                                                        print(e)  # Output: Radius cannot be negative
+                                                            </code></pre>
+                                                        </div>
+                                                        
+                                                        <p>In this example:</p>
+                                                        <ul>
+                                                            <li>The <strong>radius</strong> method is decorated with <code>@property</code> to act as a getter.</li>
+                                                            <li>The <strong>radius</strong> method is also decorated with <code>@radius.setter</code> to act as a setter, which includes validation to prevent negative values.</li>
+                                                        </ul>
+                                                        
+                                                        <h4>Example: Using @.deleter for Deleters</h4>
+                                                        <p>The <code>@.deleter</code> decorator allows you to define a method that gets called automatically when you delete an attribute.</p>
+                                                        
+                                                        <div class="code-box">
+                                                            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+                                                            <pre><code>
+                                                    class Circle:
+                                                        def __init__(self, radius):
+                                                            self._radius = radius
+                                                    
+                                                        @property
+                                                        def radius(self):
+                                                            return self._radius
+                                                    
+                                                        @radius.setter
+                                                        def radius(self, value):
+                                                            if value < 0:
+                                                                raise ValueError("Radius cannot be negative")
+                                                            self._radius = value
+                                                    
+                                                        @radius.deleter
+                                                        def radius(self):
+                                                            print("Deleting radius")
+                                                            del self._radius
+                                                    
+                                                    # Create a Circle object
+                                                    c = Circle(5)
+                                                    
+                                                    # Delete the radius property
+                                                    del c.radius
+                                                            </code></pre>
+                                                        </div>
+                                                        
+                                                        <p>In this example:</p>
+                                                        <ul>
+                                                            <li>The <strong>radius</strong> method is decorated with <code>@property</code> to act as a getter.</li>
+                                                            <li>The <strong>radius</strong> method is also decorated with <code>@radius.setter</code> to act as a setter.</li>
+                                                            <li>The <strong>radius</strong> method is further decorated with <code>@radius.deleter</code> to act as a deleter, which prints a message and deletes the <strong>_radius</strong> attribute.</li>
+                                                        </ul>
+                                                        
+                                                        <h3>Practical Examples of Property Decorators</h3>
+                                                        <ul>
+                                                            <li>
+                                                                <strong>Temperature Conversion</strong>
+                                                                <ul>
+                                                                    <li><strong>Class:</strong> Temperature</li>
+                                                                    <li><strong>Properties:</strong> celsius, fahrenheit</li>
+                                                                    <li><strong>Explanation:</strong> Use property decorators to convert between Celsius and Fahrenheit.</li>
+                                                                    <div class="code-box">
+                                                                        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+                                                                        <pre><code>
+                                                    class Temperature:
+                                                        def __init__(self, celsius):
+                                                            self._celsius = celsius
+                                                    
+                                                        @property
+                                                        def celsius(self):
+                                                            return self._celsius
+                                                    
+                                                        @celsius.setter
+                                                        def celsius(self, value):
+                                                            self._celsius = value
+                                                    
+                                                        @property
+                                                        def fahrenheit(self):
+                                                            return (self._celsius * 9/5) + 32
+                                                    
+                                                        @fahrenheit.setter
+                                                        def fahrenheit(self, value):
+                                                            self._celsius = (value - 32) * 5/9
+                                                    
+                                                    # Create a Temperature object
+                                                    temp = Temperature(25)
+                                                    
+                                                    # Access and set properties
+                                                    print(temp.celsius)  # Output: 25
+                                                    print(temp.fahrenheit)  # Output: 77.0
+                                                    
+                                                    temp.fahrenheit = 100
+                                                    print(temp.celsius)  # Output: 37.77777777777778
+                                                                        </code></pre>
+                                                                    </div>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <strong>Bank Account Balance</strong>
+                                                                <ul>
+                                                                    <li><strong>Class:</strong> BankAccount</li>
+                                                                    <li><strong>Properties:</strong> balance</li>
+                                                                    <li><strong>Explanation:</strong> Use property decorators to manage the balance with validation.</li>
+                                                                    <div class="code-box">
+                                                                        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+                                                                        <pre><code>
+                                                    class BankAccount:
+                                                        def __init__(self, balance):
+                                                            self._balance = balance
+                                                    
+                                                        @property
+                                                        def balance(self):
+                                                            return self._balance
+                                                    
+                                                        @balance.setter
+                                                        def balance(self, value):
+                                                            if value < 0:
+                                                                raise ValueError("Balance cannot be negative")
+                                                            self._balance = value
+                                                    
+                                                    # Create a BankAccount object
+                                                    account = BankAccount(1000)
+                                                    
+                                                    # Access and set properties
+                                                    print(account.balance)  # Output: 1000
+                                                    
+                                                    account.balance = 1500
+                                                    print(account.balance)  # Output: 1500
+                                                    
+                                                    try:
+                                                        account.balance = -500
+                                                    except ValueError as e:
+                                                        print(e)  # Output: Balance cannot be negative
+                                                                        </code></pre>
+                                                                    </div>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <strong>Rectangle Area and Perimeter</strong>
+                                                                <ul>
+                                                                    <li><strong>Class:</strong> Rectangle</li>
+                                                                    <li><strong>Properties:</strong> width, height, area, perimeter</li>
+                                                                    <li><strong>Explanation:</strong> Use property decorators to calculate area and perimeter.</li>
+                                                                    <div class="code-box">
+                                                                        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+                                                                        <pre><code>
+                                                    class Rectangle:
+                                                        def __init__(self, width, height):
+                                                            self._width = width
+                                                            self._height = height
+                                                    
+                                                        @property
+                                                        def width(self):
+                                                            return self._width
+                                                    
+                                                        @width.setter
+                                                        def width(self, value):
+                                                            if value < 0:
+                                                                raise ValueError("Width cannot be negative")
+                                                            self._width = value
+                                                    
+                                                        @property
+                                                        def height(self):
+                                                            return self._height
+                                                    
+                                                        @height.setter
+                                                        def height(self, value):
+                                                            if value < 0:
+                                                                raise ValueError("Height cannot be negative")
+                                                            self._height = value
+                                                    
+                                                        @property
+                                                        def area(self):
+                                                            return self._width * self._height
+                                                    
+                                                        @property
+                                                        def perimeter(self):
+                                                            return 2 * (self._width + self._height)
+                                                    
+                                                    # Create a Rectangle object
+                                                    rect = Rectangle(4, 5)
+                                                    # Access properties
+print(rect.area)  # Output: 20
+print(rect.perimeter)  # Output: 18
+
+# Set properties
+rect.width = 6
+print(rect.area)  # Output: 30
+                    </code></pre>
+                </div>
+            </ul>
+        </li>
+        <li>
+            <strong>Employee Salary</strong>
+            <ul>
+                <li><strong>Class:</strong> Employee</li>
+                <li><strong>Properties:</strong> salary, bonus</li>
+                <li><strong>Explanation:</strong> Use property decorators to manage salary and calculate bonus.</li>
+                <div class="code-box">
+                    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+                    <pre><code>
+class Employee:
+    def __init__(self, salary):
+        self._salary = salary
+
+    @property
+    def salary(self):
+        return self._salary
+
+    @salary.setter
+    def salary(self, value):
+        if value < 0:
+            raise ValueError("Salary cannot be negative")
+        self._salary = value
+
+    @property
+    def bonus(self):
+        return self._salary * 0.1
+
+# Create an Employee object
+emp = Employee(50000)
+
+# Access properties
+print(emp.salary)  # Output: 50000
+print(emp.bonus)  # Output: 5000.0
+
+# Set properties
+emp.salary = 60000
+print(emp.bonus)  # Output: 6000.0
+                    </code></pre>
+                </div>
+            </ul>
+        </li>
+    </ul>
+</section>
+</div>
+
+<script src="script.js"></script>
+
+  
+<footer class="footer">
+    <p>© 2024 Hacktrix. All rights reserved.</p>
+</footer>
 </body>
 </html>

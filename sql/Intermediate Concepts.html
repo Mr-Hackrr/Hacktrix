@@ -3,97 +3,955 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacktrix - Your Tech Resource Hub</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <title>Intermediate SQL - Hacktrix</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="style.css"> <!-- Assuming your CSS file is named styles.css -->
 
-    <style>
-        /* Custom styling */
-        body {
-            padding-top: 80px;
-            background-color: #f0f2f5;
-        }
-        header {
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        h2 {
-            color: #007bff;
-            margin-top: 2rem;
-        }
-        .code-block {
-            background-color: #e9ecef;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 10px 0;
-            font-family: 'Courier New', Courier, monospace;
-        }
-        footer {
-            background-color: #343a40;
-            color: white;
-            padding: 20px 0;
-            margin-top: 50px;
-        }
-        .nav-link:hover {
-           color: #ffdd57;
-        }
-        .content-section {
-            padding: 20px;
-            margin-top: 20px;
-        }
-        .content-section h1 {
-            color: #343a40;
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-        .highlight {
-            background-color: #ffdd57;
-            padding: 5px;
-            border-radius: 3px;
-        }
-        .btn-custom {
-            background-color: #007bff;
-            color: white;
-            border-radius: 20px;
-            padding: 10px 20px;
-            margin-top: 20px;
-        }
-        .btn-custom:hover {
-            background-color: #0056b3;
-            color: white;
-        }
-    </style>
 </head>
-
 <body>
-    <header class="bg-dark text-white fixed-top">
-        <nav class="container navbar navbar-expand-lg navbar-dark">
-            <a class="navbar-brand" href="#">Hacktrix</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#python">Python</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#sql">SQL</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#java">Java</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#gcp">GCP</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#articles">Articles</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
-            </div>
+    <!-- Header Bar -->
+    <div class="header-bar">
+        <div class="brand-name">Hacktrix</div>
+        <nav>
+            <ul>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#exercise" class="nav-link">Exercise</a></li>
+                <li><a href="#project" class="nav-link">Project</a></li>
+                <li><a href="#contact" class="nav-link">Contact Us</a></li>
+            </ul>
         </nav>
+    </div>
 
-        <script>
-            // JavaScript to shrink the title section on scroll
-            window.addEventListener("scroll", function () {
-                const titleSection = document.querySelector(".title-section");
-                if (window.scrollY > 50) {
-                    titleSection.classList.add("shrink");
-                } else {
-                    titleSection.classList.remove("shrink");
-                }
-            });
-        </script>
-    </header>
+<!-- Sidebar -->
+<div id="sideMenu" class="sideMenu">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#joins">Joins</a>
+    <a href="#subqueries">Subqueries</a>
+    <a href="#group-by-having">GROUP BY and HAVING Clauses</a>
+    <a href="#indexing-constraints">Indexing and Constraints</a>
+    <a href="#views-stored-procedures">Views and Stored Procedures</a>
+    <a href="#database-design">Database Design</a>
+</div>
+
+    <!-- Toggle Button -->
+    <div class="toggle-menu" onclick="openNav()">☰</div>
+
+    <!-- Content -->
+    <div id="content">
+        <h1>Intermediate SQL</h1>
+        <!-- Content will go here -->
+
+        <!-- Intermediate SQL Content: Joins -->
+<section id="joins">
+    <h2>INNER JOIN</h2>
+    <p><strong>Definition:</strong> Returns records that have matching values in both tables.</p>
+    <p><strong>Syntax:</strong></p>
+    <div class="code-box">
+        <pre><code>SELECT * FROM table1 INNER JOIN table2 ON table1.column = table2.column;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>Example 1:</strong></p>
+    <div class="code-box">
+        <pre><code>SELECT employees.name, departments.department_name
+FROM employees
+INNER JOIN departments
+ON employees.department_id = departments.department_id;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>Explanation:</strong> This query retrieves the names of employees along with their respective department names, but only for those employees who are assigned to a department.</p>
+    <p><strong>Example 2:</strong></p>
+    <div class="code-box">
+        <pre><code>SELECT products.product_name, categories.category_name
+FROM products
+INNER JOIN categories
+ON products.category_id = categories.category_id;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>Explanation:</strong> This query fetches product names and their corresponding category names, but only for products that have a category assigned.</p>
+
+    <h2>LEFT JOIN / LEFT OUTER JOIN</h2>
+    <p><strong>Definition:</strong> Returns all records from the left table and matching records from the right table.</p>
+    <p><strong>Syntax:</strong></p>
+    <div class="code-box">
+        <pre><code>SELECT * FROM table1 LEFT JOIN table2 ON table1.column = table2.column;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>Example 1:</strong></p>
+    <div class="code-box">
+        <pre><code>SELECT authors.author_name, books.book_title
+FROM authors
+LEFT JOIN books
+ON authors.author_id = books.author_id;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>Explanation:</strong> This query lists all authors and their books, including authors who have not written any books (those will have NULL in the book_title column).</p>
+    <p><strong>Example 2:</strong></p>
+    <div class="code-box">
+        <pre><code>SELECT customers.customer_name, orders.order_date
+FROM customers
+LEFT JOIN orders
+ON customers.customer_id = orders.customer_id;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>Explanation:</strong> This query retrieves all customers and their order dates, including customers who have not placed any orders (those will have NULL in the order_date column).</p>
+
+    <h2>RIGHT JOIN / RIGHT OUTER JOIN</h2>
+    <p><strong>Definition:</strong> Similar to LEFT JOIN, but returns all records from the right table.</p>
+    <p><strong>Syntax:</strong></p>
+    <div class="code-box">
+        <pre><code>SELECT * FROM table1 RIGHT JOIN table2 ON table1.column = table2.column;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>Example 1:</strong></p>
+    <div class="code-box">
+        <pre><code>SELECT orders.order_id, shippers.shipper_name
+FROM orders
+RIGHT JOIN shippers
+ON orders.shipper_id = shippers.shipper_id;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>Explanation:</strong> This query lists all orders and their shippers, including shippers who have not shipped any orders (those will have NULL in the order_id column).</p>
+    <p><strong>Example 2:</strong></p>
+    <div class="code-box">
+        <pre><code>SELECT employees.employee_name, projects.project_name
+FROM employees
+RIGHT JOIN projects
+ON employees.project_id = projects.project_id;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>Explanation:</strong> This query retrieves all projects and their assigned employees, including projects that have no employees assigned (those will have NULL in the employee_name column).</p>
+
+    <h2>FULL JOIN / FULL OUTER JOIN</h2>
+    <p><strong>Definition:</strong> Returns all records from both tables, with NULL in the columns where there are no matches.</p>
+    <p><strong>Syntax:</strong></p>
+    <div class="code-box">
+        <pre><code>SELECT * FROM table1 FULL JOIN table2 ON table1.column = table2.column;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>Example 1:</strong></p>
+    <div class="code-box">
+        <pre><code>SELECT students.student_name, courses.course_name
+FROM students
+FULL JOIN courses
+ON students.course_id = courses.course_id;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>Explanation:</strong> This query lists all students and courses, including students not enrolled in any course and courses with no students enrolled (those will have NULL in the respective columns).</p>
+    <p><strong>Example 2:</strong></p>
+    <div class="code-box">
+        <pre><code>SELECT suppliers.supplier_name, products.product_name
+FROM suppliers
+FULL JOIN products
+ON suppliers.supplier_id = products.supplier_id;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>Explanation:</strong> This query retrieves all suppliers and products, including suppliers who do not supply any products and products with no suppliers (those will have NULL in the respective columns).</p>
+
+    <h2>CROSS JOIN</h2>
+    <p><strong>Definition:</strong> Returns the Cartesian product of both tables, with each row of one table combined with each row of the other.</p>
+    <p><strong>Syntax:</strong></p>
+    <div class="code-box">
+        <pre><code>SELECT * FROM table1 CROSS JOIN table2;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>Example 1:</strong></p>
+    <div class="code-box">
+        <pre><code>SELECT colors.color_name, sizes.size_name
+FROM colors
+CROSS JOIN sizes;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>Explanation:</strong> This query generates all possible combinations of colors and sizes.</p>
+    <p><strong>Example 2:</strong></p>
+    <div class="code-box">
+        <pre><code>SELECT students.student_name, activities.activity_name
+FROM students
+CROSS JOIN activities;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>Explanation:</strong> This query lists all possible combinations of students and activities, regardless of whether a student is actually participating in an activity.</p>
+</section>
+
+<!-- Intermediate SQL Content: GROUP BY and HAVING Clauses -->
+<section id="group-by-having">
+    <h2>GROUP BY Clause</h2>
+    <p><strong>Definition:</strong> Divides data into groups based on one or more columns.</p>
+    <p><strong>Syntax:</strong></p>
+    <div class="code-box">
+        <pre><code>SELECT column1, column2, ...
+FROM table_name
+GROUP BY column1, column2, ...;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+
+    <p><strong>Example 1: Group Employees by Department</strong></p>
+    <div class="code-box">
+        <pre><code>SELECT department, AVG(salary) AS avg_salary
+FROM employees
+GROUP BY department;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>Explanation:</strong> This query calculates the average salary for each department. It groups the employees by their department and then computes the average salary within each group.</p>
+
+    <p><strong>Example 2: Group Orders by Customer Region</strong></p>
+    <div class="code-box">
+        <pre><code>SELECT customer_region, SUM(total_amount) AS total_sales
+FROM orders
+GROUP BY customer_region;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>Explanation:</strong> This query sums the total sales for each customer region. It groups the orders by customer region and then calculates the total sales amount for each group.</p>
+
+    <p><strong>Example 3: Group Products by Category</strong></p>
+    <div class="code-box">
+        <pre><code>SELECT category, COUNT(product_id) AS num_products
+FROM products
+GROUP BY category;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>Explanation:</strong> This query counts the number of products in each category. It groups the products by category and then counts the number of products in each group.</p>
+
+    <p><strong>Example 4: Group Customers by Order Frequency</strong></p>
+    <div class="code-box">
+        <pre><code>SELECT customer_id, COUNT(order_id) AS num_orders
+FROM orders
+GROUP BY customer_id
+ORDER BY num_orders DESC;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>Explanation:</strong> This query counts the number of orders placed by each customer and orders the results by the number of orders in descending order. It groups the orders by customer ID and then counts the number of orders for each customer.</p>
+
+    <p><strong>Example 5: Group Sales by Quarter and Year</strong></p>
+    <div class="code-box">
+        <pre><code>SELECT 
+  EXTRACT(QUARTER FROM order_date) AS quarter,
+  EXTRACT(YEAR FROM order_date) AS year,
+  SUM(total_amount) AS total_sales
+FROM orders
+GROUP BY quarter, year
+ORDER BY year, quarter;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>Explanation:</strong> This query sums the total sales for each quarter and year. It groups the orders by the quarter and year extracted from the order date and then calculates the total sales amount for each group.</p>
+
+    <h2>HAVING Clause</h2>
+    <p><strong>Definition:</strong> Filters grouped data based on a condition.</p>
+    <p><strong>Syntax:</strong></p>
+    <div class="code-box">
+        <pre><code>SELECT column1, column2, ...
+FROM table_name
+GROUP BY column1, column2, ...
+HAVING condition;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+
+    <p><strong>Example 1: Filter Groups with Average Salary > $60,000</strong></p>
+    <div class="code-box">
+        <pre><code>SELECT department, AVG(salary) AS avg_salary
+FROM employees
+GROUP BY department
+HAVING AVG(salary) > 60000;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>Explanation:</strong> This query filters the departments to include only those with an average salary greater than $60,000. The HAVING clause is used to apply the condition on the grouped data.</p>
+
+    <p><strong>Example 2: Filter Customer Regions with Total Sales > $80,000</strong></p>
+    <div class="code-box">
+        <pre><code>SELECT customer_region, SUM(total_amount) AS total_sales
+FROM orders
+GROUP BY customer_region
+HAVING SUM(total_amount) > 80000;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>Explanation:</strong> This query filters the customer regions to include only those with total sales greater than $80,000. The HAVING clause is used to apply the condition on the grouped data.</p>
+
+    <p><strong>Example 3: Filter Categories with More Than 12 Products</strong></p>
+    <div class="code-box">
+        <pre><code>SELECT category, COUNT(product_id) AS num_products
+FROM products
+GROUP BY category
+HAVING COUNT(product_id) > 12;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>Explanation:</strong> This query filters the categories to include only those with more than 12 products. The HAVING clause is used to apply the condition on the grouped data.</p>
+
+    <p><strong>Example 4: Filter Customers with More Than 5 Orders</strong></p>
+    <div class="code-box">
+        <pre><code>SELECT customer_id, COUNT(order_id) AS num_orders
+FROM orders
+GROUP BY customer_id
+HAVING COUNT(order_id) > 5;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>Explanation:</strong> This query filters the customers to include only those with more than 5 orders. The HAVING clause is used to apply the condition on the grouped data.</p>
+
+    <p><strong>Example 5: Filter Quarters with Total Sales > $50,000</strong></p>
+    <div class="code-box">
+        <pre><code>SELECT 
+  EXTRACT(QUARTER FROM order_date) AS quarter,
+  EXTRACT(YEAR FROM order_date) AS year,
+  SUM(total_amount) AS total_sales
+FROM orders
+GROUP BY quarter, year
+HAVING SUM(total_amount) > 50000;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>Explanation:</strong> This query filters the quarters to include only those with total sales greater than $50,000. The HAVING clause is used to apply the condition on the grouped data.</p>
+</section>
+
+
+<!-- Intermediate SQL Content: Indexing and Constraints -->
+<section id="indexing-constraints">
+    <h2>Indexing</h2>
+    <p><strong>Definition:</strong> An index is a data structure that improves the speed of data retrieval operations.</p>
+    <p><strong>Purpose:</strong> Enhance query performance by allowing the database to quickly locate data.</p>
+
+    <h3>Types of Indexes</h3>
+
+    <h4>B-Tree Index</h4>
+    <p><strong>Definition:</strong> A self-balancing search tree that keeps data sorted.</p>
+    <p><strong>Use Case:</strong> Frequently queried columns with a large number of distinct values.</p>
+    <div class="code-box">
+        <pre><code>CREATE INDEX idx_employee_id ON employees (employee_id);</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>Explanation:</strong> This creates a B-Tree index on the <code>employee_id</code> column of the <code>employees</code> table, which helps speed up queries that search for specific employee IDs.</p>
+
+    <h4>Hash Index</h4>
+    <p><strong>Definition:</strong> A data structure that stores the values of a column and their corresponding locations.</p>
+    <p><strong>Use Case:</strong> Columns used in equality searches (e.g., <code>WHERE column = 'value'</code>).</p>
+    <div class="code-box">
+        <pre><code>CREATE INDEX idx_order_status ON orders (order_status) USING HASH;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>Explanation:</strong> This creates a hash index on the <code>order_status</code> column of the <code>orders</code> table, which is efficient for queries that check for specific order statuses.</p>
+
+    <h4>Full-Text Index</h4>
+    <p><strong>Definition:</strong> An index designed for full-text search queries.</p>
+    <p><strong>Use Case:</strong> Searching for words or phrases within text data.</p>
+    <div class="code-box">
+        <pre><code>CREATE FULLTEXT INDEX idx_product_description ON products (product_description);</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>Explanation:</strong> This creates a full-text index on the <code>product_description</code> column of the <code>products</code> table, which helps speed up searches for specific words or phrases within product descriptions.</p>
+
+    <h4>Composite Index</h4>
+    <p><strong>Definition:</strong> An index created on multiple columns.</p>
+    <p><strong>Use Case:</strong> Frequently queried combinations of columns.</p>
+    <div class="code-box">
+        <pre><code>CREATE INDEX idx_customer_name_email ON customers (customer_name, customer_email);</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>Explanation:</strong> This creates a composite index on the <code>customer_name</code> and <code>customer_email</code> columns of the <code>customers</code> table, which helps speed up queries that filter or sort by both columns.</p>
+
+    <h2>Primary Key (PK) Constraints</h2>
+    <p><strong>Definition:</strong> A constraint that uniquely identifies each record in a table.</p>
+    <p><strong>Characteristics:</strong></p>
+    <ul>
+        <li>Unique</li>
+        <li>Not Null</li>
+        <li>Indexed (by default)</li>
+    </ul>
+    <p><strong>Purpose:</strong> Ensure data integrity and prevent duplicate records.</p>
+    <div class="code-box">
+        <pre><code>CREATE TABLE employees (
+  employee_id INT PRIMARY KEY,
+  employee_name VARCHAR(255),
+  employee_email VARCHAR(255)
+);</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>Explanation:</strong> This creates a table <code>employees</code> with a primary key constraint on the <code>employee_id</code> column, ensuring each employee has a unique ID.</p>
+
+    <h2>Foreign Key (FK) Constraints</h2>
+    <p><strong>Definition:</strong> A constraint that establishes a relationship between two tables.</p>
+    <p><strong>Characteristics:</strong></p>
+    <ul>
+        <li>References the Primary Key of another table</li>
+        <li>Ensures data consistency across tables</li>
+    </ul>
+    <p><strong>Purpose:</strong> Maintain referential integrity between related tables.</p>
+    <div class="code-box">
+        <pre><code>CREATE TABLE customers (
+  customer_id INT PRIMARY KEY,
+  customer_name VARCHAR(255),
+  customer_email VARCHAR(255)
+);
+
+CREATE TABLE orders (
+  order_id INT PRIMARY KEY,
+  customer_id INT,
+  FOREIGN KEY (customer_id) REFERENCES customers (customer_id)
+);</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>Explanation:</strong> This creates two tables, <code>customers</code> and <code>orders</code>, with a foreign key constraint on the <code>customer_id</code> column in the <code>orders</code> table, ensuring that each order is associated with a valid customer.</p>
+
+    <h2>Unique, Not Null, Check Constraints</h2>
+
+    <h3>Unique Constraint</h3>
+    <p><strong>Definition:</strong> Ensures all values in a column are unique.</p>
+    <div class="code-box">
+        <pre><code>CREATE TABLE employees (
+  employee_id INT,
+  employee_email VARCHAR(255) UNIQUE,
+  ...
+);</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>Explanation:</strong> This ensures that each email address in the <code>employee_email</code> column is unique, preventing duplicate email addresses.</p>
+
+    <h3>Not Null Constraint</h3>
+    <p><strong>Definition:</strong> Ensures a column cannot contain null values.</p>
+    <div class="code-box">
+        <pre><code>CREATE TABLE employees (
+  employee_id INT NOT NULL,
+  employee_name VARCHAR(255),
+  ...
+);</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>Explanation:</strong> This ensures that the <code>employee_id</code> column cannot have null values, meaning every employee must have an ID.</p>
+
+    <h3>Check Constraint</h3>
+    <p><strong>Definition:</strong> Ensures all values in a column meet a specified condition.</p>
+    <div class="code-box">
+        <pre><code>CREATE TABLE employees (
+  employee_id INT,
+  employee_age INT CHECK (employee_age >= 18),
+  ...
+);</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>Explanation:</strong> This ensures that the <code>employee_age</code> column only contains values that are 18 or older, enforcing a minimum age requirement.</p>
+
+    <h3>Key Takeaways:</h3>
+    <ul>
+        <li><strong>Indexing:</strong> Enhances query performance by allowing the database to quickly locate data.</li>
+        <li><strong>Constraints:</strong></li>
+        <ul>
+            <li><strong>Primary Key:</strong> Uniquely identifies each record in a table.</li>
+            <li><strong>Foreign Key:</strong> Establishes a relationship between two tables.</li>
+            <li><strong>Unique, Not Null, Check:</strong> Ensure data integrity and consistency.</li>
+        </ul>
+    </ul>
+</section>
+
+
+<!-- Intermediate SQL Content: Views and Stored Procedures -->
+<section id="views-stored-procedures">
+    <h2>Creating and Using Views</h2>
+    <p><strong>Definition:</strong> A virtual table based on the result-set of a query.</p>
+    <p><strong>Purpose:</strong> Simplify complex queries, provide data abstraction, and enhance security.</p>
+    <p><strong>Syntax:</strong></p>
+    <div class="code-box">
+        <pre><code>CREATE VIEW view_name AS SELECT ...;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+
+    <p><strong>Example 1: Create a View for Employee Salaries</strong></p>
+    <div class="code-box">
+        <pre><code>CREATE VIEW employee_salaries AS
+SELECT employee_name, salary, department
+FROM employees
+WHERE salary &gt; 50000;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>Explanation:</strong> This view filters employees with salaries greater than 50,000. It simplifies querying high-salary employees without repeatedly writing the same query.</p>
+    <p><strong>Query the View:</strong></p>
+    <div class="code-box">
+        <pre><code>SELECT * FROM employee_salaries;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+
+    <p><strong>Example 2: Create a View for Order Totals by Customer</strong></p>
+    <div class="code-box">
+        <pre><code>CREATE VIEW customer_order_totals AS
+SELECT customer_name, SUM(total_amount) AS total_spent
+FROM customers
+JOIN orders ON customers.customer_id = orders.customer_id
+GROUP BY customer_name;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>Explanation:</strong> This view calculates the total amount spent by each customer, making it easier to analyze customer spending patterns.</p>
+    <p><strong>Query the View:</strong></p>
+    <div class="code-box">
+        <pre><code>SELECT * FROM customer_order_totals;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+
+    <p><strong>Example 3: Create a View for Product Inventory Levels</strong></p>
+    <div class="code-box">
+        <pre><code>CREATE VIEW product_inventory AS
+SELECT product_name, quantity_in_stock
+FROM products
+WHERE quantity_in_stock &lt; 10;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>Explanation:</strong> This view lists products with low inventory levels, helping in inventory management.</p>
+    <p><strong>Query the View:</strong></p>
+    <div class="code-box">
+        <pre><code>SELECT * FROM product_inventory;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+
+    <p><strong>Example 4: Create a View for Active Projects</strong></p>
+    <div class="code-box">
+        <pre><code>CREATE VIEW active_projects AS
+SELECT project_name, start_date, end_date
+FROM projects
+WHERE end_date IS NULL OR end_date &gt; CURRENT_DATE;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>Explanation:</strong> This view shows all active projects, making it easier to track ongoing work.</p>
+    <p><strong>Query the View:</strong></p>
+    <div class="code-box">
+        <pre><code>SELECT * FROM active_projects;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+
+    <h2>Creating and Executing Stored Procedures</h2>
+    <p><strong>Definition:</strong> A reusable block of SQL code that performs a specific task.</p>
+    <p><strong>Purpose:</strong> Enhance database security, reduce code duplication, and improve performance.</p>
+    <p><strong>Syntax:</strong></p>
+    <div class="code-box">
+        <pre><code>CREATE PROCEDURE procedure_name AS BEGIN ... END;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+
+    <p><strong>Example 1: Create a Stored Procedure for Inserting New Employees</strong></p>
+    <div class="code-box">
+        <pre><code>CREATE PROCEDURE sp_insert_employee(
+  IN employee_name VARCHAR(255),
+  IN salary DECIMAL(10, 2),
+  IN department VARCHAR(255)
+)
+BEGIN
+  INSERT INTO employees (employee_name, salary, department)
+  VALUES (employee_name, salary, department);
+END;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>Explanation:</strong> This stored procedure inserts a new employee into the <code>employees</code> table, encapsulating the insert logic.</p>
+    <p><strong>Execute the Stored Procedure:</strong></p>
+    <div class="code-box">
+        <pre><code>CALL sp_insert_employee('New Employee', 40000.00, 'Sales');</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+
+    <p><strong>Example 2: Create a Stored Procedure for Updating Order Status</strong></p>
+    <div class="code-box">
+        <pre><code>CREATE PROCEDURE sp_update_order_status(
+  IN order_id INT,
+  IN new_status VARCHAR(255)
+)
+BEGIN
+  UPDATE orders
+  SET status = new_status
+  WHERE order_id = order_id;
+END;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>Explanation:</strong> This stored procedure updates the status of an order, making it easier to manage order statuses.</p>
+    <p><strong>Execute the Stored Procedure:</strong></p>
+    <div class="code-box">
+        <pre><code>CALL sp_update_order_status(123, 'Shipped');</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+
+    <p><strong>Example 3: Create a Stored Procedure for Generating Sales Reports</strong></p>
+    <div class="code-box">
+        <pre><code>CREATE PROCEDURE sp_generate_sales_report(
+  IN start_date DATE,
+  IN end_date DATE
+)
+BEGIN
+  SELECT *
+  FROM orders
+  WHERE order_date BETWEEN start_date AND end_date;
+END;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>Explanation:</strong> This stored procedure generates a sales report for a specified date range, simplifying report generation.</p>
+    <p><strong>Execute the Stored Procedure:</strong></p>
+    <div class="code-box">
+        <pre><code>CALL sp_generate_sales_report('2022-01-01', '2022-12-31');</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+
+    <p><strong>Example 4: Create a Stored Procedure for Deleting Old Records</strong></p>
+    <div class="code-box">
+        <pre><code>CREATE PROCEDURE sp_delete_old_records(
+  IN cutoff_date DATE
+)
+BEGIN
+  DELETE FROM logs
+  WHERE log_date &lt; cutoff_date;
+END;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>Explanation:</strong> This stored procedure deletes records from the <code>logs</code> table that are older than a specified date, helping in database maintenance.</p>
+    <p><strong>Execute the Stored Procedure:</strong></p>
+    <div class="code-box">
+        <pre><code>CALL sp_delete_old_records('2023-01-01');</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+
+    <h3>Key Takeaways:</h3>
+    <ul>
+        <li><strong>Views:</strong> Simplify complex queries and provide data abstraction.</li>
+        <li><strong>Stored Procedures:</strong> Improve database security, reduce code duplication, and enhance performance.</li>
+    </ul>
+</section>
+
+
+<!-- Intermediate SQL Content: Database Design -->
+<section id="database-design">
+    <h1>Designing Databases with Ease - An Introduction</h1>
+
+    <h2>Introduction to Database Design</h2>
+    <p><strong>Definition:</strong> The process of creating a conceptual representation of a database.</p>
+    <p><strong>Goal:</strong> Ensure data consistency, reduce data redundancy, and improve data integrity.</p>
+    <p><strong>Key Considerations:</strong></p>
+    <ul>
+        <li><strong>Data Requirements:</strong> Identify the data needed to support business processes.</li>
+        <li><strong>Data Relationships:</strong> Define how data entities interact with each other.</li>
+        <li><strong>Data Constraints:</strong> Establish rules to maintain data consistency.</li>
+    </ul>
+
+    <h2>Entity-Relationship Modeling (ERM)</h2>
+    <p><strong>Definition:</strong> A methodology for designing databases using entities, attributes, and relationships.</p>
+    <p><strong>Components:</strong></p>
+    <ul>
+        <li><strong>Entities:</strong> Represent tables or objects in the database (e.g., Customers, Orders).</li>
+        <li><strong>Attributes:</strong> Describe the characteristics of entities (e.g., Customer Name, Order Date).</li>
+        <li><strong>Relationships:</strong> Define how entities interact with each other (e.g., One-to-Many, Many-to-Many).</li>
+    </ul>
+    <p><strong>ERM Notation:</strong></p>
+    <ul>
+        <li><strong>Entities:</strong> Rectangles</li>
+        <li><strong>Attributes:</strong> List inside the entity rectangle</li>
+        <li><strong>Relationships:</strong></li>
+        <ul>
+            <li><strong>One-to-Many (1:N):</strong> Single line with a crow's foot</li>
+            <li><strong>Many-to-Many (M:N):</strong> Two crow's feet</li>
+            <li><strong>One-to-One (1:1):</strong> Single line without a crow's foot</li>
+        </ul>
+    </ul>
+
+    <p><strong>Example: ERM Diagram for an E-commerce Database</strong></p>
+    <ul>
+        <li><strong>Entities:</strong></li>
+        <ul>
+            <li><strong>Customers</strong></li>
+            <ul>
+                <li>Attributes: Customer ID, Name, Email, Address</li>
+            </ul>
+            <li><strong>Orders</strong></li>
+            <ul>
+                <li>Attributes: Order ID, Customer ID, Order Date, Total</li>
+            </ul>
+            <li><strong>Products</strong></li>
+            <ul>
+                <li>Attributes: Product ID, Name, Description, Price</li>
+            </ul>
+        </ul>
+        <li><strong>Relationships:</strong></li>
+        <ul>
+            <li>Customers (1:N) Orders</li>
+            <li>Orders (M:N) Products</li>
+        </ul>
+    </ul>
+
+    <h2>Normalization (1NF, 2NF, 3NF)</h2>
+    <p><strong>Definition:</strong> The process of organizing data to minimize data redundancy and dependency.</p>
+    <p><strong>Normalization Forms:</strong></p>
+    <ol>
+        <li><strong>First Normal Form (1NF)</strong></li>
+        <li><strong>Second Normal Form (2NF)</strong></li>
+        <li><strong>Third Normal Form (3NF)</strong></li>
+    </ol>
+
+    <h3>First Normal Form (1NF)</h3>
+    <p><strong>Definition:</strong> Each table cell contains a single, atomic value.</p>
+    <p><strong>Example:</strong></p>
+    <p><strong>Before 1NF:</strong></p>
+    <div class="code-box">
+        <pre><code>Customers: Customer ID, Name, Phone Numbers (123-456-7890, 987-654-3210)</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>After 1NF:</strong></p>
+    <div class="code-box">
+        <pre><code>Customers: Customer ID, Name
+Phone Numbers: Customer ID, Phone Number</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>Explanation:</strong> In 1NF, each cell must contain only one value. The phone numbers are split into a separate table to ensure atomicity.</p>
+
+    <h3>Second Normal Form (2NF)</h3>
+    <p><strong>Definition:</strong> Each non-key attribute depends on the entire primary key.</p>
+    <p><strong>Example:</strong></p>
+    <p><strong>Before 2NF:</strong></p>
+    <div class="code-box">
+        <pre><code>Orders: Order ID, Customer ID, Order Date, Customer Name</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>After 2NF:</strong></p>
+    <div class="code-box">
+        <pre><code>Orders: Order ID, Customer ID, Order Date
+Customers: Customer ID, Customer Name</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>Explanation:</strong> In 2NF, all non-key attributes must depend on the entire primary key. Customer Name is moved to the Customers table because it depends only on Customer ID.</p>
+
+    <h3>Third Normal Form (3NF)</h3>
+    <p><strong>Definition:</strong> If a table is in 2NF, and a non-key attribute depends on another non-key attribute, then it should be moved to a separate table.</p>
+    <p><strong>Example:</strong></p>
+    <p><strong>Before 3NF:</strong></p>
+    <div class="code-box">
+        <pre><code>Products: Product ID, Name, Description, Supplier Name, Supplier Address</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>After 3NF:</strong></p>
+    <div class="code-box">
+        <pre><code>Products: Product ID, Name, Description, Supplier ID
+Suppliers: Supplier ID, Supplier Name, Supplier Address</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <p><strong>Explanation:</strong> In 3NF, non-key attributes that depend on other non-key attributes are moved to a separate table. Supplier Name and Supplier Address are moved to the Suppliers table.</p>
+
+    <h3>Key Takeaways:</h3>
+    <ul>
+        <li><strong>Database Design:</strong></li>
+        <ul>
+            <li>Identify data requirements and relationships.</li>
+            <li>Establish data constraints to maintain consistency.</li>
+        </ul>
+        <li><strong>Entity-Relationship Modeling (ERM):</strong></li>
+        <ul>
+            <li>Use entities, attributes, and relationships to design databases.</li>
+            <li>Apply ERM notation to create visual diagrams.</li>
+        </ul>
+        <li><strong>Normalization:</strong></li>
+        <ul>
+            <li>Apply 1NF, 2NF, and 3NF to minimize data redundancy and dependency.</li>
+            <li>Ensure data integrity and scalability.</li>
+        </ul>
+    </ul>
+</section>
+
+
+
+<!-- Intermediate SQL Content: Subqueries -->
+<section id="subqueries">
+    <h2>What are Subqueries?</h2>
+    <p><strong>Definition:</strong> A query nested inside another query, used to further restrict or enhance the results.</p>
+    <p><strong>Purpose:</strong> To answer complex questions that cannot be solved with a single query.</p>
+
+    <h2>Types of Subqueries</h2>
+    <ol>
+        <li>Single-Row Subquery</li>
+        <li>Multiple-Row Subquery</li>
+        <li>Correlated Subquery</li>
+    </ol>
+
+    <h3>Single-Row Subquery</h3>
+    <p><strong>Definition:</strong> Returns only one row and one column.</p>
+    <p><strong>Examples:</strong></p>
+    <div class="code-box">
+        <pre><code>-- Find the employee with the highest salary
+SELECT *
+FROM employees
+WHERE salary = (
+  SELECT MAX(salary)
+  FROM employees
+);</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <div class="code-box">
+        <pre><code>-- Get the average order value for customers from New York
+SELECT *
+FROM customers
+WHERE customer_id = (
+  SELECT customer_id
+  FROM orders
+  WHERE total_amount = (
+    SELECT AVG(total_amount)
+    FROM orders
+    WHERE customer_state = 'NY'
+  )
+);</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <div class="code-box">
+        <pre><code>-- Find the product with the lowest price
+SELECT *
+FROM products
+WHERE price = (
+  SELECT MIN(price)
+  FROM products
+);</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <div class="code-box">
+        <pre><code>-- Get the customer with the highest total orders
+SELECT *
+FROM customers
+WHERE customer_id = (
+  SELECT customer_id
+  FROM orders
+  GROUP BY customer_id
+  ORDER BY SUM(total_amount) DESC
+  LIMIT 1
+);</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <div class="code-box">
+        <pre><code>-- Find the employee with the longest tenure
+SELECT *
+FROM employees
+WHERE hire_date = (
+  SELECT MIN(hire_date)
+  FROM employees
+);</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+
+    <h3>Multiple-Row Subquery</h3>
+    <p><strong>Definition:</strong> Returns one or more rows and one or more columns.</p>
+    <p><strong>Examples:</strong></p>
+    <div class="code-box">
+        <pre><code>-- Find all employees with salaries above the average
+SELECT *
+FROM employees
+WHERE salary &gt; (
+  SELECT AVG(salary)
+  FROM employees
+);</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <div class="code-box">
+        <pre><code>-- Get all orders with total amounts above $100
+SELECT *
+FROM orders
+WHERE total_amount &gt; (
+  SELECT AVG(total_amount)
+  FROM orders
+);</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <div class="code-box">
+        <pre><code>-- Find all products with prices below the minimum
+SELECT *
+FROM products
+WHERE price &lt; (
+  SELECT MIN(price)
+  FROM products
+);</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <div class="code-box">
+        <pre><code>-- Get all customers with orders in New York
+SELECT *
+FROM customers
+WHERE customer_id IN (
+  SELECT customer_id
+  FROM orders
+  WHERE customer_state = 'NY'
+);</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <div class="code-box">
+        <pre><code>-- Find all employees with job titles in the IT department
+SELECT *
+FROM employees
+WHERE job_title IN (
+  SELECT job_title
+  FROM job_titles
+  WHERE department = 'IT'
+);</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+
+    <h3>Correlated Subqueries</h3>
+    <p><strong>Definition:</strong> A subquery that depends on the outer query for its values.</p>
+    <p><strong>Examples:</strong></p>
+    <div class="code-box">
+        <pre><code>-- Find all employees with salaries above the average for their department
+SELECT *
+FROM employees e
+WHERE salary &gt; (
+  SELECT AVG(salary)
+  FROM employees
+  WHERE department = e.department
+);</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <div class="code-box">
+        <pre><code>-- Get all orders with total amounts above the average for each customer
+SELECT *
+FROM orders o
+WHERE total_amount &gt; (
+  SELECT AVG(total_amount)
+  FROM orders
+  WHERE customer_id = o.customer_id
+);</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <div class="code-box">
+        <pre><code>-- Find all products with prices below the minimum for each category
+SELECT *
+FROM products p
+WHERE price &lt; (
+  SELECT MIN(price)
+  FROM products
+  WHERE category = p.category
+);</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <div class="code-box">
+        <pre><code>-- Get all customers with orders above the average for each region
+SELECT *
+FROM customers c
+WHERE customer_id IN (
+  SELECT customer_id
+  FROM orders
+  WHERE total_amount &gt; (
+    SELECT AVG(total_amount)
+    FROM orders
+    WHERE customer_region = c.customer_region
+  )
+);</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+    <div class="code-box">
+        <pre><code>-- Find all employees with job titles in the top 3 for each department
+SELECT *
+FROM employees e
+WHERE job_title IN (
+  SELECT job_title
+  FROM job_titles
+  WHERE department = e.department
+  ORDER BY salary DESC
+  LIMIT 3
+);</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    </div>
+
+    <h3>Key Takeaways:</h3>
+    <ul>
+        <li><strong>Single-Row Subquery:</strong> Returns one row and one column.</li>
+        <li><strong>Multiple-Row Subquery:</strong> Returns one or more rows and one or more columns.</li>
+        <li><strong>Correlated Subquery:</strong> Depends on the outer query for its values.</li>
+    </ul>
+</section>
+
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

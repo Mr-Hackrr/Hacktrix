@@ -3,81 +3,644 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sidebar Navigation</title>
-    <style>
-        body {
-            display: flex;
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        .sidebar {
-            height: 100vh;
-            width: 200px;
-            background-color: #333;
-            display: flex;
-            flex-direction: column;
-            padding-top: 20px;
-            transition: width 0.3s;
-        }
-
-        .sidebar.minimized {
-            width: 50px;
-        }
-
-        .sidebar a {
-            padding: 15px;
-            text-decoration: none;
-            font-size: 18px;
-            color: white;
-            display: block;
-        }
-
-        .sidebar a:hover {
-            background-color: #575757;
-        }
-
-        #toggleBtn {
-            background-color: #333;
-            color: white;
-            border: none;
-            font-size: 20px;
-            cursor: pointer;
-            margin-bottom: 20px;
-        }
-
-        .content {
-            flex-grow: 1;
-            padding: 20px;
-        }
-    </style>
+    <title>BigQuery Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
-    <div class="sidebar" id="sidebar">
-        <button id="toggleBtn">☰</button>
-        <a href="#home">Home</a>
-        <a href="#services">Services</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+    <!-- Header Bar -->
+    <div class="header-bar">
+        <div class="brand-name">BigQuery</div>
+        <nav>
+            <ul>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#exercise" class="nav-link">Exercise</a></li>
+                <li><a href="#project" class="nav-link">Project</a></li>
+                <li><a href="#contact" class="nav-link">Contact Us</a></li>
+            </ul>
+        </nav>
     </div>
-    <div class="content">
-        <h1 id="home">Home</h1>
-        <p>Welcome to the home page. Here is some introductory content.</p>
+
+<!-- Sidebar HTML -->
+<div id="sideMenu" class="sideMenu">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#bigquery-integration">Loading & Integrating Data</a>
+    <a href="#bigquery-querying">Querying Your Data</a>
+    <a href="#bigquery-security">Securing Your Data</a>
+</div>
+
+    <!-- Toggle Button -->
+    <div class="toggle-menu" onclick="openNav()">☰</div>
+
+    <!-- Content Area -->
+    <div id="content">
+        <h1>Mastering BigQuery for Efficient Data Analysis</h1>
+        <!-- Content will go here -->
+
+        <section id="bigquery-overview">
+            <h2>What is BigQuery? - Overview & Benefits</h2>
+            
+            <h3>Definition</h3>
+            <p>BigQuery is a fully-managed, cloud-based Enterprise Data Warehouse service offered by Google Cloud. In simpler terms, it's a powerful platform where you can store, manage, and analyze enormous amounts of data from various sources, all in one place.</p>
+            
+            <h3>Key Features</h3>
+            <ul>
+                <li><strong>Scalability:</strong> Automatically scales to handle large datasets and complex queries.</li>
+                <li><strong>Serverless:</strong> No infrastructure to manage; pay only for the resources you use.</li>
+                <li><strong>Column-Store Database:</strong> Optimized for fast query performance, especially for analytical workloads.</li>
+                <li><strong>SQL Support:</strong> Use familiar SQL to query your data, making it accessible to a broad audience.</li>
+                <li><strong>Integration with Google Cloud Services:</strong> Seamlessly connects with other Google Cloud services (e.g., Google Analytics, Google Cloud Storage, Google Cloud AI Platform).</li>
+            </ul>
+            
+            <h3>Advantages</h3>
+            <ul>
+                <li><strong>Unlimited Scalability:</strong> Handle massive datasets without worrying about storage or computational resources.</li>
+                <li><strong>Enhanced Security:</strong> Benefit from Google Cloud's robust security measures, including encryption and access controls.</li>
+                <li><strong>Streamlined Integration:</strong> Easily combine data from diverse sources, thanks to native integrations with Google Cloud services.</li>
+                <li><strong>Cost-Effective:</strong> Only pay for the resources you consume, reducing costs associated with idle infrastructure.</li>
+                <li><strong>Faster Insights:</strong> Accelerate your decision-making process with rapid query performance and near-real-time data analysis.</li>
+            </ul>
+            
+            <h3>Use Cases</h3>
+            <ul>
+                <li><strong>Data Warehousing:</strong>
+                    <ul>
+                        <li>Consolidate data from various sources into a single, centralized repository.</li>
+                        <li>Simplify data management and governance.</li>
+                    </ul>
+                </li>
+                <li><strong>Business Intelligence (BI) and Reporting:</strong>
+                    <ul>
+                        <li>Create interactive, web-based dashboards to visualize key business metrics.</li>
+                        <li>Empower stakeholders with self-service analytics.</li>
+                    </ul>
+                </li>
+                <li><strong>Data Science and Machine Learning (ML):</strong>
+                    <ul>
+                        <li>Prepare, process, and analyze large datasets for model training.</li>
+                        <li>Leverage BigQuery's integration with Google Cloud AI Platform for streamlined ML workflows.</li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <p><strong>In a Nutshell:</strong> BigQuery is a powerful, scalable, and secure cloud-based data warehouse that streamlines data management, analysis, and visualization, making it an ideal choice for organizations seeking to unlock deeper insights from their data.</p>
+        </section>
+
+        <section id="bigquery-setup">
+            <h2>Getting Started with BigQuery - Setup & Management</h2>
+            
+            <h3>Step 1: Creating a BigQuery Account</h3>
+            <ol>
+                <li>Sign in to the Google Cloud Console: Use your Google account to access the Google Cloud Console.
+                    <!-- Add image here -->
+                    <img src="bg_images/gcp_interface.png" alt="Google Cloud Console Interface" class="screenshot">
+                </li>
+                <li>Create a New Project:
+                    <ul>
+                        <li>Click on "Select a project" > "New Project"
+                            <!-- Add image here -->
+                            <img src="bg_images/create_project1.png" alt="Create New Project Step 1" class="screenshot">
+                        </li>
+                        <li>Enter your project name, select an organization (if applicable), and click "Create"
+                            <!-- Add image here -->
+                            <img src="bg_images/create_project2.png" alt="Create New Project Step 2" class="screenshot">
+                        </li>
+                    </ul>
+                </li>
+                <li>Enable BigQuery:
+                    <ul>
+                        <li>Navigate to the Navigation menu (three horizontal lines in the top left corner) > BigQuery
+                            <!-- Add image here -->
+                            <img src="bg_images/select_bigquery.png" alt="Select BigQuery" class="screenshot">
+                        </li>
+                        <li>If prompted, click "Enable" to activate BigQuery for your project
+                            <!-- Add image here -->
+                            <img src="bg_images/bigquery_interface.png" alt="BigQuery Interface" class="screenshot">
+                        </li>
+                    </ul>
+                </li>
+            </ol>
         
-        <h2 id="services">Services</h2>
-        <p>Details about the services offered.</p>
+            <h3>Understanding the Building Blocks</h3>
+            <ul>
+                <li><strong>Projects:</strong>
+                    <ul>
+                        <li>Container for all resources: Holds datasets, tables, and other BigQuery assets.</li>
+                        <li>Billing and access control scope: Manage costs and permissions at the project level.</li>
+                    </ul>
+                </li>
+                <li><strong>Datasets:</strong>
+                    <ul>
+                        <li>Logical grouping of tables: Organize related tables for easier management.</li>
+                        <li>Access control and storage location: Define permissions and choose a storage location (region) for each dataset.</li>
+                    </ul>
+                </li>
+                <li><strong>Tables:</strong>
+                    <ul>
+                        <li>Structured data storage: Store and manage your data in a tabular format.</li>
+                        <li>Supports various data types: Including integers, strings, timestamps, and more.</li>
+                    </ul>
+                </li>
+            </ul>
         
-        <h2 id="about">About</h2>
-        <p>Information about the website or company.</p>
+            <h3>Access Control & IAM Roles</h3>
+            <ul>
+                <li><strong>Identity and Access Management (IAM):</strong>
+                    <ul>
+                        <li>Manage permissions with precision: Control who can access and manipulate your BigQuery resources.</li>
+                    </ul>
+                </li>
+                <li><strong>Common BigQuery IAM Roles:</strong>
+                    <ul>
+                        <li>BigQuery Admin: Full control over projects, datasets, and tables.</li>
+                        <li>BigQuery User: Can run queries, but cannot manage resources.</li>
+                        <li>BigQuery Data Viewer: Read-only access to tables and data.</li>
+                    </ul>
+                </li>
+            </ul>
+            <p>Assigning IAM Roles:</p>
+            <ol>
+                <li>Go to the IAM & Admin page in the Google Cloud Console.</li>
+                <li>Select the project, click "Add" > "New members"</li>
+                <li>Enter the member's email, choose the relevant BigQuery IAM role, and click "Add"</li>
+            </ol>
         
-        <h2 id="contact">Contact</h2>
-        <p>Contact details and form.</p>
+            <h3>Billing and Cost Estimation</h3>
+            <ul>
+                <li><strong>Pricing Model:</strong>
+                    <ul>
+                        <li>Pay-as-you-go: Charged for storage, querying, and streaming data.</li>
+                        <li>Free tier available: 1 TB of querying, 10 GB of storage, and more per month.</li>
+                    </ul>
+                </li>
+                <li><strong>Estimating Costs:</strong>
+                    <ul>
+                        <li>Use the Google Cloud Pricing Calculator to forecast expenses.</li>
+                        <li>Monitor usage and costs in the Google Cloud Console.</li>
+                    </ul>
+                </li>
+            </ul>
+        
+            <h3>Managing Quotas and Limits</h3>
+            <ul>
+                <li><strong>Understanding Quotas:</strong>
+                    <ul>
+                        <li>Project-level limits: Restrict resource usage to prevent unexpected costs.</li>
+                        <li>Adjustable quotas: Request increases for specific resources as needed.</li>
+                    </ul>
+                </li>
+                <li><strong>Common Quotas to Monitor:</strong>
+                    <ul>
+                        <li>Concurrent queries</li>
+                        <li>Query bytes processed</li>
+                        <li>Storage capacity</li>
+                    </ul>
+                </li>
+                <li><strong>Checking and Adjusting Quotas:</strong>
+                    <ul>
+                        <li>Navigate to the IAM & Admin > Quotas page in the Google Cloud Console.</li>
+                        <li>Filter by service (BigQuery) and resource to view current quotas.</li>
+                    </ul>
+                </li>
+            </ul>
+        
+            <h3>You're Now Set Up!</h3>
+            <ul>
+                <li>Explore BigQuery's Web UI: Familiarize yourself with the interface.</li>
+                <li>Run your first query: Use the SELECT * FROM bigquery-public-data.samples.shakespeare tutorial.
+                    <!-- Add image here -->
+                    <img src="bq_images/bq_run_query.png" alt="Run Query in BigQuery" class="screenshot">
+                </li>
+                <li>Dive deeper into documentation: <a href="https://cloud.google.com/bigquery/docs">BigQuery Official Documentation</a></li>
+            </ul>
+        </section>
+
+        <section id="bigquery-integration">
+            <h2>Loading & Integrating Data into BigQuery</h2>
+            <h3>Upload Methods: Getting Data into BigQuery</h3>
+            <h4>1. Uploading Local Files</h4>
+            <ul>
+                <li>Supported formats: CSV, JSON, Avro, Parquet, and more</li>
+                <li>Upload via:
+                    <ul>
+                        <li>BigQuery Web UI: Simple, intuitive interface for small to medium-sized files</li>
+                        <li>bq Command-Line Tool: Flexible, scriptable option for larger files or automation</li>
+                        <li>BigQuery Client Libraries: Programmatic uploads using languages like Python, Java, or Node.js</li>
+                    </ul>
+                </li>
+            </ul>
+            <h4>Steps:</h4>
+            <ol>
+                <li>Prepare your file (e.g., ensure correct formatting)</li>
+                <li>Choose your upload method</li>
+                <li>Select your file and configure options (e.g., schema, data types)</li>
+                <li>Confirm and upload</li>
+            </ol>
+            <h4>Example: Uploading a CSV File via BigQuery Web UI</h4>
+            <ol>
+                <li>Navigate to the BigQuery Web UI</li>
+                <li>Click three dots beside project id <img src="bq_images/three_dots.png" class="img"></li>
+                <li>Click create dataset. Give name and create <img src="bq_images/create_dataset.png" class="img"></li>
+                <li>You can see dataset name under project id click three dots beside dataset <img src="bq_images/three_dots_table.png" class="img"></li>
+                <li>Click dropdown of empty table and select source <img src="bq_images/select_source.png" class="img"></li>
+                <li>Next, Click browse and select your csv/json/paquet file <img src="bq_images/select_file.png" class="img"></li>
+                <li>Give table name <img src="bq_images/table_name.png" class="img"></li>
+                <li>Configure Schema and Options as needed <img src="bq_images/schema.png" class="img"></li>
+                <li>Click Create Table to upload and load your data</li>
+                <li>You can query by select query tab <img src="bq_images/query.png" class="img"></li>
+                <li>You can see the result at the bottom of the page. You can check the resource used to run the query also <img src="bq_images/query_result.png" class="img"></li>
+            </ol>
+        
+            <h3>Using BigQuery Data Transfer Service</h3>
+            <ul>
+                <li>Automate data transfers from supported sources (e.g., Google Analytics, Google Ads, Amazon S3)</li>
+                <li>Benefits:
+                    <ul>
+                        <li>Reduced manual effort</li>
+                        <li>Scheduled, recurring transfers</li>
+                        <li>Support for large datasets</li>
+                    </ul>
+                </li>
+            </ul>
+            <h4>Setup:</h4>
+            <ol>
+                <li>Enable the BigQuery Data Transfer Service</li>
+                <li>Choose your data source and authenticate</li>
+                <li>Configure transfer settings (e.g., schedule, dataset, table)</li>
+            </ol>
+        
+            <h3>Streaming Data into BigQuery</h3>
+            <ul>
+                <li>Real-time data ingestion for applications with high-volume, high-velocity data (e.g., IoT, logging)</li>
+                <li>Methods:
+                    <ul>
+                        <li>BigQuery Streaming API: Programmatically send individual records or batches</li>
+                        <li>Cloud Pub/Sub to BigQuery: Leverage messaging queues for scalable, fault-tolerant streaming</li>
+                    </ul>
+                </li>
+            </ul>
+            <h4>Use cases:</h4>
+            <ul>
+                <li>Real-time analytics and reporting</li>
+                <li>Machine learning model training with fresh data</li>
+            </ul>
+        
+            <h3>Third-Party Integrations</h3>
+            <h4>Google Services</h4>
+            <ul>
+                <li>Google Analytics: Seamlessly integrate website and app analytics data</li>
+                <li>Google Cloud Storage: Transfer data from Cloud Storage buckets into BigQuery</li>
+                <li>Other Google services: Explore integrations with Cloud Functions, Cloud IoT Core, and more</li>
+            </ul>
+            <h4>External Data Sources</h4>
+            <ul>
+                <li>AWS (Amazon Web Services): Transfer data from S3, Redshift, or other AWS services</li>
+                <li>Azure: Integrate with Azure Blob Storage, Azure Synapse Analytics (formerly Azure SQL Data Warehouse), and more</li>
+                <li>On-Premises Data: Use BigQuery's Data Transfer Service or Partner Interconnect for secure, high-speed transfers from your on-premises environment</li>
+            </ul>
+        
+            <h3>Getting Started with Integrations</h3>
+            <ol>
+                <li>Explore BigQuery's Integration Hub: Discover supported sources and services</li>
+                <li>Follow Step-by-Step Guides: Find detailed setup instructions for your chosen integration</li>
+                <li>Monitor and Optimize: Keep an eye on your data transfers and adjust settings as needed</li>
+            </ol>
+        
+            <h3>Call to Action (CTA) Suggestions for Your Website:</h3>
+            <ul>
+                <li>"Start Ingesting Data into BigQuery with Our Easy Upload Guide"</li>
+                <li>"Unlock Real-Time Insights with BigQuery's Streaming API"</li>
+                <li>"Discover Pre-Built Integrations for Your Favorite Services" (link to a relevant page)</li>
+            </ul>
+        </section>
+
+        <section id="bigquery-querying">
+            <h2>Querying Your Data in BigQuery - A Deep Dive</h2>
+            <h3>SQL in BigQuery</h3>
+            <ul>
+                <li>Two SQL Dialects:
+                    <ol>
+                        <li><strong>Standard SQL (Recommended):</strong>
+                            <ul>
+                                <li>Aligns with ANSI SQL standards</li>
+                                <li>Supports more advanced features</li>
+                                <li>Use for new projects</li>
+                            </ul>
+                        </li>
+                        <li><strong>Legacy SQL (Deprecated):</strong>
+                            <ul>
+                                <li>Older dialect, still supported for backward compatibility</li>
+                                <li>Migrate to Standard SQL for new queries</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+        
+            <h3>Query Syntax & Functions</h3>
+            <ul>
+                <li><strong>SELECT Statements:</strong>
+                    <ul>
+                        <li><code>SELECT * FROM mytable;</code> - Retrieve all columns</li>
+                        <li><code>SELECT column1, column2 FROM mytable;</code> - Retrieve specific columns</li>
+                    </ul>
+                </li>
+                <li><strong>Common Functions:</strong>
+                    <ul>
+                        <li><code>COUNT()</code>, <code>SUM()</code>, <code>AVG()</code>, <code>MAX()</code>, <code>MIN()</code></li>
+                        <li>STRING, DATE, TIMESTAMP, ARRAY, and STRUCT functions</li>
+                    </ul>
+                </li>
+            </ul>
+            <h4>Example: Filtering and Aggregating Data</h4>
+            <pre class="code-box"><code>SELECT 
+          COUNT(*) AS total_rows,
+          SUM(revenue) AS total_revenue
+        FROM 
+          mytable
+        WHERE 
+          date &gt;= '2022-01-01' AND date &lt; '2023-01-01';</code></pre>
+        
+            <h3>Query Optimization</h3>
+            <ul>
+                <li><strong>Understanding Query Plans:</strong>
+                    <ul>
+                        <li>Explain Query: Analyze query execution plans to identify bottlenecks</li>
+                        <li>Query Plan Visualizer: Visualize query execution steps</li>
+                    </ul>
+                </li>
+                <li><strong>Reducing Query Costs:</strong>
+                    <ol>
+                        <li><strong>Optimize Filtering:</strong>
+                            <ul>
+                                <li>Use efficient filter conditions (e.g., date instead of STRING(date))</li>
+                                <li>Limit <code>SELECT *</code> usage; retrieve only necessary columns</li>
+                            </ul>
+                        </li>
+                        <li><strong>Leverage Partitioning and Clustering:</strong>
+                            <ul>
+                                <li>Reduce scanned data using partitioned tables</li>
+                                <li>Improve query performance with clustered tables</li>
+                            </ul>
+                        </li>
+                        <li><strong>Avoid <code>SELECT *</code>:</strong>
+                            <ul>
+                                <li>Retrieve only required columns to minimize data transfer</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+            <h4>Example: Optimizing a Query</h4>
+            <p><strong>Before:</strong></p>
+            <pre class="code-box"><code>SELECT * FROM mylargepartitionedtable WHERE date = '2022-07-01';</code></pre>
+            <p><strong>After:</strong></p>
+            <pre class="code-box"><code>SELECT 
+          column1, column2
+        FROM 
+          mylargepartitionedtable
+        WHERE 
+          _PARTITIONTIME = TIMESTAMP('2022-07-01');</code></pre>
+            <p>Cost Reduction: ~90% less data scanned</p>
+        
+            <h3>Advanced Queries</h3>
+            <h4>Array & Struct Operations</h4>
+            <ul>
+                <li><strong>Working with Arrays:</strong>
+                    <ul>
+                        <li>ARRAY constructor: <code>ARRAY[1, 2, 3]</code></li>
+                        <li><code>ARRAY_LENGTH()</code>, <code>ARRAY_TO_STRING()</code>, and <code>OFFSET()</code> functions</li>
+                    </ul>
+                </li>
+                <li><strong>Working with Structs:</strong>
+                    <ul>
+                        <li>STRUCT constructor: <code>STRUCT('John', 25, 'New York')</code></li>
+                        <li><code>STRUCT_FIELD()</code> and <code>TO_JSON_STRING()</code> functions</li>
+                    </ul>
+                </li>
+            </ul>
+            <h4>Example: Unnesting an Array</h4>
+            <pre class="code-box"><code>WITH 
+          mytable AS (
+            SELECT 
+              1 AS id, 
+              ARRAY['apple', 'banana', 'orange'] AS fruits
+          )
+        SELECT 
+          id, 
+          fruit
+        FROM 
+          mytable, 
+          UNNEST(fruits) AS fruit;</code></pre>
+            <p>Output:</p>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>fruit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>apple</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>banana</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>orange</td>
+                    </tr>
+                </tbody>
+            </table>
+        
+            <h4>Window Functions & Subqueries</h4>
+            <ul>
+                <li><strong>Window Functions:</strong>
+                    <ul>
+                        <li><code>ROW_NUMBER()</code>, <code>RANK()</code>, <code>LAG()</code>, and <code>LEAD()</code> functions</li>
+                        <li><strong>Example: Ranking Top 3 Products by Sales</strong></li>
+                    </ul>
+                </li>
+            </ul>
+            <pre class="code-box"><code>SELECT 
+          product, 
+          sales, 
+          RANK() OVER (ORDER BY sales DESC) AS sales_rank
+        FROM 
+          myproducttable;</code></pre>
+            <ul>
+                <li><strong>Subqueries:</strong>
+                    <ul>
+                        <li>Scalar Subqueries: Return a single value</li>
+                        <li>Array Subqueries: Return an array of values</li>
+                        <li><strong>Example: Finding Products with Sales Above Average</strong></li>
+                    </ul>
+                </li>
+            </ul>
+            <pre class="code-box"><code>SELECT 
+          product, 
+          sales
+        FROM 
+          myproducttable
+        WHERE 
+          sales &gt; (SELECT AVG(sales) FROM myproducttable);</code></pre>
+        
+            <h3>Mastering BigQuery Queries</h3>
+            <ul>
+                <li>Practice with Public Datasets: Explore BigQuery's public dataset gallery</li>
+                <li>Join the BigQuery Community: Share knowledge and get help from experts</li>
+                <li>Stay Up-to-Date with BigQuery Documentation: Latest features, best practices, and tutorials</li>
+            </ul>
+        
+            <h3>Call to Action (CTA) Suggestions for Your Website:</h3>
+            <ul>
+                <li>"Improve Your BigQuery Query Skills with Our Expert Guides"</li>
+                <li>"Optimize Your BigQuery Queries for Cost and Performance"</li>
+                <li>"Unlock Advanced BigQuery Features for Deeper Insights" (link to a relevant page)</li>
+            </ul>
+        </section>
+
+        <section id="bigquery-security">
+            <h2>Securing Your Data in BigQuery - Compliance & Governance</h2>
+            
+            <h3>Data Encryption</h3>
+            <ul>
+                <li>Protecting Your Data from Unauthorized Access</li>
+            </ul>
+            <h4>In Transit Encryption</h4>
+            <ol>
+                <li>Enabled by Default: BigQuery uses TLS (Transport Layer Security) for all data in transit</li>
+                <li>Verify Encryption:
+                    <ul>
+                        <li>Check the lock icon in your browser's address bar when accessing BigQuery</li>
+                        <li>Ensure the URL starts with https</li>
+                    </ul>
+                </li>
+            </ol>
+            <h4>At Rest Encryption</h4>
+            <ol>
+                <li>Enabled by Default: BigQuery encrypts all data at rest using AES-256</li>
+                <li>Verify Encryption:
+                    <ul>
+                        <li>Navigate to the BigQuery Console > Dataset > Details</li>
+                        <li>Look for "Encryption: Google-managed encryption key"</li>
+                    </ul>
+                </li>
+            </ol>
+            <h4>Step-by-Step: Verify Encryption in BigQuery</h4>
+            <ol>
+                <li>Access the BigQuery Console <img src="bq_images/bigquery_console.png" class="img"></li>
+                <li>Navigate to Your Dataset <img src="bq_images/dataset_selection.png" class="img"></li>
+                <li>Verify In Transit Encryption <img src="bq_images/lock_icon.png" class="img"></li>
+                <li>Verify At Rest Encryption <img src="bq_images/dataset_details.png" class="img"></li>
+            </ol>
+        
+            <h3>Access Control & Identity</h3>
+            <ul>
+                <li>Controlling Who Can Access Your Data</li>
+            </ul>
+            <h4>IAM Roles for BigQuery</h4>
+            <ol>
+                <li>Predefined Roles: BigQuery provides roles like BigQuery Admin, BigQuery User, and BigQuery Data Viewer</li>
+                <li>Assign Roles:
+                    <ul>
+                        <li>Navigate to the IAM & Admin Console > IAM</li>
+                        <li>Select "Add" > "New members"</li>
+                        <li>Enter the member's email and choose the relevant BigQuery IAM role</li>
+                    </ul>
+                </li>
+            </ol>
+            <h4>Step-by-Step: Assign an IAM Role for BigQuery</h4>
+            <ol>
+                <li>Access the IAM & Admin Console <img src="bq_images/iam_console.png" class="img"></li>
+                <li>Select the Project and Navigate to IAM <img src="bq_images/iam_project_selection.png" class="img"></li>
+                <li>Add a New Member with a BigQuery IAM Role <img src="bq_images/add_member.png" class="img"></li>
+            </ol>
+        
+            <h4>Service Accounts</h4>
+            <ol>
+                <li>Create a Service Account:
+                    <ul>
+                        <li>Navigate to the IAM & Admin Console > Service accounts</li>
+                        <li>Select "Create Service Account"</li>
+                    </ul>
+                </li>
+                <li>Generate a Key File:
+                    <ul>
+                        <li>Go to the Service accounts page > Actions > Create key</li>
+                        <li>Choose JSON (Key File) and download the file</li>
+                    </ul>
+                </li>
+            </ol>
+            <h4>Step-by-Step: Create a Service Account and Generate a Key File</h4>
+            <ol>
+                <li>Access the IAM & Admin Console <img src="bq_images/iam_console.png" class="img"></li>
+                <li>Create a New Service Account <img src="bq_images/create_service_account.png" class="img"></li>
+                <li>Generate a Key File <img src="bq_images/generate_key_file.png" class="img"></li>
+            </ol>
+        
+            <h3>Compliance & Certifications</h3>
+            <ul>
+                <li>Meeting Regulatory Requirements with BigQuery</li>
+            </ul>
+            <h4>Overview of Supported Standards</h4>
+            <ul>
+                <li>GDPR (General Data Protection Regulation)</li>
+                <li>HIPAA (Health Insurance Portability and Accountability Act)</li>
+                <li>SOC 2 (Service Organization Control 2)</li>
+                <li>and more...</li>
+            </ul>
+            <p>View BigQuery's Compliance Certifications: <img src="bq_images/compliance_certifications.png" class="img"> <a href="https://cloud.google.com/bigquery/compliance" target="_blank">BigQuery Compliance Page</a></p>
+        
+            <h3>Data Governance</h3>
+            <ul>
+                <li>Ensuring Data Quality and Integrity</li>
+            </ul>
+            <h4>Data Quality Checks</h4>
+            <ol>
+                <li>Use BigQuery's Built-in Functions:
+                    <ul>
+                        <li><code>IS_NULL()</code>, <code>IS_NOT_NULL()</code>, <code>VALIDATE()</code> for data validation</li>
+                    </ul>
+                </li>
+                <li>Create Custom Checks:
+                    <ul>
+                        <li>Utilize User-Defined Functions (UDFs) for complex validations</li>
+                    </ul>
+                </li>
+            </ol>
+            <h4>Step-by-Step: Perform Data Quality Checks in BigQuery</h4>
+            <ol>
+                <li>Access the BigQuery Console <img src="bq_images/bigquery_console.png" class="img"></li>
+                <li>Write a Query with Data Quality Checks <img src="bq_images/query.png" class="img"></li>
+                <li>Execute the Query and Review Results <img src="bq_images/query_results.png" class="img"></li>
+            </ol>
+        
+            <h4>Auditing & Logging</h4>
+            <ol>
+                <li>Enable BigQuery Auditing:
+                    <ul>
+                        <li>Navigate to the IAM & Admin Console > Auditing</li>
+                        <li>Select "Create sink" to set up auditing</li>
+                    </ul>
+                </li>
+                <li>View Audit Logs:
+                    <ul>
+                        <li>Go to the Logging Console > Logs Viewer</li>
+                    </ul>
+                </li>
+            </ol>
+        </section>
+
+
     </div>
-    <script>
-        document.getElementById('toggleBtn').addEventListener('click', function() {
-            var sidebar = document.getElementById('sidebar');
-            sidebar.classList.toggle('minimized');
-        });
-    </script>
+
+    <script src="script.js"></script>
 </body>
 </html>

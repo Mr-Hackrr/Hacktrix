@@ -1,3 +1,4 @@
+/* General Setup */
 * {
   scroll-behavior: smooth;
   box-sizing: border-box;
@@ -11,6 +12,7 @@ body {
   overflow-x: hidden;
 }
 
+/* Typography */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Montserrat', sans-serif;
   margin-bottom: 10px;
@@ -60,6 +62,7 @@ a:hover {
   color: #ADD8E6; /* Sky Blue */
 }
 
+/* Header Bar */
 .header-bar {
   background: linear-gradient(90deg, #1e3c72, #2a5298); /* Blue Gradient */
   color: #ffffff;
@@ -102,13 +105,15 @@ a:hover {
   margin-right: 30px;
 }
 
+/* Content */
 #content {
   padding: 30px 20px;
-  transition: margin-left 0.5s; 
+  transition: margin-left 0.5s; /* Smooth transition */
 }
 
+/* This is the ONLY rule to control left margin; it's added/removed by JS */
 #content.content-shifted {
-  margin-left: 300px; 
+  margin-left: 300px; /* Shift to the RIGHT for sidebar */
 }
 
 /* SEO Friendly Heading */
@@ -116,23 +121,23 @@ a:hover {
   font-size: 2.5rem;
   margin-bottom: 20px;
   text-align: center;
-  color: #0f0c0c; 
+  color: #0f0c0c; /* Deep Navy Blue */
 }
 
 /* Code Box Styles */
 .code-box {
-  background-color: #f0f0f0;
-  border: 1px solid #ccc; 
-  border-radius: 8px; 
-  padding: 20px;
+  background-color: #f0f0f0; /* Soft Gray */
+  border: 1px solid #ccc; /* Light Gray Border */
+  border-radius: 8px; /* Slightly increased radius for a softer look */
+  padding: 20px; /* Increased padding for better code readability */
   position: relative;
   overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
-  transition: box-shadow 0.3s ease; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: box-shadow 0.3s ease; /* Smooth transition for hover effect */
 }
 
 .code-box:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Increased shadow on hover for emphasis */
 }
 
 .code-box pre {
@@ -142,42 +147,44 @@ a:hover {
 
 .code-box code {
   font-family: 'Monaco', monospace;
-  font-size: 0.95rem; 
-  line-height: 1.6;
-  color: #333; 
-  word-wrap: break-word; 
-  white-space: pre-wrap; 
+  font-size: 0.95rem; /* Slightly reduced font size for better fit */
+  line-height: 1.6; /* Increased line height for readability */
+  color: #333; /* Deep Gray for code text */
+  word-wrap: break-word; /* Ensure long lines wrap */
+  white-space: pre-wrap; /* Preserve whitespace but allow wrapping */
 }
 
 .copy-button {
   position: absolute;
   top: 12px;
   right: 12px;
-  background-color: #4a90e2;
+  background-color: #4a90e2; /* Consistent blue tone */
   color: #ffffff;
   border: none;
   padding: 6px 12px;
-  font-size: 0.95rem; 
+  font-size: 0.95rem; /* Matched font size with code */
   cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.2s ease; 
+  border-radius: 4px; /* Softer corner radius */
+  transition: background-color 0.2s ease; /* Smooth transition for hover */
 }
 
 .copy-button:hover {
-  background-color: #3e7cb3; 
+  background-color: #3e7cb3; /* Darker blue on hover */
 }
 
 .copy-button i {
-  margin-right: 5px; 
+  margin-right: 5px; /* Added margin for better spacing with the copy icon */
 }
 
+/* Added Font Awesome copy icon for a more visual cue */
 .copy-button {
   display: flex;
   align-items: center;
 }
 
 .copy-button i.fas.fa-copy {
-  font-size: 1.1rem; 
+  font-size: 1.1rem; /* Slightly larger icon for visibility */
+}
 
 
 /* Data Table Styles */
@@ -232,7 +239,7 @@ a:hover {
   height: 100%;
   background-color: #2d3748;
   color: #ffffff;
-  width: 0; 
+  width: 0; /* Initially hidden on all screens */
   position: fixed;
   z-index: 1;
   top: 54px;
@@ -243,7 +250,7 @@ a:hover {
 }
 
 .sideMenu.open {
-  width: 300px; 
+  width: 300px; /* Open width */
 }
 
 .sideMenu a {
@@ -272,9 +279,10 @@ a:hover {
   right: 25px;
   font-size: 36px;
   margin-left: 50px;
-  cursor: pointer; 
+  cursor: pointer; /* Added cursor style */
 }
 
+/* Toggle Button Styles */
 div.toggle-menu {
   position: fixed;
   top: 15px;
@@ -286,14 +294,16 @@ div.toggle-menu {
   border-radius: 4px;
   padding: 8px 12px;
   cursor: pointer;
-  display: block; 
+  display: block; /* Always show toggle button */
 }
 
 div.toggle-menu:hover {
   background-color: #005fa3;
 }
 
+/* Responsive Styles */
 @media (max-width: 768px) {
+  /* Header Bar */
   .header-bar {
     padding: 20px 20px;
   }
@@ -307,26 +317,30 @@ div.toggle-menu:hover {
     margin-right: 10px;
   }
   
+  /* Toggle Button (always visible on smaller screens) */
   div.toggle-menu {
     top: 5px;
     right: 5px;
   }
   
+  /* Sidebar (hidden by default, toggled by button) */
   .sideMenu {
-    top: 54px; 
+    top: 54px; /* Adjusted to match header height on smaller screens */
   }
   
+  /* Content */
   #content {
     padding: 20px;
   }
   
-  
+  /* Adjust sidebar open width for smaller screens */
   .sideMenu.open {
-    width: 250px; 
+    width: 250px; /* Smaller open width */
   }
 }
 
 @media (max-width: 480px) {
+  /* Further adjustments for very small screens */
   .header-bar .nav-link {
     font-size: 0.7rem;
   }
@@ -343,43 +357,6 @@ div.toggle-menu:hover {
   }
   
   .sideMenu.open {
-    width: 200px; 
+    width: 200px; /* Even smaller open width */
   }
-}
-
-img {
-  max-width: 100%; 
-  height: auto; 
-  margin: 10px auto; 
-  display: block; 
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1); 
-}
-
-.screenshot {
-  width: 80%; 
-  margin: 20px auto; 
-  overflow: hidden; 
-  border-radius: 10px; 
-}
-
-.screenshot img {
-  width: 120%; 
-  margin-left: -10%; 
-  transition: margin 0.5s ease-in-out; 
-}
-
-.screenshot:hover img {
-  margin-left: -5%; 
-}
-
-.full-width {
-  width: 100%; 
-  margin: 0 auto; 
-  border-radius: 0; 
-}
-
-.full-width img {
-  width: 100%; 
-  height: auto; 
 }

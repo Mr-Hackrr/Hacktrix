@@ -3,1436 +3,648 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacktrix - Your Tech Resource Hub</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css">
-
-    <style>
-        /* Custom styling */
-        body {
-            padding-top: 80px;
-        }
-        header {
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        h2 {
-            color: #007bff;
-            margin-top: 2rem;
-        }
-        .code-block {
-            background-color: #f8f9fa;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 10px 0;
-        }
-        footer {
-            background-color: #343a40;
-            color: white;
-            padding: 20px 0;
-            margin-top: 50px;
-        }
-        .nav-link:hover {
-           color: #ffdd57;
-        }
-    </style>
+    <title>Intermediate Python Concepts</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="style.css"> <!-- Assuming your CSS file is named styles.css -->
+   
 </head>
-
 <body>
-    <header class="bg-dark text-white fixed-top">
-        <nav class="container navbar navbar-expand-lg navbar-dark">
-            <a class="navbar-brand" href="#">Hacktrix</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#python">Python</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#sql">SQL</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#java">Java</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#gcp">GCP</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#articles">Articles</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
-            </div>
+    <div class="header-bar">
+        <div class="brand-name">Hacktrix</div>
+        <nav>
+            <ul>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#python" class="nav-link">Python</a></li>
+                <li><a href="#sql" class="nav-link">SQL</a></li>
+                <li><a href="#java" class="nav-link">Java</a></li>
+                <li><a href="#gcp" class="nav-link">GCP</a></li>
+                <li><a href="#articles" class="nav-link">Articles</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
         </nav>
-                <!-- Title Section -->
-                <div class="title-section">
-                    <h1>Intermediate Python Concepts</h1>
-                </div>
+    </div>
+
+    <div id="sideMenu" class="sideMenu">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a href="#introduction" class="nav-link">Introduction to Python</a>
+        <a href="#data-types" class="nav-link">Data Types</a>
+        <a href="#operators" class="nav-link">Operators</a>
+        <a href="#control-flow" class="nav-link">Control Flow</a>
+        <a href="#data-structures" class="nav-link">Data Structures</a>
+        <a href="#functions" class="nav-link">Functions</a>
+        <a href="#modules-packages" class="nav-link">Modules and Packages</a>
+    </div>
+    <button class="toggle-menu" onclick="openNav()">☰</button>
+    <div id="content">
+        <h1 class="seo-friendly-heading">Intermediate Python Concepts</h1>
         
-                <style>
-                    /* Title Section Styling */
-                    .title-section {
-                        text-align: center;
-                        padding: 20px 10px;
-                        background-color: #333;
-                        color: #ffffff;
-                        border-bottom: 3px solid #007bff;
-                        position: sticky;
-                        top: 0;
-                        width: 100%;
-                        transition: all 0.3s ease;
-                        z-index: 10;
-                    }
-        
-                    .title-section.shrink {
-                        padding: 10px 5px;
-                        font-size: 0.8em;
-                        background-color: #222;
-                        border-bottom: 2px solid #0056b3;
-                    }
-        
-                    .title-section h1 {
-                        font-size: 2em;
-                        margin: 0;
-                        transition: font-size 0.3s ease;
-                    }
-        
-                    .title-section.shrink h1 {
-                        font-size: 1.5em;
-                    }
-                </style>
-        
-            <script>
-                // JavaScript to shrink the title section on scroll
-                window.addEventListener("scroll", function () {
-                    const titleSection = document.querySelector(".title-section");
-                    if (window.scrollY > 50) {
-                        titleSection.classList.add("shrink");
-                    } else {
-                        titleSection.classList.remove("shrink");
-                    }
-                });
-            </script>
-    </header>
-</body>
-<br>
-<br>
-<body>
-    <section id="input-output" class="container mt-5">
-        <h2 class="text-center text-primary mb-4">Input and Output</h2>
-        <p class="lead text-center text-muted mb-4">Input and output operations are essential for interacting with users and handling data in files. Let’s explore how to read from and write to files, as well as how to get user input.</p>
-        <h3 class="text-info mt-5">Reading from and Writing to Files</h3>
-        <p><strong>Definition:</strong> File operations allow you to store data persistently by reading from and writing to files on the disk.</p>
-        <p><strong>Syntax:</strong></p>
-        <!-- Code Block for Syntax -->
-        <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-            <pre><code># Opening a file
-    file = open("filename.txt", "mode")
-    # Reading from a file
-    content = file.read()
-    # Writing to a file
-    file.write("Some text")
-    # Closing a file
-    file.close()</code></pre>
-        </div>
-        <h4 class="text-success mt-4">Modes:</h4>
-        <ul>
-            <li><code>'r'</code>: Read (default mode, file must exist)</li>
-            <li><code>'w'</code>: Write (creates a new file or truncates an existing file)</li>
-            <li><code>'a'</code>: Append (adds content to the end of the file)</li>
-            <li><code>'r+'</code>: Read and write</li>
-        </ul>
-    
-        <h4 class="text-success mt-4">Methods:</h4>
-    
-        <ul>
-            <li><code>open()</code>: Opens a file and returns a file object.</li>
-            <li><code>read()</code>: Reads the entire content of the file.</li>
-            <li><code>readline()</code>: Reads one line from the file.</li>
-            <li><code>readlines()</code>: Reads all lines and returns them as a list.</li>
-            <li><code>write()</code>: Writes a string to the file.</li>
-            <li><code>writelines()</code>: Writes a list of strings to the file.</li>
-            <li><code>close()</code>: Closes the file.</li>
-        </ul>
-    
-        <h4 class="text-success mt-4">Examples:</h4>
-    
-        <!-- Reading from a File -->
-        <h5>Reading from a File:</h5>
-        <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-            <pre><code>file = open("example.txt", "r")
+        <h2 id="input-output">Input and Output</h2>
+<p>Input and output operations are essential for interacting with users and handling data in files. Let’s explore how to read from and write to files, as well as how to get user input.</p>
+
+<h3 id="file-operations">Reading from and Writing to Files</h3>
+<p>Definition: File operations allow you to store data persistently by reading from and writing to files on the disk.</p>
+<p>Syntax:</p>
+<div class="code-box">
+    <pre><code># Opening a file
+file = open("filename.txt", "mode")
+# Reading from a file
+content = file.read()
+# Writing to a file
+file.write("Some text")
+# Closing a file
+file.close()</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
+<p>Modes:</p>
+<ul>
+    <li><code>'r'</code>: Read (default mode, file must exist)</li>
+    <li><code>'w'</code>: Write (creates a new file or truncates an existing file)</li>
+    <li><code>'a'</code>: Append (adds content to the end of the file)</li>
+    <li><code>'r+'</code>: Read and write</li>
+</ul>
+
+<p>Methods:</p>
+<ul>
+    <li><code>open()</code>: Opens a file and returns a file object.</li>
+    <li><code>read()</code>: Reads the entire content of the file.</li>
+    <li><code>readline()</code>: Reads one line from the file.</li>
+    <li><code>readlines()</code>: Reads all lines and returns them as a list.</li>
+    <li><code>write()</code>: Writes a string to the file.</li>
+    <li><code>writelines()</code>: Writes a list of strings to the file.</li>
+    <li><code>close()</code>: Closes the file.</li>
+</ul>
+
+<h4>Examples:</h4>
+<h5>Reading from a File:</h5>
+<div class="code-box">
+    <pre><code>file = open("example.txt", "r")
+content = file.read()
+print(content)
+file.close()</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
+
+<h5>Writing to a File:</h5>
+<div class="code-box">
+    <pre><code>file = open("example.txt", "w")
+file.write("Hello, World!")
+file.close()</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
+
+<h5>Appending to a File:</h5>
+<div class="code-box">
+    <pre><code>file = open("example.txt", "a")
+file.write("\nAppended text.")
+file.close()</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
+
+<h5>Reading Line by Line:</h5>
+<div class="code-box">
+    <pre><code>file = open("example.txt", "r")
+for line in file:
+    print(line.strip())
+file.close()</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
+
+<h5>Using with Statement:</h5>
+<div class="code-box">
+    <pre><code>with open("example.txt", "r") as file:
     content = file.read()
     print(content)
-    file.close()</code></pre>
-        </div>
-        <!-- Writing to a File -->
-        <h5>Writing to a File:</h5>
-        <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-            <pre><code>file = open("example.txt", "w")
-    file.write("Hello, World!")
-    file.close()</code></pre>
-        </div>
-        <!-- Appending to a File -->
-        <h5>Appending to a File:</h5>
-        <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-            <pre><code>file = open("example.txt", "a")
-    file.write("\nAppended text.")
-    file.close()</code></pre>
-        </div>
-        <!-- Reading Line by Line -->
-        <h5>Reading Line by Line:</h5>
-        <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-            <pre><code>file = open("example.txt", "r")
-    for line in file:
-        print(line.strip())
-    file.close()</code></pre>
-        </div>
-        <!-- Using 'with' Statement -->
-        <h5>Using with Statement:</h5>
-        <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-            <pre><code>with open("example.txt", "r") as file:
-        content = file.read()
-        print(content)
-    # No need to explicitly close the file</code></pre>
-        </div>
-        <h3 class="text-info mt-5">User Input</h3>   
-        <p>Definition: User input allows you to interact with users by getting data from them during program execution.</p>   
-        <p><strong>Syntax:</strong></p>
-        <!-- Code Block for User Input Syntax -->
-        <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
+# No need to explicitly close the file</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
 
-            <pre><code># Getting user input
-    
-    user_input = input("Enter something: ")</code></pre>
-    
-        </div>
-    
-        <h4 class="text-success mt-4">Examples:</h4>
-    
-        <!-- Simple User Input -->
-    
-        <h5>Simple User Input:</h5>
-    
-        <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-    
-            <pre><code>name = input("What is your name? ")
-    
-    print(f"Hello, {name}!")</code></pre>
-    
-        </div>
-    
-        <!-- Getting Numerical Input -->
-    
-        <h5>Getting Numerical Input:</h5>
-    
-        <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-    
-            <pre><code>age = int(input("Enter your age: "))
-    
-    print(f"You are {age} years old.")</code></pre>
-    
-        </div>
-    
-        <!-- Multiple Inputs -->
-    
-        <h5>Multiple Inputs:</h5>
-    
-        <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-    
-            <pre><code>name = input("Enter your name: ")
-    
-    age = int(input("Enter your age: "))
-    
-    print(f"Name: {name}, Age: {age}")</code></pre>
-    
-        </div>
-    
-        <!-- Input Validation -->
-    
-        <h5>Input Validation:</h5>
-    
-        <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-    
-            <pre><code>while True:
-    
-        age = input("Enter your age: ")
-    
-        if age.isdigit():
-    
-            age = int(age)
-    
-            break
-    
-        else:
-    
-            print("Please enter a valid number.")
-    
-    print(f"You are {age} years old.")</code></pre>
-    
-        </div>
-    
-        <!-- Using Input in Calculations -->
-    
-        <h5>Using Input in Calculations:</h5>
-    
-        <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-    
-            <pre><code>num1 = float(input("Enter first number: "))
-    
-    num2 = float(input("Enter second number: "))
-    
-    result = num1 + num2
-    
-    print(f"The sum is: {result}")</code></pre>
-    
-        </div>
-    
-    </section>
-    
-    <!-- JavaScript for Code Block Highlighting -->
-    
-    <script>
-    
-        // Toggle effect to highlight clicked code blocks and make them interactive
-    
-        document.querySelectorAll('.code-block').forEach(block => {
-    
-            block.addEventListener('click', () => {
-    
-                block.classList.toggle('bg-warning');
-    
-                block.classList.toggle('bg-light');
-    
-            });
-    
-        });
-    
-    </script>
-    
-    <!-- Bootstrap JS and dependencies -->
-    
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-    
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<h3 id="user-input">User Input</h3>
+<p>Definition: User input allows you to interact with users by getting data from them during program execution.</p>
+<p>Syntax:</p>
+<div class="code-box">
+    <pre><code># Getting user input
+user_input = input("Enter something: ")</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
 
+<h4>Examples:</h4>
+<h5>Simple User Input:</h5>
+<div class="code-box">
+    <pre><code>name = input("What is your name? ")
+print(f"Hello, {name}!")</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
 
-    <section id="modules-libraries" class="container mt-5 mb-5">
+<h5>Getting Numerical Input:</h5>
+<div class="code-box">
+    <pre><code>age = int(input("Enter your age: "))
+print(f"You are {age} years old.")</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
 
-        <!-- Section Header -->
-    
-        <h2 class="text-center text-primary mb-4">Basic Modules and Libraries</h2>
-    
-        <p class="lead text-center text-muted">Modules and libraries in Python provide additional functionality that you can use in your programs. Let’s explore how to import and use modules, and get familiar with some of Python’s standard libraries like math, random, and datetime.</p>
-    
-        <!-- Importing Modules -->
-    
-        <div class="row justify-content-center">
-    
-            <div class="col-lg-10 col-md-12">
-    
-                <h3 class="text-info mt-5">Importing Modules</h3>
-    
-                <p><strong>Definition:</strong> Modules are files containing Python code that can define functions, classes, and variables. Libraries are collections of modules.</p>
-    
-                <p><strong>Syntax:</strong></p>
-    
-                <!-- Code Block for Syntax -->
-    
-                <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-    
-                    <pre><code># Importing an entire module
-    
-    import module_name
-    
-    # Importing specific functions or classes from a module
-    
-    from module_name import function_name, class_name
-    
-    # Importing a module with an alias
-    
-    import module_name as alias</code></pre>
-    
-                </div>
-    
-                <!-- Code Examples -->
-    
-                <h4 class="text-success mt-4">Examples:</h4>
-    
-                <h5>Importing an Entire Module:</h5>
-    
-                <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-    
-                    <pre><code>import math
-    
-    print(math.sqrt(16))  # Output: 4.0</code></pre>
-    
-                </div>
-    
-                <h5>Importing Specific Functions:</h5>
-    
-                <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-    
-                    <pre><code>from math import sqrt, pi
-    
-    print(sqrt(16))  # Output: 4.0
-    
-    print(pi)        # Output: 3.141592653589793</code></pre>
-    
-                </div>
-    
-                <h5>Importing with an Alias:</h5>
-    
-                <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-    
-                    <pre><code>import math as m
-    
-    print(m.sqrt(16))  # Output: 4.0</code></pre>
-    
-                </div>
-    
-                <h5>Using a Custom Module:</h5>
-    
-                <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-    
-                    <pre><code># Assuming you have a file named my_module.py with a function greet()
-    
-    from my_module import greet
-    
-    greet("Alice")</code></pre>
-    
-                </div>
-    
-                <h5>Importing All Functions from a Module:</h5>
-    
-                <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-    
-                    <pre><code>from math import *
-    
-    print(sqrt(16))  # Output: 4.0
-    
-    print(pi)        # Output: 3.141592653589793</code></pre>
-    
-                </div>
-    
-                <!-- Standard Libraries Section -->
-    
-                <h3 class="text-info mt-5">Standard Libraries</h3>
-    
-                <p>Python’s standard libraries are collections of modules that come with Python and provide a wide range of functionalities.</p>
-    
-                
-    
-                <!-- Math Library -->
-    
-                <h4 class="text-success">math Library:</h4>
-    
-                <p><strong>Definition:</strong> Provides mathematical functions.</p>
-    
-                <h6>Common Methods:</h6>
-    
-                <ul>
-    
-                    <li><code>sqrt(x)</code>: Returns the square root of x.</li>
-    
-                    <li><code>pi</code>: The mathematical constant π.</li>
-    
-                    <li><code>sin(x)</code>, <code>cos(x)</code>, <code>tan(x)</code>: Trigonometric functions.</li>
-    
-                    <li><code>log(x)</code>: Returns the natural logarithm of x.</li>
-    
-                </ul>
-    
-                <h6>Examples:</h6>
-    
-                <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-    
-                    <pre><code>import math
-    
-    print(math.sqrt(25))  # Output: 5.0
-    
-    print(math.pi)        # Output: 3.141592653589793
-    
-    print(math.sin(math.pi / 2))  # Output: 1.0</code></pre>
-    
-                </div>
-    
-                <!-- Random Library -->
-    
-                <h4 class="text-success mt-4">random Library:</h4>
-    
-                <p><strong>Definition:</strong> Provides functions for generating random numbers.</p>
-    
-                <h6>Common Methods:</h6>
-    
-                <ul>
-    
-                    <li><code>random()</code>: Returns a random float between 0.0 and 1.0.</li>
-    
-                    <li><code>randint(a, b)</code>: Returns a random integer between a and b.</li>
-    
-                    <li><code>choice(seq)</code>: Returns a random element from the sequence <code>seq</code>.</li>
-    
-                    <li><code>shuffle(seq)</code>: Shuffles the sequence <code>seq</code> in place.</li>
-    
-                </ul>
-    
-                <h6>Examples:</h6>
-    
-                <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-    
-                    <pre><code>import random
-    
-    print(random.random())  # Output: Random float between 0.0 and 1.0
-    
-    print(random.randint(1, 10))  # Output: Random integer between 1 and 10
-    
-    print(random.choice(['apple', 'banana', 'cherry']))  # Output: Random choice from the list
-    
-    fruits = ['apple', 'banana', 'cherry']
-    
-    random.shuffle(fruits)
-    
-    print(fruits)  # Output: Shuffled list</code></pre>
-    
-                </div>
-    
-                <!-- Datetime Library -->
-    
-                <h4 class="text-success mt-4">datetime Library:</h4>
-    
-                <p><strong>Definition:</strong> Provides classes for manipulating dates and times.</p>
-    
-                <h6>Common Methods:</h6>
-    
-                <ul>
-    
-                    <li><code>datetime.now()</code>: Returns the current date and time.</li>
-    
-                    <li><code>date(year, month, day)</code>: Creates a date object.</li>
-    
-                    <li><code>time(hour, minute, second)</code>: Creates a time object.</li>
-    
-                    <li><code>timedelta(days, seconds, microseconds)</code>: Represents a duration.</li>
-    
-                </ul>
-    
-                <h6>Examples:</h6>
-    
-                <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-    
-                    <pre><code>from datetime import datetime, date, time, timedelta
-    
-    # Current date and time
-    
-    now = datetime.now()
-    
-    print(now)  # Output: Current date and time
-    
-    # Specific date
-    
-    my_birthday = date(1990, 5, 17)
-    
-    print(my_birthday)  # Output: 1990-05-17
-    
-    # Specific time
-    
-    lunch_time = time(12, 30)
-    
-    print(lunch_time)  # Output: 12:30:00
-    
-    # Time difference
-    
-    delta = timedelta(days=5)
-    
-    print(delta)  # Output: 5 days, 0:00:00</code></pre>
-    
-                </div>
-    
-            </div>
-    
-        </div>
-    
-    </section>
-    
-    <!-- JavaScript for Interactivity (Code Toggle) -->
-    
-    <script>
-    
-        // Toggle effect to highlight clicked code blocks and make them interactive
-    
-        document.querySelectorAll('.code-block').forEach(block => {
-    
-            block.addEventListener('click', () => {
-    
-                block.classList.toggle('bg-warning');
-    
-                block.classList.toggle('bg-light');
-    
-            });
-    
-        });
-    
-    </script>
-    
-    <!-- Bootstrap JS and dependencies -->
-    
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-    
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<h5>Multiple Inputs:</h5>
+<div class="code-box">
+    <pre><code>name = input("Enter your name: ")
+age = int(input("Enter your age: "))
+print(f"Name: {name}, Age: {age}")</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
 
-    <section id="error-handling" class="container mt-5">
-
-        <h2 class="text-center text-primary mb-4">Error Handling in Python</h2>
-    
-        <p class="lead text-center text-muted mb-4">Error handling in Python allows you to manage and respond to exceptions (errors) that occur during program execution. This ensures your program can handle unexpected situations gracefully.</p>
-    
-        <h3 class="text-info mt-5">Exceptions</h3>
-    
-        <p><strong>Definition:</strong> Exceptions are errors detected during execution. They can be handled using <code>try</code>, <code>except</code>, <code>finally</code>, and <code>raise</code> statements.</p>
-    
-        <p><strong>Syntax:</strong></p>
-    
-        <!-- Code Block for Syntax -->
-    
-        <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-    
-            <pre><code>try:
-    
-        # code that might raise an exception
-    
-    except ExceptionType:
-    
-        # code that runs if an exception occurs
-    
-    finally:
-    
-        # code that runs no matter what (optional)</code></pre>
-    
-        </div>
-    
-        <!-- Methods List -->
-    
-        <h4 class="text-success mt-4">Methods:</h4>
-    
-        <ul class="list-unstyled">
-    
-            <li><strong><code>try</code></strong>: Block of code to test for errors.</li>
-    
-            <li><strong><code>except</code></strong>: Block of code to handle the error.</li>
-    
-            <li><strong><code>finally</code></strong>: Block of code that will always execute, regardless of whether an error occurred.</li>
-    
-            <li><strong><code>raise</code></strong>: Used to raise an exception manually.</li>
-    
-        </ul>
-    
-        <!-- Examples Section -->
-    
-        <h4 class="text-info mt-4">Examples:</h4>
-    
-        <!-- Basic Try-Except -->
-    
-        <h5>Basic Try-Except:</h5>
-    
-        <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-    
-            <pre><code>try:
-    
-        result = 10 / 0
-    
-    except ZeroDivisionError:
-    
-        print("Cannot divide by zero!")</code></pre>
-    
-        </div>
-    
-        <!-- Handling Multiple Exceptions -->
-    
-        <h5>Handling Multiple Exceptions:</h5>
-    
-        <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-    
-            <pre><code>try:
-    
-        result = 10 / 0
-    
-    except ZeroDivisionError:
-    
-        print("Cannot divide by zero!")
-    
-    except TypeError:
-    
-        print("Invalid type!")</code></pre>
-    
-        </div>
-    
-        <!-- Using Finally -->
-    
-        <h5>Using Finally:</h5>
-    
-        <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-    
-            <pre><code>try:
-    
-        file = open("example.txt", "r")
-    
-        content = file.read()
-    
-    except FileNotFoundError:
-    
-        print("File not found!")
-    
-    finally:
-    
-        file.close()
-    
-        print("File closed.")</code></pre>
-    
-        </div>
-    
-        <!-- Raising an Exception -->
-    
-        <h5>Raising an Exception:</h5>
-    
-        <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-    
-            <pre><code>def check_age(age):
-    
-        if age < 18:
-    
-            raise ValueError("Age must be at least 18.")
-    
-        return "Access granted."
-    
-    try:
-    
-        print(check_age(15))
-    
-    except ValueError as e:
-    
-        print(e)</code></pre>
-    
-        </div>
-    
-        <!-- Custom Exception Handling -->
-    
-        <h5>Custom Exception Handling:</h5>
-    
-        <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-    
-            <pre><code>class CustomError(Exception):
-    
-        pass
-    
-    try:
-    
-        raise CustomError("This is a custom error.")
-    
-    except CustomError as e:
-    
-        print(e)</code></pre>
-    
-        </div>
-    
-        <!-- Detailed Examples -->
-    
-        <h4 class="text-success mt-5">Detailed Examples:</h4>
-    
-        <!-- Basic Try-Except with User Input -->
-    
-        <h5>Basic Try-Except with User Input:</h5>
-    
-        <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-    
-            <pre><code>try:
-    
-        number = int(input("Enter a number: "))
-    
-        print(f"The number is {number}")
-    
-    except ValueError:
-    
-        print("That's not a valid number!")</code></pre>
-    
-        </div>
-    
-        <!-- Handling Multiple Exceptions with User Input -->
-    
-        <h5>Handling Multiple Exceptions with User Input:</h5>
-    
-        <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-    
-            <pre><code>try:
-    
-        number = int(input("Enter a number: "))
-    
-        result = 10 / number
-    
-        print(f"Result is {result}")
-    
-    except ValueError:
-    
-        print("That's not a valid number!")
-    
-    except ZeroDivisionError:
-    
-        print("Cannot divide by zero!")</code></pre>
-    
-        </div>
-    
-        <!-- Using Finally with File -->
-    
-        <h5>Using Finally with File:</h5>
-    
-        <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-    
-            <pre><code>try:
-    
-        file = open("example.txt", "r")
-    
-        content = file.read()
-    
-        print(content)
-    
-    except FileNotFoundError:
-    
-        print("File not found!")
-    
-    finally:
-    
-        print("Attempted to read the file.")</code></pre>
-    
-        </div>
-    
-        <!-- Raising an Exception (ZeroDivisionError) -->
-    
-        <h5>Raising an Exception (ZeroDivisionError):</h5>
-    
-        <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-    
-            <pre><code>def divide(a, b):
-    
-        if b == 0:
-    
-            raise ZeroDivisionError("Division by zero is not allowed.")
-    
-        return a / b
-    
-    try:
-    
-        print(divide(10, 0))
-    
-    except ZeroDivisionError as e:
-    
-        print(e)</code></pre>
-    
-        </div>
-    
-        <!-- Custom Exception with Negative Numbers -->
-    
-        <h5>Custom Exception with Negative Numbers:</h5>
-    
-        <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-    
-            <pre><code>class NegativeNumberError(Exception):
-    
-        pass
-    
-    def check_positive(number):
-    
-        if number < 0:
-    
-            raise NegativeNumberError("Negative numbers are not allowed.")
-    
-        return number
-    
-    try:
-    
-        print(check_positive(-5))
-    
-    except NegativeNumberError as e:
-    
-        print(e)</code></pre>
-    
-        </div>
-    
-    </section>
-    
-    <!-- JavaScript for Code Block Highlighting -->
-    
-    <script>
-    
-        // Toggle effect to highlight clicked code blocks and make them interactive
-    
-        document.querySelectorAll('.code-block').forEach(block => {
-    
-            block.addEventListener('click', () => {
-    
-                block.classList.toggle('bg-warning');
-    
-                block.classList.toggle('bg-light');
-    
-            });
-    
-        });
-    
-    </script>
-    
-    <!-- Bootstrap JS and dependencies -->
-    
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-    
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-
-    <section id="scripting-automation" class="container mt-5">
-
-        <h2 class="text-center text-primary mb-4">Basic Scripting and Automation</h2>
-    
-        <p class="lead text-center text-muted mb-4">Scripting and automation can save time and effort by automating repetitive tasks. Let’s explore how to write simple scripts and handle command line arguments using the <code>sys</code> module.</p>
-    
-        <h3 class="text-info mt-5">Writing Scripts</h3>
-    
-        <p><strong>Definition:</strong> A script is a file containing Python code that performs a specific task. Scripts can automate repetitive tasks, process data, or perform system administration tasks.</p>
-    
-        <p><strong>Syntax:</strong></p>
-    
-        <!-- Code Block for Syntax -->
-    
-        <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-    
-            <pre><code># A simple script to print "Hello, World!"
-    
-    print("Hello, World!")</code></pre>
-    
-        </div>
-    
-        <!-- Examples Section -->
-    
-        <h4 class="text-success mt-4">Examples:</h4>
-    
-        <!-- Automating File Renaming -->
-    
-        <h5>Automating File Renaming:</h5>
-    
-        <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-    
-            <pre><code>import os
-    
-    def rename_files(directory, prefix):
-    
-        for filename in os.listdir(directory):
-    
-            new_name = prefix + filename
-    
-            os.rename(os.path.join(directory, filename), os.path.join(directory, new_name))
-    
-    rename_files("/path/to/directory", "new_")</code></pre>
-    
-        </div>
-    
-        <!-- Batch Image Resizing -->
-    
-        <h5>Batch Image Resizing:</h5>
-    
-        <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-    
-            <pre><code>from PIL import Image
-    
-    import os
-    
-    def resize_images(directory, size):
-    
-        for filename in os.listdir(directory):
-    
-            if filename.endswith(".jpg"):
-    
-                img = Image.open(os.path.join(directory, filename))
-    
-                img = img.resize(size)
-    
-                img.save(os.path.join(directory, "resized_" + filename))
-    
-    resize_images("/path/to/images", (800, 600))</code></pre>
-    
-        </div>
-    
-        <!-- Automating Backup -->
-    
-        <h5>Automating Backup:</h5>
-    
-        <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-    
-            <pre><code>import shutil
-    
-    import os
-    
-    def backup_files(source_dir, backup_dir):
-    
-        if not os.path.exists(backup_dir):
-    
-            os.makedirs(backup_dir)
-    
-        for filename in os.listdir(source_dir):
-    
-            shutil.copy(os.path.join(source_dir, filename), os.path.join(backup_dir, filename))
-    
-    backup_files("/path/to/source", "/path/to/backup")</code></pre>
-    
-        </div>
-    
-        <!-- Log File Analysis -->
-    
-        <h5>Log File Analysis:</h5>
-    
-        <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-    
-            <pre><code>def analyze_log(file_path):
-    
-        with open(file_path, "r") as file:
-    
-            lines = file.readlines()
-    
-            error_count = sum(1 for line in lines if "ERROR" in line)
-    
-            print(f"Total errors: {error_count}")
-    
-    analyze_log("/path/to/logfile.log")</code></pre>
-    
-        </div>
-    
-        <!-- Sending Automated Emails -->
-    
-        <h5>Sending Automated Emails:</h5>
-    
-        <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-    
-            <pre><code>import smtplib
-    
-    from email.mime.text import MIMEText
-    
-    def send_email(subject, body, to_email):
-    
-        from_email = "your_email@example.com"
-    
-        msg = MIMEText(body)
-    
-        msg["Subject"] = subject
-    
-        msg["From"] = from_email
-    
-        msg["To"] = to_email
-    
-        with smtplib.SMTP("smtp.example.com") as server:
-    
-            server.login("your_username", "your_password")
-    
-            server.sendmail(from_email, to_email, msg.as_string())
-    
-    send_email("Test Subject", "This is a test email.", "recipient@example.com")</code></pre>
-    
-        </div>
-    
-        <h3 class="text-info mt-5">Command Line Arguments</h3>
-    
-        <p><strong>Definition:</strong> Command line arguments allow you to pass information to a script from the command line. The <code>sys</code> module provides access to these arguments.</p>
-    
-        <p><strong>Syntax:</strong></p>
-    
-        <!-- Code Block for Syntax -->
-    
-        <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-    
-            <pre><code>import sys
-    
-    # Accessing command line arguments
-    
-    args = sys.argv</code></pre>
-    
-        </div>
-    
-        <h4 class="text-success mt-4">Examples:</h4>
-    
-        <!-- Simple Command Line Argument -->
-    
-        <h5>Simple Command Line Argument:</h5>
-    
-        <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-    
-            <pre><code>import sys
-    
-    if len(sys.argv) != 2:
-    
-        print("Usage: python script.py <name>")
-    
-        sys.exit(1)
-    
-    name = sys.argv[1]
-    
-    print(f"Hello, {name}!")</code></pre>
-    
-        </div>
-    
-        <!-- Multiple Command Line Arguments -->
-    
-        <h5>Multiple Command Line Arguments:</h5>
-    
-        <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-    
-            <pre><code>import sys
-    
-    if len(sys.argv) != 3:
-    
-        print("Usage: python script.py <num1> <num2>")
-    
-        sys.exit(1)
-    
-    num1 = int(sys.argv[1])
-    
-    num2 = int(sys.argv[2])
-    
-    print(f"Sum: {num1 + num2}")</code></pre>
-    
-        </div>
-    
-        <!-- File Processing with Command Line Arguments -->
-    
-        <h5>File Processing with Command Line Arguments:</h5>
-    
-        <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-    
-            <pre><code>import sys
-    
-    if len(sys.argv) != 2:
-    
-        print("Usage: python script.py <filename>")
-    
-        sys.exit(1)
-    
-    filename = sys.argv[1]
-    
-    with open(filename, "r") as file:
-    
-        content = file.read()
-    
-        print(content)</code></pre>
-    
-        </div>
-    
-        <!-- Automating Tasks with Command Line Arguments -->
-    
-        <h5>Automating Tasks with Command Line Arguments:</h5>
-    
-        <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-    
-            <pre><code>import sys
-    
-    import os
-    
-    if len(sys.argv) != 3:
-    
-        print("Usage: python script.py <source_dir> <backup_dir>")
-    
-        sys.exit(1)
-    
-    source_dir = sys.argv[1]
-    
-    backup_dir = sys.argv[2]
-    
-    if not os.path.exists(backup_dir):
-    
-        os.makedirs(backup_dir)
-    
-    for filename in os.listdir(source_dir):
-    
-        shutil.copy(os.path.join(source_dir, filename), os.path.join(backup_dir, filename))
-    
-    print("Backup completed.")</code></pre>
-    
-        </div>
-    
-        <!-- Dynamic Script Behavior with Command Line Arguments -->
-    
-        <h5>Dynamic Script Behavior with Command Line Arguments:</h5>
-    
-        <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-    
-            <pre><code>import sys
-    
-    if len(sys.argv) < 2:
-    
-        print("Usage: python script.py <option>")
-    
-        sys.exit(1)
-    
-    option = sys.argv[1]
-    
-    if option == "greet":
-    
-        print("Hello, World!")
-    
-    elif option == "farewell":
-    
-        print("Goodbye, World!")
-    
+<h5>Input Validation:</h5>
+<div class="code-box">
+    <pre><code>while True:
+    age = input("Enter your age: ")
+    if age.isdigit():
+        age = int(age)
+        break
     else:
-    
-        print("Unknown option.")</code></pre>
-    
-        </div>
-    
-    </section>
-    
-    <!-- JavaScript for Code Block Highlighting -->
-    
-    <script>
-    
-        // Toggle effect to highlight clicked code blocks and make them interactive
-    
-        document.querySelectorAll('.code-block').forEach(block => {
-    
-            block.addEventListener('click', () => {
-    
-                block.classList.toggle('bg-warning');
-    
-                block.classList.toggle('bg-light');
-    
-            });
-    
-        });
-    
-    </script>
-    
-    <!-- Bootstrap JS and dependencies -->
-    
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-    
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-
-<section id="web-scraping" class="container mt-5">
-
-    <h2 class="text-center text-primary mb-4">Basic Libraries for Specific Tasks: Web Scraping</h2>
-
-    <p class="lead text-center text-muted mb-4">Web scraping involves extracting data from websites. Python provides powerful libraries like BeautifulSoup and requests to facilitate this process.</p>
-
-    <h3 class="text-info mt-5">BeautifulSoup and Requests</h3>
-
-    <p><strong>requests</strong>: A library for making HTTP requests to fetch web pages.</p>
-
-    <p><strong>BeautifulSoup</strong>: A library for parsing HTML and XML documents and extracting data from them.</p>
-
-    <p><strong>Syntax:</strong></p>
-
-    <!-- Code Block for Syntax -->
-
-    <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-
-        <pre><code># Importing the libraries
-
-import requests
-
-from bs4 import BeautifulSoup
-
-# Making an HTTP request
-
-response = requests.get("http://example.com")
-
-# Parsing the HTML content
-
-soup = BeautifulSoup(response.content, "html.parser")</code></pre>
-
-    </div>
-
-    <h4 class="text-success mt-4">Methods:</h4>
-
-    <ul>
-
-        <li><strong>requests:</strong>
-
-            <ul>
-
-                <li><code>requests.get(url)</code>: Sends a GET request to the specified URL.</li>
-
-                <li><code>response.content</code>: Returns the content of the response.</li>
-
-                <li><code>response.status_code</code>: Returns the status code of the response.</li>
-
-            </ul>
-
-        </li>
-
-        <li><strong>BeautifulSoup:</strong>
-
-            <ul>
-
-                <li><code>BeautifulSoup(html, "html.parser")</code>: Parses the HTML content.</li>
-
-                <li><code>soup.find(tag)</code>: Finds the first occurrence of the specified tag.</li>
-
-                <li><code>soup.find_all(tag)</code>: Finds all occurrences of the specified tag.</li>
-
-                <li><code>soup.get_text()</code>: Extracts all the text from the HTML.</li>
-
-            </ul>
-
-        </li>
-
-    </ul>
-
-    <h4 class="text-success mt-4">Examples:</h4>
-
-    <!-- Fetching and Parsing a Web Page -->
-
-    <h5>Fetching and Parsing a Web Page:</h5>
-
-    <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-
-        <pre><code>import requests
-
-from bs4 import BeautifulSoup
-
-url = "http://example.com"
-
-response = requests.get(url)
-
-soup = BeautifulSoup(response.content, "html.parser")
-
-print(soup.title.text)  # Output: Example Domain</code></pre>
-
-    </div>
-
-    <!-- Extracting All Links from a Web Page -->
-
-    <h5>Extracting All Links from a Web Page:</h5>
-
-    <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-
-        <pre><code>import requests
-
-from bs4 import BeautifulSoup
-
-url = "http://example.com"
-
-response = requests.get(url)
-
-soup = BeautifulSoup(response.content, "html.parser")
-
-links = soup.find_all("a")
-
-for link in links:
-
-    print(link.get("href"))</code></pre>
-
-    </div>
-
-    <!-- Extracting Specific Data -->
-
-    <h5>Extracting Specific Data:</h5>
-
-    <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-
-        <pre><code>import requests
-
-from bs4 import BeautifulSoup
-
-url = "http://example.com"
-
-response = requests.get(url)
-
-soup = BeautifulSoup(response.content, "html.parser")
-
-heading = soup.find("h1").text
-
-print(heading)  # Output: Example Domain</code></pre>
-
-    </div>
-
-    <!-- Scraping a Table -->
-
-    <h5>Scraping a Table:</h5>
-
-    <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-
-        <pre><code>import requests
-
-from bs4 import BeautifulSoup
-
-url = "http://example.com/table"
-
-response = requests.get(url)
-
-soup = BeautifulSoup(response.content, "html.parser")
-
-table = soup.find("table")
-
-rows = table.find_all("tr")
-
-for row in rows:
-
-    cells = row.find_all("td")
-
-    for cell in cells:
-
-        print(cell.text)</code></pre>
-
-    </div>
-
-    <!-- Handling Pagination -->
-
-    <h5>Handling Pagination:</h5>
-
-    <div class="code-block bg-light p-4 rounded shadow-sm mb-4">
-
-        <pre><code>import requests
-
-from bs4 import BeautifulSoup
-
-base_url = "http://example.com/page/"
-
-for page in range(1, 6):
-
-    url = base_url + str(page)
-
-    response = requests.get(url)
-
-    soup = BeautifulSoup(response.content, "html.parser")
-
-    items = soup.find_all("div", class_="item")
-
-    for item in items:
-
-        print(item.text)</code></pre>
-
-    </div>
-
-</section>
-
-<!-- JavaScript for Code Block Highlighting -->
-
-<script>
-
-    // Toggle effect to highlight clicked code blocks and make them interactive
-
-    document.querySelectorAll('.code-block').forEach(block => {
-
-        block.addEventListener('click', () => {
-
-            block.classList.toggle('bg-warning');
-
-            block.classList.toggle('bg-light');
-        });
-
-    });
-
-</script>
-<!-- Bootstrap JS and dependencies -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <footer class="text-center">
+        print("Please enter a valid number.")
+print(f"You are {age} years old.")</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
+
+<h5>Using Input in Calculations:</h5>
+<div class="code-box">
+    <pre><code>num1 = float(input("Enter first number: "))
+num2 = float(input("Enter second number: "))
+result = num1 + num2
+print(f"The sum is: {result}")</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
+
+<h2 id="modules-libraries">Basic Modules and Libraries</h2>
+<p>Modules and libraries in Python provide additional functionality that you can use in your programs. Let’s explore how to import and use modules, and get familiar with some of Python’s standard libraries like math, random, and datetime.</p>
+
+<h3 id="importing-modules">Importing Modules</h3>
+<p>Definition: Modules are files containing Python code that can define functions, classes, and variables. Libraries are collections of modules.</p>
+<p>Syntax:</p>
+<div class="code-box">
+    <pre><code># Importing an entire module
+import module_name
+
+# Importing specific functions or classes from a module
+from module_name import function_name, class_name
+
+# Importing a module with an alias
+import module_name as alias</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
+
+<h4>Examples:</h4>
+<h5>Importing an Entire Module:</h5>
+<div class="code-box">
+    <pre><code>import math
+print(math.sqrt(16))  # Output: 4.0</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
+
+<h5>Importing Specific Functions:</h5>
+<div class="code-box">
+    <pre><code>from math import sqrt, pi
+print(sqrt(16))  # Output: 4.0
+print(pi)        # Output: 3.141592653589793</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
+
+<h5>Importing with an Alias:</h5>
+<div class="code-box">
+    <pre><code>import math as m
+print(m.sqrt(16))  # Output: 4.0</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
+
+<h5>Using a Custom Module:</h5>
+<div class="code-box">
+    <pre><code># Assuming you have a file named my_module.py with a function greet()
+from my_module import greet
+greet("Alice")</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
+
+<h5>Importing All Functions from a Module:</h5>
+<div class="code-box">
+    <pre><code>from math import *
+print(sqrt(16))  # Output: 4.0
+print(pi)        # Output: 3.141592653589793</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
+
+<h3 id="standard-libraries">Standard Libraries</h3>
+<p>Python’s standard libraries are collections of modules that come with Python and provide a wide range of functionalities.</p>
+
+<h4 id="math-library">math Library</h4>
+<p>Definition: Provides mathematical functions.</p>
+<p>Common Methods:</p>
+<ul>
+    <li><code>sqrt(x)</code>: Returns the square root of x.</li>
+    <li><code>pi</code>: The mathematical constant π.</li>
+    <li><code>sin(x)</code>, <code>cos(x)</code>, <code>tan(x)</code>: Trigonometric functions.</li>
+    <li><code>log(x)</code>: Returns the natural logarithm of x.</li>
+</ul>
+
+<h5>Examples:</h5>
+<div class="code-box">
+    <pre><code>import math
+print(math.sqrt(25))  # Output: 5.0
+print(math.pi)        # Output: 3.141592653589793
+print(math.sin(math.pi / 2))  # Output: 1.0</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
+
+<h4 id="random-library">random Library</h4>
+<p>Definition: Provides functions for generating random numbers.</p>
+<p>Common Methods:</p>
+<ul>
+    <li><code>random()</code>: Returns a random float between 0.0 and 1.0.</li>
+    <li><code>randint(a, b)</code>: Returns a random integer between a and b.</li>
+    <li><code>choice(seq)</code>: Returns a random element from the sequence seq.</li>
+    <li><code>shuffle(seq)</code>: Shuffles the sequence seq in place.</li>
+</ul>
+
+<h5>Examples:</h5>
+<div class="code-box">
+    <pre><code>import random
+print(random.random())  # Output: Random float between 0.0 and 1.0
+print(random.randint(1, 10))  # Output: Random integer between 1 and 10
+print(random.choice(['apple', 'banana', 'cherry']))  # Output: Random choice from the list
+fruits = ['apple', 'banana', 'cherry']
+random.shuffle(fruits)
+print(fruits)  # Output: Shuffled list</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
+
+<h4 id="datetime-library">datetime Library</h4>
+<p>Definition: Provides classes for manipulating dates and times.</p>
+<p>Common Methods:</p>
+<ul>
+    <li><code>datetime.now()</code>: Returns the current date and time.</li>
+    <li><code>date(year, month, day)</code>: Creates a date object.</li>
+    <li><code>time(hour, minute, second)</code>: Creates a time object.</li>
+    <li><code>timedelta(days, seconds, microseconds)</code>: Represents a duration.</li>
+</ul>
+
+<h5>Examples:</h5>
+<div class="code-box">
+    <pre><code>from datetime import datetime, date, time, timedelta
+
+# Current date and time
+now = datetime.now()
+print(now)  # Output: Current date and time
+
+# Specific date
+my_birthday = date(1990, 5, 17)
+print(my_birthday)  # Output: 1990-05-17
+
+# Specific time
+lunch_time = time(12, 30)
+print(lunch_time)  # Output: 12:30:00
+
+# Time difference
+delta = timedelta(days=5)
+print(delta)  # Output: 5 days, 0:00:00</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
+
+<h2 id="error-handling">Error Handling in Python</h2>
+<p>Error handling in Python allows you to manage and respond to exceptions (errors) that occur during program execution. This ensures your program can handle unexpected situations gracefully.</p>
+
+<h3 id="exceptions">Exceptions</h3>
+<p>Definition: Exceptions are errors detected during execution. They can be handled using try, except, finally, and raise statements.</p>
+<p>Syntax:</p>
+<div class="code-box">
+    <pre><code>try:
+    # code that might raise an exception
+except ExceptionType:
+    # code that runs if an exception occurs
+finally:
+    # code that runs no matter what (optional)</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
+
+<p>Methods:</p>
+<ul>
+    <li><code>try</code>: Block of code to test for errors.</li>
+    <li><code>except</code>: Block of code to handle the error.</li>
+    <li><code>finally</code>: Block of code that will always execute, regardless of whether an error occurred.</li>
+    <li><code>raise</code>: Used to raise an exception manually.</li>
+</ul>
+
+<h4>Examples:</h4>
+<h5>Basic Try-Except:</h5>
+<div class="code-box">
+    <pre><code>try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("Cannot divide by zero!")</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
+
+<h5>Handling Multiple Exceptions:</h5>
+<div class="code-box">
+    <pre><code>try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("Cannot divide by zero!")
+except TypeError:
+    print("Invalid type!")</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
+
+<h5>Using Finally:</h5>
+<div class="code-box">
+    <pre><code>try:
+    file = open("example.txt", "r")
+    content = file.read()
+except FileNotFoundError:
+    print("File not found!")
+finally:
+    file.close()
+    print("File closed.")</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
+
+<h5>Raising an Exception:</h5>
+<div class="code-box">
+    <pre><code>def check_age(age):
+    if age < 18:
+        raise ValueError("Age must be at least 18.")
+    return "Access granted."
+
+try:
+    print(check_age(15))
+except ValueError as e:
+    print(e)</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
+
+<h5>Custom Exception Handling:</h5>
+<div class="code-box">
+    <pre><code>class CustomError(Exception):
+    pass
+
+try:
+    raise CustomError("This is a custom error.")
+except CustomError as e:
+    print(e)</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
+
+<h4>Detailed Examples:</h4>
+<h5>Basic Try-Except with User Input:</h5>
+<div class="code-box">
+    <pre><code>try:
+    number = int(input("Enter a number: "))
+    print(f"The number is {number}")
+except ValueError:
+    print("That's not a valid number!")</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
+
+<h5>Handling Multiple Exceptions with User Input:</h5>
+<div class="code-box">
+    <pre><code>try:
+    number = int(input("Enter a number: "))
+    result = 10 / number
+    print(f"Result is {result}")
+except ValueError:
+    print("That's not a valid number!")
+except ZeroDivisionError:
+    print("Cannot divide by zero!")</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
+
+<h5>Using Finally with File:</h5>
+<div class="code-box">
+    <pre><code>try:
+    file = open("example.txt", "r")
+    content = file.read()
+    print(content)
+except FileNotFoundError:
+    print("File not found!")
+finally:
+    print("Attempted to read the file.")</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
+
+<h5>Raising an Exception (ZeroDivisionError):</h5>
+<div class="code-box">
+    <pre><code>def divide(a, b):
+    if b == 0:
+        raise ZeroDivisionError("Division by zero is not allowed.")
+    return a / b
+
+try:
+    print(divide(10, 0))
+except ZeroDivisionError as e:
+    print(e)</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
+
+<h5>Custom Exception with Negative Numbers:</h5>
+<div class="code-box">
+    <pre><code>class NegativeNumberError(Exception):
+    pass
+
+def check_positive(number):
+    if number < 0:
+        raise NegativeNumberError("Negative numbers are not allowed.")
+    return number
+
+try:
+    print(check_positive(-5))
+except NegativeNumberError as e:
+    print(e)</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
+
+<h2 id="scripting-automation">Basic Scripting and Automation</h2>
+<p>Scripting and automation can save time and effort by automating repetitive tasks. Let’s explore how to write simple scripts and handle command line arguments using the sys module.</p>
+
+<h3 id="writing-scripts">Writing Scripts</h3>
+<p>Definition: A script is a file containing Python code that performs a specific task. Scripts can automate repetitive tasks, process data, or perform system administration tasks.</p>
+<p>Syntax:</p>
+<div class="code-box">
+    <pre><code># A simple script to print "Hello, World!"
+print("Hello, World!")</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
+
+<h4>Examples:</h4>
+<h5>Automating File Renaming:</h5>
+<div class="code-box">
+    <pre><code>import os
+
+def rename_files(directory, prefix):
+    for filename in os.listdir(directory):
+        new_name = prefix + filename
+        os.rename(os.path.join(directory, filename), os.path.join(directory, new_name))
+
+rename_files("/path/to/directory", "new_")</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
+
+<h5>Batch Image Resizing:</h5>
+<div class="code-box">
+    <pre><code>from PIL import Image
+import os
+
+def resize_images(directory, size):
+    for filename in os.listdir(directory):
+        if filename.endswith(".jpg"):
+            img = Image.open(os.path.join(directory, filename))
+            img = img.resize(size)
+            img.save(os.path.join(directory, "resized_" + filename))
+
+resize_images("/path/to/images", (800, 600))</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
+
+<h5>Automating Backup:</h5>
+<div class="code-box">
+    <pre><code>import shutil
+import os
+
+def backup_files(source_dir, backup_dir):
+    if not os.path.exists(backup_dir):
+        os.makedirs(backup_dir)
+    for filename in os.listdir(source_dir):
+        shutil.copy(os.path.join(source_dir, filename), os.path.join(backup_dir, filename))
+
+backup_files("/path/to/source", "/path/to/backup")</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
+
+<h5>Log File Analysis:</h5>
+<div class="code-box">
+    <pre><code>def analyze_log(file_path):
+    with open(file_path, "r") as file:
+        lines = file.readlines()
+        error_count = sum(1 for line in lines if "ERROR" in line)
+        print(f"Total errors: {error_count}")
+
+analyze_log("/path/to/logfile.log")</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
+
+<h5>Sending Automated Emails:</h5>
+<div class="code-box">
+    <pre><code>import smtplib
+from email.mime.text import MIMEText
+
+def send_email(subject, body, to_email):
+    from_email = "your_email@example.com"
+    msg = MIMEText(body)
+    msg["Subject"] = subject
+    msg["From"] = from_email
+    msg["To"] = to_email
+
+    with smtplib.SMTP("smtp.example.com") as server:
+        server.login("your_username", "your_password")
+        server.sendmail(from_email, to_email, msg.as_string())
+
+send_email("Test Subject", "This is a test email.", "recipient@example.com")</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
+
+<h3 id="command-line-arguments">Command Line Arguments</h3>
+<p>Definition: Command line arguments allow you to pass information to a script from the command line. The sys module provides access to these arguments.</p>
+<p>Syntax:</p>
+<div class="code-box">
+    <pre><code>import sys
+# Accessing command line arguments
+args = sys.argv</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
+
+<h4>Examples:</h4>
+<h5>Simple Command Line Argument:</h5>
+<div class="code-box">
+    <pre><code>import sys
+
+if len(sys.argv) != 2:
+    print("Usage: python script.py <name>")
+    sys.exit(1)
+
+name = sys.argv[1]
+print(f"Hello, {name}!")</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
+
+<h5>Multiple Command Line Arguments:</h5>
+<div class="code-box">
+    <pre><code>import sys
+
+if len(sys.argv) != 3:
+    print("Usage: python script.py <num1> <num2>")
+    sys.exit(1)
+
+num1 = int(sys.argv[1])
+num2 = int(sys.argv[2])
+print(f"Sum: {num1 + num2}")</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
+
+<h5>File Processing with Command Line Arguments:</h5>
+<div class="code-box">
+    <pre><code>import sys
+
+if len(sys.argv) != 2:
+    print("Usage: python script.py <filename>")
+    sys.exit(1)
+
+filename = sys.argv[1]
+with open(filename, "r") as file:
+    content = file.read()
+    print(content)</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
+
+<h5>Automating Tasks with Command Line Arguments:</h5>
+<div class="code-box">
+    <pre><code>import sys
+import os
+import shutil
+
+if len(sys.argv) != 3:
+    print("Usage: python script.py <source_dir> <backup_dir>")
+    sys.exit(1)
+
+source_dir = sys.argv[1]
+backup_dir = sys.argv[2]
+
+if not os.path.exists(backup_dir):
+    os.makedirs(backup_dir)
+
+for filename in os.listdir(source_dir):
+    shutil.copy(os.path.join(source_dir, filename), os.path.join(backup_dir, filename))
+
+print("Backup completed.")</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
+
+<h5>Dynamic Script Behavior with Command Line Arguments:</h5>
+<div class="code-box">
+    <pre><code>import sys
+
+if len(sys.argv) < 2:
+    print("Usage: python script.py <option>")
+    sys.exit(1)
+
+option = sys.argv[1]
+
+if option == "greet":
+    print("Hello, World!")
+elif option == "farewell":
+    print("Goodbye, World!")
+else:
+    print("Unknown option.")</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
+    <footer class="footer">
         <div class="container">
             <p>&copy; 2023 Hacktrix - All Rights Reserved</p>
             <p>Follow us on social media for more updates.</p>
@@ -1440,20 +652,8 @@ for page in range(1, 6):
     </footer>
     <!-- JavaScript, jQuery, and Popper.js for Bootstrap functionality and smooth scrolling -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-
-        // Smooth scrolling for internal navigation
-        $('a.nav-link').click(function(event) {
-            if (this.hash !== "") {
-                event.preventDefault();
-                const hash = this.hash;
-                $('html, body').animate({
-                    scrollTop: $(hash).offset().top - 70
-                }, 800);
-            }
-        });
-    </script>
 </body>
 </html>
