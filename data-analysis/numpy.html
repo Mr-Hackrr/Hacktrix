@@ -1,57 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>What is NumPy? - An Introduction to the Power of Numerical Computing</title>
-<head>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <!-- Header Bar -->
-  <header class="header-bar">
-    <span class="brand-name">LuckyByte</span>
-    <nav class="navbar">
-      <ul class="nav-links">
-        <li class="nav-link"><a href="#intro" tabindex="0">Home</a></li>
-        <li class="nav-link"><a href="#features" tabindex="0">Features</a></li>
-        <li class="nav-link"><a href="#examples" tabindex="0">Examples</a></li>
-        <li class="nav-link"><a href="#contact" tabindex="0">Contact</a></li>
-      </ul>
-    </nav>
-    <div class="toggle-menu" onclick="toggleSidebar()">☰</div>
-  </header>
-  
-<!-- Sidebar -->
-<div id="sideMenu" class="sideMenu" role="navigation" aria-label="Sidebar Navigation">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" aria-label="Close sidebar">×</a>
-    <nav class="sidebar-nav">
-      <ul class="sidebar-links">
-        <li class="sidebar-link"><a href="#intro" tabindex="0">Understanding NumPy</a></li>
-        <li class="sidebar-link"><a href="#history" tabindex="0">NumPy History</a></li>
-        <li class="sidebar-link"><a href="#features" tabindex="0">Core Features</a></li>
-        <li class="sidebar-link"><a href="#data-types" tabindex="0">NumPy Data Types</a></li>
-        <li class="sidebar-link"><a href="#array-creation" tabindex="0">Create Arrays</a></li>
-        <li class="sidebar-link"><a href="#universal-functions" tabindex="0">Universal Functions</a></li>
-        <li class="sidebar-link"><a href="#indexing-slicing" tabindex="0">Indexing & Slicing</a></li>
-        <li class="sidebar-link"><a href="#reshaping-arrays" tabindex="0">Reshape Arrays</a></li>
-        <li class="sidebar-link"><a href="#combining-splitting-arrays" tabindex="0">Combine/Split Arrays</a></li>
-        <li class="sidebar-link"><a href="#broadcasting" tabindex="0">Broadcasting</a></li>
-        <li class="sidebar-link"><a href="#statistical-functions" tabindex="0">Statistical Functions</a></li>
-        <li class="sidebar-link"><a href="#vectorization" tabindex="0">Vectorization</a></li>
-        <li class="sidebar-link"><a href="#memory-management" tabindex="0">Memory Management</a></li>
-        <li class="sidebar-link"><a href="#use-cases" tabindex="0">Real-World Use Cases</a></li>
-        <li class="sidebar-link"><a href="#faq" tabindex="0">FAQs</a></li>
-        <li class="sidebar-link"><a href="#additional-resources" tabindex="0">Additional Resources</a></li>
-      </ul>
-    </nav>
-  </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>NumPy Tutorial - A Comprehensive Guide to Mastering Numerical Computing in Python</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <!-- Header Bar -->
+        <header class="header-bar">
+            <span class="brand-name">LuckyByte</span>
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a href="#about" class="nav-link">Home</a></li>
+                    <li><a href="#exercise" class="nav-link">Practice</a></li>
+                    <li><a href="#project" class="nav-link">Project</a></li>
+                    <li><a href="#contact" class="nav-link">Contact Us</a></li>
+                </ul>
+            </nav>
+            <div class="toggle-menu" id="toggle-menu">☰</div>
+        </header>
+        
+        <!-- Sidebar -->
+        <div id="sideMenu" class="sideMenu" role="navigation" aria-label="Sidebar Navigation">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" aria-label="Close sidebar">×</a>
+            <nav class="sidebar-nav">
+                <ul class="sidebar-links">
+                    <li class="sidebar-link"><a href="#Introduction" tabindex="0">Understanding NumPy</a></li>
+                    <li class="sidebar-link"><a href="#numpy-arrays" tabindex="0">Numpy Arrays</a></li>
+                    <li class="sidebar-link"><a href="#array-operations" tabindex="0">Array Operations</a></li>
+                    <li class="sidebar-link"><a href="#aggregation-functions" tabindex="0">Aggregation Functions</a></li>
+                    <li class="sidebar-link"><a href="#element-wise-operations" tabindex="0">Element-wise Operations</a></li>
+                    <li class="sidebar-link"><a href="#sorting-searching" tabindex="0">Sorting and Searching</a></li>
+                    <li class="sidebar-link"><a href="#array-manipulations" tabindex="0">Advanced Array Manipulations</a></li>
+                    <li class="sidebar-link"><a href="#joining-spliting" tabindex="0">Joining and Splitting Arrays</a></li>
+                    <li class="sidebar-link"><a href="#broadcasting-rules" tabindex="0">Broadcasting Rules</a></li>
+                    <li class="sidebar-link"><a href="#handling-missing" tabindex="0">Handling Missing Data</a></li>
+                    <li class="sidebar-link"><a href="#linear-algebra" tabindex="0">Basic Linear Algebra</a></li>
+                    <li class="sidebar-link"><a href="#random-number-generation" tabindex="0">Random Number Generation</a></li>
+                    <li class="sidebar-link"><a href="#data-simulation" tabindex="0">Applications in Data Simulation</a></li>
+                    <li class="sidebar-link"><a href="#faqs" tabindex="0">FAQS</a></li>
+                </ul>
+            </nav>
+        </div>
 
+
+        
 <main id="content">
-<section>
+<section id="Introduction">
 <h1>Introduction to NumPy</h1>
 
 <h2>What is NumPy?</h2>
@@ -72,7 +69,7 @@
 import numpy as np
 arr = np.array([[1, 2, 3], [4, 5, 6]])
 print(arr)</code></pre>
-<button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+<button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p>This creates a 2x3 array.</p>
 
@@ -83,7 +80,7 @@ print(arr)</code></pre>
 a = np.array([1, 2, 3])
 b = np.array([4])
 print(a + b)  # Output: [5 6 7]</code></pre>
-<button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+<button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h3>3. Fast Operations:</h3>
@@ -93,7 +90,7 @@ print(a + b)  # Output: [5 6 7]</code></pre>
 a = np.arange(1000000)
 b = np.arange(1000000)
 c = a + b  # This operation is very fast</code></pre>
-<button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+<button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h3>4. Integration with Other Libraries:</h3>
@@ -103,20 +100,20 @@ c = a + b  # This operation is very fast</code></pre>
 <h3>1. Using pip:</h3>
 <div class="code-box">
 <pre><code>pip install numpy</code></pre>
-<button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+<button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h3>2. Using conda:</h3>
 <div class="code-box">
 <pre><code>conda install numpy</code></pre>
-<button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+<button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h3>3. From Source:</h3>
 <p>Download the source code from the NumPy GitHub repository. Navigate to the directory containing the source code and run:</p>
 <div class="code-box">
 <pre><code>python setup.py install</code></pre>
-<button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+<button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h2>NumPy vs Python Lists</h2>
@@ -139,7 +136,7 @@ array2 = np.arange(size)
 start = time.time()
 result = array1 + array2
 print("NumPy array time:", time.time() - start)</code></pre>
-<button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+<button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h3>2. Memory Usage:</h3>
@@ -153,7 +150,7 @@ list1 = list(range(1000))
 array1 = np.arange(1000)
 print("Python list size:", sys.getsizeof(list1))
 print("NumPy array size:", array1.nbytes)</code></pre>
-<button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+<button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h3>3. Functionality:</h3>
@@ -165,11 +162,11 @@ import numpy as np
 array = np.array([1, 2, 3])
 print(np.mean(array))  # Output: 2.0
 print(np.std(array))   # Output: 0.816496580927726</code></pre>
-<button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+<button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 </section>
 
-<section>
+<section id="numpy-arrays">
 <h1>NumPy Arrays</h1>
 <h2>Creating Arrays</h2>
 <p>NumPy provides several functions to create arrays, each serving different purposes. Here, we'll discuss how to create arrays using <code>array()</code>, <code>zeros()</code>, <code>ones()</code>, <code>empty()</code>, and <code>arange()</code>, along with practical examples.</p>
@@ -185,7 +182,7 @@ import numpy as np
 list_data = [1, 2, 3, 4, 5]
 array_1d = np.array(list_data)
 print(array_1d)</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p>This code converts a Python list into a NumPy 1D array.</p>
 
@@ -197,7 +194,7 @@ import numpy as np
 list_of_lists = [[1, 2, 3], [4, 5, 6]]
 array_2d = np.array(list_of_lists)
 print(array_2d)</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p>This code converts a list of lists into a NumPy 2D array.</p>
 
@@ -211,7 +208,7 @@ import numpy as np
 
 array_zeros_1d = np.zeros(5)
 print(array_zeros_1d)</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p>This creates a 1D array with five zeros.</p>
 
@@ -222,7 +219,7 @@ import numpy as np
 
 array_zeros_2d = np.zeros((3, 4))
 print(array_zeros_2d)</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p>This creates a 3x4 array filled with zeros.</p>
 
@@ -236,7 +233,7 @@ import numpy as np
 
 array_ones_1d = np.ones(5)
 print(array_ones_1d)</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p>This creates a 1D array with five ones.</p>
 
@@ -247,7 +244,7 @@ import numpy as np
 
 array_ones_2d = np.ones((2, 3))
 print(array_ones_2d)</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p>This creates a 2x3 array filled with ones.</p>
 
@@ -261,7 +258,7 @@ import numpy as np
 
 array_empty_1d = np.empty(5)
 print(array_empty_1d)</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p>This creates a 1D array with uninitialized values.</p>
 
@@ -272,7 +269,7 @@ import numpy as np
 
 array_empty_2d = np.empty((2, 3))
 print(array_empty_2d)</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p>This creates a 2x3 array with uninitialized values.</p>
 
@@ -286,7 +283,7 @@ import numpy as np
 
 array_range = np.arange(10)
 print(array_range)</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p>This creates a 1D array with values from 0 to 9.</p>
 
@@ -297,7 +294,7 @@ import numpy as np
 
 array_range_step = np.arange(0, 10, 2)
 print(array_range_step)</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p>This creates a 1D array with values from 0 to 8, with a step size of 2.</p>
 
@@ -323,7 +320,7 @@ import numpy as np
 array_int = np.array([1, 2, 3, 4], dtype=np.int32)
 print(array_int)
 print(array_int.dtype)</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p>This creates an array of integers with the <code>int32</code> data type.</p>
 
@@ -335,7 +332,7 @@ import numpy as np
 array_float = np.array([1.1, 2.2, 3.3, 4.4], dtype=np.float64)
 print(array_float)
 print(array_float.dtype)</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p>This creates an array of floats with the <code>float64</code> data type.</p>
 
@@ -351,7 +348,7 @@ array_int = np.array([1, 2, 3, 4], dtype=np.int32)
 array_float = array_int.astype(np.float64)
 print(array_float)
 print(array_float.dtype)</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p>This converts an integer array to a float array.</p>
 
@@ -364,7 +361,7 @@ array_float = np.array([1.1, 2.2, 3.3, 4.4], dtype=np.float64)
 array_int = array_float.astype(np.int32)
 print(array_int)
 print(array_int.dtype)</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p>This converts a float array to an integer array, truncating the decimal part.</p>
 
@@ -393,7 +390,7 @@ import numpy as np
 array_small_int = np.array([127], dtype=np.int8)
 array_small_int += 1
 print(array_small_int)  # Output: -128 (overflow)</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h3>Loss of Precision:</h3>
@@ -405,7 +402,7 @@ import numpy as np
 array_high_precision = np.array([1.123456789], dtype=np.float64)
 array_low_precision = array_high_precision.astype(np.float32)
 print(array_low_precision)  # Output: [1.1234568]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h1>Array Shape and Dimension</h1>
@@ -419,7 +416,7 @@ import numpy as np
 
 array_1d = np.array([1, 2, 3, 4, 5])
 print(array_1d.shape)  # Output: (5,)</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p>This shows that the array has 5 elements in one dimension.</p>
 
@@ -430,7 +427,7 @@ import numpy as np
 
 array_2d = np.array([[1, 2, 3], [4, 5, 6]])
 print(array_2d.shape)  # Output: (2, 3)</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p>This indicates that the array has 2 rows and 3 columns.</p>
 
@@ -444,7 +441,7 @@ import numpy as np
 
 array_1d = np.array([1, 2, 3, 4, 5])
 print(array_1d.ndim)  # Output: 1</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p>This confirms that the array is one-dimensional.</p>
 
@@ -455,7 +452,7 @@ import numpy as np
 
 array_3d = np.array([[[1, 2], [3, 4]], [[5, 6], [7, 8]]])
 print(array_3d.ndim)  # Output: 3</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p>This shows that the array has three dimensions.</p>
 
@@ -470,7 +467,7 @@ import numpy as np
 array = np.array([1, 2, 3, 4, 5, 6])
 reshaped_array = array.reshape((2, 3))
 print(reshaped_array)</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p>This reshapes the 1D array into a 2x3 array.</p>
 
@@ -482,7 +479,7 @@ import numpy as np
 array = np.array([1, 2, 3, 4, 5, 6])
 array.resize((3, 2))
 print(array)</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p>This resizes the array to a 3x2 array, modifying the original array.</p>
 
@@ -498,7 +495,7 @@ import numpy as np
 array_2d = np.array([[1, 2, 3], [4, 5, 6]])
 flattened_array = array_2d.flatten()
 print(flattened_array)  # Output: [1 2 3 4 5 6]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h4>Example 2: Using <code>ravel()</code> method</h4>
@@ -509,7 +506,7 @@ import numpy as np
 array_2d = np.array([[1, 2, 3], [4, 5, 6]])
 raveled_array = array_2d.ravel()
 print(raveled_array)  # Output: [1 2 3 4 5 6]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h3>Expanding Dimensions:</h3>
@@ -523,7 +520,7 @@ import numpy as np
 array_1d = np.array([1, 2, 3])
 expanded_array = array_1d[:, np.newaxis]
 print(expanded_array)</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p>This adds a new axis, converting the 1D array into a 2D column vector.</p>
 
@@ -535,7 +532,7 @@ import numpy as np
 array_1d = np.array([1, 2, 3])
 expanded_array = np.expand_dims(array_1d, axis=0)
 print(expanded_array)</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p>This adds a new axis, converting the 1D array into a 2D row vector.</p>
 
@@ -552,7 +549,7 @@ import numpy as np
 array_1d = np.array([10, 20, 30, 40, 50])
 print(array_1d[0])  # Output: 10
 print(array_1d[3])  # Output: 40</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p>This accesses the first and fourth elements of the array.</p>
 
@@ -564,7 +561,7 @@ import numpy as np
 array_2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 print(array_2d[0, 1])  # Output: 2
 print(array_2d[2, 2])  # Output: 9</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p>This accesses the element in the first row, second column, and the element in the third row, third column.</p>
 
@@ -579,7 +576,7 @@ import numpy as np
 array_1d = np.array([10, 20, 30, 40, 50])
 print(array_1d[1:4])  # Output: [20 30 40]
 print(array_1d[:3])   # Output: [10 20 30]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p>This slices the array to get elements from index 1 to 3 and from the start to index 2.</p>
 
@@ -591,7 +588,7 @@ import numpy as np
 array_2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 print(array_2d[1:, 1:])  # Output: [[5 6] [8 9]]
 print(array_2d[:2, :2])  # Output: [[1 2] [4 5]]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p>This slices the array to get a sub-array from the second row and second column onwards, and another sub-array from the first two rows and columns.</p>
 
@@ -606,7 +603,7 @@ import numpy as np
 array_1d = np.array([10, 20, 30, 40, 50])
 bool_idx = array_1d > 25
 print(array_1d[bool_idx])  # Output: [30 40 50]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p>This selects elements greater than 25.</p>
 
@@ -618,7 +615,7 @@ import numpy as np
 array_2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 bool_idx = (array_2d > 2) & (array_2d < 8)
 print(array_2d[bool_idx])  # Output: [3 4 5 6 7]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p>This selects elements greater than 2 and less than 8.</p>
 
@@ -634,7 +631,7 @@ import numpy as np
 array_1d = np.array([10, 20, 30, 40, 50])
 indices = np.array([0, 2, 4])
 print(array_1d[indices])  # Output: [10 30 50]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h3>Fancy Indexing</h3>
@@ -649,7 +646,7 @@ array_2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 rows = np.array([0, 1, 2])
 cols = np.array([2, 1, 0])
 print(array_2d[rows, cols])  # Output: [3 5 7]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h2>Combining Indexing and Slicing</h2>
@@ -662,11 +659,11 @@ import numpy as np
 
 array_2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 print(array_2d[1:, [0, 2]])  # Output: [[4 6] [7 9]]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 </section>
 
-<section>
+<section id="array-operations">
 <h1>Array Operations in NumPy</h1>
 <p>NumPy provides a wide range of mathematical operations that can be performed on arrays. These operations are element-wise, meaning they are applied to each element of the array individually. Let's explore addition, subtraction, multiplication, division, and broadcasting with practical examples.</p>
 
@@ -682,7 +679,7 @@ array1 = np.array([1, 2, 3])
 array2 = np.array([4, 5, 6])
 result = array1 + array2
 print(result)  # Output: [5 7 9]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h3>Example 2: Adding two 2D arrays</h3>
@@ -694,7 +691,7 @@ array1 = np.array([[1, 2], [3, 4]])
 array2 = np.array([[5, 6], [7, 8]])
 result = np.add(array1, array2)
 print(result)  # Output: [[ 6  8] [10 12]]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h2>Subtraction</h2>
@@ -709,7 +706,7 @@ array1 = np.array([10, 20, 30])
 array2 = np.array([1, 2, 3])
 result = array1 - array2
 print(result)  # Output: [ 9 18 27]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h3>Example 2: Subtracting two 2D arrays</h3>
@@ -721,7 +718,7 @@ array1 = np.array([[10, 20], [30, 40]])
 array2 = np.array([[1, 2], [3, 4]])
 result = np.subtract(array1, array2)
 print(result)  # Output: [[ 9 18] [27 36]]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h2>Multiplication</h2>
@@ -736,7 +733,7 @@ array1 = np.array([1, 2, 3])
 array2 = np.array([4, 5, 6])
 result = array1 * array2
 print(result)  # Output: [ 4 10 18]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h3>Example 2: Multiplying two 2D arrays</h3>
@@ -748,7 +745,7 @@ array1 = np.array([[1, 2], [3, 4]])
 array2 = np.array([[5, 6], [7, 8]])
 result = np.multiply(array1, array2)
 print(result)  # Output: [[ 5 12] [21 32]]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h2>Division</h2>
@@ -763,7 +760,7 @@ array1 = np.array([10, 20, 30])
 array2 = np.array([2, 4, 5])
 result = array1 / array2
 print(result)  # Output: [5. 5. 6.]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h3>Example 2: Dividing two 2D arrays</h3>
@@ -775,7 +772,7 @@ array1 = np.array([[10, 20], [30, 40]])
 array2 = np.array([[2, 4], [5, 8]])
 result = np.divide(array1, array2)
 print(result)  # Output: [[5. 5.] [6. 5.]]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h2>Broadcasting</h2>
@@ -790,7 +787,7 @@ array = np.array([1, 2, 3])
 scalar = 2
 result = array * scalar
 print(result)  # Output: [2 4 6]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h3>Example 2: Broadcasting a 1D array to a 2D array</h3>
@@ -802,11 +799,11 @@ array_2d = np.array([[1, 2, 3], [4, 5, 6]])
 array_1d = np.array([1, 2, 3])
 result = array_2d + array_1d
 print(result)  # Output: [[ 2  4  6] [ 5  7  9]]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 </section>
 
-<section>
+<section id="aggregation-functions">
 <h1>Aggregation Functions</h1>
 <p>NumPy provides a variety of aggregation functions that allow you to perform operations like summing, averaging, finding the minimum and maximum values, and more. These functions can be applied to entire arrays or along specific axes.</p>
 
@@ -821,7 +818,7 @@ import numpy as np
 array = np.array([1, 2, 3, 4, 5])
 total_sum = np.sum(array)
 print(total_sum)  # Output: 15</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h3>Example 2: Summing elements along an axis in a 2D array</h3>
@@ -834,7 +831,7 @@ sum_along_axis0 = np.sum(array, axis=0)
 sum_along_axis1 = np.sum(array, axis=1)
 print(sum_along_axis0)  # Output: [5 7 9]
 print(sum_along_axis1)  # Output: [ 6 15]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h3>Example 3: Summing elements along both axes in a 3D array</h3>
@@ -849,7 +846,7 @@ sum_along_axis2 = np.sum(array, axis=2)
 print(sum_along_axis0)  # Output: [[ 6  8] [10 12]]
 print(sum_along_axis1)  # Output: [[ 4  6] [12 14]]
 print(sum_along_axis2)  # Output: [[ 3  7] [11 15]]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h2>Mean</h2>
@@ -863,7 +860,7 @@ import numpy as np
 array = np.array([1, 2, 3, 4, 5])
 average = np.mean(array)
 print(average)  # Output: 3.0</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h3>Example 2: Calculating the mean along an axis in a 2D array</h3>
@@ -876,7 +873,7 @@ mean_along_axis0 = np.mean(array, axis=0)
 mean_along_axis1 = np.mean(array, axis=1)
 print(mean_along_axis0)  # Output: [2.5 3.5 4.5]
 print(mean_along_axis1)  # Output: [2. 5.]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h3>Example 3: Calculating the mean along both axes in a 3D array</h3>
@@ -891,7 +888,7 @@ mean_along_axis2 = np.mean(array, axis=2)
 print(mean_along_axis0)  # Output: [[3. 4.] [5. 6.]]
 print(mean_along_axis1)  # Output: [[2. 3.] [6. 7.]]
 print(mean_along_axis2)  # Output: [[1.5 3.5] [5.5 7.5]]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h2>Min</h2>
@@ -905,7 +902,7 @@ import numpy as np
 array = np.array([1, 2, 3, 4, 5])
 minimum_value = np.min(array)
 print(minimum_value)  # Output: 1</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h3>Example 2: Finding the minimum value along an axis in a 2D array</h3>
@@ -918,7 +915,7 @@ min_along_axis0 = np.min(array, axis=0)
 min_along_axis1 = np.min(array, axis=1)
 print(min_along_axis0)  # Output: [1 2 3]
 print(min_along_axis1)  # Output: [1 4]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h3>Example 3: Finding the minimum value along both axes in a 3D array</h3>
@@ -933,7 +930,7 @@ min_along_axis2 = np.min(array, axis=2)
 print(min_along_axis0)  # Output: [[1 2] [3 4]]
 print(min_along_axis1)  # Output: [[1 2] [5 6]]
 print(min_along_axis2)  # Output: [[1 3] [5 7]]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h2>Max</h2>
@@ -947,7 +944,7 @@ import numpy as np
 array = np.array([1, 2, 3, 4, 5])
 maximum_value = np.max(array)
 print(maximum_value)  # Output: 5</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h3>Example 2: Finding the maximum value along an axis in a 2D array</h3>
@@ -960,7 +957,7 @@ max_along_axis0 = np.max(array, axis=0)
 max_along_axis1 = np.max(array, axis=1)
 print(max_along_axis0)  # Output: [4 5 6]
 print(max_along_axis1)  # Output: [3 6]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h3>Example 3: Finding the maximum value along both axes in a 3D array<h3>Example 3: Finding the maximum value along both axes in a 3D array</h3>
@@ -975,7 +972,7 @@ max_along_axis2 = np.max(array, axis=2)
 print(max_along_axis0)  # Output: [[5 6] [7 8]]
 print(max_along_axis1)  # Output: [[3 4] [7 8]]
 print(max_along_axis2)  # Output: [[2 4] [6 8]]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h2>Axis-Based Operations</h2>
@@ -991,7 +988,7 @@ sum_axis0 = np.sum(array, axis=0)  # Sum along columns
 sum_axis1 = np.sum(array, axis=1)  # Sum along rows
 print(sum_axis0)  # Output: [5 7 9]
 print(sum_axis1)  # Output: [ 6 15]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h3>Example 2: Calculating the mean along different axes</h3>
@@ -1004,7 +1001,7 @@ mean_axis0 = np.mean(array, axis=0)  # Mean along columns
 mean_axis1 = np.mean(array, axis=1)  # Mean along rows
 print(mean_axis0)  # Output: [2.5 3.5 4.5]
 print(mean_axis1)  # Output: [2. 5.]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h3>Example 3: Finding the minimum and maximum along different axes</h3>
@@ -1021,11 +1018,11 @@ print(min_axis0)  # Output: [1 2 3]
 print(max_axis0)  # Output: [4 5 6]
 print(min_axis1)  # Output: [1 4]
 print(max_axis1)  # Output: [3 6]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 </section>
 
-<section>
+<section id="element-wise-operations">
 <h1>Element-wise Operations</h1>
 
 <h2>Universal Functions (ufuncs)</h2>
@@ -1042,7 +1039,7 @@ import numpy as np
 angles = np.array([0, np.pi/2, np.pi])
 sine_values = np.sin(angles)
 print(sine_values)  # Output: [0. 1. 0.]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p>This calculates the sine of 0, π/2, and π.</p>
 
@@ -1054,7 +1051,7 @@ import numpy as np
 angles = np.array([[0, np.pi/4], [np.pi/2, np.pi]])
 sine_values = np.sin(angles)
 print(sine_values)</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p>This calculates the sine of each element in the 2D array.</p>
 
@@ -1069,7 +1066,7 @@ import numpy as np
 values = np.array([1, np.e, np.e**2])
 log_values = np.log(values)
 print(log_values)  # Output: [0. 1. 2.]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p>This calculates the natural logarithm of 1, e, and e².</p>
 
@@ -1081,7 +1078,7 @@ import numpy as np
 values = np.array([[1, 10], [100, 1000]])
 log_values = np.log(values)
 print(log_values)</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p>This calculates the natural logarithm of each element in the 2D array.</p>
 
@@ -1104,7 +1101,7 @@ try:
     log_values = np.log(values)
 except ValueError as e:
     print(e)  # Output: ValueError: invalid value encountered in log</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h3>Precision Issues</h3>
@@ -1116,11 +1113,11 @@ import numpy as np
 large_values = np.array([1e10, 1e20, 1e30])
 log_values = np.log(large_values)
 print(log_values)  # Output: [23.02585093 46.05170186 69.07755279]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 </section>
 
-<section>
+<section id="sorting-searching">
 <h1>Sorting and Searching</h1>
 
 <h2>Sorting</h2>
@@ -1133,7 +1130,7 @@ print(log_values)  # Output: [23.02585093 46.05170186 69.07755279]</code></pre>
 array = np.array([3, 1, 2, 5, 4])
 sorted_array = np.sort(array)
 print(sorted_array)  # Output: [1 2 3 4 5]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p>This sorts the elements of the array in ascending order.</p>
 
@@ -1153,7 +1150,7 @@ print(sorted_array_axis1)
 # Output:
 # [[1 2 3]
 #  [4 5 6]]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p>This sorts the array along the specified axis (0 for columns, 1 for rows).</p>
 
@@ -1170,7 +1167,7 @@ print(sorted_array)
 #   [ 4  5  6]]
 #  [[ 7  8  9]
 #   [10 11 12]]]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p>This sorts the 3D array along the third axis.</p>
 
@@ -1185,7 +1182,7 @@ import numpy as np
 array = np.array([3, 1, 2, 5, 4])
 sorted_indices = np.argsort(array)
 print(sorted_indices)  # Output: [1 2 0 4 3]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p>This returns the indices that would sort the array.</p>
 
@@ -1205,7 +1202,7 @@ print(sorted_indices_axis1)
 # Output:
 # [[1 2 0]
 #  [1 0 2]]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p>This returns the indices that would sort the array along the specified axis.</p>
 
@@ -1222,7 +1219,7 @@ print(sorted_indices)
 #   [2 1 0]]
 #  [[1 2 0]
 #   [2 1 0]]]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p>This returns the indices that would sort the 3D array along the third axis.</p>
 
@@ -1237,7 +1234,7 @@ import numpy as np
 array = np.array([1, 2, 3, 4, 5])
 indices = np.where(array > 3)
 print(indices)  # Output: (array([3, 4]),)</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p>This returns the indices of elements greater than 3.</p>
 
@@ -1250,7 +1247,7 @@ array1 = np.array([1, 2, 3, 4, 5])
 array2 = np.array([10, 20, 30, 40, 50])
 result = np.where(array1 > 3, array1, array2)
 print(result)  # Output: [10 20 30  4  5]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p>This selects elements from <code>array1</code> where the condition is true, and from <code>array2</code> where the condition is false.</p>
 
@@ -1262,12 +1259,12 @@ import numpy as np
 array = np.array([[1, 2, 3], [4, 5, 6]])
 indices = np.where(array > 3)
 print(indices)  # Output: (array([1, 1, 1]), array([0, 1, 2]))</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p>This returns the indices of elements greater than 3 in the 2D array.</p>
 </section>
 
-<section>
+<section id="array-manipulations">
 <h1>Advanced Array Manipulations</h1>
 
 <h2>Reshaping and Flattening</h2>
@@ -1286,7 +1283,7 @@ print(array_2d)
 # Output:
 # [[1 2 3]
 #  [4 5 6]]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h4>Example 2: Reshaping a 2D array to a 3D array</h4>
@@ -1300,7 +1297,7 @@ print(array_3d)
 # Output:
 # [[[1 2 3]]
 #  [[4 5 6]]]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h4>Example 3: Reshaping a 3D array to a 2D array</h4>
@@ -1316,7 +1313,7 @@ print(array_2d)
 #  [ 4  5  6]
 #  [ 7  8  9]
 #  [10 11 12]]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h3>ravel()</h3>
@@ -1330,7 +1327,7 @@ import numpy as np
 array_2d = np.array([[1, 2, 3], [4, 5, 6]])
 array_1d = array_2d.ravel()
 print(array_1d)  # Output: [1 2 3 4 5 6]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h4>Example 2: Modifying the flattened array affects the original array</h4>
@@ -1345,7 +1342,7 @@ print(array_2d)
 # Output:
 # [[99  2  3]
 #  [ 4  5  6]]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h4>Example 3: Flattening a 3D array to a 1D array</h4>
@@ -1356,7 +1353,7 @@ import numpy as np
 array_3d = np.array([[[1, 2, 3], [4, 5, 6]], [[7, 8, 9], [10, 11, 12]]])
 array_1d = array_3d.ravel()
 print(array_1d)  # Output: [ 1  2  3  4  5  6  7  8  9 10 11 12]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h3>flatten()</h3>
@@ -1370,7 +1367,7 @@ import numpy as np
 array_2d = np.array([[1, 2, 3], [4, 5, 6]])
 array_1d = array_2d.flatten()
 print(array_1d)  # Output: [1 2 3 4 5 6]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h4>Example 2: Modifying the flattened array does not affect the original array</h4>
@@ -1385,7 +1382,7 @@ print(array_2d)
 # Output:
 # [[1 2 3]
 #  [4 5 6]]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h4>Example 3: Flattening a 3D array to a 1D array</h4>
@@ -1396,7 +1393,7 @@ import numpy as np
 array_3d = np.array([[[1, 2, 3], [4, 5, 6]], [[7, 8, 9], [10, 11, 12]]])
 array_1d = array_3d.flatten()
 print(array_1d)  # Output: [ 1  2  3  4  5  6  7  8  9 10 11 12]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h2>Benefits and Use Cases</h2>
@@ -1407,7 +1404,7 @@ print(array_1d)  # Output: [ 1  2  3  4  5  6  7  8  9 10 11 12]</code></pre>
 </ul>
 </section>
 
-<section>
+<section id="joining-spliting">
 <h1>Joining and Splitting Arrays</h1>
 
 <h2>Joining Arrays</h2>
@@ -1425,7 +1422,7 @@ array1 = np.array([1, 2, 3])
 array2 = np.array([4, 5, 6])
 result = np.concatenate((array1, array2))
 print(result)  # Output: [1 2 3 4 5 6]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h4>Example 2: Concatenating 2D arrays along axis 0 (rows)</h4>
@@ -1442,7 +1439,7 @@ print(result)
 #  [3 4]
 #  [5 6]
 #  [7 8]]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h4>Example 3: Concatenating 2D arrays along axis 1 (columns)</h4>
@@ -1457,7 +1454,7 @@ print(result)
 # Output:
 # [[1 2 5 6]
 #  [3 4 7 8]]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h3>2. <code>vstack()</code></h3>
@@ -1475,7 +1472,7 @@ print(result)
 # Output:
 # [[1 2 3]
 #  [4 5 6]]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h4>Example 2: Stacking 2D arrays vertically</h4>
@@ -1492,7 +1489,7 @@ print(result)
 #  [3 4]
 #  [5 6]
 #  [7 8]]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h3>3. <code>hstack()</code></h3>
@@ -1507,7 +1504,7 @@ array1 = np.array([1, 2, 3])
 array2 = np.array([4, 5, 6])
 result = np.hstack((array1, array2))
 print(result)  # Output: [1 2 3 4 5 6]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h4>Example 2: Stacking 2D arrays horizontally</h4>
@@ -1522,7 +1519,7 @@ print(result)
 # Output:
 # [[1 2 5 6]
 #  [3 4 7 8]]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h2>Splitting Arrays</h2>
@@ -1540,7 +1537,7 @@ array = np.array([1, 2, 3, 4, 5, 6])
 result = np.split(array, 3)
 print(result)
 # Output: [array([1, 2]), array([3, 4]), array([5, 6])]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h4>Example 2: Splitting a 2D array along axis 1 (columns)</h4>
@@ -1558,7 +1555,7 @@ print(result)
 #         [5]]),
 #  array([[3],
 #         [6]])]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h4>Example 3: Splitting a 2D array along axis 0 (rows)</h4>
@@ -1573,11 +1570,11 @@ print(result)
 # [array([[1, 2, 3]]),
 #  array([[4, 5, 6]]),
 #  array([[7, 8, 9]])]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 </section>
 
-<section>
+<section id="broadcasting-rules">
   <h1>Broadcasting Rules</h1>
   <p>Broadcasting is a powerful feature in NumPy that allows you to perform element-wise operations on arrays of different shapes. When operating on two arrays, NumPy compares their shapes element-wise, starting with the trailing dimensions. It applies the following rules to determine if the shapes are compatible:</p>
   <ol>
@@ -1599,7 +1596,7 @@ array = np.array([1, 2, 3])
 scalar = 5
 result = array + scalar
 print(result)  # Output: [6 7 8]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
   </div>
   
   <h2>Example 2: Broadcasting with Different Dimensions</h2>
@@ -1617,7 +1614,7 @@ print(result)
 # Output:
 # [[11 22 33]
 #  [14 25 36]]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
   </div>
   
   <h2>Example 3: Broadcasting with Mismatched Shapes</h2>
@@ -1635,7 +1632,7 @@ print(result)
 # Output:
 # [[ 1  4  9]
 #  [ 4 10 18]]</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
   </div>
   
   <h2>Example 4: Incompatible Shapes</h2>
@@ -1652,7 +1649,7 @@ try:
     result = array_2d + array_1d
 except ValueError as e:
     print(e)  # Output: operands could not be broadcast together with shapes (2,3) (2,)</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
   </div>
   
   <h2>Benefits and Use Cases</h2>
@@ -1663,7 +1660,7 @@ except ValueError as e:
   </ul>
 </section>
 
-<section>
+<section id="handling-missing">
     <h1>Handling Missing Data</h1>
     <p>In data analysis, it's common to encounter missing or undefined data. NumPy provides several tools to handle such cases, including <code>np.nan</code>, <code>np.isnan()</code>, and <code>np.nanmean()</code>. These tools help you manage and analyze datasets with missing values effectively.</p>
     
@@ -1678,7 +1675,7 @@ except ValueError as e:
   array_with_nan = np.array([1, 2, np.nan, 4, 5])
   print(array_with_nan)
   # Output: [ 1.  2. nan  4.  5.]</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h3>Example 2: Using <code>np.nan</code> in a 2D array</h3>
@@ -1691,7 +1688,7 @@ except ValueError as e:
   # Output:
   # [[ 1.  2.  3.]
   #  [ 4. nan  6.]]</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h2>np.isnan()</h2>
@@ -1706,7 +1703,7 @@ except ValueError as e:
   nan_mask = np.isnan(array)
   print(nan_mask)
   # Output: [False False  True False False]</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h3>Example 2: Identifying missing values in a 2D array</h3>
@@ -1720,7 +1717,7 @@ print(nan_mask)
 # Output:
 # [[False False False]
 #  [False  True False]]</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h2>np.nanmean()</h2>
@@ -1734,7 +1731,7 @@ print(nan_mask)
   array = np.array([1, 2, np.nan, 4, 5])
   mean_value = np.nanmean(array)
   print(mean_value)  # Output: 3.0</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h3>Example 2: Calculating the mean along an axis in a 2D array with missing values</h3>
@@ -1747,7 +1744,7 @@ print(nan_mask)
   mean_value_axis1 = np.nanmean(array, axis=1)
   print(mean_value_axis0)  # Output: [2.5 2.  4.5]
   print(mean_value_axis1)  # Output: [2.  5.]</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h2>Use Cases</h2>
@@ -1767,7 +1764,7 @@ print(nan_mask)
   array = np.array([1, 2, np.nan, 4, 5])
   result = array + 1
   print(result)  # Output: [ 2.  3. nan  5.  6.]</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h3>Handling <code>np.nan</code> in Integer Arrays</h3>
@@ -1779,11 +1776,11 @@ print(nan_mask)
   array = np.array([1, 2, 3, 4, 5], dtype=float)
   array[2] = np.nan
   print(array)  # Output: [ 1.  2. nan  4.  5.]</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
-  </section>
+</section>
 
-  <section id="linear-algebra">
+<section id="linear-algebra">
     <h1 class="seo-friendly-heading">Linear Algebra with NumPy</h1>
 
     <h2>Basic Linear Algebra</h2>
@@ -1800,7 +1797,7 @@ array1 = np.array([1, 2, 3])
 array2 = np.array([4, 5, 6])
 dot_product = np.dot(array1, array2)
 print(dot_product)  # Output: 32</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     <p><strong>Explanation:</strong> The dot product is calculated as \(1*4 + 2*5 + 3*6 = 32\).</p>
 
@@ -1816,7 +1813,7 @@ print(dot_product)
 # Output:
 # [[19 22]
 #  [43 50]]</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     <p><strong>Explanation:</strong> The dot product (matrix multiplication) is calculated as:
     <br>
@@ -1857,7 +1854,7 @@ print(result)
 # Output:
 # [[19 22]
 #  [43 50]]</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     <p><strong>Explanation:</strong> The <code>@</code> operator performs matrix multiplication, yielding the same result as <code>np.dot()</code>.</p>
 
@@ -1873,7 +1870,7 @@ print(result)
 # Output:
 # [[19 22]
 #  [43 50]]</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     <p><strong>Explanation:</strong> <code>np.matmul()</code> performs matrix multiplication, yielding the same result as <code>np.dot()</code> and the <code>@</code> operator.</p>
 
@@ -1892,7 +1889,7 @@ print(transpose_matrix)
 # [[1 4]
 #  [2 5]
 #  [3 6]]</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     <p><strong>Explanation:</strong> The transpose of the matrix swaps rows and columns.</p>
 
@@ -1909,7 +1906,7 @@ print(transpose_array)
 #   [5 6]]
 #  [[3 4]
 #   [7 8]]]</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     <p><strong>Explanation:</strong> The <code>transpose()</code> method with specified axes rearranges the dimensions of the array.</p>
 
@@ -1925,7 +1922,7 @@ A = np.array([[3, 1], [1, 2]])
 b = np.array([9, 8])
 x = np.linalg.solve(A, b)
 print(x)  # Output: [2. 3.]</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     <p><strong>Explanation:</strong> The solution to the system of equations is found by solving:
     <br>
@@ -1954,7 +1951,7 @@ print("Eigenvectors:", eigenvectors)
 # Eigenvectors:
 # [[ 0.89442719  0.70710678]
 #  [ 0.4472136  -0.70710678]]</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     <p><strong>Explanation:</strong> The eigenvalues and eigenvectors of the matrix are calculated. The eigenvalues are 3 and 2, and the corresponding eigenvectors are \([0.89442719, 0.4472136]\) and \([0.70710678, -0.70710678]\).</p>
 
@@ -1971,7 +1968,7 @@ import numpy as np
 matrix = np.array([[1, 2], [3, 4]])
 determinant = np.linalg.det(matrix)
 print(determinant)  # Output: -2.0000000000000004</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     <p><strong>Explanation:</strong> The determinant of the matrix is calculated as \(1*4 - 2*3 = -2\).</p>
 
@@ -1989,7 +1986,7 @@ print(inverse_matrix)
 # Output:
 # [[-2.   1. ]
 #  [ 1.5 -0.5]]</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     <p><strong>Explanation:</strong> The inverse of the matrix is calculated. The product of the matrix and its inverse yields the identity matrix.</p>
 
@@ -2004,7 +2001,7 @@ import numpy as np
 matrix = np.array([[1, 2], [3, 4]])
 norm_value = np.linalg.norm(matrix)
 print(norm_value)  # Output: 5.477225575051661</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     <p><strong>Explanation:</strong> The Frobenius norm is calculated as the square root of the sum of the absolute squares of its elements:
     <br>
@@ -2028,7 +2025,7 @@ print(norm_value)  # Output: 5.477225575051661</code></pre>
 
 random_number = np.random.rand()
 print(random_number)  # Output: A random number between 0 and 1</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
 
     <h4>Example 2: Generating a 1D array of random numbers</h4>
@@ -2038,7 +2035,7 @@ import numpy as np
 
 random_array = np.random.rand(5)
 print(random_array)  # Output: An array of 5 random numbers between 0 and 1</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
 
     <h3>2. Uniform Distribution</h3>
@@ -2051,7 +2048,7 @@ import numpy as np
 
 random_number = np.random.uniform(1, 10)
 print(random_number)  # Output: A random number between 1 and 10</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
 
     <h4>Example 2: Generating a 2D array of random numbers from a uniform distribution</h4>
@@ -2062,7 +2059,7 @@ import numpy as np
 random_array = np.random.uniform(1, 10, size=(3, 3))
 print(random_array)
 # Output: A 3x3 array of random numbers between 1 and 10</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
 
     <h3>3. Normal Distribution</h3>
@@ -2075,7 +2072,7 @@ import numpy as np
 
 random_number = np.random.normal(0, 1)
 print(random_number)  # Output: A random number from a normal distribution with mean 0 and std 1</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
 
     <h4>Example 2: Generating a 1D array of random numbers from a normal distribution</h4>
@@ -2085,7 +2082,7 @@ import numpy as np
 
 random_array = np.random.normal(0, 1, size=5)
 print(random_array)  # Output: An array of 5 random numbers from a normal distribution with mean 0 and std 1</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
 
     <h2>Benefits and Use Cases</h2>
@@ -2105,7 +2102,7 @@ import numpy as np
 np.random.seed(42)
 random_number = np.random.rand()
 print(random_number)  # Output: The same random number every time you run this code</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
 
     <h3>Distribution Parameters</h3>
@@ -2116,7 +2113,7 @@ import numpy as np
 
 random_array = np.random.uniform(10, 1, size=5)  # Incorrect: low > high
 print(random_array)  # Output: An array of random numbers between 1 and 10, not 10 and 1</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
 </section>
 
@@ -2137,7 +2134,7 @@ np.random.seed(42)
 random_numbers = np.random.rand(5)
 print(random_numbers)
 # Output: [0.37454012 0.95071431 0.73199394 0.59865848 0.15601864]</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     <p>By setting the seed to 42, the sequence of random numbers generated by <code>np.random.rand(5)</code> will always be the same every time you run this code.</p>
 
@@ -2155,7 +2152,7 @@ np.random.seed(42)
 random_numbers_2 = np.random.rand(5)
 print(random_numbers_2)
 # Output: [0.37454012 0.95071431 0.73199394 0.59865848 0.15601864]</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     <p>Here, setting the seed to 42 before generating random numbers ensures that <code>random_numbers_1</code> and <code>random_numbers_2</code> are identical.</p>
 
@@ -2182,7 +2179,7 @@ np.random.seed(24)
 random_numbers_2 = np.random.rand(5)
 print(random_numbers_2)
 # Output: [0.9600173  0.69951207 0.99986799 0.30147295 0.45905478]</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
 
     <h3>Global State</h3>
@@ -2199,7 +2196,7 @@ print(random_numbers_1)
 random_numbers_2 = np.random.rand(5)
 print(random_numbers_2)
 # Output: [0.15599452 0.05808361 0.86617615 0.60111501 0.70807258]</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
 </section>
 
@@ -2226,7 +2223,7 @@ plt.title("Random Walk Simulation")
 plt.xlabel("Step")
 plt.ylabel("Position")
 plt.show()</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     <p>This code simulates a random walk of 1000 steps and plots the resulting path.</p>
 
@@ -2239,7 +2236,7 @@ import numpy as np
 np.random.seed(42)
 rolls = np.random.randint(1, 7, size=1000)
 print("First 10 rolls:", rolls[:10])</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     <p>This code simulates rolling a six-sided die 1000 times and prints the first 10 results.</p>
 
@@ -2262,7 +2259,7 @@ for _ in range(1000):
 
 confidence_interval = np.percentile(bootstrap_means, [2.5, 97.5])
 print("95% Confidence Interval for the Mean:", confidence_interval)</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     <p>This code generates 1000 bootstrap samples from the original data and calculates the 95% confidence interval for the mean.</p>
 
@@ -2282,7 +2279,7 @@ for _ in range(1000):
 
 confidence_interval = np.percentile(bootstrap_medians, [2.5, 97.5])
 print("95% Confidence Interval for the Median:", confidence_interval)</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     <p>This code generates 1000 bootstrap samples from the original data and calculates the 95% confidence interval for the median.</p>
 </section>
@@ -2316,7 +2313,7 @@ arr2 = np.random.rand(1000000)
 result = np.zeros_like(arr1)
 for i in range(len(arr1)):
     result[i] = arr1[i] + arr2[i]</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
 
     <h4>Vectorized Operation (Faster)</h4>
@@ -2330,7 +2327,7 @@ arr2 = np.random.rand(1000000)
 
 # Vectorized operation (fast)
 result = arr1 + arr2</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
 
     <h2>Memory Layout: Understanding Contiguous Arrays and the Order Parameter</h2>
@@ -2355,7 +2352,7 @@ print(arr_c)
 # Output:
 # [[0 1 2]
 #  [3 4 5]]</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
 
     <ul>
@@ -2372,7 +2369,7 @@ print(arr_f)
 # [[0 3]
 #  [1 4]
 #  [2 5]]</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
 
     <h2>Efficient Storage: Saving and Loading with <code>np.save</code> and <code>np.load</code></h2>
@@ -2395,7 +2392,7 @@ data = np.random.rand(3, 3)
 
 # Save to a file named 'data.npy'
 np.save('data', data)</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
 
     <p><strong>Saving Multiple Arrays:</strong> Use <code>np.savez</code> for multiple arrays, stored in a single <code>.npz</code> file.</p>
@@ -2409,7 +2406,7 @@ data2 = np.random.rand(2, 2)
 
 # Save multiple arrays to a file named 'dataset.npz'
 np.savez('dataset', data1=data1, data2=data2)</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
 
     <p><strong>Loading with <code>np.load</code></strong></p>
@@ -2421,7 +2418,7 @@ import numpy as np
 # Load from 'data.npy'
 loaded_data = np.load('data.npy')
 print(loaded_data)</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
 
     <p><strong>Loading Multiple Arrays (<code>*.npz</code>):</strong></p>
@@ -2435,7 +2432,7 @@ loaded_dataset = np.load('dataset.npz')
 # Access the loaded arrays by their names
 print(loaded_dataset['data1'])
 print(loaded_dataset['data2'])</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
 
     <p><strong>Tips for Efficient Storage with <code>np.save</code> and <code>np.load</code></strong></p>
@@ -2480,8 +2477,9 @@ plt.xlabel('Time')
 plt.ylabel('Amount')
 plt.title('Growth of Microbial Cultures')
 plt.show()</code></pre>
-<button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+<button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
+
 <p>This example demonstrates how vectorized operations in NumPy can efficiently compute and visualize the growth of multiple microbial cultures, showcasing the power of performance optimization in scientific computing.</p>
 </section>
 
@@ -2517,7 +2515,7 @@ print(large_array)
 
 # Reset to default display options
 np.set_printoptions(precision=8, threshold=1000, edgeitems=3)</code></pre>
-<button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+<button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h3>Shape Debugging</h3>
@@ -2541,7 +2539,7 @@ assert my_array.shape == (3, 4), "Array shape mismatch. Expected (3, 4), got {}"
 
 # Temporarily print shape for debugging
 print("Debug - Array Shape:", my_array.shape)</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
 
     <h2>Visualization with NumPy</h2>
@@ -2582,8 +2580,10 @@ ax.grid(True)
 
 # Display the plot
 plt.show()</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
+    <p><strong>Output: </strong></p>
+<img src="images/cos-img.png" alt="sin cosine Output" style="max-width:100%; height:auto;">
 
     <h2>Additional Tips for Effective Visualization</h2>
     <ul>
@@ -2620,8 +2620,10 @@ plt.ylim(15, 50)  # Set y-axis limits for better visualization
 
 # Display the plot
 plt.show()</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
+    <p><strong>Output: </strong></p>
+    <img src="images/temp-trends.png" alt="sin cosine Output" style="max-width:100%; height:auto;">
 
     <h2>Debugging and Visualization Checklist</h2>
     <h3>Debugging:</h3>
@@ -2672,7 +2674,7 @@ large_array = np.random.random((10000, 10000))
 # Dask Array (scalable, larger-than-memory)
 import dask.array as da
 large_dask_array = da.random.random((100000, 100000), chunks=(1000, 1000))</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
 
     <h2>Integration with Pandas</h2>
@@ -2702,7 +2704,7 @@ np_data = np.array([[1, 2], [3, 4]])
 # Convert to Pandas DataFrame
 df = pd.DataFrame(np_data, columns=['A', 'B'])
 print(df)</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
 
     <h2>NumPy and Cloud Computing</h2>
@@ -2762,7 +2764,7 @@ CMD ["python", "app.py"]
 
 # Step 4: Deploy on Google Cloud Run
 gcloud run deploy --image=gcr.io/your-project-id/your-image-name --platform=managed --region=your-region --allow-unauthenticated</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
 
     <h2>Additional Resources</h2>
@@ -2819,7 +2821,7 @@ def process_environmental_data(data_path):
     processed_data = (data * 2) + 5
     
     return processed_data.compute()</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
 
     <h4>deploy_cloud_run.sh (Deployment Script)</h4>
@@ -2835,7 +2837,7 @@ docker push gcr.io/your-project-id/climate-modeling-image
 
 # Deploy on Google Cloud Run
 gcloud run deploy --image=gcr.io/your-project-id/climate-modeling-image --platform=managed --region=your-region --allow-unauthenticated</code></pre>
-<button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+<button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 </section>
 
@@ -2873,7 +2875,7 @@ arr2_resized = np.resize(arr2, (3,))  # Now shape is (3,)
 # Successful operation
 result = arr1 + arr2_resized
 print(result)</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
 
     <h2>2. Dtype Errors</h2>
@@ -2906,7 +2908,7 @@ arr_int_casted = arr_int.astype(np.float64)  # Now dtype is float64
 # Successful operation
 result = arr_float + arr_int_casted
 print(result)</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
 
     <h2>3. ValueError</h2>
@@ -2936,11 +2938,12 @@ except ValueError as e:
 
 # Correct usage
 np.random.seed(42)  # Valid seed</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
 
     <p>By applying these quick solutions and adhering to the outlined best practices, you'll efficiently troubleshoot and resolve common errors in your NumPy workflows, ensuring smoother project execution.</p>
 </section>
+
 <section id="faqs">
     <h1 class="seo-friendly-heading">Frequently Asked Questions (FAQs) - NumPy</h1>
 
@@ -2990,7 +2993,7 @@ arr2 = np.array([4, 5, 6])
 # Element-wise addition
 result = arr1 + arr2
 print(result)  # Output: [5 7 9]</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
 
     <h2>5. Can I use NumPy for data analysis and machine learning?</h2>
@@ -3021,6 +3024,7 @@ print(result)  # Output: [5 7 9]</code></pre>
     <h2>8. Can I use NumPy with Python's asynchronous programming (async/await)?</h2>
     <p><strong>Answer:</strong> While NumPy itself isn't inherently asynchronous, you can use it within asynchronous Python programs. However, since NumPy operations release the Global Interpreter Lock (GIL), they can run in parallel with other Python bytecodes but not truly in parallel with other NumPy operations. For parallel computing, consider libraries like Dask or joblib.</p>
 </section>
+
   </main>
     <!-- Footer -->
     <footer class="footer">

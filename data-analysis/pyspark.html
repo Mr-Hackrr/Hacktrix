@@ -12,40 +12,41 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Header Bar -->
-  <header class="header-bar">
-    <span class="brand-name">Hacktrix</span>
-    <nav class="navbar">
-      <ul class="nav-links">
-        <li class="nav-link"><a href="#about" tabindex="0">About</a></li>
-        <li class="nav-link"><a href="#exercise" tabindex="0">Exercise</a></li>
-        <li class="nav-link"><a href="#project" tabindex="0">Project</a></li>
-        <li class="nav-link"><a href="#contact" tabindex="0">Contact Us</a></li>
-      </ul>
-    </nav>
+    <!-- Header Bar -->
+    <header class="header-bar">
+      <span class="brand-name">LuckyByte</span>
+      <nav class="navbar">
+          <ul class="nav-links">
+              <li><a href="#about" class="nav-link">Home</a></li>
+              <li><a href="#exercise" class="nav-link">Practice</a></li>
+              <li><a href="#project" class="nav-link">Project</a></li>
+              <li><a href="#contact" class="nav-link">Contact Us</a></li>
+          </ul>
+      </nav>
+      <div class="toggle-menu" id="toggle-menu">☰</div>
   </header>
-  <!-- Sidebar -->
-  <div id="sideMenu" class="sideMenu" aria-label="Sidebar Navigation">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
+
+  <div id="sideMenu" class="sideMenu" role="navigation" aria-label="Sidebar Navigation">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" aria-label="Close sidebar">×</a>
     <nav class="sidebar-nav">
-      <ul class="sidebar-links">
-        <li class="sidebar-link"><a href="#introduction-to-pyspark" tabindex="0">Introduction to PySpark</a></li>
-        <li class="sidebar-link"><a href="#pyspark-setup" tabindex="0">PySpark Setup and Installation</a></li>
-        <li class="sidebar-link"><a href="#core-concepts" tabindex="0">Core PySpark Concepts</a></li>
-        <li class="sidebar-link"><a href="#pyspark-dataframes" tabindex="0">PySpark DataFrames</a></li>
-        <li class="sidebar-link"><a href="#data-manipulation" tabindex="0">Data Manipulation in PySpark</a></li>
-        <li class="sidebar-link"><a href="#pyspark-sql" tabindex="0">PySpark SQL</a></li>
-        <li class="sidebar-link"><a href="#pyspark-mllib" tabindex="0">PySpark MLlib (Machine Learning)</a></li>
-        <li class="sidebar-link"><a href="#pyspark-streaming" tabindex="0">PySpark Streaming</a></li>
-        <li class="sidebar-link"><a href="#advanced-optimizations" tabindex="0">Advanced PySpark Optimizations</a></li>
-        <li class="sidebar-link"><a href="#project-examples" tabindex="0">PySpark Project Examples</a></li>
-        <li class="sidebar-link"><a href="#troubleshooting" tabindex="0">Troubleshooting and Best Practices</a></li>
-        <li class="sidebar-link"><a href="#interview-preparation" tabindex="0">PySpark Interview Preparation</a></li>
-        <li class="sidebar-link"><a href="#additional-resources" tabindex="0">Additional Resources and FAQs</a></li>
-      </ul>
+        <ul class="sidebar-links">
+            <li class="sidebar-link"><a href="#introduction-to-pyspark" tabindex="0">Introduction to PySpark</a></li>
+            <li class="sidebar-link"><a href="#pyspark-setup" tabindex="0">PySpark Setup and Installation</a></li>
+            <li class="sidebar-link"><a href="#core-concepts" tabindex="0">Core PySpark Concepts</a></li>
+            <li class="sidebar-link"><a href="#pyspark-dataframes" tabindex="0">PySpark DataFrames</a></li>
+            <li class="sidebar-link"><a href="#data-manipulation" tabindex="0">Data Manipulation in PySpark</a></li>
+            <li class="sidebar-link"><a href="#pyspark-sql" tabindex="0">PySpark SQL</a></li>
+            <li class="sidebar-link"><a href="#pyspark-mllib" tabindex="0">PySpark MLlib (Machine Learning)</a></li>
+            <li class="sidebar-link"><a href="#pyspark-streaming" tabindex="0">PySpark Streaming</a></li>
+            <li class="sidebar-link"><a href="#advanced-optimizations" tabindex="0">Advanced PySpark Optimizations</a></li>
+            <li class="sidebar-link"><a href="#project-examples" tabindex="0">PySpark Project Examples</a></li>
+            <li class="sidebar-link"><a href="#troubleshooting" tabindex="0">Troubleshooting and Best Practices</a></li>
+            <li class="sidebar-link"><a href="#interview-preparation" tabindex="0">PySpark Interview Preparation</a></li>
+            <li class="sidebar-link"><a href="#additional-resources" tabindex="0">Additional Resources and FAQs</a></li>
+        </ul>
     </nav>
-  </div>
-<div class="toggle-menu" onclick="openNav()">☰</div>
+</div>
+
 <!-- Content -->
 <main id="content" class="content">
   <h1 id="main-heading" class="seo-friendly-heading">Mastering PySpark for Efficient Big Data Processing and Analytics</h1>
@@ -97,7 +98,7 @@
         <pre><code class="language-bash">pip install pyspark</code></pre>
         <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
       </div>
@@ -111,7 +112,7 @@
         <pre><code class="language-bash">brew install openjdk</code></pre>
         <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
       </div>
@@ -123,7 +124,7 @@
         <pre><code class="language-bash">pip install pyspark</code></pre>
         <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
       </div>
@@ -137,7 +138,7 @@
         <pre><code class="language-bash">sudo apt-get install openjdk-8-jdk</code></pre>
         <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
       </div>
@@ -149,7 +150,7 @@
         <pre><code class="language-bash">pip install pyspark</code></pre>
         <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
       </div>
@@ -169,7 +170,7 @@
         <pre><code class="language-bash">pyspark</code></pre>
         <button class="copy-button">
             <i class="fas fa-copy"></i>
-            <span class="copy-text">Copy</span>
+            <span class="copy-text"></span>
           </button>
 
       </div>
@@ -186,7 +187,7 @@
         <pre><code class="language-bash">pyspark</code></pre>
         <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
       </div>
@@ -203,7 +204,7 @@
         <pre><code class="language-bash">pyspark</code></pre>
         <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
       </div>
@@ -218,7 +219,7 @@
     <pre><code class="language-bash">pip install notebook</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -229,7 +230,7 @@
     <pre><code class="language-bash">jupyter notebook --generate-config</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -254,7 +255,7 @@ sc = SparkContext(conf=conf)
 spark = SparkSession(sc)</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -264,7 +265,7 @@ spark = SparkSession(sc)</code></pre>
     <pre><code class="language-bash">jupyter notebook</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -279,7 +280,7 @@ df = spark.read.csv('path/to/your/csvfile.csv')
 df.show()</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -311,7 +312,7 @@ df.show()</code></pre>
 rdd2 = rdd.map(lambda x: x * 2)</code></pre>
         <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
       </div>
@@ -322,7 +323,7 @@ rdd2 = rdd.map(lambda x: x * 2)</code></pre>
 rdd2 = rdd.filter(lambda x: x % 2 == 0)</code></pre>
         <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
       </div>
@@ -333,7 +334,7 @@ rdd2 = rdd.filter(lambda x: x % 2 == 0)</code></pre>
 rdd2 = rdd.reduceByKey(lambda x, y: x + y)</code></pre>
         <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
       </div>
@@ -349,7 +350,7 @@ rdd2 = rdd.reduceByKey(lambda x, y: x + y)</code></pre>
 result = rdd.collect()</code></pre>
         <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
       </div>
@@ -360,7 +361,7 @@ result = rdd.collect()</code></pre>
 result = rdd.count()</code></pre>
         <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
       </div>
@@ -371,7 +372,7 @@ result = rdd.count()</code></pre>
 result = rdd.reduce(lambda x, y: x + y)</code></pre>
         <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
       </div>
@@ -396,7 +397,7 @@ rdd3 = rdd2.filter(lambda x: x > 4)
 result = rdd3.collect()</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -411,7 +412,7 @@ word_counts = words.map(lambda x: (x, 1)).reduceByKey(lambda x, y: x + y)
 result = word_counts.collect()</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -422,7 +423,7 @@ result = word_counts.collect()</code></pre>
 result = data.reduceByKey(lambda x, y: x + y).collect()</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -453,7 +454,7 @@ df_csv = spark.read.csv("path/to/file.csv", header=True, inferSchema=True)
 df_csv.show()</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -464,7 +465,7 @@ df_csv.show()</code></pre>
 df_json.show()</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -475,7 +476,7 @@ df_json.show()</code></pre>
 df_parquet.show()</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -492,7 +493,7 @@ df_parquet.show()</code></pre>
 df_db.show()</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -506,7 +507,7 @@ df_db.show()</code></pre>
 df_select.show()</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -517,7 +518,7 @@ df_select.show()</code></pre>
 df_filter.show()</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -528,7 +529,7 @@ df_filter.show()</code></pre>
 df_agg.show()</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -542,7 +543,7 @@ df_agg.show()</code></pre>
 df_infer.printSchema()</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -560,7 +561,7 @@ df_manual = spark.read.csv("path/to/file.csv", header=True, schema=schema)
 df_manual.printSchema()</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -577,7 +578,7 @@ df_manual_data = spark.createDataFrame(data, schema)
 df_manual_data.show()</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -593,7 +594,7 @@ df_merged = df1.union(df2)
 df_merged.show()</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -604,7 +605,7 @@ df_merged.show()</code></pre>
 df_agg.show()</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -615,7 +616,7 @@ df_agg.show()</code></pre>
 df_filter.show()</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -634,7 +635,7 @@ df_filter.show()</code></pre>
     <pre><code class="language-python">df.dropna().show()</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -644,7 +645,7 @@ df_filter.show()</code></pre>
     <pre><code class="language-python">df.fillna({'column1': 0, 'column2': 'unknown'}).show()</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -661,7 +662,7 @@ scaledData = scalerModel.transform(df)
 scaledData.show()</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -675,7 +676,7 @@ scaledData = scalerModel.transform(df)
 scaledData.show()</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -688,7 +689,7 @@ scaledData.show()</code></pre>
     <pre><code class="language-python">df.groupBy("column1").agg({"column2": "sum"}).show()</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -698,7 +699,7 @@ scaledData.show()</code></pre>
     <pre><code class="language-python">df.groupBy("column1").pivot("column2").sum("column3").show()</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -727,7 +728,7 @@ df = spark.read.csv("path/to/file.csv", header=True, inferSchema=True)
 df.createOrReplaceTempView("table_name")</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -738,7 +739,7 @@ df.createOrReplaceTempView("table_name")</code></pre>
 df2.createOrReplaceTempView("table2")</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -748,7 +749,7 @@ df2.createOrReplaceTempView("table2")</code></pre>
     <pre><code class="language-python">df.createOrReplaceTempView("different_table_name")</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -762,7 +763,7 @@ df2.createOrReplaceTempView("table2")</code></pre>
 result.show()</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -777,7 +778,7 @@ result.show()</code></pre>
 result.show()</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -788,7 +789,7 @@ result.show()</code></pre>
 result.show()</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -806,7 +807,7 @@ df_rank = df.withColumn("rank", rank().over(window_spec))
 df_rank.show()</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -820,7 +821,7 @@ df_cumsum = df.withColumn("cumulative_sum", sum("column2").over(window_spec))
 df_cumsum.show()</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -834,7 +835,7 @@ df_rolling_avg = df.withColumn("rolling_avg", avg("column2").over(window_spec))
 df_rolling_avg.show()</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -871,7 +872,7 @@ scaledData = scalerModel.transform(df)
 scaledData.show()</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -885,7 +886,7 @@ normData = normalizer.transform(df)
 normData.show()</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -902,7 +903,7 @@ indexed = indexer.fit(df).transform(df)
 indexed.show()</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -923,7 +924,7 @@ predictions = lrModel.transform(df)
 predictions.show()</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -942,7 +943,7 @@ predictions = dtModel.transform(df)
 predictions.show()</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -960,7 +961,7 @@ predictions = model.transform(df)
 predictions.show()</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -977,7 +978,7 @@ rmse = evaluator.evaluate(predictions)
 print(f"Root Mean Squared Error (RMSE): {rmse}")</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -991,7 +992,7 @@ crossval = CrossValidator(estimator=lr, estimatorParamMaps=paramGrid, evaluator=
 cvModel = crossval.fit(df)</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -1019,7 +1020,7 @@ cvModel = crossval.fit(df)</code></pre>
 from pyspark.streaming import StreamingContext</code></pre>
       <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
     </div>
@@ -1028,7 +1029,7 @@ from pyspark.streaming import StreamingContext</code></pre>
       <pre><code class="language-python">sc = SparkContext("local[2]", "NetworkWordCount")</code></pre>
       <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
     </div>
@@ -1037,7 +1038,7 @@ from pyspark.streaming import StreamingContext</code></pre>
       <pre><code class="language-python">ssc = StreamingContext(sc, 1)  # 1-second batch interval</code></pre>
       <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
     </div>
@@ -1054,7 +1055,7 @@ from pyspark.streaming import StreamingContext</code></pre>
     <pre><code class="language-python">lines = ssc.socketTextStream("localhost", 9999)</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -1067,7 +1068,7 @@ pairs = words.map(lambda word: (word, 1))
 wordCounts = pairs.reduceByKey(lambda x, y: x + y)</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -1076,7 +1077,7 @@ wordCounts = pairs.reduceByKey(lambda x, y: x + y)</code></pre>
     <pre><code class="language-python">wordCounts.pprint()</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -1091,7 +1092,7 @@ wordCounts = pairs.reduceByKey(lambda x, y: x + y)</code></pre>
       <pre><code class="language-python">windowedWordCounts = wordCounts.reduceByKeyAndWindow(lambda x, y: x + y, 30, 10)</code></pre>
       <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
     </div>
@@ -1103,7 +1104,7 @@ wordCounts = pairs.reduceByKey(lambda x, y: x + y)</code></pre>
     <pre><code class="language-python">windowedWordCounts.pprint()</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -1124,7 +1125,7 @@ wordCounts = pairs.reduceByKey(lambda x, y: x + y)</code></pre>
 kafkaStream = KafkaUtils.createStream(ssc, "localhost:2181", "spark-streaming", {"test-topic": 1})</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>
@@ -1154,7 +1155,7 @@ query = wordCounts.writeStream.outputMode("complete").format("console").start()
 query.awaitTermination()</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
-  <span class="copy-text">Copy</span>
+  <span class="copy-text"></span>
 </button>
 
   </div>

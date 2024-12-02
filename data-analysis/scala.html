@@ -12,37 +12,43 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <!-- Header Bar -->
-    <div class="header-bar">
-        <div class="brand-name">Hacktrix</div>
-        <nav>
-            <ul>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#exercise" class="nav-link">Exercise</a></li>
+    <header class="header-bar">
+        <span class="brand-name">LuckyByte</span>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-link">Home</a></li>
+                <li><a href="#exercise" class="nav-link">Practice</a></li>
                 <li><a href="#project" class="nav-link">Project</a></li>
                 <li><a href="#contact" class="nav-link">Contact Us</a></li>
             </ul>
         </nav>
-        <div class="toggle-menu">☰</div>
-    </div>
+        <div class="toggle-menu" id="toggle-menu">☰</div>
+    </header>
 
     <!-- Sidebar -->
-<!-- Sidebar -->
-<div id="sideMenu" class="sideMenu">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-    <a href="#introduction" class="nav-link">Introduction to Scala</a>
-    <a href="#getting-started" class="nav-link">Getting Started with Scala</a>
-    <a href="#scala-basics" class="nav-link">Scala Basics: Syntax and Structure</a>
-    <a href="#scala-fundamentals" class="nav-link">Scala Fundamentals</a>
-    <a href="#oop-scala" class="nav-link">Object-Oriented Programming in Scala</a>
-    <a href="#fp-scala" class="nav-link">Functional Programming in Scala</a>
-    <a href="#collections-scala" class="nav-link">Collections and Data Structures in Scala</a>
-    <a href="#advanced-scala" class="nav-link">Advanced Scala Features for Data Engineering with Apache Spark</a>
-    <a href="#scala-java-interoperability" class="nav-link">Scala and Java Interoperability</a>
-    <a href="#scala-tools-frameworks" class="nav-link">Working with Scala Tools and Frameworks</a>
-    <a href="#spark-scala" class="nav-link">Spark with Scala</a>
-    <a href="#debugging-testing-scala" class="nav-link">Debugging and Testing in Scala</a>
-</div>
+    <div id="sideMenu" class="sideMenu" role="navigation" aria-label="Sidebar Navigation">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" aria-label="Close sidebar">×</a>
+        <nav class="sidebar-nav">
+            <ul class="sidebar-links">
+                <li class="sidebar-link"><a href="#introduction" tabindex="0">Introduction to Scala</a></li>
+                <li class="sidebar-link"><a href="#getting-started" tabindex="0">Getting Started with Scala</a></li>
+                <li class="sidebar-link"><a href="#scala-basics" tabindex="0">Scala Basics: Syntax and Structure</a></li>
+                <li class="sidebar-link"><a href="#scala-fundamentals" tabindex="0">Scala Fundamentals</a></li>
+                <li class="sidebar-link"><a href="#oop-scala" tabindex="0">Object-Oriented Programming in Scala</a></li>
+                <li class="sidebar-link"><a href="#fp-scala" tabindex="0">Functional Programming in Scala</a></li>
+                <li class="sidebar-link"><a href="#collections-scala" tabindex="0">Collections and Data Structures in Scala</a></li>
+                <li class="sidebar-link"><a href="#advanced-scala" tabindex="0">Advanced Scala Features for Data Engineering with Apache Spark</a></li>
+                <li class="sidebar-link"><a href="#scala-java-interoperability" tabindex="0">Scala and Java Interoperability</a></li>
+                <li class="sidebar-link"><a href="#scala-tools-frameworks" tabindex="0">Working with Scala Tools and Frameworks</a></li>
+                <li class="sidebar-link"><a href="#spark-scala" tabindex="0">Spark with Scala</a></li>
+                <li class="sidebar-link"><a href="#debugging-testing-scala" tabindex="0">Debugging and Testing in Scala</a></li>
+            </ul>
+        </nav>
+    </div>
+
+
     <!-- Main Content -->
     <div id="content">
         <h1>Mastering Scala for Efficient Big Data Processing and Analytics</h1>

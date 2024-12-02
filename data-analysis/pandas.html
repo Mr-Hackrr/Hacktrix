@@ -6,52 +6,47 @@
   <title>Hacktrix - Mastering Pandas</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Header Bar -->
-  <div class="header-bar">
-    <span class="brand-name">Hacktrix</span>
-    <nav>
-      <ul>
-        <li><a href="#introduction" class="nav-link">Introduction</a></li>
-        <li><a href="#features" class="nav-link">Features</a></li>
-        <li><a href="#benefits" class="nav-link">Benefits</a></li>
-        <li><a href="#installation" class="nav-link">Installation</a></li>
-        <li><a href="#example" class="nav-link">Example</a></li>
-      </ul>
+    <!-- Header Bar -->
+    <header class="header-bar">
+      <span class="brand-name">LuckyByte</span>
+      <nav class="navbar">
+          <ul class="nav-links">
+              <li><a href="#about" class="nav-link">Home</a></li>
+              <li><a href="#exercise" class="nav-link">Practice</a></li>
+              <li><a href="#project" class="nav-link">Project</a></li>
+              <li><a href="#contact" class="nav-link">Contact Us</a></li>
+          </ul>
+      </nav>
+      <div class="toggle-menu" id="toggle-menu">☰</div>
+  </header>
+
+  <div id="sideMenu" class="sideMenu" role="navigation" aria-label="Sidebar Navigation">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" aria-label="Close sidebar">×</a>
+    <nav class="sidebar-nav">
+        <ul class="sidebar-links">
+            <li class="sidebar-link"><a href="#introduction" tabindex="0">Introduction to Pandas</a></li>
+            <li class="sidebar-link"><a href="#data-structures" tabindex="0">Series & DataFrames</a></li>
+            <li class="sidebar-link"><a href="#essential-tools" tabindex="0">Essential Tools for Efficient Pandas Workflow</a></li>
+            <li class="sidebar-link"><a href="#data-cleaning" tabindex="0">Data Cleaning & Preprocessing</a></li>
+            <li class="sidebar-link"><a href="#data-normalization" tabindex="0">Data Normalization & Scaling</a></li>
+            <li class="sidebar-link"><a href="#encoding-data" tabindex="0">Encoding Categorical Data</a></li>
+            <li class="sidebar-link"><a href="#data-transformation" tabindex="0">Data Transformation & Manipulation</a></li>
+            <li class="sidebar-link"><a href="#data-analysis" tabindex="0">Data Analysis & Visualization</a></li>
+            <li class="sidebar-link"><a href="#data-visualization" tabindex="0">Visualizing Data with Matplotlib/Seaborn</a></li>
+            <li class="sidebar-link"><a href="#case-study" tabindex="0">Case Study: Sales Data Analysis</a></li>
+            <li class="sidebar-link"><a href="#advanced-topics" tabindex="0">Advanced Topics and Best Practices</a></li>
+            <li class="sidebar-link"><a href="#future" tabindex="0">Future of Pandas & Data Science</a></li>
+        </ul>
     </nav>
-  </div>
-
-  <!-- Toggle Button -->
-  <div class="toggle-menu" onclick="toggleNav()">☰</div>
-
-  <div id="sideMenu" class="sideMenu">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="#introduction">Introduction to Pandas</a>
-    <a href="#key-features">Pandas Key Features</a>
-    <a href="#why-choose">Why Choose Pandas?</a>
-    <a href="#setup">Setting up Pandas</a>
-    <a href="#data-structures">Pandas Data Structures: Series & DataFrames</a>
-    <a href="#import-export">Importing & Exporting Data</a>
-    <a href="#file-formats">Handling Different File Formats</a>
-    <a href="#essential-tools">Essential Tools for Efficient Pandas Workflow</a>
-    <a href="#data-cleaning">Data Cleaning & Preprocessing</a>
-    <a href="#data-normalization">Data Normalization & Scaling</a>
-    <a href="#encoding-data">Encoding Categorical Data</a>
-    <a href="#data-transformation">Data Transformation & Manipulation</a>
-    <a href="#data-analysis">Data Analysis & Visualization</a>
-    <a href="#data-visualization">Visualizing Data with Matplotlib/Seaborn</a>
-    <a href="#case-study">Case Study: Sales Data Analysis</a>
-    <a href="#advanced-topics">Advanced Topics and Best Practices</a>
-    <a href="#future">Future of Pandas & Data Science</a>
-  </div>
+</div>
 
   <!-- Content -->
   <div id="content">
+    <section id="Introduction">
     <h1 id="introduction">Mastering Pandas for Efficient Data Manipulation and Analysis</h1>
     
     <h2 id="what-is-pandas">What is Pandas?</h2>
@@ -76,18 +71,19 @@
     <p>Install Pandas using pip:</p>
     <div class="code-box">
       <pre><code>pip install pandas</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Command</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <p>Import Pandas in your Python script:</p>
     <div class="code-box">
       <pre><code>import pandas as pd</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h2 id="example">Example: Creating a DataFrame</h2>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+import pandas as pd
 
 data = {
   'Name': ['Alice', 'Bob', 'Charlie'],
@@ -97,7 +93,7 @@ data = {
 
 df = pd.DataFrame(data)
 print(df)</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h3>Output:</h3>
@@ -127,7 +123,7 @@ print(df)</code></pre>
         </tr>
       </tbody>
     </table>
-  </div>
+    </section>
 
   <section id="data-structures">
     <h2>Understanding Data Structures in Pandas: Series and DataFrames</h2>
@@ -141,15 +137,17 @@ print(df)</code></pre>
     </ul>
     
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   data = [10, 20, 30, 40]
   series = pd.Series(data)
   print(series)</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h3>Output:</h3>
-    <pre><code>0    10
+    <pre><code>
+  0    10
   1    20
   2    30
   3    40
@@ -164,7 +162,8 @@ print(df)</code></pre>
     </ul>
     
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   data = {
     'Name': ['Alice', 'Bob', 'Charlie'],
     'Age': [25, 30, 35],
@@ -172,7 +171,7 @@ print(df)</code></pre>
   }
   df = pd.DataFrame(data)
   print(df)</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h3>Output:</h3>
@@ -263,12 +262,13 @@ print(df)</code></pre>
     <h3>Installing Pandas</h3>
     <div class="code-box">
       <pre><code>pip install pandas</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h3>Setting Up a Virtual Environment</h3>
     <div class="code-box">
-      <pre><code># Create a virtual environment
+      <pre><code>
+  # Create a virtual environment
   python -m venv myenv
   
   # Activate the virtual environment
@@ -279,7 +279,7 @@ print(df)</code></pre>
   
   # Install Pandas in the virtual environment
   pip install pandas</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h3>Choosing the Right IDE for Pandas Development</h3>
@@ -292,12 +292,12 @@ print(df)</code></pre>
     <h3>Setting Up Jupyter Notebook</h3>
     <div class="code-box">
       <pre><code>pip install notebook</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <div class="code-box">
       <pre><code>jupyter notebook</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
   </section>
 
@@ -333,34 +333,37 @@ print(df)</code></pre>
     <h5>Reading CSV Files</h5>
     <p>CSV (Comma-Separated Values) files are one of the most common data formats. Pandas makes it straightforward to read CSV files into a DataFrame.</p>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   
   # Reading a CSV file
   df_csv = pd.read_csv('data.csv')
   print(df_csv.head())</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h5>Reading Excel Files</h5>
     <p>Excel files are widely used in data analysis. Pandas can read Excel files, including specific sheets.</p>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   
   # Reading an Excel file
   df_excel = pd.read_excel('data.xlsx', sheet_name='Sheet1')
   print(df_excel.head())</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h5>Reading JSON Files</h5>
     <p>JSON (JavaScript Object Notation) is a popular format for data exchange. Pandas can easily read JSON files into a DataFrame.</p>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   
   # Reading a JSON file
   df_json = pd.read_json('data.json')
   print(df_json.head())</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h4>Writing Data to Files</h4>
@@ -368,29 +371,32 @@ print(df)</code></pre>
     
     <h5>Writing to CSV Files</h5>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   
   # Writing to a CSV file
   df.to_csv('output.csv', index=False)</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h5>Writing to Excel Files</h5>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   
   # Writing to an Excel file
   df.to_excel('output.xlsx', sheet_name='Sheet1', index=False)</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h5>Writing to JSON Files</h5>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   
   # Writing to a JSON file
   df.to_json('output.json', orient='records')</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h4>Handling Different File Formats</h4>
@@ -398,40 +404,43 @@ print(df)</code></pre>
     <h5>CSV Files</h5>
     <p>Use <code>pd.read_csv()</code> and <code>df.to_csv()</code> for reading and writing CSV files. You can specify parameters like delimiter, header, and index.</p>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   
   # Reading a CSV file
   df = pd.read_csv('data.csv', delimiter=',', header=0, index_col=0)
   
   # Writing to a CSV file
   df.to_csv('output.csv', index=False)</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h5>Excel Files</h5>
     <p>Use <code>pd.read_excel()</code> and <code>df.to_excel()</code> for Excel files. You can specify the sheet name and other parameters.</p>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   
   # Reading an Excel file
   df = pd.read_excel('data.xlsx', sheet_name='Sheet1')
   
   # Writing to an Excel file
   df.to_excel('output.xlsx', sheet_name='Sheet1', index=False)</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h5>JSON Files</h5>
     <p>Use <code>pd.read_json()</code> and <code>df.to_json()</code> for JSON files. You can specify the orientation and other parameters.</p>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   
   # Reading a JSON file
   df = pd.read_json('data.json', orient='records')
   
   # Writing to a JSON file
   df.to_json('output.json', orient='records')</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h4>Common Operations</h4>
@@ -439,7 +448,8 @@ print(df)</code></pre>
     <h5>Filtering Data</h5>
     <p>Use methods like <code>.loc[]</code> and <code>.iloc[]</code> to filter data based on conditions.</p>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   
   # Create a sample DataFrame
   df = pd.DataFrame({
@@ -450,13 +460,14 @@ print(df)</code></pre>
   # Filter data using .loc[]
   filtered_df = df.loc[df['Age'] > 30]
   print(filtered_df)</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h5>Grouping Data</h5>
     <p>Use <code>.groupby()</code> to group data and perform aggregate functions.</p>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   
   # Create a sample DataFrame
   df = pd.DataFrame({
@@ -468,13 +479,14 @@ print(df)</code></pre>
   # Group data by City and calculate mean Age
   grouped_df = df.groupby('City')['Age'].mean()
   print(grouped_df)</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h5>Merging Data</h5>
     <p>Use <code>.merge()</code> to combine DataFrames based on common columns.</p>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   
   # Create two sample DataFrames
   df1 = pd.DataFrame({
@@ -489,7 +501,7 @@ print(df)</code></pre>
   # Merge DataFrames on the 'Name' column
   merged_df = pd.merge(df1, df2, on='Name')
   print(merged_df)</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
   </section>
 
@@ -500,7 +512,8 @@ print(df)</code></pre>
     <p>Pandas can connect to various databases using libraries like SQLAlchemy for SQL databases. This allows you to read from and write to databases directly.</p>
     <h4>Example: Reading from a SQL Database</h4>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   from sqlalchemy import create_engine
   
   # Create an engine instance
@@ -509,20 +522,21 @@ print(df)</code></pre>
   # Read data from a SQL table
   df_sql = pd.read_sql('SELECT * FROM my_table', engine)
   print(df_sql.head())</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h3>URLs</h3>
     <p>Pandas can also read data directly from URLs, which is useful for accessing online datasets.</p>
     <h4>Example: Reading CSV from a URL</h4>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   
   # Reading a CSV file from a URL
   url = 'https://example.com/data.csv'
   df_url = pd.read_csv(url)
   print(df_url.head())</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
   </section>
 
@@ -532,7 +546,8 @@ print(df)</code></pre>
     <h3>Removing Duplicates</h3>
     <p>Duplicates can skew your analysis by over-representing certain data points. Removing duplicates ensures that each data point is unique.</p>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   
   # Sample DataFrame with duplicates
   data = {'Name': ['Alice', 'Bob', 'Alice', 'Charlie'],
@@ -542,13 +557,14 @@ print(df)</code></pre>
   # Removing duplicate rows
   df_cleaned = df.drop_duplicates()
   print(df_cleaned)</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h3>Converting Data Types</h3>
     <p>Ensuring that data types are appropriate for analysis is crucial. For example, numerical operations require numeric data types.</p>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   
   # Sample DataFrame with string data type
   data = {'Name': ['Alice', 'Bob', 'Charlie'],
@@ -558,13 +574,14 @@ print(df)</code></pre>
   # Converting 'Age' column to integer type
   df['Age'] = df['Age'].astype(int)
   print(df.dtypes)</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h3>Normalizing Data</h3>
     <p>Normalization scales the data to a standard range, which is essential for certain types of analysis.</p>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   from sklearn.preprocessing import MinMaxScaler
   
   # Sample DataFrame
@@ -576,7 +593,7 @@ print(df)</code></pre>
   scaler = MinMaxScaler()
   df[['Feature1', 'Feature2']] = scaler.fit_transform(df[['Feature1', 'Feature2']])
   print(df)</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h3>Handling Missing Data</h3>
@@ -584,7 +601,8 @@ print(df)</code></pre>
     
     <h4>Filling Missing Values</h4>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   
   # Sample DataFrame with missing values
   data = {'Name': ['Alice', 'Bob', 'Charlie'],
@@ -594,12 +612,13 @@ print(df)</code></pre>
   # Filling missing values with the mean of the column
   df['Age'].fillna(df['Age'].mean(), inplace=True)
   print(df)</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h4>Dropping Rows with Missing Values</h4>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   
   # Sample DataFrame with missing values
   data = {'Name': ['Alice', 'Bob', 'Charlie'],
@@ -609,7 +628,7 @@ print(df)</code></pre>
   # Dropping rows with missing values
   df_cleaned = df.dropna()
   print(df_cleaned)</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
   </section>
 
@@ -619,7 +638,8 @@ print(df)</code></pre>
     <h3>Identifying Missing Data</h3>
     <p>Use <code>isnull()</code> and <code>sum()</code> to identify missing data in your DataFrame. This helps you understand the extent of missing data in each column.</p>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   
   # Sample DataFrame with missing values
   data = {'Name': ['Alice', 'Bob', 'Charlie'],
@@ -630,7 +650,7 @@ print(df)</code></pre>
   # Identifying missing data
   missing_data = df.isnull().sum()
   print(missing_data)</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h3>Handling Missing Data</h3>
@@ -638,18 +658,20 @@ print(df)</code></pre>
     <h4>Dropping Missing Values</h4>
     <p>You can drop rows or columns with missing values using <code>dropna()</code>. This is useful when the missing data is not significant or when you have a large dataset.</p>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   
   # Dropping rows with missing values
   df_dropped = df.dropna()
   print(df_dropped)</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h4>Filling Missing Values</h4>
     <p>Alternatively, you can fill missing values using <code>fillna()</code>. This is useful when you want to retain all data points and replace missing values with a specific value or a calculated value.</p>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   
   # Filling missing values with a specific value
   df_filled = df.fillna(0)
@@ -658,7 +680,7 @@ print(df)</code></pre>
   # Filling missing values with the mean of the column
   df['Age'].fillna(df['Age'].mean(), inplace=True)
   print(df)</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
   </section>
   
@@ -670,7 +692,8 @@ print(df)</code></pre>
     
     <h4>Example: Min-Max Scaling</h4>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   from sklearn.preprocessing import MinMaxScaler
   
   # Sample data
@@ -681,7 +704,7 @@ print(df)</code></pre>
   scaler = MinMaxScaler()
   df['Scaled_Value'] = scaler.fit_transform(df[['Value']])
   print(df)</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h3>What is Data Scaling?</h3>
@@ -689,7 +712,8 @@ print(df)</code></pre>
     
     <h4>Example: Standardization</h4>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   from sklearn.preprocessing import StandardScaler
   
   # Sample data
@@ -700,7 +724,7 @@ print(df)</code></pre>
   scaler = StandardScaler()
   df['Standardized_Value'] = scaler.fit_transform(df[['Value']])
   print(df)</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
   </section>
 
@@ -716,7 +740,8 @@ print(df)</code></pre>
     <p>One-hot encoding converts categorical variables into a series of binary columns. Each category becomes a column, and the presence of the category is marked with a 1, while absence is marked with a 0.</p>
     <h5>Example: One-Hot Encoding</h5>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   
   # Sample data
   data = {'City': ['New York', 'Los Angeles', 'Chicago']}
@@ -725,14 +750,15 @@ print(df)</code></pre>
   # Applying One-Hot Encoding
   df_encoded = pd.get_dummies(df, columns=['City'])
   print(df_encoded)</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h4>Label Encoding</h4>
     <p>Label encoding assigns each unique category a numerical label. This method is simpler but can introduce ordinal relationships where none exist.</p>
     <h5>Example: Label Encoding</h5>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   from sklearn.preprocessing import LabelEncoder
   
   # Sample data
@@ -743,7 +769,7 @@ print(df)</code></pre>
   encoder = LabelEncoder()
   df['City_Encoded'] = encoder.fit_transform(df['City'])
   print(df)</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
   </section>
 
@@ -755,7 +781,8 @@ print(df)</code></pre>
     <h4>Filtering Data</h4>
     <p>Filtering allows you to subset your DataFrame based on conditions.</p>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   
   # Sample data
   data = {'Name': ['Alice', 'Bob', 'Charlie', 'David'],
@@ -765,24 +792,26 @@ print(df)</code></pre>
   # Filtering rows where Age > 30
   filtered_df = df[df['Age'] > 30]
   print(filtered_df)</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h4>Sorting Data</h4>
     <p>Sorting helps you arrange your data in a specific order.</p>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   
   # Sorting by Age in descending order
   sorted_df = df.sort_values(by='Age', ascending=False)
   print(sorted_df)</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h4>Grouping Data</h4>
     <p>Grouping is useful for aggregating data based on certain criteria.</p>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   
   # Sample data
   data = {'Name': ['Alice', 'Bob', 'Charlie', 'David'],
@@ -793,7 +822,7 @@ print(df)</code></pre>
   # Grouping by City and calculating the mean Age
   grouped_df = df.groupby('City')['Age'].mean()
   print(grouped_df)</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h3>Merging and Joining DataFrames</h3>
@@ -801,7 +830,8 @@ print(df)</code></pre>
     <h4>Merging DataFrames</h4>
     <p>Merging combines two DataFrames based on a common column or index.</p>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   
   # Sample data
   data1 = {'Name': ['Alice', 'Bob'], 'Age': [25, 30]}
@@ -812,13 +842,14 @@ print(df)</code></pre>
   # Merging on 'Name' column
   merged_df = pd.merge(df1, df2, on='Name')
   print(merged_df)</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h4>Joining DataFrames</h4>
     <p>Joining is similar to merging but is used with DataFrames that have a common index.</p>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   
   # Sample data
   data1 = {'Name': ['Alice', 'Bob'], 'Age': [25, 30]}
@@ -829,7 +860,7 @@ print(df)</code></pre>
   # Joining DataFrames
   joined_df = df1.join(df2)
   print(joined_df)</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h3>Pivoting and Melting Data</h3>
@@ -837,7 +868,8 @@ print(df)</code></pre>
     <h4>Pivoting Data</h4>
     <p>Pivoting reshapes data by turning unique values from one column into multiple columns.</p>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   
   # Sample data
   data = {'Name': ['Alice', 'Bob', 'Alice', 'Bob'],
@@ -848,13 +880,14 @@ print(df)</code></pre>
   # Pivoting the DataFrame
   pivot_df = df.pivot(index='Name', columns='Year', values='Score')
   print(pivot_df)</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h4>Melting Data</h4>
     <p>Melting is the reverse of pivoting, transforming columns into rows.</p>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   
   # Sample data
   data = {'Name': ['Alice', 'Bob'],
@@ -865,14 +898,15 @@ print(df)</code></pre>
   # Melting the DataFrame
   melted_df = pd.melt(df, id_vars=['Name'], var_name='Year', value_name='Score')
   print(melted_df)</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h3>Additional Examples</h3>
     
     <h4>Filtering with Multiple Conditions</h4>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   
   # Sample data
   data = {'Name': ['Alice', 'Bob', 'Charlie', 'David'],
@@ -882,12 +916,13 @@ print(df)</code></pre>
   # Filtering rows where Age > 30 and Name starts with 'C'
   filtered_df = df[(df['Age'] > 30) & (df['Name'].str.startswith('C'))]
   print(filtered_df)</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h4>Sorting by Multiple Columns</h4>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   
   # Sample data
   data = {'Name': ['Alice', 'Bob', 'Charlie', 'David'],
@@ -897,12 +932,13 @@ print(df)</code></pre>
   # Sorting by Age and then by Name in ascending order
   sorted_df = df.sort_values(by=['Age', 'Name'], ascending=[True, True])
   print(sorted_df)</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h4>Grouping and Aggregating Multiple Columns</h4>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   
   # Sample data
   data = {'Name': ['Alice', 'Bob', 'Charlie', 'David'],
@@ -913,7 +949,7 @@ print(df)</code></pre>
   # Grouping by City and calculating the mean and count of Age
   grouped_df = df.groupby('City').agg({'Age': ['mean', 'count']})
   print(grouped_df)</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
   </section>
 
@@ -925,7 +961,8 @@ print(df)</code></pre>
     
     <h4>Example: Aggregation Functions</h4>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   
   # Sample data
   data = {'Name': ['Alice', 'Bob', 'Charlie', 'David'],
@@ -936,7 +973,7 @@ print(df)</code></pre>
   # Calculating the mean salary
   mean_salary = df['Salary'].mean()
   print(f"Mean Salary: {mean_salary}")</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h3>Summary Statistics and Data Description</h3>
@@ -944,7 +981,8 @@ print(df)</code></pre>
     
     <h4>Example: Summary Statistics</h4>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   
   # Sample data
   data = {'Name': ['Alice', 'Bob', 'Charlie', 'David'],
@@ -955,7 +993,7 @@ print(df)</code></pre>
   # Generating summary statistics
   summary = df.describe()
   print(summary)</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h3>Working with Time Series Data</h3>
@@ -963,7 +1001,8 @@ print(df)</code></pre>
     
     <h4>Example: Time Series Data</h4>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   
   # Sample time series data
   dates = pd.date_range('20230101', periods=6)
@@ -973,7 +1012,7 @@ print(df)</code></pre>
   # Resampling data to monthly frequency
   monthly_df = df.resample('M').sum()
   print(monthly_df)</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h3>Correlation and Covariance Analysis</h3>
@@ -981,7 +1020,8 @@ print(df)</code></pre>
     
     <h4>Example: Correlation Analysis</h4>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   
   # Sample data
   data = {'A': [1, 2, 3, 4, 5],
@@ -992,12 +1032,13 @@ print(df)</code></pre>
   # Calculating correlation matrix
   correlation_matrix = df.corr()
   print(correlation_matrix)</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h4>Example: Covariance Analysis</h4>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   
   # Sample data
   data = {'A': [1, 2, 3, 4, 5],
@@ -1008,7 +1049,7 @@ print(df)</code></pre>
   # Calculating covariance matrix
   covariance_matrix = df.cov()
   print(covariance_matrix)</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
   </section>
 
@@ -1024,7 +1065,8 @@ print(df)</code></pre>
     
     <h4>Example: Rolling Window Calculations</h4>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   
   # Sample data
   data = {'Value': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
@@ -1033,12 +1075,13 @@ print(df)</code></pre>
   # Calculating rolling mean with a window size of 3
   df['Rolling_Mean'] = df['Value'].rolling(window=3).mean()
   print(df)</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h4>Example: Expanding Window Calculations</h4>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   
   # Sample data
   data = {'Value': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
@@ -1047,12 +1090,13 @@ print(df)</code></pre>
   # Calculating expanding mean
   df['Expanding_Mean'] = df['Value'].expanding().mean()
   print(df)</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h4>Example: Cumulative Operations</h4>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   
   # Sample data
   data = {'Value': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
@@ -1061,7 +1105,7 @@ print(df)</code></pre>
   # Calculating cumulative sum
   df['Cumulative_Sum'] = df['Value'].cumsum()
   print(df)</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h3>Visualization with Pandas</h3>
@@ -1082,7 +1126,7 @@ print(df)</code></pre>
   # Plotting a bar chart
   df.plot(kind='bar', x='Name', y='Salary')
   plt.show()</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h4>Output:</h4>
@@ -1100,7 +1144,8 @@ print(df)</code></pre>
     
     <h4>Example: Basic Plotting with Matplotlib</h4>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   import matplotlib.pyplot as plt
   
   # Sample data
@@ -1114,15 +1159,16 @@ print(df)</code></pre>
   plt.xlabel('Name')
   plt.ylabel('Age')
   plt.show()</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h4>Output:</h4>
-    <img src="path/to/bar_chart_output.png" alt="Bar Chart Output" style="max-width:100%; height:auto;">
+    <img src="images/img3.png" alt="Bar Chart Output" style="max-width:100%; height:auto;">
     
     <h4>Example: Line Plot</h4>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   import matplotlib.pyplot as plt
   
   # Sample data
@@ -1136,7 +1182,7 @@ print(df)</code></pre>
   plt.xlabel('Year')
   plt.ylabel('Sales')
   plt.show()</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h4>Output:</h4>
@@ -1147,7 +1193,8 @@ print(df)</code></pre>
     
     <h4>Example: Scatter Plot with Seaborn</h4>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   import seaborn as sns
   import matplotlib.pyplot as plt
   
@@ -1162,7 +1209,7 @@ print(df)</code></pre>
   plt.xlabel('Height (cm)')
   plt.ylabel('Weight (kg)')
   plt.show()</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h4>Output:</h4>
@@ -1170,7 +1217,8 @@ print(df)</code></pre>
     
     <h4>Example: Heatmap with Seaborn</h4>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   import seaborn as sns
   import matplotlib.pyplot as plt
   
@@ -1184,7 +1232,7 @@ print(df)</code></pre>
   sns.heatmap(df.corr(), annot=True, cmap='coolwarm')
   plt.title('Correlation Heatmap')
   plt.show()</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h4>Output:</h4>
@@ -1195,7 +1243,8 @@ print(df)</code></pre>
     <h4>Histogram with Matplotlib</h4>
     <p>Histograms are useful for visualizing the distribution of a dataset.</p>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   import matplotlib.pyplot as plt
   
   # Sample data
@@ -1208,7 +1257,7 @@ print(df)</code></pre>
   plt.xlabel('Age')
   plt.ylabel('Frequency')
   plt.show()</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h4>Output:</h4>
@@ -1217,7 +1266,8 @@ print(df)</code></pre>
     <h4>Box Plot with Seaborn</h4>
     <p>Box plots are useful for visualizing the distribution and identifying outliers.</p>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   import seaborn as sns
   import matplotlib.pyplot as plt
   
@@ -1232,7 +1282,7 @@ print(df)</code></pre>
   plt.xlabel('Category')
   plt.ylabel('Value')
   plt.show()</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h4>Output:</h4>
@@ -1250,18 +1300,20 @@ print(df)</code></pre>
     <h4>Step 1: Importing Data</h4>
     <p>First, we need to import the sales data from a CSV file into a Pandas DataFrame.</p>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   
   # Importing the sales data
   df = pd.read_csv('sales_data.csv')
   print(df.head())</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h4>Step 2: Data Cleaning</h4>
     <p>Next, we clean the data by handling missing values, correcting data types, and removing duplicates.</p>
     <div class="code-box">
-      <pre><code># Handling missing values
+      <pre><code>
+  # Handling missing values
   df.dropna(inplace=True)
   
   # Correcting data types
@@ -1269,24 +1321,26 @@ print(df)</code></pre>
   
   # Removing duplicates
   df.drop_duplicates(inplace=True)</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h4>Step 3: Data Transformation</h4>
     <p>We transform the data to make it suitable for analysis. This includes creating new columns, aggregating data, and normalizing values.</p>
     <div class="code-box">
-      <pre><code># Creating a new column for total sales
+      <pre><code>
+  # Creating a new column for total sales
   df['Total_Sales'] = df['Quantity'] * df['Price']
   
   # Aggregating data by product
   product_sales = df.groupby('Product')['Total_Sales'].sum().reset_index()</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h4>Step 4: Insight Generation</h4>
     <p>We generate insights by performing various analyses, such as identifying the best-selling products and peak sales periods.</p>
     <div class="code-box">
-      <pre><code># Identifying best-selling products
+      <pre><code>
+  # Identifying best-selling products
   best_selling_products = product_sales.sort_values(by='Total_Sales', ascending=False)
   print(best_selling_products.head())
   
@@ -1294,7 +1348,7 @@ print(df)</code></pre>
   df['Month'] = df['Date'].dt.month
   monthly_sales = df.groupby('Month')['Total_Sales'].sum().reset_index()
   print(monthly_sales)</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h3>Visualization and Reporting</h3>
@@ -1302,7 +1356,8 @@ print(df)</code></pre>
     <h4>Step 5: Visualizing Data</h4>
     <p>We use Matplotlib and Seaborn to create visualizations that help us understand the data better.</p>
     <div class="code-box">
-      <pre><code>import matplotlib.pyplot as plt
+      <pre><code>
+  import matplotlib.pyplot as plt
   import seaborn as sns
   
   # Plotting best-selling products
@@ -1320,7 +1375,7 @@ print(df)</code></pre>
   plt.xlabel('Month')
   plt.ylabel('Total Sales')
   plt.show()</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h4>Output:</h4>
@@ -1364,7 +1419,8 @@ print(df)</code></pre>
     <p>Vectorized operations in Pandas are designed to perform computations more efficiently by applying operations to entire arrays rather than individual elements. This can significantly speed up your data processing tasks.</p>
     <h5>Example: Vectorized Operations</h5>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   
   # Sample data
   data = {'A': [1, 2, 3, 4, 5]}
@@ -1373,14 +1429,15 @@ print(df)</code></pre>
   # Vectorized operation to square each element
   df['A_squared'] = df['A'] ** 2
   print(df)</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h4>2. Efficient Data Storage with Categoricals</h4>
     <p>Using categorical data types can reduce memory usage and improve performance, especially when dealing with columns that have a limited number of unique values.</p>
     <h5>Example: Using Categoricals</h5>
     <div class="code-box">
-      <pre><code>import pandas as pd
+      <pre><code>
+  import pandas as pd
   
   # Sample data
   data = {'City': ['New York', 'Los Angeles', 'Chicago', 'New York', 'Chicago']}
@@ -1389,14 +1446,15 @@ print(df)</code></pre>
   # Converting to categorical data type
   df['City'] = df['City'].astype('category')
   print(df.info())</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h4>3. Leveraging Dask for Large Datasets</h4>
     <p>Dask is a parallel computing library that scales Pandas workflows to larger-than-memory datasets. It allows you to work with large datasets by breaking them into smaller, manageable chunks and processing them in parallel.</p>
     <h5>Example: Using Dask with Pandas</h5>
     <div class="code-box">
-      <pre><code>import dask.dataframe as dd
+      <pre><code>
+  import dask.dataframe as dd
   
   # Reading a large CSV file with Dask
   df = dd.read_csv('large_data.csv')
@@ -1404,7 +1462,7 @@ print(df)</code></pre>
   # Performing operations on the Dask DataFrame
   result = df.groupby('column_name').mean().compute()
   print(result)</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h3>Additional Tips for Optimizing Pandas Performance</h3>
@@ -1415,28 +1473,30 @@ print(df)</code></pre>
     <div class="code-box">
       <pre><code># Example of using apply() sparingly
   df['A_squared'] = df['A'].apply(lambda x: x ** 2)</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h4>5. Optimize Memory Usage</h4>
     <p>Monitor and optimize memory usage by using appropriate data types and avoiding unnecessary copies of DataFrames.</p>
     <h5>Example: Optimizing Memory Usage</h5>
     <div class="code-box">
-      <pre><code># Example of optimizing memory usage
+      <pre><code>
+  # Example of optimizing memory usage
   df['A'] = df['A'].astype('int32')</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
     <h4>6. Use Chunking for Large Files</h4>
     <p>When dealing with large files, read them in chunks to avoid memory overload.</p>
     <h5>Example: Reading a Large File in Chunks</h5>
     <div class="code-box">
-      <pre><code># Example of reading a large file in chunks
+      <pre><code>
+  # Example of reading a large file in chunks
   chunk_size = 10000
   chunks = pd.read_csv('large_data.csv', chunksize=chunk_size)
   for chunk in chunks:
       process(chunk)</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
   </section>
 
@@ -1452,52 +1512,14 @@ print(df)</code></pre>
     </ul>
   </section>
 
-  <section id="future">
-    <h2>Future of Pandas and Emerging Trends in Data Science</h2>
-    
-    <h3>Upcoming Features and Releases</h3>
-    <p>Pandas continues to evolve with new features and improvements aimed at enhancing performance and usability. Some of the upcoming features include:</p>
-    <ul>
-      <li><strong>Enhanced Performance:</strong> Ongoing efforts to optimize performance, especially for large datasets, through better memory management and faster computation.</li>
-      <li><strong>Improved Integration with Other Libraries:</strong> Enhancements to ensure seamless integration with other data science libraries like Dask, NumPy, and Scikit-learn.</li>
-      <li><strong>New Data Manipulation Functions:</strong> Introduction of new functions to simplify complex data manipulation tasks, making it easier for users to handle and analyze data.</li>
-    </ul>
-    
-    <h3>Integrations with Other Tools (AI, Big Data, etc.)</h3>
-    <p>Pandas is increasingly being integrated with other tools and technologies to expand its capabilities:</p>
-    <ul>
-      <li><strong>AI and Machine Learning:</strong> Integration with machine learning libraries such as Scikit-learn and TensorFlow allows for more sophisticated data analysis and model building.</li>
-      <li><strong>Big Data:</strong> Tools like Dask and Apache Spark are being used alongside Pandas to handle large datasets that do not fit into memory, enabling scalable data processing.</li>
-      <li><strong>Data Visualization:</strong> Enhanced compatibility with visualization libraries like Matplotlib and Seaborn for creating more informative and interactive visualizations.</li>
-    </ul>
-    
-    <h3>Staying Updated in the Field</h3>
-    <p>To stay current with the latest developments in Pandas and data science, consider the following strategies:</p>
-    <ul>
-      <li><strong>Follow Official Channels:</strong> Keep an eye on the official Pandas GitHub repository and mailing list for updates on new releases and features.</li>
-      <li><strong>Join Data Science Communities:</strong> Participate in communities like Kaggle, Stack Overflow, and Reddit to engage with other data scientists and stay informed about the latest trends and best practices.</li>
-      <li><strong>Continuous Learning:</strong> Enroll in online courses, attend webinars, and read blogs and research papers to continuously expand your knowledge and skills.</li>
-    </ul>
-    
-    <h3>Emerging Trends in Data Science</h3>
-    <ul>
-      <li><strong>Automated Machine Learning (AutoML):</strong> Tools like AutoML are making it easier to build and deploy machine learning models without extensive manual tuning.</li>
-      <li><strong>Explainable AI (XAI):</strong> There is a growing focus on making AI models more interpretable and transparent, helping users understand how decisions are made.</li>
-      <li><strong>Edge Computing:</strong> Processing data closer to where it is generated (at the edge) is becoming more prevalent, reducing latency and bandwidth usage.</li>
-      <li><strong>Data Privacy and Ethics:</strong> With increasing data regulations, there is a stronger emphasis on data privacy, security, and ethical considerations in data science.</li>
-    </ul>
-    
-    <h3>Best Practices for Staying Updated</h3>
-    <ul>
-      <li><strong>Subscribe to Newsletters:</strong> Sign up for newsletters from reputable data science sources to receive regular updates.</li>
-      <li><strong>Attend Conferences and Meetups:</strong> Participate in industry conferences and local meetups to network with professionals and learn about the latest advancements.</li>
-      <li><strong>Follow Influential Figures:</strong> Follow influential data scientists and researchers on social media platforms like Twitter and LinkedIn.</li>
-    </ul>
-  </section>
+
+  </div>
 
 <footer class="footer">
 <p> 2024 Hacktrix. All rights reserved.</p>
 </footer>
+
 <script src="script.js"></script>
+
 </body>
 </html>
