@@ -49,7 +49,6 @@ h1 {
     line-height: var(--line-height);
     background-color: var(--background-color);
     color: var(--text-color);
-    scroll-behavior: smooth; /* Smooth Scrolling */
   }
   
   /* Header Bar Styles */
@@ -152,6 +151,10 @@ h1 {
     padding-top: var(--spacing-lg);
     box-shadow: var(--box-shadow);
   }
+
+  .sideMenu a {
+    scroll-behavior: smooth;
+  }
   /* .sideMenu.scrolled {
     top: 0;
     height: 100%;
@@ -199,47 +202,88 @@ h1 {
     margin-left: 300px; /* Match the fixed width of the sidebar */
   }
 
-  /* Updated Code Box Styles with Reduced Gap */
+  /* Enhanced Code Box Design */
 
 .code-box {
   /* Background and Border */
-  background-color: #f7f7f7;
-  border: 1px solid #ccc;
-  border-radius: var(--border-radius);
+  background-color: #f9f9f9; /* Light gray background */
+  border: 1px solid #dde0e3; /* Soft gray border */
+  border-radius: 8px; /* Rounded corners with increased radius */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 0 0 6px rgba(0, 0, 0, 0.03); /* Enhanced shadow for depth */
 
-  /* Padding and Margin (Updated for reduced gap) */
-  padding: var(--spacing-sm); /* Reduced padding from var(--spacing-lg) to var(--spacing-sm) */
-  margin: var(--spacing-sm) 0; /* Reduced margin from var(--spacing-lg) to var(--spacing-sm) */
+  /* Padding and Margin */
+  padding: 24px; /* Increased padding for more spacious content */
+  margin: 16px 0; /* Adjusted margin for better spacing between code boxes */
 
-  /* Typography */
-  font-family: 'Consolas', 'Monaco', monospace;
-  font-size: 16px;
-  line-height: 1.4; /* Reduced line height from 1.8 to 1.4 */
-
-  /* Shadows and Depth */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 0 6px rgba(0, 0, 0, 0.05);
+  /* Typography (inherited from previous styles) */
 
   /* Additional Styles */
   position: relative;
   overflow-x: auto;
+
+  /* New Design Elements */
+  border-top: 4px solid #66d9ef; /* Colored top border for accent */
+  background-image: linear-gradient(to bottom, #f9f9f9, #f7f7f7); /* Subtle gradient for depth */
 }
 
-.code-box pre {
-  margin: 0;
-  padding: 0;
-  background-color: transparent;
-  border: none;
+/* Code Box Header (Optional, if you have a header within .code-box) */
+
+.code-box .header {
+  background-color: #eee;
+  padding: 8px 16px;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 16px;
+  font-weight: bold;
+  font-size: 14px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
-.code-box code {
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit; /* Inherit reduced line height */
-  color: #333;
+/* Code Block (pre, code) within .code-box (inherited from previous styles) */
+
+/* Syntax Highlighting Colors (inherited from previous styles) */
+
+/* Additional Design Elements for Enhanced Readability */
+
+.code-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #66d9ef;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.code-box::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #dde0e3;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
 
-  
+
+  .code-box pre {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+  }
+
+  .code-box code {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit; /* Inherit reduced line height */
+    color: #333;
+  }
   .copy-button {
     position: absolute;
     top: var(--spacing-xs);
@@ -498,4 +542,107 @@ h1 {
 
 .hljs-strong {
   font-weight: bold;
+}
+
+
+/* Media Queries */
+
+/* Tablets (portrait and landscape) */
+@media (max-width: 1024px) {
+  .header-bar {
+    padding: var(--spacing-sm);
+    height: 60px;
+  }
+
+  .header-bar .brand-name {
+    font-size: 22px;
+    padding-left: 40px;
+  }
+
+  .header-bar nav ul li a {
+    font-size: 16px;
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+
+  .sideMenu.show {
+    width: 250px;
+  }
+
+  #content.shifted {
+    margin-left: 250px;
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+
+  .code-box {
+    padding: 20px;
+  }
+}
+
+/* Mobile Devices (portrait and landscape) */
+@media (max-width: 768px) {
+  .header-bar {
+    padding: var(--spacing-xs);
+    height: 60px;
+  }
+
+  .header-bar .brand-name {
+    padding-left: 40px;
+  }
+
+  .header-bar nav ul li a {
+    font-size: 14px;
+    padding: var(--spacing-xs);
+  }
+
+  .sideMenu.show {
+    width: 200px;
+  }
+
+  #content.shifted {
+    margin-left: 0;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  .code-box {
+    padding: 16px;
+  }
+}
+
+/* Small Mobile Devices (portrait) */
+@media (max-width: 480px) {
+  .header-bar {
+    padding: var(--spacing-xs);
+    height: 60px;
+  }
+
+  .header-bar .brand-name {
+    font-size: 16px;
+  }
+
+  .header-bar nav ul li a {
+    font-size: 12px;
+    padding: var(--spacing-xs);
+  }
+
+  .sideMenu.show {
+    width: 150px;
+  }
+
+  #content.shifted {
+    margin-left: 150px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .code-box {
+    padding: 12px;
+  }
 }
