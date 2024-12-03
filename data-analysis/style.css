@@ -26,6 +26,23 @@
   *::before, *::after {
     box-sizing: border-box;
   }
+
+  /* Custom Main Heading Styles (h1) */
+
+h1 {
+  font-size: 48px; /* Increased font size for prominence */
+  color: var(--accent-color); /* Using accent color for highlight */
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-md); /* Added margin bottom for spacing */
+  font-weight: bold; /* Ensuring bold font weight */
+  text-align: center; /* Centering the main heading */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Adding subtle text shadow for depth */
+  padding: var(--spacing-md) 0; /* Adding vertical padding for better spacing */
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color)); /* Gradient background for visual appeal */
+  -webkit-background-clip: text; /* Clipping background to text for a nicer effect */
+  -webkit-text-fill-color: transparent; /* Making text color transparent to show gradient */
+}
+
   
   body, html {
     font-family: var(--font-family);
@@ -181,24 +198,47 @@
   #content.shifted { /* Updated class name for consistency */
     margin-left: 300px; /* Match the fixed width of the sidebar */
   }
-  
-  /* Code Box Styles */
-  .code-box {
-    background-color: #eef4ff;
-    border: 1px solid #d3e3ff;
-    padding: var(--spacing-md);
-    margin: var(--spacing-md) 0;
-    font-family: 'Courier New', monospace;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    position: relative;
-  }
-  
-  .code-box pre {
-    margin: 0;
-    overflow-x: auto;
-    color: var(--primary-color);
-  }
+
+  /* Updated Code Box Styles with Reduced Gap */
+
+.code-box {
+  /* Background and Border */
+  background-color: #f7f7f7;
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+
+  /* Padding and Margin (Updated for reduced gap) */
+  padding: var(--spacing-sm); /* Reduced padding from var(--spacing-lg) to var(--spacing-sm) */
+  margin: var(--spacing-sm) 0; /* Reduced margin from var(--spacing-lg) to var(--spacing-sm) */
+
+  /* Typography */
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: 16px;
+  line-height: 1.4; /* Reduced line height from 1.8 to 1.4 */
+
+  /* Shadows and Depth */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 0 6px rgba(0, 0, 0, 0.05);
+
+  /* Additional Styles */
+  position: relative;
+  overflow-x: auto;
+}
+
+.code-box pre {
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+}
+
+.code-box code {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit; /* Inherit reduced line height */
+  color: #333;
+}
+
+
   
   .copy-button {
     position: absolute;
@@ -416,3 +456,46 @@
     margin-left: 300px; /* Match the fixed width of the sidebar */
   }
   
+/* style.css, updated with Highlight.js colors */
+
+/* Default Highlight.js colors, feel free to customize */
+.hljs {
+  background: #f9f9f9; /* Light gray background */
+  color: #333; /* Darker text color */
+}
+
+/* Colors for different elements */
+.hljs-keyword,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-id,
+.hljs-selector-tag,
+.hljs-title,
+.hljs-section,
+.hljs-subst {
+  color: #009688; /* Teal color for keywords and selectors */
+}
+
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-number,
+.hljs-regexp {
+  color: #FFC107; /* Amber color for strings, symbols, etc. */
+}
+
+.hljs-comment,
+.hljs-quote,
+.hljs-template-tag,
+.hljs-deletion {
+  color: #666; /* Dark gray for comments */
+  font-style: italic;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}

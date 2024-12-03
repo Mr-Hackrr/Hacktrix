@@ -191,6 +191,17 @@ document.querySelectorAll('#sideMenu a').forEach(anchor => {
   });
 });
 
+// script.js, updated to apply Highlight.js
+
+// Initialize Highlight.js on all <pre><code> blocks
+document.addEventListener("DOMContentLoaded", function() {
+  // Apply Highlight.js
+  document.querySelectorAll('pre code').forEach((block) => {
+    hljs.highlightBlock(block);
+  });
+});
+
+
 // **7. Error Handling for Debugging**
 window.addEventListener('error', function (e) {
   console.error('An error occurred:', e.message, 'at', e.filename, 'line', e.lineno);
