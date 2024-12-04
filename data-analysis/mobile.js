@@ -20,13 +20,19 @@ backdrop.className = 'backdrop';
 
 document.body.appendChild(backdrop);
 
+// Track the menu state
+
+let isMenuOpen = false;
+
 // Function to toggle the sidebar
 
 function toggleMobileSidebar() {
 
-    const isOpen = sideMenu.classList.toggle('show'); // Toggle sidebar visibility
+    isMenuOpen = !isMenuOpen;
 
-    backdrop.classList.toggle('show', isOpen); // Toggle backdrop visibility
+    sideMenu.classList.toggle('show', isMenuOpen); // Toggle sidebar visibility
+
+    backdrop.classList.toggle('show', isMenuOpen); // Toggle backdrop visibility
 
 }
 
@@ -34,9 +40,15 @@ function toggleMobileSidebar() {
 
 function closeSidebar() {
 
-    sideMenu.classList.remove('show');
+    if (isMenuOpen) {
 
-    backdrop.classList.remove('show');
+        isMenuOpen = false;
+
+        sideMenu.classList.remove('show');
+
+        backdrop.classList.remove('show');
+
+    }
 
 }
 
@@ -93,6 +105,20 @@ toggleButton.addEventListener('click', toggleMobileSidebar); // Open/close sideb
 closeButton.addEventListener('click', closeSidebar); // Close sidebar on button click
 
 backdrop.addEventListener('click', closeSidebar); // Close sidebar on backdrop click
+
+// Fix: Disable scroll-triggered sidebar opening
+
+window.addEventListener('scroll', () => {
+
+    if (isMenuOpen) {
+
+        console.log('Sidebar is already open; ignoring scroll behavior.');
+
+        return; // Prevent unintended interactions when the sidebar is open
+
+    }
+
+});
 
 // Adjust sidebar width dynamically on resize
 

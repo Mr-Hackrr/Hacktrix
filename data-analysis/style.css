@@ -547,176 +547,269 @@ h1 {
 
 /* Media Queries for Mobile Devices */
 
-@media (max-width: 768px) {
-
+/* Extra Small Devices, Phones (less than 576px) */
+@media (max-width: 575.98px) {
   /* Header Bar */
-
   .header-bar {
-
-      padding: 10px;
-
-      height: 60px;
-
+    padding: 10px;
+    height: 60px;
   }
-
   .header-bar .brand-name {
-
-      font-size: 16px;
-
+    font-size: 16px;
   }
-
   .header-bar nav ul li a {
-
-      font-size: 14px;
-
-      padding: 5px;
-
+    font-size: 14px;
+    padding: 5px;
   }
-
   /* Sidebar Styles */
-
   .sideMenu {
-
-      position: fixed;
-
-      top: 60px;
-
-      height: 100vh;
-
-      background-color: var(--primary-color); /* Sidebar background */
-
-      overflow-y: auto;
-
-      transition: left 0.3s ease-in-out; /* Smooth transition for opening/closing */
-
-      z-index: 1000;
-
+    position: fixed;
+    top: 60px;
+    height: 100vh;
+    background-color: var(--primary-color);
+    overflow-y: auto;
+    transition: left 0.3s ease-in-out;
+    z-index: 1000;
   }
-
   .sideMenu.show {
-
-      left: 0; /* Slide in from the left */
-
+    left: 0;
   }
-
   .sideMenu a {
-
-      color: #fff;
-
-      text-decoration: none;
-
-      font-size: 16px;
-
-      padding: 15px;
-
-      display: block;
-
-      transition: background-color 0.3s ease, padding-left 0.3s ease;
-
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 15px;
+    display: block;
+    transition: background-color 0.3s ease, padding-left 0.3s ease;
   }
-
   .sideMenu a:hover {
-
-      background-color: rgba(255, 255, 255, 0.1);
-
-      padding-left: 20px;
-
+    background-color: rgba(255, 255, 255, 0.1);
+    padding-left: 20px;
   }
-
   .sideMenu .closebtn {
-
-      position: absolute;
-
-      top: 15px;
-
-      right: 15px;
-
-      font-size: 24px;
-
-      cursor: pointer;
-
-      color: #fff;
-
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
   }
-
   /* Main Content */
-
   #content {
-
-      margin-left: 0 !important; /* Prevent shifting on mobile */
-
+    margin-left: 0 !important;
   }
-
   /* Backdrop (Overlay for Sidebar) */
-
   .backdrop {
-
-      position: fixed;
-
-      top: 0;
-
-      left: 0;
-
-      width: 100%;
-
-      height: 100%;
-
-      background-color: rgba(0, 0, 0, 0.5);
-
-      z-index: 999;
-
-      display: none; /* Hidden by default */
-
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
   }
-
   .backdrop.show {
-
-      display: block; /* Show backdrop when sidebar is open */
-
+    display: block;
   }
-
   /* Navigation Links in Header */
-
   .navbar ul {
-
-      flex-direction: column; /* Stack nav links vertically */
-
-      align-items: start;
-
+    flex-direction: column;
+    align-items: start;
   }
-
   .navbar li {
-
-      margin: 5px 0;
-
+    margin: 5px 0;
   }
-
   /* Adjustments for Content Area */
-
   h1 {
-
-      font-size: 28px; /* Reduce main heading size */
-
+    font-size: 28px;
   }
-
   .code-box {
-
-      padding: 16px;
-
+    padding: 16px;
   }
-
   /* Scrollbar Styles for Mobile */
-
   ::-webkit-scrollbar {
-
-      width: 8px;
-
+    width: 8px;
   }
-
   ::-webkit-scrollbar-thumb {
-
-      background: var(--secondary-color);
-
+    background: var(--secondary-color);
   }
+}
 
+/* Small Devices, Tablets (576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  /* Header Bar */
+  .header-bar {
+    padding: 10px;
+    height: 60px;
+  }
+  .header-bar .brand-name {
+    font-size: 16px;
+  }
+  .header-bar nav ul li a {
+    font-size: 14px;
+    padding: 5px;
+  }
+  /* Sidebar Styles */
+  .sideMenu {
+    position: fixed;
+    top: 60px;
+    height: 100vh;
+    background-color: var(--primary-color);
+    overflow-y: auto;
+    transition: left 0.3s ease-in-out;
+    z-index: 1000;
+  }
+  .sideMenu.show {
+    left: 0;
+  }
+  .sideMenu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 15px;
+    display: block;
+    transition: background-color 0.3s ease, padding-left 0.3s ease;
+  }
+  .sideMenu a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding-left: 20px;
+  }
+  .sideMenu .closebtn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+  }
+  /* Main Content */
+  #content {
+    margin-left: 0 !important;
+  }
+  /* Backdrop (Overlay for Sidebar) */
+  .backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+  }
+  .backdrop.show {
+    display: block;
+  }
+  /* Navigation Links in Header */
+  .navbar ul {
+    flex-direction: column;
+    align-items: start;
+  }
+  .navbar li {
+    margin: 5px 0;
+  }
+  /* Adjustments for Content Area */
+  h1 {
+    font-size: 28px;
+  }
+  .code-box {
+    padding: 16px;
+  }
+  /* Scrollbar Styles for Mobile */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+  }
+}
+
+/* Medium Devices, Tablets (768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  /* Header Bar */
+  .header-bar {
+    padding: 10px;
+    height: 60px;
+  }
+  .header-bar .brand-name {
+    font-size: 16px;
+  }
+  .header-bar nav ul li a {
+    font-size: 14px;
+    padding: 5px;
+  }
+  /* Sidebar Styles */
+  .sideMenu {
+    position: fixed;
+    top: 60px;
+    height: 100vh;
+    background-color: var(--primary-color);
+    overflow-y: auto;
+    transition: left 0.3s ease-in-out;
+    z-index: 1000;
+  }
+  .sideMenu.show {
+    left: 0;
+  }
+  .sideMenu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 15px;
+    display: block;
+    transition: background-color 0.3s ease, padding-left 0.3s ease;
+  }
+  .sideMenu a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding-left: 20px;
+  }
+  .sideMenu .closebtn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+  }
+  /* Main Content */
+  #content {
+    margin-left: 0 !important;
+  }
+  /* Backdrop (Overlay for Sidebar) */
+  .backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+  }
+  .backdrop.show {
+    display: block;
+  }
+  /* Navigation Links in Header */
+  .navbar ul {
+    flex-direction: column;
+    align-items: start;
+  }
+  .navbar li {
+    margin: 5px 0;
+  }
+  /* Adjustments for Content Area */
+  h1 {
+    font-size: 28px;
+  }
+  .code-box {
+    padding: 16px;
+  }
+  /* Scrollbar Styles for Mobile */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+  }
 }
