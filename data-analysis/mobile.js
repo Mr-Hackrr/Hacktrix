@@ -20,27 +20,27 @@ backdrop.className = 'backdrop';
 
 document.body.appendChild(backdrop);
 
-// Toggle sidebar visibility
+// Function to toggle the sidebar
 
 function toggleMobileSidebar() {
 
-    const isOpen = sideMenu.classList.toggle('show'); // Toggle the 'show' class for the sidebar
+    const isOpen = sideMenu.classList.toggle('show'); // Toggle sidebar visibility
 
-    backdrop.classList.toggle('show', isOpen); // Show/hide the backdrop
+    backdrop.classList.toggle('show', isOpen); // Toggle backdrop visibility
 
 }
 
-// Close sidebar
+// Function to close the sidebar
 
 function closeSidebar() {
 
-    sideMenu.classList.remove('show'); // Remove the 'show' class
+    sideMenu.classList.remove('show');
 
-    backdrop.classList.remove('show'); // Hide the backdrop
+    backdrop.classList.remove('show');
 
 }
 
-// Scroll to a target section with header offset adjustment
+// Function to scroll to the target section with a header offset
 
 function scrollToSection(targetId) {
 
@@ -62,11 +62,15 @@ function scrollToSection(targetId) {
 
         });
 
+        // Wait for scrolling to finish before closing the sidebar
+
+        setTimeout(closeSidebar, 500); // Adjust timeout to match the scroll duration
+
     }
 
 }
 
-// Handle sidebar link clicks
+// Event listeners for sidebar links
 
 sidebarLinks.forEach(link => {
 
@@ -78,21 +82,19 @@ sidebarLinks.forEach(link => {
 
         scrollToSection(targetId); // Scroll to the correct section
 
-        closeSidebar(); // Close the sidebar after navigation
-
     });
 
 });
 
-// Event listeners for opening and closing the sidebar
+// Event listeners for sidebar toggle and close buttons
 
-toggleButton.addEventListener('click', toggleMobileSidebar); // Open/close sidebar with the toggle button
+toggleButton.addEventListener('click', toggleMobileSidebar); // Open/close sidebar
 
-closeButton.addEventListener('click', closeSidebar); // Close sidebar with the close button
+closeButton.addEventListener('click', closeSidebar); // Close sidebar on button click
 
-backdrop.addEventListener('click', closeSidebar); // Close sidebar by clicking on the backdrop
+backdrop.addEventListener('click', closeSidebar); // Close sidebar on backdrop click
 
-// Adjust sidebar width dynamically on resize (optional for additional responsiveness)
+// Adjust sidebar width dynamically on resize
 
 window.addEventListener('resize', function () {
 
@@ -104,7 +106,7 @@ window.addEventListener('resize', function () {
 
 });
 
-// Smooth scrolling on page load for deep links (optional)
+// Handle deep links on page load
 
 document.addEventListener('DOMContentLoaded', function () {
 
