@@ -1,211 +1,385 @@
-/* General Setup */
+:root {
+  --primary-color: #212121;
+  --secondary-color: #3498db;
+  --accent-color: #f1c40f;
+  --background-color: #f9f9f9;
+  --text-color: #333;
+  --font-family: 'Roboto', sans-serif;
+  --line-height: 1.6;
+  --spacing-xs: 5px;
+  --spacing-sm: 10px;
+  --spacing-md: 20px;
+  --spacing-lg: 30px;
+  --border-radius: 5px;
+  --box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+/* Global Styles */
 * {
-  scroll-behavior: smooth;
+  box-sizing: border-box;
+  margin: 0;
+  transition: var(--transition);
+}
+
+*::before, *::after {
   box-sizing: border-box;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  color: #333; /* Deep Gray */
-  margin: 0;
-  background-color: #f5f7fa; /* Light Gray */
-  overflow-x: hidden;
+/* Custom Main Heading Styles (h1) */
+
+h1 {
+font-size: 48px; /* Increased font size for prominence */
+color: var(--accent-color); /* Using accent color for highlight */
+margin-top: var(--spacing-lg);
+margin-bottom: var(--spacing-md); /* Added margin bottom for spacing */
+font-weight: bold; /* Ensuring bold font weight */
+text-align: center; /* Centering the main heading */
+text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Adding subtle text shadow for depth */
+padding: var(--spacing-md) 0; /* Adding vertical padding for better spacing */
+background: linear-gradient(to right, var(--primary-color), var(--secondary-color)); /* Gradient background for visual appeal */
+-webkit-background-clip: text; /* Clipping background to text for a nicer effect */
+-webkit-text-fill-color: transparent; /* Making text color transparent to show gradient */
 }
 
-/* Typography */
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Montserrat', sans-serif;
-  margin-bottom: 10px;
+h2 {
+font-size: 24px; /* Slightly smaller than h1, but still prominent */
+color: var(--secondary-color); /* Utilize secondary color for contrast and visual flow */
+margin-top: var(--spacing-md); /* Maintain consistent spacing */
+margin-bottom: var(--spacing-sm); /* Slightly tighter bottom margin to encourage flow */
+font-weight: bold; /* Ensure boldness for emphasis */
+text-align: left; /* Left-aligned for body content sections */
+padding-bottom: var(--spacing-xs); /* Add a slight padding to separate from following content */
+border-bottom: 1px solid #ddd; /* Light border to define section separation */
+position: relative;
+}
+
+h2::before {
+content: "";
+position: absolute;
+left: 0;
+bottom: -1px; /* Position below the border */
+width: 60px; /* Adjustable width for the underline effect */
+height: 3px;
+background-color: var(--accent-color); /* Accent color for highlighting */
+}
+
+
+
+
+body, html {
+  font-family: var(--font-family);
+  line-height: var(--line-height);
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Header Bar Styles */
+.header-bar {
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md);
+  position: fixed; /* Changed to fixed */
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: var(--box-shadow);
+  height: 70px;
+}
+
+.header-bar .brand-name {
+  font-size: 26px;
+  font-weight: bold;
+  padding-left: 30px;
+  margin-left: var(--spacing-md);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.header-bar nav {
+  list-style: none;
+  display: flex;
+  gap: var(--spacing-sm);
+  margin: 0;
+  padding: 0;
+}
+
+.header-bar nav ul li {
+  display: inline-block;
+  position: relative;
+}
+
+.header-bar nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius);
+}
+
+.header-bar nav ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.header-bar nav ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent-color);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.header-bar nav ul li a:hover::after {
+  opacity: 1;
+}
+
+/* Toggle Menu Styles */
+.toggle-menu {
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--primary-color);
+  background-color: #fff;
+  border: none;
+  position: fixed;
+  left: var(--spacing-md);
+  z-index: 1001;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.toggle-menu:hover {
+  background-color: var(--secondary-color);
+  transform: scale(1.1);
+}
+
+/* Sidebar Styles */
+.sideMenu {
+  height: 90vh; /* Changed to 100vh */
+  width: 0;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  background-color: var(--primary-color);
+  overflow-y: auto;
+  transition: margin-left 0.4s ease;
+  z-index: 999;
+  padding-top: var(--spacing-lg);
+  box-shadow: var(--box-shadow);
+}
+
+.sideMenu a {
+  scroll-behavior: smooth;
+}
+
+.sideMenu.show { /* Added class to toggle sidebar visibility */
+  width: 300px; /* Set a fixed width for the sidebar */
+}
+
+.sideMenu a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  padding: var(--spacing-md) var(--spacing-lg);
+  transition: background-color 0.3s ease, padding-left 0.3s ease;
+}
+
+.sideMenu a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding-left: var(--spacing-lg);
+}
+
+.sideMenu .closebtn {
+  position: absolute;
+  top: 0;
+  right: 10px; /* Changed to 10px for better visibility */
+  font-size: 24px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.sideMenu .closebtn:hover {
+  color: var(--accent-color);
+}
+
+/* Main Content Styles */
+#content {
+  margin-top: 15px;
+  padding: var(--spacing-md) var(--spacing-lg);
+  transition: margin-left 0.4s ease;
+}
+
+#content.shifted { /* Updated class name for consistency */
+  margin-left: 300px; /* Match the fixed width of the sidebar */
+}
+
+/* Enhanced Code Box Design */
+
+.code-box {
+/* Background and Border */
+background-color: #f9f9f9; /* Light gray background */
+border: 1px solid #dde0e3; /* Soft gray border */
+border-radius: 8px; /* Rounded corners with increased radius */
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 0 0 6px rgba(0, 0, 0, 0.03); /* Enhanced shadow for depth */
+
+/* Padding and Margin */
+padding: 16px; /* Reduced padding for less space above and below */
+margin: 16px 0; /* Adjusted margin for better spacing between code boxes */
+
+/* Typography (inherited from previous styles) */
+
+/* Additional Styles */
+position: relative;
+overflow-x: auto;
+
+/* New Design Elements */
+border-top: 4px solid #66d9ef; /* Colored top border for accent */
+background-image: linear-gradient(to bottom, #f9f9f9, #f7f7f7); /* Subtle gradient for depth */
+}
+
+/* Code Box Header (Optional, if you have a header within .code-box) */
+
+.code-box .header {
+background-color: #eee;
+padding: 8px 16px;
+border-bottom: 1px solid #ccc;
+margin-bottom: 16px;
+font-weight: bold;
+font-size: 14px;
+border-top-left-radius: 8px;
+border-top-right-radius: 8px;
+}
+
+.code-box::before {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 4px;
+background-color: #66d9ef;
+border-top-left-radius: 8px;
+border-top-right-radius: 8px;
+}
+
+.code-box::after {
+content: "";
+position: absolute;
+bottom: 0;
+left: 0;
+width: 100%;
+height: 1px;
+background-color: #dde0e3;
+border-bottom-left-radius: 8px;
+border-bottom-right-radius: 8px;
+}
+
+.code-box pre {
+margin: 0;
+padding: 0;
+background-color: transparent;
+border: none;
+}
+
+.code-box code {
+font-family: inherit;
+font-size: inherit;
+line-height: inherit; /* Inherit reduced line height */
+color: #333;
+}
+
+.math {
+text-align: center;
+margin: 20px 0;
+}
+
+
+
+.copy-button {
+  position: absolute;
+  top: var(--spacing-xs);
+  right: var(--spacing-xs);
+  background-color: var(--secondary-color);
+  color: #fff;
+  border: none;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+.copy-button:hover {
+  background-color: var(--accent-color);
+}
+
+/* Footer Styles */
+.footer {
+  background-color: var(--primary-color);
+  color: #fff;
+  text-align: center;
+  padding: var(--spacing-md) 0;
+  font-size: 18px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.footer a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* Heading Styles */
+h1, h2, h3 {
+  color: var(--primary-color);
+  margin-top: var(--spacing-lg);
 }
 
 h1 {
-  font-family: 'Open Sans', sans-serif; /* Or your chosen font */
   font-size: 36px;
-  font-weight: 700;
-  color: #1c55e6; /* Deep Blue */
-  margin-top: 60px;
-  line-height: 1.2;
-  letter-spacing: 1px;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.2); /* Subtle shadow */
-  padding: 10px 20px; /*adds padding*/
-  background-color: #e6f2ff; /* light blue background */ /*optional */
-  border-radius: 5px; /*optional, rounds the corners*/
 }
 
 h2 {
   font-size: 28px;
-  color: #4682B4; /* Steel Blue */
 }
 
 h3 {
   font-size: 22px;
-  color: #87CEEB; /* Light Blue */
 }
-
-h4, h5, h6 {
-  font-size: 18px;
-  color: #212121; /* Dark Blue */
-}
-
-p {
-  margin-bottom: 15px;
-  color: #666; /* Softer Black */
-}
-
-a {
-  text-decoration: none;
-  color: #87CEEB; /* Light Blue */
-  transition: color 0.2s ease;
-}
-
-a:hover {
-  color: #ADD8E6; /* Sky Blue */
-}
-
-/* Header Bar */
-.header-bar {
-  background: linear-gradient(90deg, #1e3c72, #2a5298); /* Blue Gradient */
-  color: #ffffff;
-  padding: 15px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 999;
-  transition: all 0.3s;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-.header-bar .brand-name {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #a0b63f; /* Golden */
-  transition: color 0.3s;
-}
-
-.header-bar .nav-link {
-  color: #e2e8f0 !important; /* Soft White */
-  margin-right: 20px;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-.header-bar .nav-link:hover {
-  color: #ffd700 !important; /* Bright Yellow */
-}
-
-.header-bar nav ul {
-  display: flex;
-  list-style: none;
-  gap: 10px;
-  margin: 0;
-  padding: 0;
-  margin-right: 30px;
-}
-
-/* Content */
-#content {
-  padding: 30px 20px;
-  transition: margin-left 0.5s; /* Smooth transition */
-}
-
-/* This is the ONLY rule to control left margin; it's added/removed by JS */
-#content.content-shifted {
-  margin-left: 300px; /* Shift to the RIGHT for sidebar */
-}
-
-/* SEO Friendly Heading */
-.seo-friendly-heading {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  text-align: center;
-  color: #0f0c0c; /* Deep Navy Blue */
-}
-
-/* Code Box Styles */
-.code-box {
-  background-color: #f0f0f0; /* Soft Gray */
-  border: 1px solid #ccc; /* Light Gray Border */
-  border-radius: 8px; /* Slightly increased radius for a softer look */
-  padding: 20px; /* Increased padding for better code readability */
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  transition: box-shadow 0.3s ease; /* Smooth transition for hover effect */
-}
-
-.code-box:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Increased shadow on hover for emphasis */
-}
-
-.code-box pre {
-  margin: 0;
-  padding: 0;
-}
-
-.code-box code {
-  font-family: 'Monaco', monospace;
-  font-size: 0.95rem; /* Slightly reduced font size for better fit */
-  line-height: 1.6; /* Increased line height for readability */
-  color: #333; /* Deep Gray for code text */
-  word-wrap: break-word; /* Ensure long lines wrap */
-  white-space: pre-wrap; /* Preserve whitespace but allow wrapping */
-}
-
-.copy-button {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background-color: #4a90e2; /* Consistent blue tone */
-  color: #ffffff;
-  border: none;
-  padding: 6px 12px;
-  font-size: 0.95rem; /* Matched font size with code */
-  cursor: pointer;
-  border-radius: 4px; /* Softer corner radius */
-  transition: background-color 0.2s ease; /* Smooth transition for hover */
-}
-
-.copy-button:hover {
-  background-color: #3e7cb3; /* Darker blue on hover */
-}
-
-.copy-button i {
-  margin-right: 5px; /* Added margin for better spacing with the copy icon */
-}
-
-/* Added Font Awesome copy icon for a more visual cue */
-.copy-button {
-  display: flex;
-  align-items: center;
-}
-
-.copy-button i.fas.fa-copy {
-  font-size: 1.1rem; /* Slightly larger icon for visibility */
-}
-
 
 /* Data Table Styles */
 .data-table {
   border-collapse: collapse;
   width: 100%;
-  margin-bottom: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: var(--spacing-md);
+  box-shadow: var(--box-shadow);
 }
 
 .data-table th,
 .data-table td {
   border: 1px solid #ddd;
-  padding: 10px;
+  padding: var(--spacing-sm);
   text-align: left;
 }
 
 .data-table th {
   background-color: #f0f0f0;
   font-weight: bold;
-  color: #4682B4; /* Steel Blue */
+  color: var(--primary-color);
 }
 
 .data-table tr:nth-child(even) {
@@ -216,147 +390,445 @@ a:hover {
   background-color: #f2f2f2;
 }
 
-/* Footer Styles */
-.footer {
-  background-color: #1a202c;
-  color: #a0aec0;
-  padding: 20px;
-  text-align: center;
-  margin-top: 20px;
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-.footer a {
-  color: #87CEEB; /* Light Blue */
-  text-decoration: none;
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
-.footer a:hover {
-  color: #ADD8E6; /* Sky Blue */
+.fadeIn {
+  animation: fadeIn 0.5s ease;
 }
 
+.fadeOut {
+  animation: fadeOut 0.5s ease;
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-color);
+}
+
+::-webkit-scrollbar-track {
+  background: #f9f9f9;
+}
+
+/* Print Styles */
+@media print {
+  .header-bar, .footer, .sideMenu {
+    display: none;
+  }
+  #content {
+    margin-top: 0;
+  }
+}
+
+/* Accessibility Styles */
+.screen-reader-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.screen-reader-only:focus {
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  position: static;
+  white-space: normal;
+}
+
+/* Global Transitions */
+* {
+  transition: var(--transition);
+}
+
+/* Global Box Shadow */
+.box-shadow {
+  box-shadow: var(--box-shadow);
+}
+
+/* Global Border Radius */
+.border-radius {
+  border-radius: var(--border-radius);
+}
+
+/* Global Padding */
+.padding-sm {
+  padding: var(--spacing-sm);
+}
+
+.padding-md {
+  padding: var(--spacing-md);
+}
+
+.padding-lg {
+  padding: var(--spacing-lg);
+}
+
+/* Global Margin */
+.margin-sm {
+  margin: var(--spacing-sm);
+}
+
+.margin-md {
+  margin: var(--spacing-md);
+}
+
+.margin-lg {
+  margin: var(--spacing-lg);
+}
+
+/* Sidebar Toggle Button Script-Driven Styles (add/remove these classes via JavaScript) */
+.sideMenu.show {
+  width: 300px; /* Set a fixed width for the sidebar */
+  left: 0;
+}
+
+#content.shifted {
+  margin-left: 300px; /* Match the fixed width of the sidebar */
+}
+
+/* style.css, updated with Highlight.js colors */
+
+/* Default Highlight.js colors, feel free to customize */
+.hljs {
+background: #f9f9f9; /* Light gray background */
+color: #333; /* Darker text color */
+}
+
+/* Colors for different elements */
+.hljs-keyword,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-id,
+.hljs-selector-tag,
+.hljs-title,
+.hljs-section,
+.hljs-subst {
+color: #009688; /* Teal color for keywords and selectors */
+}
+
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-number,
+.hljs-regexp {
+color: #FFC107; /* Amber color for strings, symbols, etc. */
+}
+
+.hljs-comment,
+.hljs-quote,
+.hljs-template-tag,
+.hljs-deletion {
+color: #666; /* Dark gray for comments */
+font-style: italic;
+}
+
+.hljs-emphasis {
+font-style: italic;
+}
+
+.hljs-strong {
+font-weight: bold;
+}
+
+
+/* Media Queries for Mobile Devices */
+
+/* Extra Small Devices, Phones (less than 576px) */
+@media (max-width: 575.98px) {
+/* Header Bar */
+.header-bar {
+  padding: 10px;
+  height: 60px;
+}
+.header-bar .brand-name {
+  font-size: 16px;
+}
+.header-bar nav ul li a {
+  font-size: 14px;
+  padding: 5px;
+}
 /* Sidebar Styles */
 .sideMenu {
-  height: 100%;
-  background-color: #2d3748;
-  color: #ffffff;
-  width: 0; /* Initially hidden on all screens */
   position: fixed;
-  z-index: 1;
-  top: 54px;
+  top: 60px;
+  height: 100vh;
+  background-color: var(--primary-color);
+  overflow-y: auto;
+  transition: left 0.3s ease-in-out;
+  z-index: 1000;
+}
+.sideMenu.show {
   left: 0;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
 }
-
-.sideMenu.open {
-  width: 300px; /* Open width */
-}
-
 .sideMenu a {
-  padding: 7px 7px;
+  color: #fff;
   text-decoration: none;
-  font-size: 1rem;
-  color: #fff;
+  font-size: 16px;
+  padding: 15px;
   display: block;
-  transition: 0.3s;
-  margin-bottom: 20px;
-  font-weight: bold;
+  transition: background-color 0.3s ease, padding-left 0.3s ease;
 }
-
 .sideMenu a:hover {
-  color: #fff;
-  background-color: #111;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding-left: 20px;
 }
-
-.sideMenu a i {
-  padding-right: 15px;
-}
-
 .sideMenu .closebtn {
   position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-  cursor: pointer; /* Added cursor style */
-}
-
-/* Toggle Button Styles */
-div.toggle-menu {
-  position: fixed;
   top: 15px;
-  right: 20px;
-  z-index: 1000;
-  background-color: #0078d4;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 8px 12px;
+  right: 15px;
+  font-size: 24px;
   cursor: pointer;
-  display: block; /* Always show toggle button */
+  color: #fff;
+}
+/* Main Content */
+#content {
+  margin-left: 0 !important;
+}
+/* Backdrop (Overlay for Sidebar) */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: none;
+}
+.backdrop.show {
+  display: block;
+}
+/* Navigation Links in Header */
+.navbar ul {
+  flex-direction: column;
+  align-items: start;
+}
+.navbar li {
+  margin: 5px 0;
+}
+/* Adjustments for Content Area */
+h1 {
+  font-size: 28px;
+}
+.code-box {
+  padding: 16px;
+}
+/* Scrollbar Styles for Mobile */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--secondary-color);
+}
 }
 
-div.toggle-menu:hover {
-  background-color: #005fa3;
+/* Small Devices, Tablets (576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+/* Header Bar */
+.header-bar {
+  padding: 10px;
+  height: 60px;
+}
+.header-bar .brand-name {
+  font-size: 16px;
+}
+.header-bar nav ul li a {
+  font-size: 14px;
+  padding: 5px;
+}
+/* Sidebar Styles */
+.sideMenu {
+  position: fixed;
+  top: 60px;
+  height: 100vh;
+  background-color: var(--primary-color);
+  overflow-y: auto;
+  transition: left 0.3s ease-in-out;
+  z-index: 1000;
+}
+.sideMenu.show {
+  left: 0;
+}
+.sideMenu a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 15px;
+  display: block;
+  transition: background-color 0.3s ease, padding-left 0.3s ease;
+}
+.sideMenu a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding-left: 20px;
+}
+.sideMenu .closebtn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #fff;
+}
+/* Main Content */
+#content {
+  margin-left: 0 !important;
+}
+/* Backdrop (Overlay for Sidebar) */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: none;
+}
+.backdrop.show {
+  display: block;
+}
+/* Navigation Links in Header */
+.navbar ul {
+  flex-direction: column;
+  align-items: start;
+}
+.navbar li {
+  margin: 5px 0;
+}
+/* Adjustments for Content Area */
+h1 {
+  font-size: 28px;
+}
+.code-box {
+  padding: 16px;
+}
+/* Scrollbar Styles for Mobile */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--secondary-color);
+}
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-  /* Header Bar */
-  .header-bar {
-    padding: 20px 20px;
-  }
-  
-  .header-bar .brand-name {
-    font-size: 1rem;
-  }
-  
-  .header-bar .nav-link {
-    font-size: 0.8rem;
-    margin-right: 10px;
-  }
-  
-  /* Toggle Button (always visible on smaller screens) */
-  div.toggle-menu {
-    top: 5px;
-    right: 5px;
-  }
-  
-  /* Sidebar (hidden by default, toggled by button) */
-  .sideMenu {
-    top: 54px; /* Adjusted to match header height on smaller screens */
-  }
-  
-  /* Content */
-  #content {
-    padding: 20px;
-  }
-  
-  /* Adjust sidebar open width for smaller screens */
-  .sideMenu.open {
-    width: 250px; /* Smaller open width */
-  }
+/* Medium Devices, Tablets (768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+/* Header Bar */
+.header-bar {
+  padding: 10px;
+  height: 60px;
 }
-
-@media (max-width: 480px) {
-  /* Further adjustments for very small screens */
-  .header-bar .nav-link {
-    font-size: 0.7rem;
-  }
-  .header-bar nav ul {
-    display: flex;
-    gap: 5px;
-    margin-right: 20px;
-  }
-  
-  div.toggle-menu {
-    top: 10px;
-    right: 5px;
-    
-  }
-  
-  .sideMenu.open {
-    width: 200px; /* Even smaller open width */
-  }
+.header-bar .brand-name {
+  font-size: 16px;
+}
+.header-bar nav ul li a {
+  font-size: 14px;
+  padding: 5px;
+}
+/* Sidebar Styles */
+.sideMenu {
+  position: fixed;
+  top: 60px;
+  height: 100vh;
+  background-color: var(--primary-color);
+  overflow-y: auto;
+  transition: left 0.3s ease-in-out;
+  z-index: 1000;
+}
+.sideMenu.show {
+  left: 0;
+}
+.sideMenu a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 15px;
+  display: block;
+  transition: background-color 0.3s ease, padding-left 0.3s ease;
+}
+.sideMenu a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding-left: 20px;
+}
+.sideMenu .closebtn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #fff;
+}
+/* Main Content */
+#content {
+  margin-left: 0 !important;
+}
+/* Backdrop (Overlay for Sidebar) */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: none;
+}
+.backdrop.show {
+  display: block;
+}
+/* Navigation Links in Header */
+.navbar ul {
+  flex-direction: column;
+  align-items: start;
+}
+.navbar li {
+  margin: 5px 0;
+}
+/* Adjustments for Content Area */
+h1 {
+  font-size: 28px;
+}
+.code-box {
+  padding: 16px;
+}
+/* Scrollbar Styles for Mobile */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--secondary-color);
+}
 }

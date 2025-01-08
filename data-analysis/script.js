@@ -45,14 +45,10 @@ console.log('Initial menu state:', isMenuOpen);
 let debounceTimeout = null;
 
 window.addEventListener('scroll', () => {
-
-  console.log('Scroll event detected');
-
-  clearTimeout(debounceTimeout);
-
-  debounceTimeout = setTimeout(handleScroll, 100); // Debounce scroll event
-
+  clearTimeout(debounceTimeout); // Clear the timeout
+  debounceTimeout = setTimeout(handleScroll, 100);
 });
+
 
 // **Event Listeners**
 
@@ -144,6 +140,7 @@ sidebarLinks.forEach(link => {
 // **Header Scroll Effect**
 
 function handleScroll() {
+  clearTimeout(debounceTimeout); // Clear the timeout at the beginning
 
   console.log('Handling scroll event');
 

@@ -3,44 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacktrix - Advanced Python Topics</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="description" content="Master advanced Python programming with practical examples on classes, objects, encapsulation, inheritance, and more.">
+    <title>Master Advanced Python Topics | Hacktrix Programming Guide</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
-    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
-    <div class="header-bar">
-        <div class="brand-name">Hacktrix</div>
-        <nav>
-            <ul>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#exercise" class="nav-link">Exercise</a></li>
+    <!-- Header Bar -->
+    <header class="header-bar">
+        <span class="brand-name">Hacktrix</span>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-link">Home</a></li>
+                <li><a href="#exercise" class="nav-link">Practice</a></li>
                 <li><a href="#project" class="nav-link">Project</a></li>
                 <li><a href="#contact" class="nav-link">Contact Us</a></li>
             </ul>
         </nav>
+        <div class="toggle-menu" id="toggle-menu" aria-label="Menu Toggle">☰</div>
+    </header>
+    
+    <!-- Sidebar -->
+    <div id="sideMenu" class="sideMenu" role="navigation" aria-label="Sidebar Navigation">
+        <a href="#" class="closebtn" aria-label="Close Sidebar">×</a>
+        <nav class="sidebar-nav">
+            <ul class="sidebar-links">
+                <li class="sidebar-link"><a href="#classes-objects" tabindex="0">Classes and Objects</a></li>
+                <li class="sidebar-link"><a href="#attributes-methods" tabindex="0">Attributes and Methods</a></li>
+                <li class="sidebar-link"><a href="#encapsulation" tabindex="0">Encapsulation</a></li>
+                <li class="sidebar-link"><a href="#inheritance" tabindex="0">Inheritance</a></li>
+                <li class="sidebar-link"><a href="#polymorphism" tabindex="0">Polymorphism</a></li>
+                <li class="sidebar-link"><a href="#abstraction" tabindex="0">Abstraction</a></li>
+                <li class="sidebar-link"><a href="#class-instance-variables" tabindex="0">Class vs. Instance Variables</a></li>
+                <li class="sidebar-link"><a href="#static-class-methods" tabindex="0">Static and Class Methods</a></li>
+                <li class="sidebar-link"><a href="#operator-overloading" tabindex="0">Operator Overloading</a></li>
+                <li class="sidebar-link"><a href="#magic-methods" tabindex="0">Magic Methods</a></li>
+                <li class="sidebar-link"><a href="#property-decorators" tabindex="0">Property Decorators</a></li>
+            </ul>
+        </nav>
     </div>
 
-    <div id="sideMenu" class="sideMenu">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="#classes-objects">Classes and Objects</a>
-        <a href="#attributes-methods">Attributes and Methods</a>
-        <a href="#encapsulation">Encapsulation</a>
-        <a href="#inheritance">Inheritance</a>
-        <a href="#polymorphism">Polymorphism</a>
-        <a href="#abstraction">Abstraction</a>
-        <a href="#class-instance-variables">Class vs. Instance Variables</a>
-        <a href="#static-class-methods">Static and Class Methods</a>
-        <a href="#operator-overloading">Operator Overloading</a>
-        <a href="#magic-methods">Magic Methods</a>
-        <a href="#property-decorators">Property Decorators</a>
-    </div>
-
-<div class="toggle-menu" onclick="openNav()">☰</div>
-<div id="content"> 
-<h1 class="seo-friendly-heading">Mastering Advanced Python for Efficient Programming</h1>
+    <div id="content"> 
+        <h1 class="seo-friendly-heading">Mastering Advanced Python for Efficient Programming</h1>
 
 <section id="classes-objects">
     <h2>Classes and Objects in Python</h2>
@@ -61,7 +68,7 @@
     
     <h3>Python Code Example</h3>
     <div class="code-box">
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
         <pre><code>
 # Define a class called ToyCar
 class ToyCar:
@@ -115,7 +122,7 @@ my_toy_car.drive()
     
     <h3>Python Code Example</h3>
     <div class="code-box">
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
         <pre><code>
 # Define a class called Dog
 class Dog:
@@ -170,7 +177,7 @@ my_dog.fetch()
     
     <h3>Python Code Example</h3>
     <div class="code-box">
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
         <pre><code>
 # Define a class called ToyBox
 class ToyBox:
@@ -269,7 +276,7 @@ my_toy_box.list_toys()
     
     <h3>Python Code Example</h3>
     <div class="code-box">
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
         <pre><code>
 # Define a parent class called Animal
 class Animal:
@@ -373,7 +380,7 @@ my_dog.speak()
     
     <h3>Python Code Example</h3>
     <div class="code-box">
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
         <pre><code>
 # Define a parent class called Animal
 class Animal:
@@ -486,7 +493,7 @@ make_animal_speak(cow)
     
     <h3>Python Code Example</h3>
     <div class="code-box">
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
         <pre><code>
 from abc import ABC, abstractmethod
 
@@ -576,7 +583,7 @@ my_remote.press_button()
     
     <h3>Python Code Example for Class Variables</h3>
     <div class="code-box">
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
         <pre><code>
 class Classroom:
     whiteboard = "This is a shared whiteboard."  # Class variable
@@ -617,7 +624,7 @@ print(class2.whiteboard)
     
     <h3>Python Code Example for Instance Variables</h3>
     <div class="code-box">
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
         <pre><code>
 class Student:
     def __init__(self, name):
@@ -679,7 +686,7 @@ print(student2.name)
 </section>
 
 <section id="static-class-methods">
-    <h2>Mastering Static and Class Methods in Python: A Detailed Guide</h2>
+    <h2>Static and Class Methods in Python</h2>
     <p>
         Static methods and class methods are essential concepts in Python that offer different ways to interact with class data. Let’s dive into their definitions, uses, and real-life examples to understand them better.
     </p>
@@ -696,7 +703,7 @@ print(student2.name)
     
     <h3>Python Code Example for Static Methods</h3>
     <div class="code-box">
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
         <pre><code>
 class Calculator:
     @staticmethod
@@ -726,7 +733,7 @@ print(result)  # Output: 8
     
     <h3>Python Code Example for Class Methods</h3>
     <div class="code-box">
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
         <pre><code>
 class School:
     school_name = "Greenwood High"
@@ -787,7 +794,7 @@ print(School.school_name)  # Output: Sunnydale High
 </section>
 
 <section id="operator-overloading">
-    <h2>Mastering Operator Overloading in Python: A Deep Dive with Examples</h2>
+    <h2>Operator Overloading in Python</h2>
     <p>
         Operator overloading allows you to define custom behavior for operators when they are used with objects of your class. This powerful feature enables you to make your classes more intuitive and easier to use.
     </p>
@@ -804,7 +811,7 @@ print(School.school_name)  # Output: Sunnydale High
     <p>Consider a Vector class that represents a vector in 2D space. We can overload the + operator to add two vectors together.</p>
     
     <div class="code-box">
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
         <pre><code>
 class Vector:
     def __init__(self, x, y):
@@ -858,7 +865,7 @@ print(v5)  # Output: Vector(6, 9)
                 <li><strong>Overloaded Operators:</strong> +, -, *, /</li>
                 <li><strong>Explanation:</strong> Define how to add, subtract, multiply, and divide complex numbers.</li>
                 <div class="code-box">
-                    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+                    <button class="copy-button"><i class="fas fa-copy"></i></button>
                     <pre><code>
 class ComplexNumber:
     def __init__(self, real, imag):
@@ -903,7 +910,7 @@ print(c1 / c2)  # Output: 0.44 + 0.08i
                 <li><strong>Overloaded Operators:</strong> +, -, *, /</li>
                 <li><strong>Explanation:</strong> Define how to perform arithmetic operations with fractions.</li>
                 <div class="code-box">
-                    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+                    <button class="copy-button"><i class="fas fa-copy"></i></button>
                     <pre><code>
 from fractions import Fraction
 
@@ -926,7 +933,7 @@ print(f1 / f2)  # Output: 2/3
                 <li><strong>Overloaded Operators:</strong> +, -, *</li>
                 <li><strong>Explanation:</strong> Define how to add, subtract, and multiply matrices.</li>
                 <div class="code-box">
-                    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+                    <button class="copy-button"><i class="fas fa-copy"></i></button>
                     <pre><code>
 class Matrix:
     def __init__(self, data):
@@ -977,7 +984,7 @@ print(m1 * m2)
                 <li><strong>Overloaded Operators:</strong> +, -</li>
                 <li><strong>Explanation:</strong> Define how to add and subtract points in a 2D space.</li>
                 <div class="code-box">
-                    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+                    <button class="copy-button"><i class="fas fa-copy"></i></button>
                     <pre><code>
                         Sure, let's continue with the section on "Points in 2D Space":
 
@@ -1011,7 +1018,7 @@ print(m1 * m2)
 </section>
                                
 <section id="magic-methods">
-    <h2>Mastering Magic Methods in Python: A Comprehensive Guide with Examples</h2>
+    <h2>Magic Methods in Python</h2>
     <p>
         Magic methods (also known as dunder methods) are special methods in Python that have double underscores at the beginning and end of their names. These methods allow you to define how objects of your class behave with built-in functions and operators.
     </p>
@@ -1032,7 +1039,7 @@ print(m1 * m2)
     </p>
     
     <div class="code-box">
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
         <pre><code>
 class Person:
     def __init__(self, name, age):
@@ -1058,7 +1065,7 @@ print(repr(p))  # Output: Person('Alice', 30)
     <p><strong>__add__:</strong> Defines the behavior of the + operator for objects of your class.</p>
     
     <div class="code-box">
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
         <pre><code>
 class Point:
     def __init__(self, x, y):
@@ -1085,7 +1092,7 @@ print(p3)  # Output: Point(4, 6)
     <p><strong>__len__:</strong> Defines the behavior of the <code>len()</code> function for objects of your class.</p>
     
     <div class="code-box">
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
         <pre><code>
 class CustomList:
     def __init__(self, items):
@@ -1110,7 +1117,7 @@ print(len(cl))  # Output: 5
     </p>
     
     <div class="code-box">
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
         <pre><code>
 class CustomDict:
     def __init__(self):
@@ -1135,7 +1142,7 @@ print(cd['name'])  # Output: Alice
     <p><strong>__call__:</strong> Defines the behavior of calling an object as a function.</p>
     
     <div class="code-box">
-        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
         <pre><code>
 class Multiplier:
     def __init__(self, factor):
@@ -1160,7 +1167,7 @@ print(double(5))  # Output: 10
                 <li><strong>Magic Methods:</strong> __len__, __getitem__, __setitem__, __delitem__</li>
                 <li><strong>Explanation:</strong> Define how to get the length, access items, set items, and delete items in a custom container.</li>
                 <div class="code-box">
-                    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+                    <button class="copy-button"><i class="fas fa-copy"></i></button>
                     <pre><code>
 class CustomContainer:
     def __init__(self):
@@ -1194,310 +1201,311 @@ print(cc.data)  # Output: [1, 2, 4, 5]
             </ul>
         </li>
         <li>
-            <strong>Custom Numeric Class</strong>
-            <ul>
-                <li><strong>Magic Methods:</strong> __add__, __sub__, __mul__, __truediv__</li>
-                <li><strong>Explanation:</strong> Define how to add, subtract, multiply, and divide custom numeric objects.</li>
-                <div class="code-box">
-                    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
-                    <pre><code>
-                        class CustomIterator:
-                        def __init__(self, start, end):
-                            self.current = start
-                            self.end = end
-                    
-                        def __iter__(self):
-                            return self
-                    
-                        def __next__(self):
-                            if self.current >= self.end:
-                                raise StopIteration
-                            self.current += 1
-                            return self.current - 1
-                    
-                    # Create a CustomIterator object
-                    ci = CustomIterator(1, 5)
-                    
-                    # Use the iterator
-                    for num in ci:
-                        print(num)  # Output: 1 2 3 4
-                                        </code></pre>
-                                    </div>
-                                </ul>
-                            </li>
-                        </ul>
+<strong>Custom Numeric Class</strong>
+<ul>
+<li><strong>Magic Methods:</strong> __add__, __sub__, __mul__, __truediv__</li>
+<li><strong>Explanation:</strong> Define how to add, subtract, multiply, and divide custom numeric objects.</li>
+<div class="code-box">
+<button class="copy-button"><i class="fas fa-copy"></i></button>
+<pre><code>
+class CustomIterator:
+def __init__(self, start, end):
+    self.current = start
+    self.end = end
+
+def __iter__(self):
+    return self
+
+def __next__(self):
+    if self.current >= self.end:
+        raise StopIteration
+    self.current += 1
+    return self.current - 1
+
+# Create a CustomIterator object
+ci = CustomIterator(1, 5)
+
+# Use the iterator
+for num in ci:
+print(num)  # Output: 1 2 3 4
+                </code></pre>
+            </div>
+        </ul>
+    </li>
+</ul>
 </section>
 
 <section id="property-decorators">
-                                                        <h2>Mastering Property Decorators in Python: A Deep Dive with Examples</h2>
-                                                        <p>
-                                                            Property decorators in Python provide a way to manage the attributes of a class by defining getters, setters, and deleters. This allows for controlled access to private attributes and can help in maintaining encapsulation.
-                                                        </p>
-                                                        
-                                                        <h3>What are Property Decorators?</h3>
-                                                        <p>
-                                                            <strong>Property Decorators:</strong> Property decorators are used to define methods in a class that act as getters, setters, and deleters for an attribute. The <code>@property</code> decorator is used for the getter method, <code>@.setter</code> for the setter method, and <code>@.deleter</code> for the deleter method.
-                                                        </p>
-                                                        
-                                                        <h3>Deep Dive into Property Decorators</h3>
-                                                        <p>Let’s explore how property decorators work with detailed examples.</p>
-                                                        
-                                                        <h4>Example: Using @property for Getters</h4>
-                                                        <p>The <code>@property</code> decorator allows you to define a method that gets called automatically when you access an attribute.</p>
-                                                        
-                                                        <div class="code-box">
-                                                            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
-                                                            <pre><code>
-                                                    class Circle:
-                                                        def __init__(self, radius):
-                                                            self._radius = radius
-                                                    
-                                                        @property
-                                                        def radius(self):
-                                                            return self._radius
-                                                    
-                                                    # Create a Circle object
-                                                    c = Circle(5)
-                                                    
-                                                    # Access the radius property
-                                                    print(c.radius)  # Output: 5
-                                                            </code></pre>
-                                                        </div>
-                                                        
-                                                        <p>In this example:</p>
-                                                        <ul>
-                                                            <li>The <strong>radius</strong> method is decorated with <code>@property</code>, making it a getter for the <strong>_radius</strong> attribute.</li>
-                                                        </ul>
-                                                        
-                                                        <h4>Example: Using @.setter for Setters</h4>
-                                                        <p>The <code>@.setter</code> decorator allows you to define a method that gets called automatically when you set an attribute.</p>
-                                                        
-                                                        <div class="code-box">
-                                                            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
-                                                            <pre><code>
-                                                    class Circle:
-                                                        def __init__(self, radius):
-                                                            self._radius = radius
-                                                    
-                                                        @property
-                                                        def radius(self):
-                                                            return self._radius
-                                                    
-                                                        @radius.setter
-                                                        def radius(self, value):
-                                                            if value < 0:
-                                                                raise ValueError("Radius cannot be negative")
-                                                            self._radius = value
-                                                    
-                                                    # Create a Circle object
-                                                    c = Circle(5)
-                                                    
-                                                    # Set the radius property
-                                                    c.radius = 10
-                                                    print(c.radius)  # Output: 10
-                                                    
-                                                    # Attempt to set a negative radius
-                                                    try:
-                                                        c.radius = -5
-                                                    except ValueError as e:
-                                                        print(e)  # Output: Radius cannot be negative
-                                                            </code></pre>
-                                                        </div>
-                                                        
-                                                        <p>In this example:</p>
-                                                        <ul>
-                                                            <li>The <strong>radius</strong> method is decorated with <code>@property</code> to act as a getter.</li>
-                                                            <li>The <strong>radius</strong> method is also decorated with <code>@radius.setter</code> to act as a setter, which includes validation to prevent negative values.</li>
-                                                        </ul>
-                                                        
-                                                        <h4>Example: Using @.deleter for Deleters</h4>
-                                                        <p>The <code>@.deleter</code> decorator allows you to define a method that gets called automatically when you delete an attribute.</p>
-                                                        
-                                                        <div class="code-box">
-                                                            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
-                                                            <pre><code>
-                                                    class Circle:
-                                                        def __init__(self, radius):
-                                                            self._radius = radius
-                                                    
-                                                        @property
-                                                        def radius(self):
-                                                            return self._radius
-                                                    
-                                                        @radius.setter
-                                                        def radius(self, value):
-                                                            if value < 0:
-                                                                raise ValueError("Radius cannot be negative")
-                                                            self._radius = value
-                                                    
-                                                        @radius.deleter
-                                                        def radius(self):
-                                                            print("Deleting radius")
-                                                            del self._radius
-                                                    
-                                                    # Create a Circle object
-                                                    c = Circle(5)
-                                                    
-                                                    # Delete the radius property
-                                                    del c.radius
-                                                            </code></pre>
-                                                        </div>
-                                                        
-                                                        <p>In this example:</p>
-                                                        <ul>
-                                                            <li>The <strong>radius</strong> method is decorated with <code>@property</code> to act as a getter.</li>
-                                                            <li>The <strong>radius</strong> method is also decorated with <code>@radius.setter</code> to act as a setter.</li>
-                                                            <li>The <strong>radius</strong> method is further decorated with <code>@radius.deleter</code> to act as a deleter, which prints a message and deletes the <strong>_radius</strong> attribute.</li>
-                                                        </ul>
-                                                        
-                                                        <h3>Practical Examples of Property Decorators</h3>
-                                                        <ul>
-                                                            <li>
-                                                                <strong>Temperature Conversion</strong>
-                                                                <ul>
-                                                                    <li><strong>Class:</strong> Temperature</li>
-                                                                    <li><strong>Properties:</strong> celsius, fahrenheit</li>
-                                                                    <li><strong>Explanation:</strong> Use property decorators to convert between Celsius and Fahrenheit.</li>
-                                                                    <div class="code-box">
-                                                                        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
-                                                                        <pre><code>
-                                                    class Temperature:
-                                                        def __init__(self, celsius):
-                                                            self._celsius = celsius
-                                                    
-                                                        @property
-                                                        def celsius(self):
-                                                            return self._celsius
-                                                    
-                                                        @celsius.setter
-                                                        def celsius(self, value):
-                                                            self._celsius = value
-                                                    
-                                                        @property
-                                                        def fahrenheit(self):
-                                                            return (self._celsius * 9/5) + 32
-                                                    
-                                                        @fahrenheit.setter
-                                                        def fahrenheit(self, value):
-                                                            self._celsius = (value - 32) * 5/9
-                                                    
-                                                    # Create a Temperature object
-                                                    temp = Temperature(25)
-                                                    
-                                                    # Access and set properties
-                                                    print(temp.celsius)  # Output: 25
-                                                    print(temp.fahrenheit)  # Output: 77.0
-                                                    
-                                                    temp.fahrenheit = 100
-                                                    print(temp.celsius)  # Output: 37.77777777777778
-                                                                        </code></pre>
-                                                                    </div>
-                                                                </ul>
-                                                            </li>
-                                                            <li>
-                                                                <strong>Bank Account Balance</strong>
-                                                                <ul>
-                                                                    <li><strong>Class:</strong> BankAccount</li>
-                                                                    <li><strong>Properties:</strong> balance</li>
-                                                                    <li><strong>Explanation:</strong> Use property decorators to manage the balance with validation.</li>
-                                                                    <div class="code-box">
-                                                                        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
-                                                                        <pre><code>
-                                                    class BankAccount:
-                                                        def __init__(self, balance):
-                                                            self._balance = balance
-                                                    
-                                                        @property
-                                                        def balance(self):
-                                                            return self._balance
-                                                    
-                                                        @balance.setter
-                                                        def balance(self, value):
-                                                            if value < 0:
-                                                                raise ValueError("Balance cannot be negative")
-                                                            self._balance = value
-                                                    
-                                                    # Create a BankAccount object
-                                                    account = BankAccount(1000)
-                                                    
-                                                    # Access and set properties
-                                                    print(account.balance)  # Output: 1000
-                                                    
-                                                    account.balance = 1500
-                                                    print(account.balance)  # Output: 1500
-                                                    
-                                                    try:
-                                                        account.balance = -500
-                                                    except ValueError as e:
-                                                        print(e)  # Output: Balance cannot be negative
-                                                                        </code></pre>
-                                                                    </div>
-                                                                </ul>
-                                                            </li>
-                                                            <li>
-                                                                <strong>Rectangle Area and Perimeter</strong>
-                                                                <ul>
-                                                                    <li><strong>Class:</strong> Rectangle</li>
-                                                                    <li><strong>Properties:</strong> width, height, area, perimeter</li>
-                                                                    <li><strong>Explanation:</strong> Use property decorators to calculate area and perimeter.</li>
-                                                                    <div class="code-box">
-                                                                        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
-                                                                        <pre><code>
-                                                    class Rectangle:
-                                                        def __init__(self, width, height):
-                                                            self._width = width
-                                                            self._height = height
-                                                    
-                                                        @property
-                                                        def width(self):
-                                                            return self._width
-                                                    
-                                                        @width.setter
-                                                        def width(self, value):
-                                                            if value < 0:
-                                                                raise ValueError("Width cannot be negative")
-                                                            self._width = value
-                                                    
-                                                        @property
-                                                        def height(self):
-                                                            return self._height
-                                                    
-                                                        @height.setter
-                                                        def height(self, value):
-                                                            if value < 0:
-                                                                raise ValueError("Height cannot be negative")
-                                                            self._height = value
-                                                    
-                                                        @property
-                                                        def area(self):
-                                                            return self._width * self._height
-                                                    
-                                                        @property
-                                                        def perimeter(self):
-                                                            return 2 * (self._width + self._height)
-                                                    
-                                                    # Create a Rectangle object
-                                                    rect = Rectangle(4, 5)
-                                                    # Access properties
+    <h2>Property Decorators in Python</h2>
+    <p>
+        Property decorators in Python provide a way to manage the attributes of a class by defining getters, setters, and deleters. This allows for controlled access to private attributes and can help in maintaining encapsulation.
+    </p>
+                                        
+    <h3>What are Property Decorators?</h3>
+    <p>
+        <strong>Property Decorators:</strong> Property decorators are used to define methods in a class that act as getters, setters, and deleters for an attribute. The <code>@property</code> decorator is used for the getter method, <code>@.setter</code> for the setter method, and <code>@.deleter</code> for the deleter method.
+    </p>
+                                        
+        <h3>Deep Dive into Property Decorators</h3>
+        <p>Let’s explore how property decorators work with detailed examples.</p>
+        
+        <h4>Example: Using @property for Getters</h4>
+        <p>The <code>@property</code> decorator allows you to define a method that gets called automatically when you access an attribute.</p>
+        
+        <div class="code-box">
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
+            <pre><code>
+    class Circle:
+        def __init__(self, radius):
+            self._radius = radius
+    
+        @property
+        def radius(self):
+            return self._radius
+    
+    # Create a Circle object
+    c = Circle(5)
+    
+    # Access the radius property
+    print(c.radius)  # Output: 5
+            </code></pre>
+        </div>
+        
+        <p>In this example:</p>
+        <ul>
+            <li>The <strong>radius</strong> method is decorated with <code>@property</code>, making it a getter for the <strong>_radius</strong> attribute.</li>
+        </ul>
+        
+        <h4>Example: Using @.setter for Setters</h4>
+        <p>The <code>@.setter</code> decorator allows you to define a method that gets called automatically when you set an attribute.</p>
+        
+        <div class="code-box">
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
+            <pre><code>
+    class Circle:
+        def __init__(self, radius):
+            self._radius = radius
+    
+        @property
+        def radius(self):
+            return self._radius
+    
+        @radius.setter
+        def radius(self, value):
+            if value < 0:
+                raise ValueError("Radius cannot be negative")
+            self._radius = value
+    
+    # Create a Circle object
+    c = Circle(5)
+    
+    # Set the radius property
+    c.radius = 10
+    print(c.radius)  # Output: 10
+    
+    # Attempt to set a negative radius
+    try:
+        c.radius = -5
+    except ValueError as e:
+        print(e)  # Output: Radius cannot be negative
+            </code></pre>
+        </div>
+        
+        <p>In this example:</p>
+        <ul>
+            <li>The <strong>radius</strong> method is decorated with <code>@property</code> to act as a getter.</li>
+            <li>The <strong>radius</strong> method is also decorated with <code>@radius.setter</code> to act as a setter, which includes validation to prevent negative values.</li>
+        </ul>
+        
+        <h4>Example: Using @.deleter for Deleters</h4>
+        <p>The <code>@.deleter</code> decorator allows you to define a method that gets called automatically when you delete an attribute.</p>
+        
+        <div class="code-box">
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
+            <pre><code>
+    class Circle:
+        def __init__(self, radius):
+            self._radius = radius
+    
+        @property
+        def radius(self):
+            return self._radius
+    
+        @radius.setter
+        def radius(self, value):
+            if value < 0:
+                raise ValueError("Radius cannot be negative")
+            self._radius = value
+    
+        @radius.deleter
+        def radius(self):
+            print("Deleting radius")
+            del self._radius
+    
+    # Create a Circle object
+    c = Circle(5)
+    
+    # Delete the radius property
+    del c.radius
+            </code></pre>
+        </div>
+        
+        <p>In this example:</p>
+        <ul>
+            <li>The <strong>radius</strong> method is decorated with <code>@property</code> to act as a getter.</li>
+            <li>The <strong>radius</strong> method is also decorated with <code>@radius.setter</code> to act as a setter.</li>
+            <li>The <strong>radius</strong> method is further decorated with <code>@radius.deleter</code> to act as a deleter, which prints a message and deletes the <strong>_radius</strong> attribute.</li>
+        </ul>
+        
+        <h3>Practical Examples of Property Decorators</h3>
+        <ul>
+            <li>
+                <strong>Temperature Conversion</strong>
+                <ul>
+                    <li><strong>Class:</strong> Temperature</li>
+                    <li><strong>Properties:</strong> celsius, fahrenheit</li>
+                    <li><strong>Explanation:</strong> Use property decorators to convert between Celsius and Fahrenheit.</li>
+                    <div class="code-box">
+                        <button class="copy-button"><i class="fas fa-copy"></i></button>
+                        <pre><code>
+    class Temperature:
+        def __init__(self, celsius):
+            self._celsius = celsius
+    
+        @property
+        def celsius(self):
+            return self._celsius
+    
+        @celsius.setter
+        def celsius(self, value):
+            self._celsius = value
+    
+        @property
+        def fahrenheit(self):
+            return (self._celsius * 9/5) + 32
+    
+        @fahrenheit.setter
+        def fahrenheit(self, value):
+            self._celsius = (value - 32) * 5/9
+    
+    # Create a Temperature object
+    temp = Temperature(25)
+    
+    # Access and set properties
+    print(temp.celsius)  # Output: 25
+    print(temp.fahrenheit)  # Output: 77.0
+    
+    temp.fahrenheit = 100
+    print(temp.celsius)  # Output: 37.77777777777778
+                        </code></pre>
+                    </div>
+                </ul>
+            </li>
+            <li>
+                <strong>Bank Account Balance</strong>
+                <ul>
+                    <li><strong>Class:</strong> BankAccount</li>
+                    <li><strong>Properties:</strong> balance</li>
+                    <li><strong>Explanation:</strong> Use property decorators to manage the balance with validation.</li>
+                    <div class="code-box">
+                        <button class="copy-button"><i class="fas fa-copy"></i></button>
+                        <pre><code>
+    class BankAccount:
+        def __init__(self, balance):
+            self._balance = balance
+    
+        @property
+        def balance(self):
+            return self._balance
+    
+        @balance.setter
+        def balance(self, value):
+            if value < 0:
+                raise ValueError("Balance cannot be negative")
+            self._balance = value
+    
+    # Create a BankAccount object
+    account = BankAccount(1000)
+    
+    # Access and set properties
+    print(account.balance)  # Output: 1000
+    
+    account.balance = 1500
+    print(account.balance)  # Output: 1500
+    
+    try:
+        account.balance = -500
+    except ValueError as e:
+        print(e)  # Output: Balance cannot be negative
+                        </code></pre>
+                    </div>
+                </ul>
+            </li>
+            <li>
+                <strong>Rectangle Area and Perimeter</strong>
+                <ul>
+                    <li><strong>Class:</strong> Rectangle</li>
+                    <li><strong>Properties:</strong> width, height, area, perimeter</li>
+                    <li><strong>Explanation:</strong> Use property decorators to calculate area and perimeter.</li>
+                    <div class="code-box">
+                        <button class="copy-button"><i class="fas fa-copy"></i></button>
+                        <pre><code>
+    class Rectangle:
+        def __init__(self, width, height):
+            self._width = width
+            self._height = height
+    
+        @property
+        def width(self):
+            return self._width
+    
+        @width.setter
+        def width(self, value):
+            if value < 0:
+                raise ValueError("Width cannot be negative")
+            self._width = value
+    
+        @property
+        def height(self):
+            return self._height
+    
+        @height.setter
+        def height(self, value):
+            if value < 0:
+                raise ValueError("Height cannot be negative")
+            self._height = value
+    
+        @property
+        def area(self):
+            return self._width * self._height
+    
+        @property
+        def perimeter(self):
+            return 2 * (self._width + self._height)
+    
+    # Create a Rectangle object
+    rect = Rectangle(4, 5)
+    # Access properties
 print(rect.area)  # Output: 20
 print(rect.perimeter)  # Output: 18
 
 # Set properties
 rect.width = 6
 print(rect.area)  # Output: 30
-                    </code></pre>
-                </div>
-            </ul>
-        </li>
-        <li>
-            <strong>Employee Salary</strong>
-            <ul>
-                <li><strong>Class:</strong> Employee</li>
-                <li><strong>Properties:</strong> salary, bonus</li>
-                <li><strong>Explanation:</strong> Use property decorators to manage salary and calculate bonus.</li>
-                <div class="code-box">
-                    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
-                    <pre><code>
+    </code></pre>
+</div>
+</ul>
+</li>
+<li>
+<strong>Employee Salary</strong>
+
+<ul>
+    <li><strong>Class:</strong> Employee</li>
+    <li><strong>Properties:</strong> salary, bonus</li>
+    <li><strong>Explanation:</strong> Use property decorators to manage salary and calculate bonus.</li>
+    <div class="code-box">
+        <button class="copy-button"><i class="fas fa-copy"></i></button>
+        <pre><code>
 class Employee:
     def __init__(self, salary):
         self._salary = salary
@@ -1526,19 +1534,31 @@ print(emp.bonus)  # Output: 5000.0
 # Set properties
 emp.salary = 60000
 print(emp.bonus)  # Output: 6000.0
-                    </code></pre>
-                </div>
-            </ul>
-        </li>
-    </ul>
+        </code></pre>
+    </div>
+</ul>
+
+</li>
+</ul>
 </section>
+
+
 </div>
 
-<script src="script.js"></script>
-
-  
 <footer class="footer">
-    <p>© 2024 Hacktrix. All rights reserved.</p>
+    <p class="paragraph">Copyright © 2025 Hacktrix. All rights reserved.</p>
 </footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<script>
+    const MOBILE_BREAKPOINT = 768;
+    if (window.innerWidth <= MOBILE_BREAKPOINT) {
+        document.write('<script src="mobile.js"><\/script>');
+    }
+</script>
+
+<script src="script.js"></script>
 </body>
 </html>

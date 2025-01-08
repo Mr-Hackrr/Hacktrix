@@ -7,11 +7,13 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
         <link rel="stylesheet" href="style.css">
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </head>
     <body>
         <!-- Header Bar -->
         <header class="header-bar">
-            <span class="brand-name">LuckyByte</span>
+            <span class="brand-name">TechyVia</span>
             <nav class="navbar">
                 <ul class="nav-links">
                     <li><a href="#about" class="nav-link">Home</a></li>
@@ -62,7 +64,7 @@
 <li><strong>Machine Learning:</strong> Many machine learning algorithms rely on NumPy for data preprocessing, model training, and evaluation due to its speed and efficiency.</li>
 </ul>
 
-<h2>Features of NumPy</h2>
+<h3>Features of NumPy</h3>
 <h3>1. Multidimensional Arrays:</h3>
 <p>NumPy introduces the <code>ndarray</code> object, which is a fast and space-efficient multidimensional array.</p>
 <div class="code-box">
@@ -97,7 +99,7 @@ c = a + b  # This operation is very fast</code></pre>
 <h3>4. Integration with Other Libraries:</h3>
 <p>NumPy integrates seamlessly with other scientific libraries like SciPy, Pandas, and Matplotlib, enhancing its functionality and ease of use.</p>
 
-<h2>Installing NumPy</h2>
+<h3>Installing NumPy</h3>
 <h3>1. Using pip:</h3>
 <div class="code-box">
 <pre><code>pip install numpy</code></pre>
@@ -117,7 +119,7 @@ c = a + b  # This operation is very fast</code></pre>
 <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
-<h2>NumPy vs Python Lists</h2>
+<h3>NumPy vs Python Lists</h3>
 <h3>1. Performance:</h3>
 <p>NumPy arrays are more efficient than Python lists due to their fixed size and homogeneous data type.</p>
 <div class="code-box">
@@ -168,8 +170,8 @@ print(np.std(array))   # Output: 0.816496580927726</code></pre>
 </section>
 
 <section id="numpy-arrays">
-<h1>NumPy Arrays</h1>
-<h2>Creating Arrays</h2>
+<h2>NumPy Arrays</h2>
+<h3>Creating Arrays</h3>
 <p>NumPy provides several functions to create arrays, each serving different purposes. Here, we'll discuss how to create arrays using <code>array()</code>, <code>zeros()</code>, <code>ones()</code>, <code>empty()</code>, and <code>arange()</code>, along with practical examples.</p>
 
 <h3>Using <code>array()</code></h3>
@@ -299,8 +301,8 @@ print(array_range_step)</code></pre>
 </div>
 <p>This creates a 1D array with values from 0 to 8, with a step size of 2.</p>
 
-<h1>Array Data Types</h1>
-<h2>Importance of Data Types</h2>
+<h3>Array Data Types</h3>
+<h3>Importance of Data Types</h3>
 <p>In NumPy, data types (dtypes) are crucial because they define the type of elements stored in an array. This affects the array's memory usage and the operations that can be performed on it. NumPy supports a variety of data types, including integers, floats, complex numbers, and more. Understanding and specifying data types can lead to more efficient and error-free code.</p>
 
 <h3>Key Points:</h3>
@@ -310,7 +312,7 @@ print(array_range_step)</code></pre>
     <li><strong>Precision:</strong> Selecting the right data type ensures the precision needed for calculations.</li>
 </ul>
 
-<h2>Specifying Data Types</h2>
+<h3>Specifying Data Types</h3>
 <p>You can specify the data type of a NumPy array when you create it using the <code>dtype</code> parameter.</p>
 
 <h3>Example 1: Creating an array with integer data type</h3>
@@ -337,7 +339,7 @@ print(array_float.dtype)</code></pre>
 </div>
 <p>This creates an array of floats with the <code>float64</code> data type.</p>
 
-<h2>Converting Data Types</h2>
+<h3>Converting Data Types</h3>
 <p>You can convert the data type of an existing array using the <code>astype()</code> method.</p>
 
 <h3>Example 1: Converting an integer array to float</h3>
@@ -366,7 +368,7 @@ print(array_int.dtype)</code></pre>
 </div>
 <p>This converts a float array to an integer array, truncating the decimal part.</p>
 
-<h2>Common Data Types in NumPy</h2>
+<h3>Common Data Types in NumPy</h3>
 <ul>
     <li><strong>Integer Types:</strong> <code>int8</code>, <code>int16</code>, <code>int32</code>, <code>int64</code></li>
     <li><strong>Unsigned Integer Types:</strong> <code>uint8</code>, <code>uint16</code>, <code>uint32</code>, <code>uint64</code></li>
@@ -374,14 +376,14 @@ print(array_int.dtype)</code></pre>
     <li><strong>Complex Types:</strong> <code>complex64</code>, <code>complex128</code></li>
 </ul>
 
-<h2>Benefits and Use Cases</h2>
+<h3>Benefits and Use Cases</h3>
 <ul>
     <li><strong>Memory Optimization:</strong> Using smaller data types like <code>int8</code> or <code>float16</code> can significantly reduce memory usage in large datasets.</li>
     <li><strong>Performance Improvement:</strong> Operations on arrays with specific data types can be optimized for speed.</li>
     <li><strong>Precision Control:</strong> Ensuring the right level of precision for scientific calculations by choosing appropriate float or complex types.</li>
 </ul>
 
-<h2>Common Pitfalls and Troubleshooting Tips</h2>
+<h3>Common Pitfalls and Troubleshooting Tips</h3>
 <h3>Overflow Errors:</h3>
 <p>Using a data type that is too small can lead to overflow errors. For example, using <code>int8</code> for large integers.</p>
 <div class="code-box">
@@ -406,8 +408,8 @@ print(array_low_precision)  # Output: [1.1234568]</code></pre>
     <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
-<h1>Array Shape and Dimension</h1>
-<h2>Shape</h2>
+<h3>Array Shape and Dimension</h3>
+<h3>Shape</h3>
 <p>The shape of a NumPy array is a tuple that indicates the size of the array along each dimension. It is accessed using the <code>shape</code> attribute.</p>
 
 <h3>Example 1: Checking the shape of a 1D array</h3>
@@ -432,7 +434,7 @@ print(array_2d.shape)  # Output: (2, 3)</code></pre>
 </div>
 <p>This indicates that the array has 2 rows and 3 columns.</p>
 
-<h2>ndim</h2>
+<h3>ndim</h3>
 <p>The <code>ndim</code> attribute returns the number of dimensions (axes) of the array.</p>
 
 <h3>Example 1: Checking the number of dimensions of a 1D array</h3>
@@ -457,7 +459,7 @@ print(array_3d.ndim)  # Output: 3</code></pre>
 </div>
 <p>This shows that the array has three dimensions.</p>
 
-<h2>Resizing Arrays</h2>
+<h3>Resizing Arrays</h3>
 <p>Resizing arrays can be done using the <code>reshape()</code> method, which returns a new array with the specified shape, or the <code>resize()</code> method, which modifies the array in place.</p>
 
 <h3>Example 1: Using <code>reshape()</code> to change the shape of an array</h3>
@@ -484,7 +486,7 @@ print(array)</code></pre>
 </div>
 <p>This resizes the array to a 3x2 array, modifying the original array.</p>
 
-<h2>Deep Dive into Different Models</h2>
+<h3>Deep Dive into Different Models</h3>
 <h3>Flattening an Array:</h3>
 <p>Flattening converts a multi-dimensional array into a 1D array.</p>
 
@@ -538,8 +540,8 @@ print(expanded_array)</code></pre>
 <p>This adds a new axis, converting the 1D array into a 2D row vector.</p>
 
 
-<h1>Indexing in NumPy</h1>
-<h2>Basic Indexing</h2>
+<h3>Indexing in NumPy</h3>
+<h3>Basic Indexing</h3>
 <p>Indexing in NumPy allows you to access individual elements of an array using their indices. NumPy arrays are zero-indexed, meaning the first element has an index of 0.</p>
 
 <h3>Example 1: Indexing a 1D array</h3>
@@ -566,7 +568,7 @@ print(array_2d[2, 2])  # Output: 9</code></pre>
 </div>
 <p>This accesses the element in the first row, second column, and the element in the third row, third column.</p>
 
-<h2>Slicing in NumPy</h2>
+<h3>Slicing in NumPy</h3>
 <p>Slicing allows you to access a range of elements in an array. The syntax for slicing is <code>start:stop:step</code>.</p>
 
 <h3>Example 1: Slicing a 1D array</h3>
@@ -593,7 +595,7 @@ print(array_2d[:2, :2])  # Output: [[1 2] [4 5]]</code></pre>
 </div>
 <p>This slices the array to get a sub-array from the second row and second column onwards, and another sub-array from the first two rows and columns.</p>
 
-<h2>Boolean Indexing in NumPy</h2>
+<h3>Boolean Indexing in NumPy</h3>
 <p>Boolean indexing allows you to select elements from an array using boolean conditions.</p>
 
 <h3>Example 1: Boolean indexing with a condition</h3>
@@ -620,7 +622,7 @@ print(array_2d[bool_idx])  # Output: [3 4 5 6 7]</code></pre>
 </div>
 <p>This selects elements greater than 2 and less than 8.</p>
 
-<h2>Advanced Indexing</h2>
+<h3>Advanced Indexing</h3>
 <h3>Integer Array Indexing</h3>
 <p>You can use arrays of integers to index another array. This allows you to construct new arrays by picking elements from the original array.</p>
 
@@ -650,7 +652,7 @@ print(array_2d[rows, cols])  # Output: [3 5 7]</code></pre>
     <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
-<h2>Combining Indexing and Slicing</h2>
+<h3>Combining Indexing and Slicing</h3>
 <p>You can combine different types of indexing and slicing to access more complex parts of arrays.</p>
 
 <h3>Example</h3>
@@ -665,10 +667,10 @@ print(array_2d[1:, [0, 2]])  # Output: [[4 6] [7 9]]</code></pre>
 </section>
 
 <section id="array-operations">
-<h1>Array Operations in NumPy</h1>
+<h2>Array Operations in NumPy</h2>
 <p>NumPy provides a wide range of mathematical operations that can be performed on arrays. These operations are element-wise, meaning they are applied to each element of the array individually. Let's explore addition, subtraction, multiplication, division, and broadcasting with practical examples.</p>
 
-<h2>Addition</h2>
+<h3>Addition</h3>
 <p>You can add two arrays element-wise using the <code>+</code> operator or the <code>np.add()</code> function.</p>
 
 <h3>Example 1: Adding two 1D arrays</h3>
@@ -695,7 +697,7 @@ print(result)  # Output: [[ 6  8] [10 12]]</code></pre>
     <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
-<h2>Subtraction</h2>
+<h3>Subtraction</h3>
 <p>You can subtract one array from another element-wise using the <code>-</code> operator or the <code>np.subtract()</code> function.</p>
 
 <h3>Example 1: Subtracting two 1D arrays</h3>
@@ -722,7 +724,7 @@ print(result)  # Output: [[ 9 18] [27 36]]</code></pre>
     <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
-<h2>Multiplication</h2>
+<h3>Multiplication</h3>
 <p>Element-wise multiplication can be performed using the <code>*</code> operator or the <code>np.multiply()</code> function.</p>
 
 <h3>Example 1: Multiplying two 1D arrays</h3>
@@ -749,7 +751,7 @@ print(result)  # Output: [[ 5 12] [21 32]]</code></pre>
     <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
-<h2>Division</h2>
+<h3>Division</h3>
 <p>Element-wise division can be performed using the <code>/</code> operator or the <code>np.divide()</code> function.</p>
 
 <h3>Example 1: Dividing two 1D arrays</h3>
@@ -776,7 +778,7 @@ print(result)  # Output: [[5. 5.] [6. 5.]]</code></pre>
     <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
-<h2>Broadcasting</h2>
+<h3>Broadcasting</h3>
 <p>Broadcasting allows NumPy to perform element-wise operations on arrays of different shapes. This is particularly useful when you need to perform operations between arrays of different dimensions.</p>
 
 <h3>Example 1: Broadcasting a scalar to a 1D array</h3>
@@ -805,10 +807,10 @@ print(result)  # Output: [[ 2  4  6] [ 5  7  9]]</code></pre>
 </section>
 
 <section id="aggregation-functions">
-<h1>Aggregation Functions</h1>
+<h2>Aggregation Functions</h2>
 <p>NumPy provides a variety of aggregation functions that allow you to perform operations like summing, averaging, finding the minimum and maximum values, and more. These functions can be applied to entire arrays or along specific axes.</p>
 
-<h2>Sum</h2>
+<h3>Sum</h3>
 <p>The <code>sum()</code> function adds up all the elements in an array. You can also specify an axis to sum along.</p>
 
 <h3>Example 1: Summing all elements in a 1D array</h3>
@@ -850,7 +852,7 @@ print(sum_along_axis2)  # Output: [[ 3  7] [11 15]]</code></pre>
     <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
-<h2>Mean</h2>
+<h3>Mean</h3>
 <p>The <code>mean()</code> function calculates the average of the elements in an array. You can also specify an axis to calculate the mean along.</p>
 
 <h3>Example 1: Calculating the mean of all elements in a 1D array</h3>
@@ -892,7 +894,7 @@ print(mean_along_axis2)  # Output: [[1.5 3.5] [5.5 7.5]]</code></pre>
     <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
-<h2>Min</h2>
+<h3>Min</h3>
 <p>The <code>min()</code> function finds the minimum value in an array. You can also specify an axis to find the minimum along.</p>
 
 <h3>Example 1: Finding the minimum value in a 1D array</h3>
@@ -934,7 +936,7 @@ print(min_along_axis2)  # Output: [[1 3] [5 7]]</code></pre>
     <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
-<h2>Max</h2>
+<h3>Max</h3>
 <p>The <code>max()</code> function finds the maximum value in an array. You can also specify an axis to find the maximum along.</p>
 
 <h3>Example 1: Finding the maximum value in a 1D array</h3>
@@ -976,7 +978,7 @@ print(max_along_axis2)  # Output: [[2 4] [6 8]]</code></pre>
     <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
-<h2>Axis-Based Operations</h2>
+<h3>Axis-Based Operations</h3>
 <p>Aggregation functions can be applied along specific axes of an array. The <code>axis</code> parameter specifies the axis along which the operation is performed.</p>
 
 <h3>Example 1: Summing along different axes</h3>
@@ -1024,9 +1026,9 @@ print(max_axis1)  # Output: [3 6]</code></pre>
 </section>
 
 <section id="element-wise-operations">
-<h1>Element-wise Operations</h1>
+<h2>Element-wise Operations</h2>
 
-<h2>Universal Functions (ufuncs)</h2>
+<h3>Universal Functions (ufuncs)</h3>
 <p>Universal functions, or ufuncs, are a core feature of NumPy that allow you to perform element-wise operations on arrays. These functions operate on each element of the array independently, making them highly efficient for numerical computations. Some common ufuncs include <code>np.sin</code>, <code>np.log</code>, <code>np.exp</code>, and many others.</p>
 
 <h3>1. <code>np.sin</code></h3>
@@ -1083,14 +1085,14 @@ print(log_values)</code></pre>
 </div>
 <p>This calculates the natural logarithm of each element in the 2D array.</p>
 
-<h2>Benefits and Use Cases</h2>
+<h3>Benefits and Use Cases</h3>
 <ul>
     <li><strong>Efficiency:</strong> Ufuncs are implemented in C, making them much faster than equivalent Python loops.</li>
     <li><strong>Broadcasting:</strong> Ufuncs support broadcasting, allowing operations on arrays of different shapes.</li>
     <li><strong>Vectorization:</strong> Ufuncs enable vectorized operations, which are more efficient and concise than looping over array elements.</li>
 </ul>
 
-<h2>Common Pitfalls and Troubleshooting Tips</h2>
+<h3>Common Pitfalls and Troubleshooting Tips</h3>
 <h3>Domain Errors</h3>
 <p>Ensure that the input values are within the domain of the function. For example, <code>np.log</code> requires positive numbers.</p>
 <div class="code-box">
@@ -1119,9 +1121,9 @@ print(log_values)  # Output: [23.02585093 46.05170186 69.07755279]</code></pre>
 </section>
 
 <section id="sorting-searching">
-<h1>Sorting and Searching</h1>
+<h2>Sorting and Searching</h2>
 
-<h2>Sorting</h2>
+<h3>Sorting</h3>
 <p>NumPy provides the <code>sort()</code> function to sort the elements of an array. This function can sort arrays in ascending order by default, and it can also sort along a specified axis.</p>
 
 <h3>Example 1: Sorting a 1D array</h3>
@@ -1172,7 +1174,7 @@ print(sorted_array)
 </div>
 <p>This sorts the 3D array along the third axis.</p>
 
-<h2>argsort()</h2>
+<h3>argsort()</h3>
 <p>The <code>argsort()</code> function returns the indices that would sort an array. This is useful for indirect sorting, where you need the sorted order of indices rather than the sorted values themselves.</p>
 
 <h3>Example 1: Using <code>argsort()</code> on a 1D array</h3>
@@ -1224,7 +1226,7 @@ print(sorted_indices)
 </div>
 <p>This returns the indices that would sort the 3D array along the third axis.</p>
 
-<h2>where()</h2>
+<h3>where()</h3>
 <p>The <code>where()</code> function returns the indices of elements in an array that satisfy a given condition. It can also be used to select elements from two arrays based on a condition.</p>
 
 <h3>Example 1: Using <code>where()</code> to find indices of elements that satisfy a condition</h3>
@@ -1266,9 +1268,9 @@ print(indices)  # Output: (array([1, 1, 1]), array([0, 1, 2]))</code></pre>
 </section>
 
 <section id="array-manipulations">
-<h1>Advanced Array Manipulations</h1>
+<h2>Advanced Array Manipulations</h2>
 
-<h2>Reshaping and Flattening</h2>
+<h3>Reshaping and Flattening</h3>
 <p>NumPy provides several functions to manipulate the shape and structure of arrays, including <code>reshape()</code>, <code>ravel()</code>, and <code>flatten()</code>. These functions are essential for transforming arrays to fit the needs of various operations and algorithms.</p>
 
 <h3>reshape()</h3>
@@ -1397,7 +1399,7 @@ print(array_1d)  # Output: [ 1  2  3  4  5  6  7  8  9 10 11 12]</code></pre>
     <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
-<h2>Benefits and Use Cases</h2>
+<h3>Benefits and Use Cases</h3>
 <ul>
     <li><strong>reshape():</strong> Useful for preparing data for machine learning models, where inputs often need to be in a specific shape.</li>
     <li><strong>ravel():</strong> Efficient for temporary flattening of arrays for operations that require a 1D view without copying data.</li>
@@ -1406,9 +1408,9 @@ print(array_1d)  # Output: [ 1  2  3  4  5  6  7  8  9 10 11 12]</code></pre>
 </section>
 
 <section id="joining-spliting">
-<h1>Joining and Splitting Arrays</h1>
+<h2>Joining and Splitting Arrays</h2>
 
-<h2>Joining Arrays</h2>
+<h3>Joining Arrays</h3>
 <p>NumPy provides several functions to join arrays, allowing you to combine multiple arrays into one. The most commonly used functions for joining arrays are <code>concatenate()</code>, <code>vstack()</code>, and <code>hstack()</code>.</p>
 
 <h3>1. <code>concatenate()</code></h3>
@@ -1523,7 +1525,7 @@ print(result)
     <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
-<h2>Splitting Arrays</h2>
+<h3>Splitting Arrays</h3>
 <p>NumPy also provides functions to split arrays into multiple sub-arrays. The most commonly used function for splitting arrays is <code>split()</code>.</p>
 
 <h3>1. <code>split()</code></h3>
@@ -1576,7 +1578,7 @@ print(result)
 </section>
 
 <section id="broadcasting-rules">
-  <h1>Broadcasting Rules</h1>
+  <h2>Broadcasting Rules</h2>
   <p>Broadcasting is a powerful feature in NumPy that allows you to perform element-wise operations on arrays of different shapes. When operating on two arrays, NumPy compares their shapes element-wise, starting with the trailing dimensions. It applies the following rules to determine if the shapes are compatible:</p>
   <ol>
     <li><strong>If the arrays have different numbers of dimensions, the shape of the smaller-dimensional array is padded with ones on its left side.</strong></li>
@@ -1585,7 +1587,7 @@ print(result)
   </ol>
   <p>Let's explore these rules with practical examples.</p>
   
-  <h2>Example 1: Broadcasting with a Scalar</h2>
+  <h3>Example 1: Broadcasting with a Scalar</h3>
   <p>When you perform operations between an array and a scalar, the scalar is broadcasted to the shape of the array.</p>
   
   <h3>Example: Adding a scalar to a 1D array</h3>
@@ -1600,7 +1602,7 @@ print(result)  # Output: [6 7 8]</code></pre>
     <button class="copy-button"><i class="fas fa-copy"></i></button>
   </div>
   
-  <h2>Example 2: Broadcasting with Different Dimensions</h2>
+  <h3>Example 2: Broadcasting with Different Dimensions</h3>
   <p>When the arrays have different numbers of dimensions, the smaller-dimensional array is padded with ones on its left side.</p>
   
   <h3>Example: Adding a 1D array to a 2D array</h3>
@@ -1618,7 +1620,7 @@ print(result)
     <button class="copy-button"><i class="fas fa-copy"></i></button>
   </div>
   
-  <h2>Example 3: Broadcasting with Mismatched Shapes</h2>
+  <h3>Example 3: Broadcasting with Mismatched Shapes</h3>
   <p>When the shapes do not match in any dimension, the array with shape equal to 1 in that dimension is stretched to match the other shape.</p>
   
   <h3>Example: Multiplying a 2D array with a 1D array</h3>
@@ -1636,7 +1638,7 @@ print(result)
     <button class="copy-button"><i class="fas fa-copy"></i></button>
   </div>
   
-  <h2>Example 4: Incompatible Shapes</h2>
+  <h3>Example 4: Incompatible Shapes</h3>
   <p>If the shapes are not compatible after applying the broadcasting rules, a <code>ValueError</code> is raised.</p>
   
   <h3>Example: Attempting to add arrays with incompatible shapes</h3>
@@ -1649,11 +1651,11 @@ array_1d = np.array([1, 2])
 try:
     result = array_2d + array_1d
 except ValueError as e:
-    print(e)  # Output: operands could not be broadcast together with shapes (2,3) (2,)</code></pre>
+    print(e)  # Output: operands could not be broadcast together with shapes (2,3) (4,)</code></pre>
     <button class="copy-button"><i class="fas fa-copy"></i></button>
   </div>
   
-  <h2>Benefits and Use Cases</h2>
+  <h3>Benefits and Use Cases</h3>
   <ul>
     <li><strong>Memory Efficiency:</strong> Broadcasting avoids the need to create large intermediate arrays, saving memory.</li>
     <li><strong>Code Simplicity:</strong> It allows for more concise and readable code by eliminating the need for explicit loops.</li>
@@ -1662,10 +1664,10 @@ except ValueError as e:
 </section>
 
 <section id="handling-missing">
-    <h1>Handling Missing Data</h1>
+    <h2>Handling Missing Data</h2>
     <p>In data analysis, it's common to encounter missing or undefined data. NumPy provides several tools to handle such cases, including <code>np.nan</code>, <code>np.isnan()</code>, and <code>np.nanmean()</code>. These tools help you manage and analyze datasets with missing values effectively.</p>
     
-    <h2>np.nan</h2>
+    <h3>np.nan</h3>
     <p><code>np.nan</code> is a special floating-point value that represents "Not a Number." It is used to denote missing or undefined data in NumPy arrays.</p>
     
     <h3>Example 1: Creating an array with missing values</h3>
@@ -1692,7 +1694,7 @@ except ValueError as e:
       <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
-    <h2>np.isnan()</h2>
+    <h3>np.isnan()</h3>
     <p>The <code>np.isnan()</code> function returns a boolean array indicating whether each element is <code>np.nan</code>.</p>
     
     <h3>Example 1: Identifying missing values in a 1D array</h3>
@@ -1721,7 +1723,7 @@ print(nan_mask)
       <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
-    <h2>np.nanmean()</h2>
+    <h3>np.nanmean()</h3>
     <p>The <code>np.nanmean()</code> function computes the mean of an array, ignoring <code>np.nan</code> values. This is useful for calculating the average of datasets with missing values.</p>
     
     <h3>Example 1: Calculating the mean of a 1D array with missing values</h3>
@@ -1748,14 +1750,14 @@ print(nan_mask)
       <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
-    <h2>Use Cases</h2>
+    <h3>Use Cases</h3>
     <ul>
       <li><strong>Data Cleaning:</strong> Use <code>np.nan</code> to mark missing or undefined data points in your dataset.</li>
       <li><strong>Data Analysis:</strong> Use <code>np.isnan()</code> to identify and handle missing values during data analysis.</li>
       <li><strong>Statistical Calculations:</strong> Use <code>np.nanmean()</code> to compute the mean of datasets with missing values, ensuring that the missing data does not skew the results.</li>
     </ul>
     
-    <h2>Common Pitfalls and Troubleshooting Tips</h2>
+    <h3>Common Pitfalls and Troubleshooting Tips</h3>
     <h3>Propagation of <code>np.nan</code></h3>
     <p>Arithmetic operations involving <code>np.nan</code> will result in <code>np.nan</code>. Be cautious when performing calculations.</p>
     <div class="code-box">
@@ -1782,9 +1784,9 @@ print(nan_mask)
 </section>
 
 <section id="linear-algebra">
-    <h1 class="seo-friendly-heading">Linear Algebra with NumPy</h1>
+    <h2 class="seo-friendly-heading">Linear Algebra with NumPy</h2>
 
-    <h2>Basic Linear Algebra</h2>
+    <h3>Basic Linear Algebra</h3>
 
     <h3>1. Dot Product</h3>
     <p>The dot product of two arrays is a sum of the element-wise products. In NumPy, you can compute the dot product using the <code>np.dot()</code> function.</p>
@@ -1801,10 +1803,10 @@ print(dot_product)  # Output: 32</code></pre>
         <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     <p><strong>Explanation:</strong> The dot product is calculated as \(1*4 + 2*5 + 3*6 = 32\).</p>
-
-    <h4>Example 2: Dot product of two 2D arrays (matrix multiplication)</h4>
-    <div class="code-box">
-        <pre><code>
+<br>
+<h4>Example 2: Dot product of two 2D arrays (matrix multiplication)</h4>
+<div class="code-box">
+    <pre><code>
 import numpy as np
 
 matrix1 = np.array([[1, 2], [3, 4]])
@@ -1814,10 +1816,10 @@ print(dot_product)
 # Output:
 # [[19 22]
 #  [43 50]]</code></pre>
-        <button class="copy-button"><i class="fas fa-copy"></i></button>
-    </div>
-    <p><strong>Explanation:</strong> The dot product (matrix multiplication) is calculated as:
-    <br>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
+</div>
+<p><strong>Explanation:</strong> The dot product (matrix multiplication) is calculated as:</p>
+<div class="math">
     \[
     \begin{bmatrix}
     1 & 2 \\
@@ -1830,15 +1832,16 @@ print(dot_product)
     \end{bmatrix}
     =
     \begin{bmatrix}
-    1*5 + 2*7 & 1*6 + 2*8 \\
-    3*5 + 4*7 & 3*6 + 4*8
+    (1 \cdot 5 + 2 \cdot 7) & (1 \cdot 6 + 2 \cdot 8) \\
+    (3 \cdot 5 + 4 \cdot 7) & (3 \cdot 6 + 4 \cdot 8)
     \end{bmatrix}
     =
     \begin{bmatrix}
     19 & 22 \\
     43 & 50
     \end{bmatrix}
-    \]</p>
+    \]
+</div>
 
     <h3>2. Matrix Multiplication</h3>
     <p>Matrix multiplication can be performed using the <code>@</code> operator or the <code>np.matmul()</code> function.</p>
@@ -1858,7 +1861,7 @@ print(result)
         <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     <p><strong>Explanation:</strong> The <code>@</code> operator performs matrix multiplication, yielding the same result as <code>np.dot()</code>.</p>
-
+<br>
     <h4>Example 2: Matrix multiplication using <code>np.matmul()</code></h4>
     <div class="code-box">
         <pre><code>
@@ -1892,7 +1895,7 @@ print(transpose_matrix)
 #  [3 6]]</code></pre>
         <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
-    <p><strong>Explanation:</strong> The transpose of the matrix swaps rows and columns.</p>
+    <p><strong>Explanation:</strong> The transpose of the matrix swaps rows and columns.</p><br>
 
     <h4>Example 2: Transposing a 3D array</h4>
     <div class="code-box">
@@ -1911,7 +1914,7 @@ print(transpose_array)
     </div>
     <p><strong>Explanation:</strong> The <code>transpose()</code> method with specified axes rearranges the dimensions of the array.</p>
 
-    <h2>Solving Linear Equations</h2>
+    <h3>Solving Linear Equations</h3>
     <p>The <code>np.linalg.solve()</code> function is used to solve a system of linear equations of the form \(Ax = b\), where \(A\) is a coefficient matrix and \(b\) is a constant vector.</p>
 
     <h4>Example: Solving a system of linear equations</h4>
@@ -1935,7 +1938,7 @@ print(x)  # Output: [2. 3.]</code></pre>
     \]
     The solution is \(x_1 = 2\) and \(x_2 = 3\).</p>
 
-    <h2>Eigenvalues and Eigenvectors</h2>
+    <h3>Eigenvalues and Eigenvectors</h3>
     <p>The <code>np.linalg.eig()</code> function computes the eigenvalues and right eigenvectors of a square array.</p>
 
     <h4>Example: Calculating eigenvalues and eigenvectors</h4>
@@ -1956,7 +1959,7 @@ print("Eigenvectors:", eigenvectors)
     </div>
     <p><strong>Explanation:</strong> The eigenvalues and eigenvectors of the matrix are calculated. The eigenvalues are 3 and 2, and the corresponding eigenvectors are \([0.89442719, 0.4472136]\) and \([0.70710678, -0.70710678]\).</p>
 
-    <h2>Matrix Operations</h2>
+    <h3>Matrix Operations</h3>
 
     <h3>1. <code>det()</code></h3>
     <p>The <code>np.linalg.det()</code> function computes the determinant of an array.</p>
@@ -2012,9 +2015,9 @@ print(norm_value)  # Output: 5.477225575051661</code></pre>
 </section>
 
 <section id="random-number-generation">
-    <h1 class="seo-friendly-heading">Random Number Generation</h1>
+    <h2 class="seo-friendly-heading">Random Number Generation</h2>
 
-    <h2>Random Sampling</h2>
+    <h3>Random Sampling</h3>
     <p>NumPy provides a powerful suite of functions for generating random numbers and sampling from various distributions through the <code>np.random</code> module. These functions are essential for simulations, statistical modeling, and data analysis.</p>
 
     <h3>1. Generating Random Numbers</h3>
@@ -2086,14 +2089,41 @@ print(random_array)  # Output: An array of 5 random numbers from a normal distri
         <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
 
-    <h2>Benefits and Use Cases</h2>
+    <h3>Benefits and Use Cases</h3>
+
     <ul>
-        <li><strong>Simulations:</strong> Random number generation is crucial for Monte Carlo simulations and other stochastic processes.</li>
-        <li><strong>Statistical Modeling:</strong> Sampling from different distributions helps in creating synthetic datasets and testing statistical models.</li>
-        <li><strong>Data Augmentation:</strong> In machine learning, random sampling is used for data augmentation to improve model robustness.</li>
+      <li><strong>Simulations and Modeling</strong>
+        <ul>
+          <li>Monte Carlo Simulations: Analyze complex systems, predict outcomes, and estimate uncertainties.</li>
+          <li>Stochastic Processes: Model random phenomena in finance (e.g., stock prices), biology (e.g., population dynamics), and more.</li>
+        </ul>
+      </li>
+    
+      <li><strong>Statistical Analysis and Modeling</strong>
+        <ul>
+          <li>Synthetic Data Generation: Create datasets for testing statistical models, validating assumptions, and training machine learning algorithms.</li>
+          <li>Hypothesis Testing and Validation: Use random sampling to assess the validity of statistical hypotheses and models.</li>
+        </ul>
+      </li>
+    
+      <li><strong>Machine Learning and Data Science</strong>
+        <ul>
+          <li>Data Augmentation: Enhance dataset diversity and size through random transformations to improve model robustness and generalizability.</li>
+          <li>Cross-Validation Techniques: Use random sampling to split data into training and testing sets for model evaluation and hyperparameter tuning.</li>
+          <li>Random Forests and Ensemble Methods: Leverage random sampling to construct diverse decision trees and improve predictive accuracy.</li>
+        </ul>
+      </li>
+    
+      <li><strong>Gaming, Education, and Research</strong>
+        <ul>
+          <li>Game Development: Create engaging, unpredictable experiences through procedural generation and random events.</li>
+          <li>Educational Tools: Develop interactive, randomized learning materials for more effective student engagement.</li>
+          <li>Research and Development: Utilize random number generation in simulations and models across various scientific disciplines.</li>
+        </ul>
+      </li>
     </ul>
 
-    <h2>Common Pitfalls and Troubleshooting Tips</h2>
+    <h3>Common Pitfalls and Troubleshooting Tips</h3>
     <h3>Reproducibility</h3>
     <p>For reproducible results, set a random seed using <code>np.random.seed()</code>.</p>
     <div class="code-box">
@@ -2119,9 +2149,9 @@ print(random_array)  # Output: An array of random numbers between 1 and 10, not 
 </section>
 
 <section id="reproducibility">
-    <h1 class="seo-friendly-heading">Reproducibility</h1>
+    <h2 class="seo-friendly-heading">Reproducibility</h2>
 
-    <h2>Setting Seeds with <code>np.random.seed()</code></h2>
+    <h3>Setting Seeds with <code>np.random.seed()</code></h3>
     <p>In computational experiments and data analysis, reproducibility is crucial. It ensures that your results can be consistently replicated, which is essential for debugging, sharing your work, and validating findings. One way to achieve reproducibility in random number generation is by setting a random seed using <code>np.random.seed()</code>.</p>
 
     <p>When you set a seed, you initialize the random number generator to a fixed state. This means that every time you run your code with the same seed, you will get the same sequence of random numbers. This is particularly useful in scenarios where you need consistent results, such as in simulations, machine learning experiments, and randomized algorithms.</p>
@@ -2157,14 +2187,14 @@ print(random_numbers_2)
     </div>
     <p>Here, setting the seed to 42 before generating random numbers ensures that <code>random_numbers_1</code> and <code>random_numbers_2</code> are identical.</p>
 
-    <h2>Benefits and Use Cases</h2>
+    <h3>Benefits and Use Cases</h3>
     <ul>
         <li><strong>Debugging:</strong> Setting a seed allows you to reproduce the exact sequence of random numbers, making it easier to debug and trace issues in your code.</li>
         <li><strong>Experimentation:</strong> In machine learning and data science, reproducibility is essential for comparing different models and experiments under the same conditions.</li>
         <li><strong>Collaboration:</strong> Sharing code with a fixed seed ensures that collaborators can replicate your results exactly, facilitating better collaboration and validation.</li>
     </ul>
 
-    <h2>Common Pitfalls and Troubleshooting Tips</h2>
+    <h3>Common Pitfalls and Troubleshooting Tips</h3>
     <h3>Changing Seeds</h3>
     <p>If you change the seed or do not set a seed, the sequence of random numbers will differ each time you run the code.</p>
     <div class="code-box">
@@ -2202,9 +2232,9 @@ print(random_numbers_2)
 </section>
 
 <section id="data-simulation">
-    <h1 class="seo-friendly-heading">Applications in Data Simulation</h1>
+    <h2 class="seo-friendly-heading">Applications in Data Simulation</h2>
 
-    <h2>Simulation</h2>
+    <h3>Simulation</h3>
     <p>Simulation involves generating synthetic data that mimics real-world processes. This is useful in various fields such as finance, engineering, and scientific research. NumPy's random number generation capabilities make it an excellent tool for simulations.</p>
 
     <h3>Example 1: Simulating a Random Walk</h3>
@@ -2241,7 +2271,7 @@ print("First 10 rolls:", rolls[:10])</code></pre>
     </div>
     <p>This code simulates rolling a six-sided die 1000 times and prints the first 10 results.</p>
 
-    <h2>Bootstrapping</h2>
+    <h3>Bootstrapping</h3>
     <p>Bootstrapping is a statistical method that involves resampling with replacement to estimate the distribution of a statistic. It is commonly used to estimate confidence intervals and assess the variability of a sample.</p>
 
     <h3>Example 1: Bootstrapping the Mean</h3>
@@ -2286,9 +2316,9 @@ print("95% Confidence Interval for the Median:", confidence_interval)</code></pr
 </section>
 
 <section id="performance-optimization">
-    <h1 class="seo-friendly-heading">Performance Optimization with NumPy</h1>
+    <h2 class="seo-friendly-heading">Performance Optimization with NumPy</h2>
 
-    <h2>Vectorization: The Power of Avoiding Loops</h2>
+    <h3>Vectorization: The Power of Avoiding Loops</h3>
     <p><strong>What is Vectorization?</strong><br>
     Vectorization is a computing paradigm where operations are applied to entire arrays at once, rather than looping over individual elements. This approach is particularly effective in NumPy, significantly boosting performance by leveraging optimized C code under the hood.</p>
 
@@ -2331,7 +2361,7 @@ result = arr1 + arr2</code></pre>
         <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
 
-    <h2>Memory Layout: Understanding Contiguous Arrays and the Order Parameter</h2>
+    <h3>Memory Layout: Understanding Contiguous Arrays and the Order Parameter</h3>
 
     <p><strong>Contiguous Arrays</strong></p>
     <ul>
@@ -2373,7 +2403,7 @@ print(arr_f)
         <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
 
-    <h2>Efficient Storage: Saving and Loading with <code>np.save</code> and <code>np.load</code></h2>
+    <h3>Efficient Storage: Saving and Loading with <code>np.save</code> and <code>np.load</code></h3>
 
     <p><strong>Why Efficient Storage Matters</strong></p>
     <ul>
@@ -2444,7 +2474,7 @@ print(loaded_dataset['data2'])</code></pre>
         <li><strong>Document Your Data:</strong> Store a README or metadata file alongside your <code>.npy</code>/<code>.npz</code> files describing the data's origin, structure, and any specific loading instructions.</li>
     </ul>
 
-    <h2>Best Practices for Performance Optimization with NumPy</h2>
+    <h3>Best Practices for Performance Optimization with NumPy</h3>
     <ul>
         <li><strong>Profile Your Code:</strong> Identify bottlenecks before optimizing.</li>
         <li><strong>Vectorize Operations:</strong> Prefer NumPy's built-in functions over loops.</li>
@@ -2453,7 +2483,7 @@ print(loaded_dataset['data2'])</code></pre>
         <li><strong>Stay Updated with NumPy:</strong> New versions often include performance enhancements and new features.</li>
     </ul>
 
-    <h2>Example Use Case: Scientific Computing with Vectorized Operations</h2>
+    <h3>Example Use Case: Scientific Computing with Vectorized Operations</h3>
     <p>Suppose we're analyzing the growth of multiple microbial cultures over time, modeled by an exponential growth equation: \(A(t) = A_0 e^{kt}\).</p>
     <div class="code-box">
         <pre><code>
@@ -2485,9 +2515,9 @@ plt.show()</code></pre>
 </section>
 
 <section id="visualization-debugging">
-<h1 class="seo-friendly-heading">Visualization and Debugging</h1>
+<h2 class="seo-friendly-heading">Visualization and Debugging</h2>
 
-<h2>Debugging Arrays</h2>
+<h3>Debugging Arrays</h3>
 <p>Effective debugging is crucial for identifying and resolving issues in your NumPy arrays. Here are some key tools and techniques for debugging arrays:</p>
 
 <h3><code>np.set_printoptions()</code></h3>
@@ -2543,7 +2573,7 @@ print("Debug - Array Shape:", my_array.shape)</code></pre>
         <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
 
-    <h2>Visualization with NumPy</h2>
+    <h3>Visualization with NumPy</h3>
     <p>Visualization is a powerful tool for understanding and communicating insights from your data. Here’s how to integrate NumPy arrays with Matplotlib for informative plotting:</p>
 
     <h3>Matplotlib Integration</h3>
@@ -2586,7 +2616,7 @@ plt.show()</code></pre>
     <p><strong>Output: </strong></p>
 <img src="images/cos-img.png" alt="sin cosine Output" style="max-width:100%; height:auto;">
 
-    <h2>Additional Tips for Effective Visualization</h2>
+    <h3>Additional Tips for Effective Visualization</h3>
     <ul>
         <li><strong>Keep It Simple:</strong> Avoid clutter; focus on the key message.</li>
         <li><strong>Choose Colors Wisely:</strong> Ensure accessibility and differentiate series effectively.</li>
@@ -2626,7 +2656,7 @@ plt.show()</code></pre>
     <p><strong>Output: </strong></p>
     <img src="images/temp-trends.png" alt="sin cosine Output" style="max-width:100%; height:auto;">
 
-    <h2>Debugging and Visualization Checklist</h2>
+    <h3>Debugging and Visualization Checklist</h3>
     <h3>Debugging:</h3>
     <ul>
         <li>Verify array shapes and dimensions using <code>array.shape</code>.</li>
@@ -2641,7 +2671,7 @@ plt.show()</code></pre>
         <li>Consider interactivity for complex or multi-variable data using tools like Plotly.</li>
     </ul>
 
-    <h2>Additional Resources</h2>
+    <h3>Additional Resources</h3>
     <ul>
         <li><a href="https://numpy.org/doc/" target="_blank">NumPy Documentation</a></li>
         <li><a href="https://matplotlib.org/stable/tutorials/index.html" target="_blank">Matplotlib Documentation</a></li>
@@ -2650,9 +2680,9 @@ plt.show()</code></pre>
 </section>
 
 <section id="numpy-cloud-data-engineering">
-    <h1 class="seo-friendly-heading">NumPy in Cloud and Data Engineering</h1>
+    <h2 class="seo-friendly-heading">NumPy in Cloud and Data Engineering</h2>
 
-    <h2>NumPy for Big Data</h2>
+    <h3>NumPy for Big Data</h3>
     <p>While NumPy is highly efficient for numerical computing, it has inherent limitations when dealing with extremely large datasets that don't fit into memory. Here’s how to address these limitations and integrate with Dask for scalability:</p>
 
     <h3>Limitations of NumPy for Big Data:</h3>
@@ -2678,7 +2708,7 @@ large_dask_array = da.random.random((100000, 100000), chunks=(1000, 1000))</code
         <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
 
-    <h2>Integration with Pandas</h2>
+    <h3>Integration with Pandas</h3>
     <p>Pandas, a library for data manipulation and analysis, heavily relies on NumPy. Understanding this integration is crucial for efficient data science workflows:</p>
 
     <h3>How Pandas Builds Upon NumPy:</h3>
@@ -2708,7 +2738,7 @@ print(df)</code></pre>
         <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
 
-    <h2>NumPy and Cloud Computing</h2>
+    <h3>NumPy and Cloud Computing</h3>
     <p>NumPy can be effectively utilized in cloud computing pipelines for scalable numerical computations. Here are some tips for integrating NumPy with cloud platforms and optimizing performance:</p>
 
     <h3>Use of NumPy in Cloud Pipelines:</h3>
@@ -2768,7 +2798,7 @@ gcloud run deploy --image=gcr.io/your-project-id/your-image-name --platform=mana
         <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
 
-    <h2>Additional Resources</h2>
+    <h3>Additional Resources</h3>
     <ul>
         <li><a href="https://dask.org/" target="_blank">Dask Documentation</a></li>
         <li><a href="https://pandas.pydata.org/docs/" target="_blank">Pandas Documentation</a></li>
@@ -2776,7 +2806,7 @@ gcloud run deploy --image=gcr.io/your-project-id/your-image-name --platform=mana
         <li><a href="https://docs.aws.amazon.com/lambda/latest/dg/welcome.html" target="_blank">AWS Lambda Documentation (for Serverless NumPy Deployments)</a></li>
     </ul>
 
-    <h2>Best Practices for NumPy in Cloud and Data Engineering</h2>
+    <h3>Best Practices for NumPy in Cloud and Data Engineering</h3>
     <h3>Scalability:</h3>
     <ul>
         <li>Identify potential bottlenecks in your NumPy code.</li>
@@ -2795,7 +2825,7 @@ gcloud run deploy --image=gcr.io/your-project-id/your-image-name --platform=mana
         <li>Consider using other libraries (e.g., SciPy, Matplotlib) for specialized tasks.</li>
     </ul>
 
-    <h2>Use Case: Scalable Scientific Computing with NumPy, Dask, and Cloud Platforms</h2>
+    <h3>Use Case: Scalable Scientific Computing with NumPy, Dask, and Cloud Platforms</h3>
     <p>Suppose we're working on a climate modeling project, requiring massive numerical computations to process large datasets of environmental data. We'll leverage NumPy for core computations, Dask for scalability, and deploy our application on a cloud platform (Google Cloud Run) for efficiency.</p>
 
     <h3>Project Structure</h3>
@@ -2843,11 +2873,11 @@ gcloud run deploy --image=gcr.io/your-project-id/climate-modeling-image --platfo
 </section>
 
 <section id="common-errors-troubleshooting">
-    <h1 class="seo-friendly-heading">Common Errors and Troubleshooting in NumPy</h1>
+    <h2 class="seo-friendly-heading">Common Errors and Troubleshooting in NumPy</h2>
 
     <p>NumPy, while powerful, can sometimes throw errors that hinder your workflow. Here, we'll delve into common issues, provide quick solutions, and outline best practices to help you navigate these challenges efficiently.</p>
 
-    <h2>1. Shape Mismatches</h2>
+    <h3>1. Shape Mismatches</h3>
     <p><strong>Error Description:</strong> Occurs when trying to perform operations on arrays with incompatible shapes.</p>
     <p><strong>Example Error Message:</strong></p>
     <pre><code>ValueError: operands could not be broadcast together with shapes (3,) (4,)</code></pre>
@@ -2879,7 +2909,7 @@ print(result)</code></pre>
         <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
 
-    <h2>2. Dtype Errors</h2>
+    <h3>2. Dtype Errors</h3>
     <p><strong>Error Description:</strong> Arises when attempting operations between arrays with incompatible data types.</p>
     <p><strong>Example Error Message:</strong></p>
     <pre><code>TypeError: ufunc 'add' did not contain a loop with signature matching types 
@@ -2912,7 +2942,7 @@ print(result)</code></pre>
         <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
 
-    <h2>3. ValueError</h2>
+    <h3>3. ValueError</h3>
     <p><strong>Error Description:</strong> Generic error for invalid values, often due to incorrect function arguments.</p>
     <p><strong>Example Error Message:</strong></p>
     <pre><code>ValueError: Invalid value in 'axis' parameter for reduction operation</code></pre>
@@ -2946,14 +2976,14 @@ np.random.seed(42)  # Valid seed</code></pre>
 </section>
 
 <section id="faqs">
-    <h1 class="seo-friendly-heading">Frequently Asked Questions (FAQs) - NumPy</h1>
+    <h3 class="seo-friendly-heading">Frequently Asked Questions (FAQs) - NumPy</h3>
 
     <p>Below, we've compiled a list of commonly asked questions about NumPy, along with concise and informative answers to help you better understand and utilize the library.</p>
 
-    <h2>1. What is NumPy, and what is it used for?</h2>
+    <h3>1. What is NumPy, and what is it used for?</h3>
     <p><strong>Answer:</strong> NumPy (Numerical Python) is a library for working with arrays and mathematical operations in Python. It's primarily used for scientific computing, data analysis, and machine learning, providing support for large, multi-dimensional arrays and matrices, along with a wide range of high-performance mathematical functions.</p>
 
-    <h2>2. How do I install NumPy?</h2>
+    <h3>2. How do I install NumPy?</h3>
     <p><strong>Answer:</strong></p>
     <ul>
         <li><strong>Using pip (Python's package installer):</strong> Open your terminal/command prompt and run <code>pip install numpy</code>.</li>
@@ -2961,7 +2991,7 @@ np.random.seed(42)  # Valid seed</code></pre>
         <li><strong>Through a Python IDE (Integrated Development Environment):</strong> Many IDEs (e.g., PyCharm, Visual Studio Code) offer package managers where you can search for and install NumPy.</li>
     </ul>
 
-    <h2>3. What is the difference between NumPy arrays and Python lists?</h2>
+    <h3>3. What is the difference between NumPy arrays and Python lists?</h3>
     <p><strong>Answer:</strong></p>
     <ul>
         <li><strong>NumPy Arrays:</strong>
@@ -2982,7 +3012,7 @@ np.random.seed(42)  # Valid seed</code></pre>
         </li>
     </ul>
 
-    <h2>4. How do I perform element-wise operations on NumPy arrays?</h2>
+    <h3>4. How do I perform element-wise operations on NumPy arrays?</h3>
     <p><strong>Answer:</strong> You can perform element-wise operations (e.g., addition, subtraction, multiplication, division) directly on NumPy arrays using the standard mathematical operators (+, -, *, /, etc.). For example:</p>
     <div class="code-box">
         <pre><code>
@@ -2997,10 +3027,10 @@ print(result)  # Output: [5 7 9]</code></pre>
         <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
 
-    <h2>5. Can I use NumPy for data analysis and machine learning?</h2>
+    <h3>5. Can I use NumPy for data analysis and machine learning?</h3>
     <p><strong>Answer:</strong> Yes, NumPy is a foundational library for both data analysis and machine learning in Python. It provides the basic data structures (e.g., arrays, matrices) and operations (e.g., linear algebra, random number generation) that higher-level libraries like Pandas, SciPy, Scikit-learn, and TensorFlow build upon.</p>
 
-    <h2>6. Is NumPy compatible with other popular Python data science libraries?</h2>
+    <h3>6. Is NumPy compatible with other popular Python data science libraries?</h3>
     <p><strong>Answer:</strong> Yes, NumPy is designed to be compatible with other key libraries in the Python data science ecosystem, including:</p>
     <ul>
         <li>Pandas: For data manipulation and analysis.</li>
@@ -3009,7 +3039,7 @@ print(result)  # Output: [5 7 9]</code></pre>
         <li>SciPy: For scientific and engineering applications.</li>
     </ul>
 
-    <h2>7. How do I handle missing or NaN (Not a Number) values in NumPy arrays?</h2>
+    <h3>7. How do I handle missing or NaN (Not a Number) values in NumPy arrays?</h3>
     <p><strong>Answer:</strong></p>
     <ul>
         <li><strong>Detection:</strong> Use <code>np.isnan()</code> to identify NaN values.</li>
@@ -3022,17 +3052,16 @@ print(result)  # Output: [5 7 9]</code></pre>
         </li>
     </ul>
 
-    <h2>8. Can I use NumPy with Python's asynchronous programming (async/await)?</h2>
+    <h3>8. Can I use NumPy with Python's asynchronous programming (async/await)?</h3>
     <p><strong>Answer:</strong> While NumPy itself isn't inherently asynchronous, you can use it within asynchronous Python programs. However, since NumPy operations release the Global Interpreter Lock (GIL), they can run in parallel with other Python bytecodes but not truly in parallel with other NumPy operations. For parallel computing, consider libraries like Dask or joblib.</p>
 </section>
 
   </main>
-    <!-- Footer -->
-    <footer class="footer">
-      <p class="paragraph">Copyright 2023 Hacktrix. All rights reserved.</p>
+   <footer class="footer">
+      <p class="paragraph">Copyright 2023 TechyVia. All rights reserved.</p>
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>  <!-- Highlight.js initialization -->
+    <script>hljs.highlightAll();</script>
 
     <script>
         const MOBILE_BREAKPOINT = 768;

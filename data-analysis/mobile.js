@@ -7,82 +7,83 @@ const sidebarLinks = document.querySelectorAll('#sideMenu a');
 const header = document.querySelector('.header-bar');
 const backdrop = document.createElement('div');
 
+// Explicitly set initial state to closed
+sideMenu.style.width = '0';
+backdrop.style.display = 'none';
+
 // Append the backdrop to the body
 backdrop.className = 'backdrop';
 document.body.appendChild(backdrop);
 
-// Track the menu state
-let isMenuOpen = false;
-
 // Function to toggle the sidebar
 function toggleMobileSidebar() {
-    isMenuOpen = !isMenuOpen;
-    sideMenu.classList.toggle('show', isMenuOpen);
-    backdrop.classList.toggle('show', isMenuOpen);
+  sideMenu.classList.toggle('show');
+  backdrop.classList.toggle('show');
 }
 
 // Function to close the sidebar
 function closeSidebar() {
-    if (isMenuOpen) {
-        isMenuOpen = false;
-        sideMenu.classList.remove('show');
-        backdrop.classList.remove('show');
-    }
+  sideMenu.classList.remove('show');
+  backdrop.classList.remove('show');
 }
 
 // Function to scroll to the target section with a header offset
 function scrollToSection(targetId) {
-    const targetElement = document.getElementById(targetId);
-    if (targetElement) {
-        const headerHeight = header ? header.offsetHeight : 0;
-        const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight;
+  const targetElement = document.getElementById(targetId);
+  if (targetElement) {
+    const headerHeight = header ? header.offsetHeight : 0;
+    const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight;
 
-        window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-        });
+    window.scrollTo({
+      top: targetPosition,
+      behavior: 'smooth'
+    });
 
-        // Close sidebar AFTER scroll is complete (using a timeout)
-        setTimeout(closeSidebar, 600); // Increased timeout to 600ms to ensure smooth close
-    }
+    // Close sidebar AFTER scroll is complete
+    document.addEventListener('scroll', function onScroll() {
+      if (window.scrollY >= targetPosition) {
+        closeSidebar();
+        document.removeEventListener('scroll', onScroll);
+      }
+    }, { passive: true, once: true }); // Use 'once' to auto-remove the listener
+  }
 }
 
 // Event listeners for sidebar links
 sidebarLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href').substring(1);
-        scrollToSection(targetId);
-    });
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    const targetId = this.getAttribute('href').substring(1);
+    scrollToSection(targetId);
+  });
 });
 
-// Event listeners for sidebar toggle and close buttons
+// Event listener for sidebar toggle button
 toggleButton.addEventListener('click', toggleMobileSidebar);
+
+// Event listener for close button and backdrop
 closeButton.addEventListener('click', closeSidebar);
 backdrop.addEventListener('click', closeSidebar);
 
-// Prevent scroll-triggered sidebar opening (CORRECTED)
-// The crucial fix is to only listen for scroll events when the sidebar is closed
-let isScrolling = false; // Flag to track scroll events
-
-window.addEventListener('scroll', () => {
-  if(!isMenuOpen) { // Only do this when the menu is closed
-    isScrolling = true; // Set the flag
-    setTimeout(() => {isScrolling = false;}, 200); // Reset after some time
-  }
-});
+// Style the backdrop
+backdrop.style.position = 'fixed';
+backdrop.style.top = '0';
+backdrop.style.left = '0';
+backdrop.style.width = '100%';
+backdrop.style.height = '100%';
+backdrop.style.background = 'rgba(0, 0, 0, 0.5)';
 
 // Handle deep links on page load
 document.addEventListener('DOMContentLoaded', function() {
-    const hash = window.location.hash.substring(1);
-    if (hash) {
-        scrollToSection(hash);
-    }
+  const hash = window.location.hash.substring(1);
+  if (hash) {
+    scrollToSection(hash);
+  }
 });
 
-//Dynamic sidebar width adjustment (this is already good)
+// Dynamic sidebar width adjustment (if necessary)
 window.addEventListener('resize', function() {
-    if (window.innerWidth <= 768) {
-        sideMenu.style.width = '250px';
-    }
+  if (window.innerWidth <= 768) {
+    sideMenu.style.width = '250px';
+  }
 });

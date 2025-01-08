@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hacktrix - Mastering Pandas</title>
+  <title>TechyVia - Mastering Pandas</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
@@ -13,7 +13,7 @@
 
     <!-- Header Bar -->
     <header class="header-bar">
-      <span class="brand-name">LuckyByte</span>
+      <span class="brand-name">TechyVia</span>
       <nav class="navbar">
           <ul class="nav-links">
               <li><a href="#about" class="nav-link">Home</a></li>
@@ -31,7 +31,6 @@
         <ul class="sidebar-links">
             <li class="sidebar-link"><a href="#introduction" tabindex="0">Introduction to Pandas</a></li>
             <li class="sidebar-link"><a href="#data-structures" tabindex="0">Series & DataFrames</a></li>
-            <li class="sidebar-link"><a href="#essential-tools" tabindex="0">Essential Tools for Efficient Pandas Workflow</a></li>
             <li class="sidebar-link"><a href="#data-cleaning" tabindex="0">Data Cleaning & Preprocessing</a></li>
             <li class="sidebar-link"><a href="#data-normalization" tabindex="0">Data Normalization & Scaling</a></li>
             <li class="sidebar-link"><a href="#encoding-data" tabindex="0">Encoding Categorical Data</a></li>
@@ -39,6 +38,7 @@
             <li class="sidebar-link"><a href="#data-analysis" tabindex="0">Data Analysis & Visualization</a></li>
             <li class="sidebar-link"><a href="#data-visualization" tabindex="0">Visualizing Data with Matplotlib/Seaborn</a></li>
             <li class="sidebar-link"><a href="#case-study" tabindex="0">Case Study: Sales Data Analysis</a></li>
+            <li class="sidebar-link"><a href="#real-world-examples" tabindex="0">Real-World Examples Across Industries</a></li>
             <li class="sidebar-link"><a href="#advanced-topics" tabindex="0">Advanced Topics and Best Practices</a></li>
             <li class="sidebar-link"><a href="#future" tabindex="0">Future of Pandas & Data Science</a></li>
         </ul>
@@ -53,7 +53,7 @@
     <h2 id="what-is-pandas">What is Pandas?</h2>
     <p>Pandas is a powerful library for data manipulation and analysis in Python. It provides data structures and functions to efficiently handle structured data, including tabular data such as spreadsheets and SQL tables.</p>
     
-    <h2 id="key-features">Key Features of Pandas</h2>
+    <h3 id="key-features">Key Features of Pandas</h3>
     <ul>
       <li><strong>Data Structures:</strong> Series (1D) and DataFrame (2D) for flexible data handling.</li>
       <li><strong>Data Manipulation:</strong> Merge, reshape, select, and clean data with ease.</li>
@@ -61,14 +61,14 @@
       <li><strong>Integration:</strong> Seamless integration with NumPy, Matplotlib, and SciPy for enhanced functionality.</li>
     </ul>
     
-    <h2 id="why-use-pandas">Why Use Pandas?</h2>
+    <h3 id="why-use-pandas">Why Use Pandas?</h3>
     <ul>
       <li><strong>Efficiency:</strong> Designed to handle large datasets with ease.</li>
       <li><strong>Ease of Use:</strong> Intuitive syntax simplifies complex data tasks.</li>
       <li><strong>Community Support:</strong> Active community ensures extensive documentation and support.</li>
     </ul>
     
-    <h2 id="getting-started">Getting Started with Pandas</h2>
+    <h3 id="getting-started">Getting Started with Pandas</h3>
     <p>Install Pandas using pip:</p>
     <div class="code-box">
       <pre><code>pip install pandas</code></pre>
@@ -81,7 +81,7 @@
       <button class="copy-button"><i class="fas fa-copy"></i></button>
     </div>
     
-    <h2 id="example">Example: Creating a DataFrame</h2>
+    <h3 id="example">Example: Creating a DataFrame</h3>
     <div class="code-box">
       <pre><code>
 import pandas as pd
@@ -98,33 +98,59 @@ print(df)</code></pre>
     </div>
     
     <h3>Output:</h3>
-    <table class="data-table">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Age</th>
-          <th>City</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Alice</td>
-          <td>25</td>
-          <td>New York</td>
-        </tr>
-        <tr>
-          <td>Bob</td>
-          <td>30</td>
-          <td>Los Angeles</td>
-        </tr>
-        <tr>
-          <td>Charlie</td>
-          <td>35</td>
-          <td>Chicago</td>
-        </tr>
-      </tbody>
-    </table>
+    <pre><code>
+      0    Alice
+      1    Bob
+      2    Charlie
+      dtype: object
+    </code></pre>
+
     </section>
+
+  <section id="setup">
+    <h2>Setting Up Your Environment for Pandas</h2>
+    
+    <h3>Installing Pandas</h3>
+    <div class="code-box">
+      <pre><code>pip install pandas</code></pre>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
+    </div>
+    
+    <h3>Setting Up a Virtual Environment</h3>
+    <div class="code-box">
+      <pre><code>
+  # Create a virtual environment
+  python -m venv myenv
+  
+  # Activate the virtual environment
+  # On Windows
+  myenv\Scripts\activate
+  # On macOS/Linux
+  source myenv/bin/activate
+  
+  # Install Pandas in the virtual environment
+  pip install pandas</code></pre>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
+    </div>
+    
+    <h3>Choosing the Right IDE for Pandas Development</h3>
+    <ul>
+      <li><strong>Jupyter Notebook:</strong> Ideal for interactive data analysis and visualization.</li>
+      <li><strong>PyCharm:</strong> A powerful IDE with advanced features like code completion, debugging, and version control integration.</li>
+      <li><strong>VS Code:</strong> A lightweight, highly customizable editor with extensions for Python development, including Jupyter support.</li>
+    </ul>
+    
+    <h3>Setting Up Jupyter Notebook</h3>
+    <div class="code-box">
+      <pre><code>pip install notebook</code></pre>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
+    </div>
+    
+    <div class="code-box">
+      <pre><code>jupyter notebook</code></pre>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
+    </div>
+  </section>
 
   <section id="data-structures">
     <h2>Understanding Data Structures in Pandas: Series and DataFrames</h2>
@@ -176,32 +202,12 @@ print(df)</code></pre>
     </div>
     
     <h3>Output:</h3>
-    <table class="data-table">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Age</th>
-          <th>City</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Alice</td>
-          <td>25</td>
-          <td>New York</td>
-        </tr>
-        <tr>
-          <td>Bob</td>
-          <td>30</td>
-          <td>Los Angeles</td>
-        </tr>
-        <tr>
-          <td>Charlie</td>
-          <td>35</td>
-          <td>Chicago</td>
-        </tr>
-      </tbody>
-    </table>
+    <pre><code>
+      0    Alice, 25, New York
+      1    Bob, 30, Los Angeles
+      2    Charlie, 35, Chicago
+      dtype: object
+    </code></pre>
     
     <h3>Key Differences: Series vs. DataFrames</h3>
     <table class="data-table">
@@ -254,72 +260,6 @@ print(df)</code></pre>
           <li>Operations involving multiple columns</li>
         </ul>
       </li>
-    </ul>
-  </section>
-
-  <section id="setup">
-    <h2>Setting Up Your Environment for Pandas</h2>
-    
-    <h3>Installing Pandas</h3>
-    <div class="code-box">
-      <pre><code>pip install pandas</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i></button>
-    </div>
-    
-    <h3>Setting Up a Virtual Environment</h3>
-    <div class="code-box">
-      <pre><code>
-  # Create a virtual environment
-  python -m venv myenv
-  
-  # Activate the virtual environment
-  # On Windows
-  myenv\Scripts\activate
-  # On macOS/Linux
-  source myenv/bin/activate
-  
-  # Install Pandas in the virtual environment
-  pip install pandas</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i></button>
-    </div>
-    
-    <h3>Choosing the Right IDE for Pandas Development</h3>
-    <ul>
-      <li><strong>Jupyter Notebook:</strong> Ideal for interactive data analysis and visualization.</li>
-      <li><strong>PyCharm:</strong> A powerful IDE with advanced features like code completion, debugging, and version control integration.</li>
-      <li><strong>VS Code:</strong> A lightweight, highly customizable editor with extensions for Python development, including Jupyter support.</li>
-    </ul>
-    
-    <h3>Setting Up Jupyter Notebook</h3>
-    <div class="code-box">
-      <pre><code>pip install notebook</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i></button>
-    </div>
-    
-    <div class="code-box">
-      <pre><code>jupyter notebook</code></pre>
-      <button class="copy-button"><i class="fas fa-copy"></i></button>
-    </div>
-  </section>
-
-  <section id="essential-tools">
-    <h2>Essential Tools for Efficient Pandas Workflow</h2>
-    
-    <h3>Data Visualization Libraries</h3>
-    <ul>
-      <li><strong>Matplotlib:</strong> A comprehensive library for creating static, animated, and interactive visualizations in Python.</li>
-      <li><strong>Seaborn:</strong> Built on top of Matplotlib, it provides a high-level interface for drawing attractive statistical graphics.</li>
-    </ul>
-    
-    <h3>Data Cleaning and Transformation Tools</h3>
-    <ul>
-      <li><strong>OpenRefine:</strong> A powerful tool for working with messy data, cleaning, and transforming it.</li>
-      <li><strong>Dask:</strong> A parallel computing library that scales Pandas workflows to larger datasets.</li>
-    </ul>
-    
-    <h3>Version Control</h3>
-    <ul>
-      <li><strong>Git:</strong> Essential for tracking changes in your code and collaborating with others. GitHub or GitLab can be used to host your repositories.</li>
     </ul>
   </section>
 
@@ -1411,6 +1351,78 @@ print(df)</code></pre>
     </ul>
   </section>
 
+  <section id="real-world-examples">
+    <h2>Real-World Examples Across Industries</h2>
+    
+    <h3>Finance: Analyzing Stock Market Trends with Pandas</h3>
+    <p>Discover how a financial analyst uses Pandas to analyze stock market trends, predict future prices, and inform investment decisions.</p>
+    <div class="code-box">
+      <pre><code>
+        # Example: Analyzing stock prices
+        import pandas as pd
+        import yfinance as yf
+        
+        # Download stock data
+        data = yf.download('AAPL', start='2020-01-01', end='2022-02-26')
+        
+        # Calculate daily returns
+        data['Return'] = data['Close'].pct_change()
+        
+        # Plot the returns
+        import matplotlib.pyplot as plt
+        data['Return'].plot(figsize=(10,6))
+        plt.title('Daily Returns of AAPL')
+        plt.xlabel('Date')
+        plt.ylabel('Return')
+        plt.show()
+      </code></pre>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
+    </div>
+    
+    <h3>Healthcare: Patient Outcome Analysis with Pandas</h3>
+    <p>Learn how healthcare professionals utilize Pandas to analyze patient outcomes, identifying key factors influencing recovery rates and informing treatment plans.</p>
+    <div class="code-box">
+      <pre><code>
+        # Example: Analyzing patient outcomes
+        import pandas as pd
+        
+        # Sample patient data
+        data = {'Patient_ID': [1, 2, 3],
+                'Treatment': ['A', 'B', 'A'],
+                'Outcome': ['Recovered', 'Not Recovered', 'Recovered']}
+        df = pd.DataFrame(data)
+        
+        # Analyze recovery rates by treatment
+        outcome_rates = df['Treatment'].value_counts(normalize=True)
+        print(outcome_rates)
+      </code></pre>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
+    </div>
+    
+    <h3>Environmental Science: Climate Data Analysis with Pandas</h3>
+    <p>Explore how environmental scientists leverage Pandas to analyze climate data, understanding global temperature trends and the impact of human activities.</p>
+    <div class="code-box">
+      <pre><code>
+        # Example: Analyzing global temperatures
+        import pandas as pd
+        
+        # Sample climate data
+        data = {'Year': [2000, 2001, 2002],
+                'Temperature': [15.2, 15.5, 15.8]}
+        df = pd.DataFrame(data)
+        
+        # Plot temperature trends
+        import matplotlib.pyplot as plt
+        df.plot(x='Year', y='Temperature', figsize=(10,6))
+        plt.title('Global Temperature Trend')
+        plt.xlabel('Year')
+        plt.ylabel('Temperature (°C)')
+        plt.show()
+      </code></pre>
+      <button class="copy-button"><i class="fas fa-copy"></i></button>
+    </div>
+  </section>
+
   <section id="advanced-topics">
     <h2>Advanced Topics and Best Practices</h2>
     
@@ -1513,14 +1525,13 @@ print(df)</code></pre>
     </ul>
   </section>
 
-
   </div>
 
 <footer class="footer">
-<p> 2024 Hacktrix. All rights reserved.</p>
+<p> 2024 TechyVia. All rights reserved.</p>
 </footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
-<script>hljs.highlightAll();</script>  <!-- Highlight.js initialization -->
+<script>hljs.highlightAll();</script>
 <script src="script.js"></script>
 
 </body>

@@ -41,15 +41,14 @@
             <li class="sidebar-link"><a href="#project-examples" tabindex="0">PySpark Project Examples</a></li>
             <li class="sidebar-link"><a href="#troubleshooting" tabindex="0">Troubleshooting and Best Practices</a></li>
             <li class="sidebar-link"><a href="#interview-preparation" tabindex="0">PySpark Interview Preparation</a></li>
-            <li class="sidebar-link"><a href="#additional-resources" tabindex="0">Additional Resources and FAQs</a></li>
         </ul>
     </nav>
 </div>
 
 <!-- Content -->
 <main id="content" class="content">
-  <h1 id="main-heading" class="seo-friendly-heading">Mastering PySpark for Efficient Big Data Processing and Analytics</h1>
-  <!-- content here -->
+  <h1 id="main-heading" class="seo-friendly-heading">Mastering PySpark: A Comprehensive Guide to Big Data Processing and Analytics</h1>
+
 <section id="introduction-to-pyspark" class="section">
   <h2 class="section-title">Introduction to PySpark</h2>
   <h3 class="subsection-title">What is PySpark?</h3>
@@ -620,7 +619,6 @@ df_filter.show()</code></pre>
 
   </div>
 </section>
-      
 
 <section id="data-manipulation" class="section">
   <h2 class="section-title">Data Manipulation in PySpark</h2>
@@ -705,7 +703,7 @@ scaledData.show()</code></pre>
 </section>
 
 <section id="pyspark-sql" class="section">
-  <h2 class="section-title">PySpark SQL: A Comprehensive Guide</h2>
+  <h2 class="section-title">PySpark SQL</h2>
   <p class="paragraph">PySpark SQL allows you to leverage SQL queries within PySpark to perform complex data operations. It integrates relational processing with Spark’s functional programming API, enabling you to use SQL syntax to query data stored in DataFrames.</p>
   
   <h3 class="subsection-title">Benefits of PySpark SQL</h3>
@@ -998,60 +996,55 @@ cvModel = crossval.fit(df)</code></pre>
 </section>
 
 <section id="pyspark-streaming" class="section">
-  <h2 class="section-title">Introduction to PySpark Streaming</h2>
-  <p class="paragraph">PySpark Streaming is an extension of the Apache Spark API that enables scalable, high-throughput, fault-tolerant stream processing of live data streams.</p>
+  <h2 class="section-title">Unlocking Real-Time Insights with PySpark Streaming</h2>
+  <p class="paragraph">In the era of big data, PySpark Streaming emerges as a powerful tool for processing live data streams, enabling businesses to make informed, timely decisions. This Apache Spark API extension ensures scalable, fault-tolerant, and high-throughput processing of continuous data flows.</p>
   
-  <h3 class="subsection-title">Key Features:</h3>
+  <h3 class="subsection-title">Key Advantages of PySpark Streaming:</h3>
   <ul class="list">
-    <li class="list-item"><strong>Real-time Processing:</strong> Handle live data streams with low latency.</li>
-    <li class="list-item"><strong>Scalability:</strong> Easily scale to handle large volumes of data.</li>
-    <li class="list-item"><strong>Fault Tolerance:</strong> Seamlessly recover from failures using checkpointing and lineage information.</li>
+    <li class="list-item"><strong>Lightning-Fast Processing:</strong> Leverage low-latency processing to react to events as they unfold.</li>
+    <li class="list-item"><strong>Scalability Redefined:</strong> Seamlessly handle surging data volumes without compromising performance.</li>
+    <li class="list-item"><strong>Resilience Guaranteed:</strong> Automatically recover from failures with robust checkpointing and lineage tracking.</li>
   </ul>
   
-  <h2 class="section-title">Setting up a Streaming Context</h2>
-  <p class="paragraph">To start working with PySpark Streaming, you need to initialize a StreamingContext, which is the main entry point for all streaming functionality.</p>
+  <h3 class="section-title"> Initializing Your Streaming Odyssey</h3>
+  <p class="paragraph">Embark on your PySpark Streaming journey by setting up a StreamingContext,</p>
   
-  <h3 class="subsection-title">Steps to Initialize:</h3>
+  <h3 class="subsection-title">Step-by-Step Setup Guide:</h3>
   <ol class="ordered-list">
-    <li class="list-item"><strong>Import Required Libraries:</strong></li>
+    <li class="list-item"><strong>Lay the Foundation:</strong></li>
     <div class="code-box">
       <pre><code class="language-python">from pyspark import SparkContext
-from pyspark.streaming import StreamingContext</code></pre>
+from pyspark.streaming import StreamingContext
+import os</code></pre>
       <button class="copy-button">
   <i class="fas fa-copy"></i>
   <span class="copy-text"></span>
 </button>
 
     </div>
-    <li class="list-item"><strong>Create a Spark Context:</strong></li>
+    <li class="list-item"><strong>Spark Up Your Context:</strong></li>
     <div class="code-box">
-      <pre><code class="language-python">sc = SparkContext("local[2]", "NetworkWordCount")</code></pre>
+      <pre><code class="language-python">sc = SparkContext("local[2]", "MyStreamingApp")
+ssc = StreamingContext(sc, 5)  # 5-second batch interval</code></pre>
       <button class="copy-button">
   <i class="fas fa-copy"></i>
   <span class="copy-text"></span>
 </button>
 
     </div>
-    <li class="list-item"><strong>Initialize Streaming Context:</strong></li>
-    <div class="code-box">
-      <pre><code class="language-python">ssc = StreamingContext(sc, 1)  # 1-second batch interval</code></pre>
-      <button class="copy-button">
-  <i class="fas fa-copy"></i>
-  <span class="copy-text"></span>
-</button>
-
-    </div>
+    <li class="list-item"><strong>Verify Your Setup:</strong> Ensure your Spark and Streaming contexts are correctly initialized by checking the Spark UI (typically at `http://localhost:4040`).</li>
   </ol>
   
-  <h3 class="subsection-title">Setting Batch Intervals:</h3>
-  <p class="paragraph">The batch interval defines how often the streaming data will be processed.</p>
+  <h3 class="subsection-title">Mastering Batch Intervals</h3>
+  <p class="paragraph">The batch interval is crucial, as it dictates how frequently your streaming data is processed. Balance latency and throughput by adjusting this value based on your application's requirements.</p>
   
-  <h2 class="section-title">Working with DStreams (Discrete Streams)</h2>
-  <p class="paragraph">DStreams are the basic abstraction in Spark Streaming, representing a continuous stream of data.</p>
+  <h3 class="section-title">Diving into DStreams: The Heart of PySpark Streaming</h3>
+  <p class="paragraph">Discrete Streams (DStreams) are the foundational abstraction, representing a continuous stream of data. Learn to harness their power for real-time processing.</p>
   
-  <h3 class="subsection-title">Creating DStreams:</h3>
+  <h3 class="subsection-title">Crafting DStreams:</h3>
   <div class="code-box">
-    <pre><code class="language-python">lines = ssc.socketTextStream("localhost", 9999)</code></pre>
+    <pre><code class="language-python"># Example: Creating a DStream from a socket
+lines = ssc.socketTextStream("localhost", 9999)</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
   <span class="copy-text"></span>
@@ -1059,21 +1052,15 @@ from pyspark.streaming import StreamingContext</code></pre>
 
   </div>
   
-  <h3 class="subsection-title">Transformations and Actions:</h3>
-  <p class="paragraph">Transformations are operations like map, filter, and reduceByKey that create a new DStream from an existing one.</p>
+  <h3 class="subsection-title">Transforming and Acting on DStreams</h3>
+  <p class="paragraph">Transformations (e.g., `map`, `filter`, `reduceByKey`) generate new DStreams, while actions (e.g., `pprint`, `saveAsTextFiles`) trigger the execution of the streaming workflow.</p>
   <div class="code-box">
-    <pre><code class="language-python">words = lines.flatMap(lambda line: line.split(" "))
-pairs = words.map(lambda word: (word, 1))
-wordCounts = pairs.reduceByKey(lambda x, y: x + y)</code></pre>
-    <button class="copy-button">
-  <i class="fas fa-copy"></i>
-  <span class="copy-text"></span>
-</button>
+    <pre><code class="language-python"># Transformation Example: Word Count
+words = lines.flatMap(lambda line: line.split(" "))
+wordCounts = words.map(lambda word: (word, 1)).reduceByKey(lambda x, y: x + y)
 
-  </div>
-  <p class="paragraph">Actions are operations that return a result to the driver program or write it to an external storage system.</p>
-  <div class="code-box">
-    <pre><code class="language-python">wordCounts.pprint()</code></pre>
+# Action Example: Printing Word Counts
+wordCounts.pprint()</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
   <span class="copy-text"></span>
@@ -1081,14 +1068,24 @@ wordCounts = pairs.reduceByKey(lambda x, y: x + y)</code></pre>
 
   </div>
   
-  <h2 class="section-title">Window Operations on Streaming Data</h2>
-  <p class="paragraph">Window operations allow you to apply transformations over a sliding window of data.</p>
+  <h3 class="section-title">Windowing: Gaining Deeper Insights</h3>
+  <p class="paragraph">Apply transformations over a sliding window of data to uncover trends and patterns in your streams.</p>
   
   <h3 class="subsection-title">Applying Window Functions:</h3>
   <ol class="ordered-list">
-    <li class="list-item"><strong>Define Window Duration and Sliding Interval:</strong></li>
+    <li class="list-item"><strong>Define Your Window:</strong></li>
     <div class="code-box">
-      <pre><code class="language-python">windowedWordCounts = wordCounts.reduceByKeyAndWindow(lambda x, y: x + y, 30, 10)</code></pre>
+      <pre><code class="language-python"># Example: Reducing by key over a 30-second window, sliding every 10 seconds
+windowedWordCounts = wordCounts.reduceByKeyAndWindow(lambda x, y: x + y, 30, 10)</code></pre>
+      <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text"></span>
+</button>
+
+    </div>
+    <li class="list-item"><strong>Visualize Your Windowed Data:</strong> Utilize the `pprint()` action to observe the windowed output.</li>
+    <div class="code-box">
+      <pre><code class="language-python">windowedWordCounts.pprint()</code></pre>
       <button class="copy-button">
   <i class="fas fa-copy"></i>
   <span class="copy-text"></span>
@@ -1096,11 +1093,14 @@ wordCounts = pairs.reduceByKey(lambda x, y: x + y)</code></pre>
 
     </div>
   </ol>
-  <p class="paragraph">Window duration is the length of the window, and sliding interval is how often the window slides.</p>
   
-  <h3 class="subsection-title">Example:</h3>
+  <h3 class="section-title">Advanced PySpark Streaming: Deep Dive</h3>
+  
+  <h3 class="subsection-title">Late Data Handling with Watermarking</h3>
+  <p class="paragraph">Effectively manage delayed events in your streams using watermarking techniques.</p>
   <div class="code-box">
-    <pre><code class="language-python">windowedWordCounts.pprint()</code></pre>
+    <pre><code class="language-python"># Example: Setting a watermark on a stream with event-time
+stream.withWatermark("eventTime", "10 minutes")</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
   <span class="copy-text"></span>
@@ -1108,20 +1108,24 @@ wordCounts = pairs.reduceByKey(lambda x, y: x + y)</code></pre>
 
   </div>
   
-  <h2 class="section-title">Advanced Features and Deep Dive</h2>
+  <h3 class="subsection-title">Fault Tolerance through Checkpointing</h3>
+  <p class="paragraph">Ensure seamless recovery from failures by leveraging checkpointing mechanisms.</p>
+  <div class="code-box">
+    <pre><code class="language-python"># Example: Enabling checkpointing for a StreamingContext
+ssc.checkpoint("hdfs://namenode/checkpoints/")</code></pre>
+    <button class="copy-button">
+  <i class="fas fa-copy"></i>
+  <span class="copy-text"></span>
+</button>
+
+  </div>
   
-  <h3 class="subsection-title">Handling Event-time and Late Data</h3>
-  <p class="paragraph">PySpark Streaming provides mechanisms to handle late data using watermarking.</p>
-  
-  <h3 class="subsection-title">Fault Tolerance and Checkpointing</h3>
-  <p class="paragraph">PySpark Streaming ensures fault tolerance through checkpointing.</p>
-  
-  <h3 class="subsection-title">Integrating with Kafka</h3>
-  <p class="paragraph">PySpark Streaming can easily integrate with Kafka to consume and process data streams.</p>
+  <h3 class="subsection-title">Integrating with Apache Kafka</h3>
+  <p class="paragraph">Effortlessly consume and process Kafka topics with PySpark Streaming.</p>
   <div class="code-box">
     <pre><code class="language-python">from pyspark.streaming.kafka import KafkaUtils
 
-kafkaStream = KafkaUtils.createStream(ssc, "localhost:2181", "spark-streaming", {"test-topic": 1})</code></pre>
+kafkaStream = KafkaUtils.createDirectStream(ssc, ["topic"], {"metadata.broker.list": "localhost:9092"})</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
   <span class="copy-text"></span>
@@ -1129,29 +1133,15 @@ kafkaStream = KafkaUtils.createStream(ssc, "localhost:2181", "spark-streaming", 
 
   </div>
   
-  <h3 class="subsection-title">Structured Streaming</h3>
-  <p class="paragraph">Structured Streaming is a newer and more advanced API in Spark that provides higher-level abstractions for stream processing.</p>
-  
-  <h3 class="subsection-title">Example of Structured Streaming:</h3>
+  <h3 class="subsection-title">Migrating to Structured Streaming</h3>
+  <p class="paragraph">Discover the benefits of transitioning to Structured Streaming for more streamlined and efficient stream processing.</p>
   <div class="code-box">
     <pre><code class="language-python">from pyspark.sql import SparkSession
-from pyspark.sql.functions import explode, split
 
-spark = SparkSession.builder.appName("StructuredNetworkWordCount").getOrCreate()
+spark = SparkSession.builder.appName("StructuredStreamingApp").getOrCreate()
 
-# Create DataFrame representing the stream of input lines from connection to localhost:9999
-lines = spark.readStream.format("socket").option("host", "localhost").option("port", 9999).load()
-
-# Split the lines into words
-words = lines.select(explode(split(lines.value, " ")).alias("word"))
-
-# Generate running word count
-wordCounts = words.groupBy("word").count()
-
-# Start running the query that prints the running counts to the console
-query = wordCounts.writeStream.outputMode("complete").format("console").start()
-
-query.awaitTermination()</code></pre>
+# Example: Reading from a socket with Structured Streaming
+lines = spark.readStream.format("socket").option("host", "localhost").option("port", 9999).load()</code></pre>
     <button class="copy-button">
   <i class="fas fa-copy"></i>
   <span class="copy-text"></span>
@@ -1159,31 +1149,58 @@ query.awaitTermination()</code></pre>
 
   </div>
   
-  <h3 class="subsection-title">Performance Tuning</h3>
-  <p class="paragraph">To optimize the performance of your PySpark Streaming applications, consider the following tips:</p>
+  <h3 class="section-title">Optimizing Performance in PySpark Streaming</h3>
+  <p class="paragraph">Boost your application's efficiency with these expert tips:</p>
   <ul class="list">
-    <li class="list-item"><strong>Batch Interval:</strong> Choose an appropriate batch interval based on the data volume and processing time.</li>
-    <li class="list-item"><strong>Resource Allocation:</strong> Allocate sufficient resources (CPU, memory) to handle the data load.</li>
-    <li class="list-item"><strong>Parallelism:</strong> Increase the level of parallelism to process data faster.</li>
-    <li class="list-item"><strong>State Management:</strong> Use efficient state management techniques to handle large stateful operations.</li>
+    <li class="list-item"><strong>Batch Interval Tuning:</strong> Balance latency and throughput.</li>
+    <li class="list-item"><strong>Resource Allocation:</strong> Ensure sufficient CPU and memory for your workload.</li>
+    <li class="list-item"><strong>Parallelism Optimization:</strong> Maximize processing speed.</li>
+    <li class="list-item"><strong>State Management:</strong> Efficiently handle large stateful operations.</li>
+    <li class="list-item"><strong>Caching and Persistence:</strong> Strategically cache and persist data for improved performance.</li>
   </ul>
   
-  <h3 class="subsection-title">Monitoring and Debugging</h3>
-  <p class="paragraph">Effective monitoring and debugging are crucial for maintaining the health of your streaming applications.</p>
+  <h3 class="subsection-title">Monitoring and Debugging Essentials</h3>
+  <p class="paragraph">Ensure the health and performance of your PySpark Streaming applications with these monitoring and debugging tools:</p>
   <ul class="list">
-    <li class="list-item"><strong>Spark UI:</strong> The Spark UI provides a detailed view of the application's execution.</li>
-    <li class="list-item"><strong>Logging:</strong> Configure logging to capture detailed information about the application's execution.</li>
-    <li class="list-item"><strong>Metrics:</strong> Use metrics to monitor the application's performance.</li>
+    <li class="list-item"><strong>Spark UI:</strong> In-depth insights into application execution (typically at `http://localhost:4040`).</li>
+    <li class="list-item"><strong>Logging Configuration:</strong> Customize logging levels for detailed diagnostics.</li>
+    <li class="list-item"><strong>Metric Collection:</strong> Leverage Spark's built-in metrics for performance monitoring.</li>
+    <li class="list-item"><strong>Alerting and Notification:</strong> Integrate with alerting tools for proactive issue detection.</li>
   </ul>
-</section>
-      
+  
+  <h3 class="section-title">Common PySpark Streaming Pitfalls and Solutions</h3>
+  <p class="paragraph">Avoid common traps and optimize your development experience with these expert solutions:</p>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Pitfall</th>
+        <th>Solution</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Incorrect Batch Interval</strong></td>
+        <td>Monitor latency and throughput; adjust the batch interval accordingly.</td>
+      </tr>
+      <tr>
+        <td><strong>Insufficient Resources</strong></td>
+        <td>Allocate more CPU and memory based on workload demands.</td>
+      </tr>
+      <tr>
+        <td><strong>State Management Issues</strong></td>
+        <td>Implement efficient state management techniques (e.g., `mapWithState`).</td>
+      </tr>
+    </tbody>
+  </table>
+  
+</section>  
 
 <section id="advanced-optimizations" class="section">
-  <h1 class="section-title">Understanding Catalyst Optimizer and Tungsten Engine</h1>
-  <h2 class="subsection-title">Catalyst Optimizer</h2>
+  <h2 class="section-title">Understanding Catalyst Optimizer and Tungsten Engine</h2>
+  <h3 class="subsection-title">Catalyst Optimizer</h3>
   <p class="paragraph">The Catalyst Optimizer is a key component of Apache Spark SQL that handles query optimization. It uses a combination of rule-based and cost-based optimization techniques to transform logical plans into efficient physical plans.</p>
   
-  <h2 class="subsection-title">Tungsten Engine</h2>
+  <h3 class="subsection-title">Tungsten Engine</h3>
   <p class="paragraph">The Tungsten Engine is designed to improve the performance of Spark by optimizing memory and CPU usage.</p>
   <ul class="list">
     <li class="list-item"><strong>Memory Management:</strong> Tungsten uses off-heap memory to reduce garbage collection overhead and improve memory utilization.</li>
@@ -1191,7 +1208,7 @@ query.awaitTermination()</code></pre>
     <li class="list-item"><strong>Cache-aware Computation:</strong> Tungsten optimizes data processing to take advantage of CPU caches, reducing the time spent on data movement.</li>
   </ul>
   
-  <h2 class="subsection-title">Caching and Persistence</h2>
+  <h3 class="subsection-title">Caching and Persistence</h3>
   <h3 class="subsubsection-title">Caching Strategies</h3>
   <p class="paragraph">Caching is a powerful technique to improve the performance of Spark applications by storing intermediate results in memory.</p>
   <ul class="list">
@@ -1206,7 +1223,7 @@ query.awaitTermination()</code></pre>
     <li class="list-item"><strong>Iterative Algorithms:</strong> Algorithms like machine learning training loops benefit significantly from caching intermediate results.</li>
   </ul>
   
-  <h2 class="subsection-title">Optimizing Joins and Shuffles</h2>
+  <h3 class="subsection-title">Optimizing Joins and Shuffles</h3>
   <h3 class="subsubsection-title">Techniques to Avoid Excessive Shuffling</h3>
   <ul class="list">
     <li class="list-item"><strong>Broadcast Joins:</strong> Use <code>broadcast(df)</code> to perform a broadcast join when one of the DataFrames is small enough to fit in memory.</li>
@@ -1214,7 +1231,7 @@ query.awaitTermination()</code></pre>
     <li class="list-item"><strong>Skew Handling:</strong> Address data skew by using techniques like salting, where you add a random value to the join key to distribute the data more evenly.</li>
   </ul>
   
-  <h2 class="subsection-title">Partitioning Strategies</h2>
+  <h3 class="subsection-title">Partitioning Strategies</h3>
   <h3 class="subsubsection-title">Partitioning Techniques</h3>
   <ul class="list">
     <li class="list-item"><strong>Range Partitioning:</strong> Partition data based on a range of values.</li>
@@ -1229,17 +1246,17 @@ query.awaitTermination()</code></pre>
 </section>
 
 <section id="project-examples" class="section">
-    <h1 class="section-title">Building a Data Pipeline with PySpark</h1>
+    <h2 class="section-title">Building a Data Pipeline with PySpark</h2>
     <p class="paragraph">Building a data pipeline in PySpark is fundamental to managing large-scale data processing workflows.</p>
     
-    <h2 class="subsection-title">Project Steps:</h2>
+    <h3 class="subsection-title">Project Steps:</h3>
     <ol class="ordered-list">
       <li class="list-item"><strong>Extract:</strong> Connect to data sources like Amazon S3, SQL databases, or public APIs to gather raw data.</li>
       <li class="list-item"><strong>Transform:</strong> Clean and process the data, handling missing values, filtering, and transforming it using PySpark’s DataFrame API.</li>
       <li class="list-item"><strong>Load:</strong> Save the transformed data to a target location (e.g., data warehouse, cloud storage) for analysis and reporting.</li>
     </ol>
     
-    <h2 class="subsection-title">Tips for Optimization:</h2>
+    <h3 class="subsection-title">Tips for Optimization:</h3>
     <ul class="list">
       <li class="list-item"><strong>Partitioning:</strong> Boost efficiency by partitioning large datasets based on key columns.</li>
       <li class="list-item"><strong>Caching:</strong> Improve performance by caching frequently used data in memory.</li>
@@ -1248,10 +1265,10 @@ query.awaitTermination()</code></pre>
   </section>
   
   <section id="ml-model" class="section">
-    <h1 class="section-title">Building a Machine Learning Model in PySpark</h1>
+    <h3 class="section-title">Building a Machine Learning Model in PySpark</h3>
     <p class="paragraph">PySpark’s MLlib makes building machine learning models on big data manageable.</p>
     
-    <h2 class="subsection-title">Project Steps:</h2>
+    <h3 class="subsection-title">Project Steps:</h3>
     <ol class="ordered-list">
       <li class="list-item"><strong>Data Preparation:</strong> Load and prepare data, including feature selection and scaling for optimal model performance.</li>
       <li class="list-item"><strong>Model Training:</strong> Train the model using algorithms like logistic regression or decision trees to classify or predict outcomes.</li>
@@ -1259,7 +1276,7 @@ query.awaitTermination()</code></pre>
       <li class="list-item"><strong>Model Deployment:</strong> Optionally, deploy the model for real-time predictions using Spark Streaming.</li>
     </ol>
     
-    <h2 class="subsection-title">Advanced Tips:</h2>
+    <h3 class="subsection-title">Advanced Tips:</h3>
     <ul class="list">
       <li class="list-item"><strong>Hyperparameter Tuning:</strong> Use grid search and cross-validation for optimized parameters.</li>
       <li class="list-item"><strong>Pipeline Automation:</strong> Automate feature engineering, model training, and evaluation with PySpark ML pipelines.</li>
@@ -1268,10 +1285,10 @@ query.awaitTermination()</code></pre>
   </section>
   
   <section id="real-time-streaming" class="section">
-    <h1 class="section-title">Real-Time Streaming Data Analysis Project</h1>
+    <h3 class="section-title">Real-Time Streaming Data Analysis Project</h3>
     <p class="paragraph">Real-time data processing is essential for applications in financial monitoring, IoT, social media, and more.</p>
     
-    <h2 class="subsection-title">Project Steps:</h2>
+    <h3 class="subsection-title">Project Steps:</h3>
     <ol class="ordered-list">
       <li class="list-item"><strong>Data Ingestion:</strong> Connect Spark Streaming to sources like Apache Kafka or monitor directories for incoming files.</li>
       <li class="list-item"><strong>Real-Time Transformations:</strong> Apply transformations (e.g., filtering, aggregating) to streaming data.</li>
@@ -1279,7 +1296,7 @@ query.awaitTermination()</code></pre>
       <li class="list-item"><strong>Scaling for Performance:</strong> Use Spark’s built-in fault tolerance, load balancing, and scalability features to maintain performance as data volume fluctuates.</li>
     </ol>
     
-    <h2 class="subsection-title">Optimization Tips:</h2>
+    <h3 class="subsection-title">Optimization Tips:</h3>
     <ul class="list">
       <li class="list-item"><strong>Windowing Operations:</strong> Use time-based windows (e.g., 5-minute rolling averages) for aggregations.</li>
       <li class="list-item"><strong>Checkpoints:</strong> Set up Spark Streaming checkpoints for resiliency and fault tolerance.</li>
@@ -1287,11 +1304,12 @@ query.awaitTermination()</code></pre>
     </ul>
   </section>
   
+  
   <section id="troubleshooting" class="section">
-    <h1 class="section-title">Troubleshooting and Best Practices</h1>
+    <h2 class="section-title">Troubleshooting and Best Practices</h2>
     <p class="paragraph">This section covers common PySpark errors and solutions, tips for efficient coding, and essential testing techniques to help you build reliable and optimized PySpark applications.</p>
     
-    <h2 class="subsection-title">Common PySpark Errors and Solutions</h2>
+    <h3 class="subsection-title">Common PySpark Errors and Solutions</h3>
     <p class="paragraph">Get familiar with frequent PySpark errors and practical solutions to streamline your debugging process.</p>
     <ol class="ordered-list">
       <li class="list-item"><strong>MemoryError</strong>
@@ -1316,7 +1334,7 @@ query.awaitTermination()</code></pre>
       </li>
     </ol>
     
-    <h2 class="subsection-title">Best Practices for Writing Efficient PySpark Code</h2>
+    <h3 class="subsection-title">Best Practices for Writing Efficient PySpark Code</h3>
     <p class="paragraph">Follow these best practices to write optimized, readable, and maintainable PySpark code.</p>
     <ol class="ordered-list">
       <li class="list-item"><strong>Use DataFrames Over RDDs</strong>
@@ -1336,7 +1354,7 @@ query.awaitTermination()</code></pre>
       </li>
     </ol>
     
-    <h2 class="subsection-title">Testing PySpark Applications</h2>
+    <h3 class="subsection-title">Testing PySpark Applications</h3>
     <p class="paragraph">Testing is critical to ensure your PySpark application works as expected and handles large data effectively.</p>
     <ol class="ordered-list">
       <li class="list-item"><strong>Unit Testing with PySpark</strong>
@@ -1358,11 +1376,10 @@ query.awaitTermination()</code></pre>
   </section>
   
   <section id="interview-preparation" class="section">
-    <h1 class="section-title">PySpark Interview Preparation</h1>
+    <h2 class="section-title">PySpark Interview Preparation</h2>
     <p class="paragraph">Prepare for your next PySpark interview with this comprehensive guide, including commonly asked questions for both beginners and experienced candidates, as well as coding challenges to test your problem-solving skills.</p>
     
-    <section id="beginner-questions" class="subsection">
-      <h2 class="subsection-title">PySpark Interview Questions for Beginners</h2>
+      <h3 class="subsection-title">PySpark Interview Questions for Beginners</h3>
       <p class="paragraph">Start your PySpark journey by mastering these foundational interview questions, commonly asked in entry-level roles.</p>
       <ol class="ordered-list">
         <li class="list-item"><strong>What is PySpark?</strong>
@@ -1381,10 +1398,8 @@ query.awaitTermination()</code></pre>
           <p class="paragraph">Answer: PySpark’s DataFrame.na submodule provides methods to handle missing data. You can use drop to remove rows with null values or fill to replace nulls with specified values.</p>
         </li>
       </ol>
-    </section>
-    
-    <section id="advanced-questions" class="subsection">
-      <h2 class="subsection-title">Advanced PySpark Interview Questions</h2>
+  
+      <h3 class="subsection-title">Advanced PySpark Interview Questions</h3>
       <p class="paragraph">For more experienced roles, prepare with advanced questions that focus on optimization, Spark architecture, and real-time processing concepts.</p>
       <ol class="ordered-list">
         <li class="list-item"><strong>Explain the Catalyst Optimizer in Spark.</strong>
@@ -1426,9 +1441,10 @@ query.awaitTermination()</code></pre>
         </li>
       </ol>
     </section>
-  </section>
   
   </main>
+
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
   <script>hljs.highlightAll();</script>  <!-- Highlight.js initialization -->
   <script src="script.js"></script>

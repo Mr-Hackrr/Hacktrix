@@ -4,41 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Intermediate Python Concepts</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
-    <link rel="stylesheet" href="style.css"> <!-- Assuming your CSS file is named styles.css -->
-   
+    <link rel="stylesheet" href="style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
-    <div class="header-bar">
-        <div class="brand-name">Hacktrix</div>
-        <nav>
-            <ul>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#services" class="nav-link">Services</a></li>
-                <li><a href="#python" class="nav-link">Python</a></li>
-                <li><a href="#sql" class="nav-link">SQL</a></li>
-                <li><a href="#java" class="nav-link">Java</a></li>
-                <li><a href="#gcp" class="nav-link">GCP</a></li>
-                <li><a href="#articles" class="nav-link">Articles</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+    <!-- Header Bar -->
+    <header class="header-bar">
+        <span class="brand-name">TechyVia</span>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-link">Home</a></li>
+                <li><a href="#exercise" class="nav-link">Practice</a></li>
+                <li><a href="#project" class="nav-link">Project</a></li>
+                <li><a href="#contact" class="nav-link">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="toggle-menu" id="toggle-menu">☰</div>
+    </header>
+    
+    <!-- Sidebar -->
+    <div id="sideMenu" class="sideMenu" role="navigation" aria-label="Sidebar Navigation">
+        <a href="#" class="closebtn" aria-label="Close sidebar">×</a>
+        <nav class="sidebar-nav">
+            <ul class="sidebar-links">
+                <li class="sidebar-link"><a href="#input-output" tabindex="0">Input-Output Operations</a></li>
+                <li class="sidebar-link"><a href="#modules-libraries" tabindex="0">Basic Modules and Libraries</a></li>
+                <li class="sidebar-link"><a href="#error-handling" tabindex="0">Error Handling in Python</a></li>
+                <li class="sidebar-link"><a href="#scripting-automation" tabindex="0">Basic Scripting and Automation</a></li>
             </ul>
         </nav>
     </div>
 
-    <div id="sideMenu" class="sideMenu">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-        <a href="#introduction" class="nav-link">Introduction to Python</a>
-        <a href="#data-types" class="nav-link">Data Types</a>
-        <a href="#operators" class="nav-link">Operators</a>
-        <a href="#control-flow" class="nav-link">Control Flow</a>
-        <a href="#data-structures" class="nav-link">Data Structures</a>
-        <a href="#functions" class="nav-link">Functions</a>
-        <a href="#modules-packages" class="nav-link">Modules and Packages</a>
-    </div>
-    <button class="toggle-menu" onclick="openNav()">☰</button>
     <div id="content">
         <h1 class="seo-friendly-heading">Intermediate Python Concepts</h1>
         
@@ -57,7 +56,7 @@ content = file.read()
 file.write("Some text")
 # Closing a file
 file.close()</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p>Modes:</p>
 <ul>
@@ -85,7 +84,7 @@ file.close()</code></pre>
 content = file.read()
 print(content)
 file.close()</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h5>Writing to a File:</h5>
@@ -93,7 +92,7 @@ file.close()</code></pre>
     <pre><code>file = open("example.txt", "w")
 file.write("Hello, World!")
 file.close()</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h5>Appending to a File:</h5>
@@ -101,7 +100,7 @@ file.close()</code></pre>
     <pre><code>file = open("example.txt", "a")
 file.write("\nAppended text.")
 file.close()</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h5>Reading Line by Line:</h5>
@@ -110,7 +109,7 @@ file.close()</code></pre>
 for line in file:
     print(line.strip())
 file.close()</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h5>Using with Statement:</h5>
@@ -119,7 +118,7 @@ file.close()</code></pre>
     content = file.read()
     print(content)
 # No need to explicitly close the file</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h3 id="user-input">User Input</h3>
@@ -128,7 +127,7 @@ file.close()</code></pre>
 <div class="code-box">
     <pre><code># Getting user input
 user_input = input("Enter something: ")</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h4>Examples:</h4>
@@ -136,14 +135,14 @@ user_input = input("Enter something: ")</code></pre>
 <div class="code-box">
     <pre><code>name = input("What is your name? ")
 print(f"Hello, {name}!")</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h5>Getting Numerical Input:</h5>
 <div class="code-box">
     <pre><code>age = int(input("Enter your age: "))
 print(f"You are {age} years old.")</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h5>Multiple Inputs:</h5>
@@ -151,7 +150,7 @@ print(f"You are {age} years old.")</code></pre>
     <pre><code>name = input("Enter your name: ")
 age = int(input("Enter your age: "))
 print(f"Name: {name}, Age: {age}")</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h5>Input Validation:</h5>
@@ -164,7 +163,7 @@ print(f"Name: {name}, Age: {age}")</code></pre>
     else:
         print("Please enter a valid number.")
 print(f"You are {age} years old.")</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h5>Using Input in Calculations:</h5>
@@ -173,7 +172,7 @@ print(f"You are {age} years old.")</code></pre>
 num2 = float(input("Enter second number: "))
 result = num1 + num2
 print(f"The sum is: {result}")</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h2 id="modules-libraries">Basic Modules and Libraries</h2>
@@ -191,7 +190,7 @@ from module_name import function_name, class_name
 
 # Importing a module with an alias
 import module_name as alias</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h4>Examples:</h4>
@@ -199,7 +198,7 @@ import module_name as alias</code></pre>
 <div class="code-box">
     <pre><code>import math
 print(math.sqrt(16))  # Output: 4.0</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h5>Importing Specific Functions:</h5>
@@ -207,14 +206,14 @@ print(math.sqrt(16))  # Output: 4.0</code></pre>
     <pre><code>from math import sqrt, pi
 print(sqrt(16))  # Output: 4.0
 print(pi)        # Output: 3.141592653589793</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h5>Importing with an Alias:</h5>
 <div class="code-box">
     <pre><code>import math as m
 print(m.sqrt(16))  # Output: 4.0</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h5>Using a Custom Module:</h5>
@@ -222,7 +221,7 @@ print(m.sqrt(16))  # Output: 4.0</code></pre>
     <pre><code># Assuming you have a file named my_module.py with a function greet()
 from my_module import greet
 greet("Alice")</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h5>Importing All Functions from a Module:</h5>
@@ -230,7 +229,7 @@ greet("Alice")</code></pre>
     <pre><code>from math import *
 print(sqrt(16))  # Output: 4.0
 print(pi)        # Output: 3.141592653589793</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h3 id="standard-libraries">Standard Libraries</h3>
@@ -252,7 +251,7 @@ print(pi)        # Output: 3.141592653589793</code></pre>
 print(math.sqrt(25))  # Output: 5.0
 print(math.pi)        # Output: 3.141592653589793
 print(math.sin(math.pi / 2))  # Output: 1.0</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h4 id="random-library">random Library</h4>
@@ -274,7 +273,7 @@ print(random.choice(['apple', 'banana', 'cherry']))  # Output: Random choice fro
 fruits = ['apple', 'banana', 'cherry']
 random.shuffle(fruits)
 print(fruits)  # Output: Shuffled list</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h4 id="datetime-library">datetime Library</h4>
@@ -306,7 +305,7 @@ print(lunch_time)  # Output: 12:30:00
 # Time difference
 delta = timedelta(days=5)
 print(delta)  # Output: 5 days, 0:00:00</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h2 id="error-handling">Error Handling in Python</h2>
@@ -322,7 +321,7 @@ except ExceptionType:
     # code that runs if an exception occurs
 finally:
     # code that runs no matter what (optional)</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <p>Methods:</p>
@@ -340,7 +339,7 @@ finally:
     result = 10 / 0
 except ZeroDivisionError:
     print("Cannot divide by zero!")</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h5>Handling Multiple Exceptions:</h5>
@@ -351,7 +350,7 @@ except ZeroDivisionError:
     print("Cannot divide by zero!")
 except TypeError:
     print("Invalid type!")</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h5>Using Finally:</h5>
@@ -364,7 +363,7 @@ except FileNotFoundError:
 finally:
     file.close()
     print("File closed.")</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h5>Raising an Exception:</h5>
@@ -378,7 +377,7 @@ try:
     print(check_age(15))
 except ValueError as e:
     print(e)</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h5>Custom Exception Handling:</h5>
@@ -390,7 +389,7 @@ try:
     raise CustomError("This is a custom error.")
 except CustomError as e:
     print(e)</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h4>Detailed Examples:</h4>
@@ -401,7 +400,7 @@ except CustomError as e:
     print(f"The number is {number}")
 except ValueError:
     print("That's not a valid number!")</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h5>Handling Multiple Exceptions with User Input:</h5>
@@ -414,7 +413,7 @@ except ValueError:
     print("That's not a valid number!")
 except ZeroDivisionError:
     print("Cannot divide by zero!")</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h5>Using Finally with File:</h5>
@@ -427,7 +426,7 @@ except FileNotFoundError:
     print("File not found!")
 finally:
     print("Attempted to read the file.")</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h5>Raising an Exception (ZeroDivisionError):</h5>
@@ -441,7 +440,7 @@ try:
     print(divide(10, 0))
 except ZeroDivisionError as e:
     print(e)</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h5>Custom Exception with Negative Numbers:</h5>
@@ -458,7 +457,7 @@ try:
     print(check_positive(-5))
 except NegativeNumberError as e:
     print(e)</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h2 id="scripting-automation">Basic Scripting and Automation</h2>
@@ -470,7 +469,7 @@ except NegativeNumberError as e:
 <div class="code-box">
     <pre><code># A simple script to print "Hello, World!"
 print("Hello, World!")</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h4>Examples:</h4>
@@ -484,7 +483,7 @@ def rename_files(directory, prefix):
         os.rename(os.path.join(directory, filename), os.path.join(directory, new_name))
 
 rename_files("/path/to/directory", "new_")</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h5>Batch Image Resizing:</h5>
@@ -500,7 +499,7 @@ def resize_images(directory, size):
             img.save(os.path.join(directory, "resized_" + filename))
 
 resize_images("/path/to/images", (800, 600))</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h5>Automating Backup:</h5>
@@ -515,7 +514,7 @@ def backup_files(source_dir, backup_dir):
         shutil.copy(os.path.join(source_dir, filename), os.path.join(backup_dir, filename))
 
 backup_files("/path/to/source", "/path/to/backup")</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h5>Log File Analysis:</h5>
@@ -527,7 +526,7 @@ backup_files("/path/to/source", "/path/to/backup")</code></pre>
         print(f"Total errors: {error_count}")
 
 analyze_log("/path/to/logfile.log")</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h5>Sending Automated Emails:</h5>
@@ -547,7 +546,7 @@ def send_email(subject, body, to_email):
         server.sendmail(from_email, to_email, msg.as_string())
 
 send_email("Test Subject", "This is a test email.", "recipient@example.com")</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h3 id="command-line-arguments">Command Line Arguments</h3>
@@ -557,7 +556,7 @@ send_email("Test Subject", "This is a test email.", "recipient@example.com")</co
     <pre><code>import sys
 # Accessing command line arguments
 args = sys.argv</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h4>Examples:</h4>
@@ -571,7 +570,7 @@ if len(sys.argv) != 2:
 
 name = sys.argv[1]
 print(f"Hello, {name}!")</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h5>Multiple Command Line Arguments:</h5>
@@ -585,7 +584,7 @@ if len(sys.argv) != 3:
 num1 = int(sys.argv[1])
 num2 = int(sys.argv[2])
 print(f"Sum: {num1 + num2}")</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h5>File Processing with Command Line Arguments:</h5>
@@ -600,7 +599,7 @@ filename = sys.argv[1]
 with open(filename, "r") as file:
     content = file.read()
     print(content)</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h5>Automating Tasks with Command Line Arguments:</h5>
@@ -623,7 +622,7 @@ for filename in os.listdir(source_dir):
     shutil.copy(os.path.join(source_dir, filename), os.path.join(backup_dir, filename))
 
 print("Backup completed.")</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 
 <h5>Dynamic Script Behavior with Command Line Arguments:</h5>
@@ -642,18 +641,24 @@ elif option == "farewell":
     print("Goodbye, World!")
 else:
     print("Unknown option.")</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2023 Hacktrix - All Rights Reserved</p>
-            <p>Follow us on social media for more updates.</p>
-        </div>
-    </footer>
-    <!-- JavaScript, jQuery, and Popper.js for Bootstrap functionality and smooth scrolling -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+<footer class="footer">
+    <p class="paragraph">Copyright © 2025 TechyVia. All rights reserved.</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<script>
+    const MOBILE_BREAKPOINT = 768;
+    if (window.innerWidth <= MOBILE_BREAKPOINT) {
+        document.write('<script src="mobile.js"><\/script>');
+    }
+</script>
+
+<script src="script.js"></script>
 </body>
 </html>

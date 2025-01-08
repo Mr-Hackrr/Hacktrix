@@ -1,51 +1,49 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mastering Basic Python for Efficient Programming</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
-    <link rel="stylesheet" href="style.css"> 
-
+    <link rel="stylesheet" href="style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
-    <div class="header-bar">
-        <div class="brand-name">Hacktrix</div>
-        <nav>
-            <ul>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#exercise" class="nav-link">Exercise</a></li>
+    <!-- Header Bar -->
+    <header class="header-bar">
+        <span class="brand-name">Hacktrix</span>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-link">Home</a></li>
+                <li><a href="#exercise" class="nav-link">Practice</a></li>
                 <li><a href="#project" class="nav-link">Project</a></li>
                 <li><a href="#contact" class="nav-link">Contact Us</a></li>
             </ul>
         </nav>
+        <div class="toggle-menu" id="toggle-menu">☰</div>
+    </header>
+    <!-- Sidebar -->
+    <div id="sideMenu" class="sideMenu" role="navigation" aria-label="Sidebar Navigation">
+        <a href="#" class="closebtn" aria-label="Close sidebar">×</a>
+        <nav class="sidebar-nav">
+            <ul class="sidebar-links">
+                <li class="sidebar-link"><a href="#history" tabindex="0">History of Python</a></li>
+                <li class="sidebar-link"><a href="#variables" tabindex="0">Variables and Data Types</a></li>
+                <li class="sidebar-link"><a href="#basic-operators" tabindex="0">Basic Operators</a></li>
+                <li class="sidebar-link"><a href="#control-flow" tabindex="0">Control Flow</a></li>
+                <li class="sidebar-link"><a href="#functions" tabindex="0">Functions</a></li>
+                <li class="sidebar-link"><a href="#data-structures" tabindex="0">Data Structures</a></li>
+                <li class="sidebar-link"><a href="#lists" tabindex="0">Lists</a></li>
+                <li class="sidebar-link"><a href="#tuples" tabindex="0">Tuples</a></li>
+                <li class="sidebar-link"><a href="#dictionaries" tabindex="0">Dictionaries</a></li>
+                <li class="sidebar-link"><a href="#sets" tabindex="0">Sets</a></li>
+            </ul>
+        </nav>
     </div>
 
-    <div id="sideMenu" class="sideMenu">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-        <a href="#history" class="nav-link">History of Python</a>
-        <a href="#variables" class="nav-link">Variables and Data Types</a>
-        <a href="#basic-operators" class="nav-link">Basic Operators</a>
-        <a href="#arithmetic-operators" class="nav-link">Arithmetic Operators</a>
-        <a href="#comparison-operators" class="nav-link">Comparison Operators</a>
-        <a href="#logical-operators" class="nav-link">Logical Operators</a>
-        <a href="#control-flow" class="nav-link">Control Flow</a>
-        <a href="#conditional-statements" class="nav-link">Conditional Statements</a>
-        <a href="#loops" class="nav-link">Loops</a>
-        <a href="#functions" class="nav-link">Functions</a>
-        <a href="#defining-functions" class="nav-link">Defining Functions</a>
-        <a href="#built-in-functions" class="nav-link">Built-in Functions</a>
-        <a href="#data-structures" class="nav-link">Data Structures</a>
-        <a href="#lists" class="nav-link">Lists</a>
-        <a href="#tuples" class="nav-link">Tuples</a>
-        <a href="#dictionaries" class="nav-link">Dictionaries</a>
-        <a href="#sets" class="nav-link">Sets</a>
-    </div>
-    <div class="toggle-menu" onclick="openNav()">☰</div>
+<main>
     <div id="content">
         <h1 class="seo-friendly-heading">Mastering Basic Python for Efficient Programming</h1>
         
@@ -65,25 +63,25 @@
             <li>Integers: Whole numbers without a decimal point.
                 <div class="code-box">
                     <pre><code>age = 25</code></pre>
-                    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+                    <button class="copy-button"><i class="fas fa-copy"></i></button>
                 </div>
             </li>
             <li>Floats: Numbers with a decimal point.
                 <div class="code-box">
                     <pre><code>price = 19.99</code></pre>
-                    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+                    <button class="copy-button"><i class="fas fa-copy"></i></button>
                 </div>
             </li>
             <li>Strings: A sequence of characters enclosed in quotes.
                 <div class="code-box">
                     <pre><code>name = "Alice"</code></pre>
-                    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+                    <button class="copy-button"><i class="fas fa-copy"></i></button>
                 </div>
             </li>
             <li>Booleans: Represents True or False.
                 <div class="code-box">
                     <pre><code>is_student = True</code></pre>
-                    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+                    <button class="copy-button"><i class="fas fa-copy"></i></button>
                 </div>
             </li>
         </ul>
@@ -96,25 +94,25 @@
             <li>Addition (+):
                 <div class="code-box">
                     <pre><code>sum = 10 + 5  # sum is 15</code></pre>
-                    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+                    <button class="copy-button"><i class="fas fa-copy"></i></button>
                 </div>
             </li>
             <li>Subtraction (-):
                 <div class="code-box">
                     <pre><code>difference = 10 - 5  # difference is 5</code></pre>
-                    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+                    <button class="copy-button"><i class="fas fa-copy"></i></button>
                 </div>
             </li>
             <li>Multiplication (*):
                 <div class="code-box">
                     <pre><code>product = 10 * 5  # product is 50</code></pre>
-                    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+                    <button class="copy-button"><i class="fas fa-copy"></i></button>
                 </div>
             </li>
             <li>Division (/):
                 <div class="code-box">
                     <pre><code>quotient = 10 / 5  # quotient is 2.0</code></pre>
-                    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+                    <button class="copy-button"><i class="fas fa-copy"></i></button>
                 </div>
             </li>
         </ul>
@@ -125,25 +123,25 @@
             <li>Equal to (==):
                 <div class="code-box">
                     <pre><code>is_equal = (10 == 10)  # is_equal is True</code></pre>
-                    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+                    <button class="copy-button"><i class="fas fa-copy"></i></button>
                 </div>
             </li>
             <li>Not equal to (!=):
                 <div class="code-box">
                     <pre><code>is_not_equal = (10 != 5)  # is_not_equal is True</code></pre>
-                    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+                    <button class="copy-button"><i class="fas fa-copy"></i></button>
                 </div>
             </li>
             <li>Greater than (&gt;):
                 <div class="code-box">
                     <pre><code>is_greater = (10 &gt; 5)  # is_greater is True</code></pre>
-                    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+                    <button class="copy-button"><i class="fas fa-copy"></i></button>
                 </div>
             </li>
             <li>Less than (&lt;):
                 <div class="code-box">
                     <pre><code>is_less = (5 &lt; 10)  # is_less is True</code></pre>
-                    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+                    <button class="copy-button"><i class="fas fa-copy"></i></button>
                 </div>
             </li>
         </ul>
@@ -153,19 +151,19 @@
             <li>And (and):
                 <div class="code-box">
                     <pre><code>result = (10 &gt; 5) and (5 &lt; 10)  # result is True</code></pre>
-                    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+                    <button class="copy-button"><i class="fas fa-copy"></i></button>
                 </div>
             </li>
             <li>Or (or):
                 <div class="code-box">
                     <pre><code>result = (10 &gt; 5) or (5 &gt; 10)  # result is True</code></pre>
-                    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+                    <button class="copy-button"><i class="fas fa-copy"></i></button>
                 </div>
             </li>
             <li>Not (not):
                 <div class="code-box">
                     <pre><code>result = not (10 &gt; 5)  # result is False</code></pre>
-                    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+                    <button class="copy-button"><i class="fas fa-copy"></i></button>
                 </div>
             </li>
         </ul>
@@ -190,7 +188,7 @@ elif another_condition:
 else:
     # code to execute if none of the above conditions are true
 </code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
 
         <h4>Examples:</h4>
@@ -200,7 +198,7 @@ else:
 if temperature &gt; 25:
     print("It's hot outside.")
 </code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
 
         <h5>If-Else Statement:</h5>
@@ -211,7 +209,7 @@ if temperature &gt; 25:
 else:
     print("It's not hot outside.")
 </code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
 
         <h5>If-Elif-Else Statement:</h5>
@@ -224,7 +222,7 @@ elif temperature &gt; 15:
 else:
     print("It's cold outside.")
 </code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
 
         <h3 id="loops">Loops</h3>
@@ -241,7 +239,7 @@ else:
             <pre><code>for item in iterable:
     # code to execute for each item
 </code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
 
         <h4>While Loop:</h4>
@@ -249,7 +247,7 @@ else:
             <pre><code>while condition:
     # code to execute as long as condition is true
 </code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
 
         <h4>Examples:</h4>
@@ -258,7 +256,7 @@ else:
             <pre><code>for i in range(3):
     print("Iteration:", i)
 </code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
 
         <h5>While Loop with Condition:</h5>
@@ -268,7 +266,7 @@ while count &lt; 3:
     print("Count:", count)
     count += 1
 </code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
 
         <h5>For Loop with List:</h5>
@@ -277,7 +275,7 @@ while count &lt; 3:
 for fruit in fruits:
     print(fruit)
 </code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
 
         <h5>While Loop with Decrement:</h5>
@@ -287,7 +285,7 @@ while number &gt; 0:
     print("Number:", number)
     number -= 1
 </code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
 
         <h5>Nested Loops:</h5>
@@ -296,7 +294,7 @@ while number &gt; 0:
     for j in range(2):
         print(f"i: {i}, j: {j}")
 </code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
 
         <h2 id="functions">Functions</h2>
@@ -311,7 +309,7 @@ while number &gt; 0:
     # code block
     return value
 </code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
 
         <h4>Examples:</h4>
@@ -322,7 +320,7 @@ while number &gt; 0:
 
 print(greet())
 </code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
 
         <h5>Function with Parameters:</h5>
@@ -332,7 +330,7 @@ print(greet())
 
 print(greet("Alice"))
 </code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
 
         <h5>Function Returning Multiple Values:</h5>
@@ -345,7 +343,7 @@ print(greet("Alice"))
 name, age = get_name_and_age()
 print(f"Name: {name}, Age: {age}")
 </code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
 
         <h3 id="built-in-functions">Built-in Functions</h3>
@@ -356,14 +354,14 @@ print(f"Name: {name}, Age: {age}")
         <h5>Using <code>print()</code> to Display Messages:</h5>
         <div class="code-box">
             <pre><code>print("Hello, World!")</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
 
         <h5>Using <code>len()</code> to Get Length of a List:</h5>
         <div class="code-box">
             <pre><code>fruits = ["apple", "banana", "cherry"]
 print(len(fruits))</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
 
         <h5>Using <code>range()</code> to Generate Numbers:</h5>
@@ -371,7 +369,7 @@ print(len(fruits))</code></pre>
             <pre><code>for i in range(5):
     print(i)
 </code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
 
         <h5>Using <code>type()</code> to Check Data Types:</h5>
@@ -380,7 +378,7 @@ print(len(fruits))</code></pre>
 print(type(10.5))
 print(type("Hello"))
 </code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
 
         <h5>Using <code>sum()</code> to Add Numbers in a List:</h5>
@@ -388,7 +386,7 @@ print(type("Hello"))
             <pre><code>numbers = [1, 2, 3, 4, 5]
 print(sum(numbers))
 </code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
 
         <h2 id="data-structures">Data Structures</h2>
@@ -400,7 +398,7 @@ print(sum(numbers))
             <pre><code># Creating a list
 my_list = [1, 2, 3, "apple", "banana"]
 </code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
         <p>Methods:</p>
         <ul>
@@ -421,7 +419,7 @@ my_list = [1, 2, 3, "apple", "banana"]
             <pre><code>fruits = ["apple", "banana", "cherry"]
 print(fruits[0])  # Output: apple
 </code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
 
         <h5>Modifying a List:</h5>
@@ -429,7 +427,7 @@ print(fruits[0])  # Output: apple
             <pre><code>fruits[1] = "orange"
 print(fruits)  # Output: ['apple', 'orange', 'cherry']
 </code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
 
         <h5>Adding Elements:</h5>
@@ -437,7 +435,7 @@ print(fruits)  # Output: ['apple', 'orange', 'cherry']
             <pre><code>fruits.append("kiwi")
 print(fruits)  # Output: ['apple', 'orange', 'cherry', 'kiwi']
 </code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
 
         <h5>Removing Elements:</h5>
@@ -445,7 +443,7 @@ print(fruits)  # Output: ['apple', 'orange', 'cherry', 'kiwi']
             <pre><code>fruits.remove("orange")
 print(fruits)  # Output: ['apple', 'cherry', 'kiwi']
 </code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
 
         <h5>Sorting a List:</h5>
@@ -454,7 +452,7 @@ print(fruits)  # Output: ['apple', 'cherry', 'kiwi']
 numbers.sort()
 print(numbers)  # Output: [1, 1, 3, 4, 5, 9]
 </code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
 
         <h3 id="tuples">Tuples</h3>
@@ -464,7 +462,7 @@ print(numbers)  # Output: [1, 1, 3, 4, 5, 9]
             <pre><code># Creating a tuple
 my_tuple = (1, 2, 3, "apple", "banana")
 </code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
         <p>Methods:</p>
         <ul>
@@ -478,7 +476,7 @@ my_tuple = (1, 2, 3, "apple", "banana")
             <pre><code>coordinates = (10.0, 20.0)
 print(coordinates[0])  # Output: 10.0
 </code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
 
         <h5>Using <code>count()</code> Method:</h5>
@@ -486,7 +484,7 @@ print(coordinates[0])  # Output: 10.0
             <pre><code>my_tuple = (1, 2, 2, 3, 4)
 print(my_tuple.count(2))  # Output: 2
 </code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
 
         <h5>Using <code>index()</code> Method:</h5>
@@ -494,7 +492,7 @@ print(my_tuple.count(2))  # Output: 2
             <pre><code>my_tuple = (1, 2, 3, 4)
 print(my_tuple.index(3))  # Output: 2
 </code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
 
         <h5>Tuple Unpacking:</h5>
@@ -503,7 +501,7 @@ print(my_tuple.index(3))  # Output: 2
 name, age, profession = person
 print(name)  # Output: Alice
 </code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
 
         <h5>Nested Tuples:</h5>
@@ -511,7 +509,7 @@ print(name)  # Output: Alice
             <pre><code>nested_tuple = ((1, 2), (3, 4))
 print(nested_tuple[1][0])  # Output: 3
 </code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
 
         <h3 id="dictionaries">Dictionaries</h3>
@@ -521,7 +519,7 @@ print(nested_tuple[1][0])  # Output: 3
             <pre><code># Creating a dictionary
 my_dict = {"name": "Alice", "age": 25}
 </code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
         <p>Methods:</p>
         <ul>
@@ -540,7 +538,7 @@ my_dict = {"name": "Alice", "age": 25}
             <pre><code>person = {"name": "Alice", "age": 25}
 print(person["name"])  # Output: Alice
 </code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
 
         <h5>Modifying a Dictionary:</h5>
@@ -548,7 +546,7 @@ print(person["name"])  # Output: Alice
             <pre><code>person["age"] = 26
 print(person)  # Output: {'name': 'Alice', 'age': 26}
 </code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
 
         <h5>Adding Key-Value Pairs:</h5>
@@ -556,7 +554,7 @@ print(person)  # Output: {'name': 'Alice', 'age': 26}
             <pre><code>person["city"] = "New York"
 print(person)  # Output: {'name': 'Alice', 'age': 26, 'city': 'New York'}
 </code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
 
         <h5>Removing Key-Value Pairs:</h5>
@@ -564,7 +562,7 @@ print(person)  # Output: {'name': 'Alice', 'age': 26, 'city': 'New York'}
             <pre><code>del person["age"]
 print(person)  # Output: {'name': 'Alice', 'city': 'New York'}
 </code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
 
         <h5>Using <code>items()</code> Method:</h5>
@@ -572,7 +570,7 @@ print(person)  # Output: {'name': 'Alice', 'city': 'New York'}
             <pre><code>for key, value in person.items():
     print(f"{key}: {value}")
 </code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
 
         <h3 id="sets">Sets</h3>
@@ -582,7 +580,7 @@ print(person)  # Output: {'name': 'Alice', 'city': 'New York'}
             <pre><code># Creating a set
 my_set = {1, 2, 3, "apple", "banana"}
 </code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
         <p>Methods:</p>
         <ul>
@@ -601,7 +599,7 @@ my_set = {1, 2, 3, "apple", "banana"}
             <pre><code>fruits = {"apple", "banana", "cherry"}
 print(fruits)  # Output: {'apple', 'banana', 'cherry'}
 </code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
 
         <h5>Adding Elements:</h5>
@@ -609,7 +607,7 @@ print(fruits)  # Output: {'apple', 'banana', 'cherry'}
             <pre><code>fruits.add("orange")
 print(fruits)  # Output: {'apple', 'banana', 'cherry', 'orange'}
 </code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
 
         <h5>Removing Elements:</h5>
@@ -617,7 +615,7 @@ print(fruits)  # Output: {'apple', 'banana', 'cherry', 'orange'}
             <pre><code>fruits.remove("banana")
 print(fruits)  # Output: {'apple', 'cherry', 'orange'}
 </code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
 
         <h5>Union of Sets:</h5>
@@ -627,7 +625,7 @@ set2 = {3, 4, 5}
 union_set = set1.union(set2)
 print(union_set)  # Output: {1, 2, 3, 4, 5}
 </code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
 
         <h5>Intersection of Sets:</h5>
@@ -637,15 +635,24 @@ set2 = {2, 3, 4}
 intersection_set = set1.intersection(set2)
 print(intersection_set)  # Output: {2, 3}
 </code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
     </div>
+</main>
+<footer class="footer">
+   <p class="paragraph">Copyright 2023 TechyVia. All rights reserved.</p>
+ </footer>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+ <script>hljs.highlightAll();</script>
 
-    <div class="footer">
-        <p>&copy; 2024 Hacktrix. All rights reserved.</p>
-        <p><a href="#contact">Contact Us</a></p>
-    </div>
-
-    <script src="script.js"></script> <!-- Assuming your JavaScript file is named script.js -->
+ <script>
+     const MOBILE_BREAKPOINT = 768;
+     if (window.innerWidth <= MOBILE_BREAKPOINT) {
+       document.write('<script src="mobile.js"><\/script>');
+     }
+   </script>
+   
+ 
+ <script src="script.js"></script>
 </body>
 </html>
