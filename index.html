@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hacktrix - Your Tech Resource Hub</title>
+    <title>TechyVia - Your Tech Resource Hub</title>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -14,9 +14,9 @@
     <!-- Header Section -->
     <header class="bg-dark text-white fixed-top">
       <nav class="container navbar navbar-expand-lg navbar-dark">
-        <a class="navbar-brand" href="#">Hacktrix</a>
+        <a class="navbar-brand" href="#">TechyVia</a>
         <button
-          class="navbar-toggler"
+          class="navbar-toggler" 
           type="button"
           data-toggle="collapse"
           data-target="#navbarNav"
@@ -51,7 +51,7 @@
 
     <div class="hero-section">
       <div class="overlay">
-        <h1>Welcome to Hacktrix</h1>
+        <h1>Welcome to TechyVia</h1>
         <p>
           Your gateway to mastering tech skills, cloud services, and coding
           solutions.
@@ -65,18 +65,18 @@
       <div class="text-center mb-4">
         <h2>About Us</h2>
         <p class="lead">
-          LuckyBytes is your go-to resource for mastering tech skills, from
+          TechyVia is your go-to resource for mastering tech skills, from
           beginner tutorials to expert guides.
         </p>
       </div>
       <div class="row justify-content-center">
         <div class="col-lg-8">
           <p class="text-muted">
-            Welcome to LuckyBytes! We are dedicated to making complex technology
+            Welcome to TechyVia! We are dedicated to making complex technology
             accessible and easy to understand. Our mission is to guide you
             through cloud services, provide comprehensive coding tutorials, and
             offer effective problem-solving techniques. Whether you’re a
-            beginner or an experienced professional, LuckyBytes is here to help
+            beginner or an experienced professional, TechyVia is here to help
             you stay ahead in the digital world.
           </p>
         </div>
@@ -90,7 +90,7 @@
             <div class="card h-100 shadow-sm">
               <div class="card-body">
                 <p class="card-text">
-                  "LuckyBytes has transformed my learning experience. The
+                  "TechyVia has transformed my learning experience. The
                   tutorials are easy to follow and very informative!"
                 </p>
                 <p class="text-right"><strong>- Soundarya</strong></p>
@@ -133,7 +133,7 @@
         font-family: Arial, sans-serif;
       "
     >
-      <h2>Learn to Code with LuckyBytes</h2>
+      <h2>Learn to Code with TechyVia</h2>
     </div>
 
     <div class="container my-5">
@@ -148,10 +148,6 @@
             >
           </li>
           <li><a href="python/advanced-concepts.html">Advanced Concepts</a></li>
-          <li><a href="python/coding-questions.html">Coding Questions</a></li>
-          <li>
-            <a href="python/exercises-projects.html">Exercise Questions</a>
-          </li>
           <li><a href="python/interview.html">Interview Questions</a></li>
         </ul>
       </section>
@@ -172,12 +168,24 @@
         <h2 class="text-primary">Hadoop Ecosystem</h2>
         <p>Dive into the Hadoop ecosystem and its components.</p>
         <ul>
-          <li><a href="hadoop/hadoop.html">Introduction to Hadoop</a></li>
-          <li><a href="hadoop/core-components.html">Core Components of Hadoop</a></li>
-          <li><a href="hadoop/data-processing.html">Data Processing and Analysis</a></li>
-          <li><a href="hadoop/datastorage.html"> Data Storage and Management</a></li>
-          <li><a href="hadoop/workflow.html"> Workflow and Coordination</a></li>
-          <li><a href="hadoop/advanced-topics.html">Advanced Topics and Future Trends</a></li>
+          <li>
+            <a href="hadoop/foundations.html" class="topic-link">
+              Foundations
+              <span class="hover-text">Understand Hadoop basics & core components</span>
+            </a>
+          </li>
+          <li>
+            <a href="hadoop/data-management.html" class="topic-link">
+              Data Management
+              <span class="hover-text">Hadoop data processing, storage & management</span>
+            </a>
+          </li>
+          <li>
+            <a href="hadoop/advanced-topics.html" class="topic-link">
+              Advanced Topics
+              <span class="hover-text">Explore Hadoop workflow, trends & more</span>
+            </a>
+          </li>
         </ul>
       </section>
 
@@ -208,6 +216,7 @@
           </li>
         </ul>
       </section>
+      
       <section id="cloud-data-pipelines" class="language-section mb-5">
         <h2 class="text-primary">Data Pipeline Management in the Cloud</h2>
         <p>Expert guides for developing and overseeing cloud data pipelines.</p>
@@ -325,70 +334,6 @@
       </div>
     </section>
 
-    <!-- CSS for Styling -->
-    <style>
-      .question-bank-section {
-        background-color: #f9f9f9;
-        padding: 40px 0;
-        border-radius: 8px;
-      }
-      .question-bank-section h2 {
-        color: #007bff;
-        font-size: 2.5em;
-        animation: fadeInDown 1s;
-      }
-      .question-bank-section p {
-        font-size: 1.2em;
-        margin-bottom: 30px;
-        animation: fadeInUp 1s;
-      }
-      .question-bank-section .card {
-        transition: transform 0.3s, box-shadow 0.3s;
-        border: none;
-        border-radius: 10px;
-      }
-      .question-bank-section .card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-      }
-      .question-bank-section .card-title a {
-        text-decoration: none;
-        color: #007bff;
-        font-weight: bold;
-      }
-      .question-bank-section .card-title a:hover {
-        text-decoration: underline;
-      }
-      .question-bank-section .btn {
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        transition: background-color 0.3s;
-      }
-      .question-bank-section .btn:hover {
-        background-color: #0056b3;
-      }
-      @keyframes fadeInDown {
-        from {
-          opacity: 0;
-          transform: translateY(-20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-    </style>
 
     <!-- JavaScript for Animations -->
     <script>
@@ -698,7 +643,7 @@
                   aria-expanded="true"
                   aria-controls="collapseOne"
                 >
-                  What is LuckyBytes?
+                  What is TechyVia?
                 </button>
               </h2>
             </div>
@@ -709,7 +654,7 @@
               data-parent="#faqAccordion"
             >
               <div class="card-body">
-                LuckyBytes is a platform dedicated to making complex technology
+                TechyVia is a platform dedicated to making complex technology
                 accessible and easy to understand through comprehensive
                 tutorials and guides.
               </div>
@@ -726,7 +671,7 @@
                   aria-expanded="false"
                   aria-controls="collapseTwo"
                 >
-                  How can I contact LuckyBytes for support?
+                  How can I contact TechyVia for support?
                 </button>
               </h2>
             </div>
@@ -748,7 +693,7 @@
 
     <!-- Footer -->
     <footer class="bg-dark text-white py-4 text-center">
-      <p>&copy; 2024 LuckyBytes. All rights reserved.</p>
+      <p>&copy; 2024 TechyVia. All rights reserved.</p>
     </footer>
 
     <!-- JavaScript and Bootstrap JS -->
