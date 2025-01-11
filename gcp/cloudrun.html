@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacktrix-Cloudrun</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <header class="header-bar">
+        <span class="brand-name">LuckyByte</span>
+        <nav class="navbar">
+          <ul class="nav-links">
+            <li class="nav-link"><a href="#intro" tabindex="0">Home</a></li>
+            <li class="nav-link"><a href="#features" tabindex="0">Features</a></li>
+            <li class="nav-link"><a href="#use-cases" tabindex="0">Use Cases</a></li>
+            <li class="nav-link"><a href="#pricing" tabindex="0">Pricing</a></li>
+            <li class="nav-link"><a href="#contact" tabindex="0">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="toggle-menu" onclick="toggleSidebar()">☰</div>
+      </header>
+
+<!-- Sidebar (same as before, in case you need it) -->
+<div id="sideMenu" class="sideMenu" role="navigation" aria-label="Sidebar Navigation">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" aria-label="Close sidebar">×</a>
+    <nav class="sidebar-nav">
+      <ul class="sidebar-links">
+        <li class="sidebar-link"><a href="#intro" tabindex="0">Introduction to Cloud Run</a></li>
+        <li class="sidebar-link"><a href="#features" tabindex="0">Key Features</a></li>
+        <li class="sidebar-link"><a href="#use-cases" tabindex="0">Use Cases</a></li>
+        <li class="sidebar-link"><a href="#pricing" tabindex="0">Pricing and Plans</a></li>
+        <li class="sidebar-link"><a href="#security" tabindex="0">Security and Compliance</a></li>
+        <li class="sidebar-link"><a href="#resources" tabindex="0">Additional Resources</a></li>
+        <li class="sidebar-link"><a href="#contact" tabindex="0">Get Started with Cloud Run</a></li>
+      </ul>
+    </nav>
+  </div>
+
+    <!-- Toggle Button -->
+    <div class="toggle-menu" onclick="openNav()">☰</div>
+
+ <!-- Main Content Section -->
+<main id="content">
+    <!-- Introduction to Cloud Run -->
+    <section id="intro">
+      <h1 class="seo-friendly-heading">Easily Scale Your Apps with Cloud Run</h1>
+      <p>Want to build and deploy apps without worrying about the backend? Google Cloud Run is here to help. It's a simple, managed platform that lets you focus on coding while it handles the rest. Let's explore how Cloud Run can make your life easier.</p>
+    </section>
+  
+    <!-- What is Cloud Run? -->
+    <section id="what-is-cloud-run">
+      <h2>What is Cloud Run?</h2>
+      <ul>
+        <li>
+          <h3>Pack Your App</h3>
+          <p>Put your app and its dependencies into a single container.</p>
+        </li>
+        <li>
+          <h3>No Server Worries</h3>
+          <p>Cloud Run manages the servers for you, scaling up or down as needed.</p>
+        </li>
+        <li>
+          <h3>Works for All Apps</h3>
+          <p>Whether your app stores data or not, Cloud Run supports both types.</p>
+        </li>
+      </ul>
+    </section>
+  
+    <!-- Benefits of Cloud Run -->
+    <section id="benefits">
+      <h2>Benefits You'll Love</h2>
+      <ol>
+        <li>
+          <h3>Scale Automatically</h3>
+          <p>Your app grows, Cloud Run grows with it.</p>
+        </li>
+        <li>
+          <h3>Secure by Default</h3>
+          <p>Enjoy top-notch security with easy access controls.</p>
+        </li>
+        <li>
+          <h3>Easy Monitoring</h3>
+          <p>Understand your app's performance at a glance.</p>
+        </li>
+        <li>
+          <h3>Pay Only for What You Use</h3>
+          <p>No surprise bills, just fair pricing.</p>
+        </li>
+      </ol>
+    </section>
+  
+    <!-- Real-Life Uses of Cloud Run -->
+    <section id="use-cases">
+      <h2>Real-Life Uses of Cloud Run</h2>
+      <ul>
+        <li>
+          <h3>Web Apps</h3>
+          <p>Grow your user base without backend headaches.</p>
+          <div class="code-box">
+            <pre><code>/* Example code for web app deployment */</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+          </div>
+        </li>
+        <li>
+          <h3>APIs & Microservices</h3>
+          <p>Easily integrate and scale individual services.</p>
+        </li>
+        <li>
+          <h3>Event-Driven Apps</h3>
+          <p>React to events in real-time with Cloud Run.</p>
+        </li>
+        <li>
+          <h3>AI/ML Models</h3>
+          <p>Deploy machine learning models as easily as web apps.</p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Example: Image Resizer -->
+  <section id="image-resizer-example">
+    <h2 class="seo-friendly-heading">Example: "Image Resizer" - A Serverless Image Processing Service</h2>
+    <h3>Scenario:</h3>
+    <ul>
+      <li>
+        <h4>Company:</h4>
+        <p>GreenEarth, an e-commerce platform for eco-friendly products.</p>
+      </li>
+      <li>
+        <h4>Challenge:</h4>
+        <ol>
+          <li>Ensure all product images are resized to three standard dimensions (thumbnail, medium, large) for consistent display across their website and mobile app.</li>
+          <li>Offload image processing from their main application to improve performance and reduce latency.</li>
+        </ol>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Solution: Deploy an "Image Resizer" service on Cloud Run -->
+  <section id="solution">
+    <h3>Solution:</h3>
+    <p>Deploy an "Image Resizer" service on Cloud Run.</p>
+    <h4>How it Works:</h4>
+    <ol>
+      <li>
+        <h5>Trigger:</h5>
+        <p>Whenever a new product image is uploaded to GreenEarth's Cloud Storage bucket.</p>
+      </li>
+      <li>
+        <h5>Cloud Run Service: "Image Resizer"</h5>
+        <ul>
+          <li>
+            <h6>Containerized Application:</h6>
+            <ul>
+              <li>Written in Node.js using Sharp (image processing library).</li>
+              <li> Listens for new image uploads in the designated Cloud Storage bucket.</li>
+            </ul>
+          </li>
+          <li>
+            <h6>Functionality:</h6>
+            <ol>
+              <li>Downloads the newly uploaded image.</li>
+              <li>Resizes the image into three predefined dimensions (thumbnail, medium, large).</li>
+              <li>Uploads the resized images back to a separate Cloud Storage bucket.</li>
+            </ol>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <h5>Output:</h5>
+        <p>Three resized images for each uploaded product image, stored in Cloud Storage.</p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- Cloud Run Configuration -->
+  <section id="cloud-run-configuration">
+    <h3>Cloud Run Configuration:</h3>
+    <ul>
+      <li>
+        <h4>Platform:</h4>
+        <p>Cloud Run (fully managed)</p>
+      </li>
+      <li>
+        <h4>Container:</h4>
+        <p>Node.js 14 with Sharp library</p>
+      </li>
+      <li>
+        <h4>Trigger:</h4>
+        <p>Cloud Storage bucket upload trigger</p>
+      </li>
+      <li>
+        <h4>Scaling:</h4>
+        <p>Automatic scaling with a minimum of 0 instances and a maximum of 10 instances</p>
+      </li>
+      <li>
+        <h4>Memory Allocated:</h4>
+        <p>512 MB</p>
+      </li>
+      <li>
+        <h4>Timeout:</h4>
+        <p>5 minutes (to handle large image processing)</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Benefits for GreenEarth -->
+  <section id="benefits">
+    <h3>Benefits for GreenEarth:</h3>
+    <ul>
+      <li>
+        <h4>Scalability:</h4>
+        <p>Automatically handles increased image uploads during sales or new product launches.</p>
+      </li>
+      <li>
+        <h4>Performance:</h4>
+        <p>Offloads resource-intensive image processing, ensuring the main application remains responsive.</p>
+      </li>
+      <li>
+        <h4>Cost-Effectiveness:</h4>
+        <p>Only pays for the actual compute time used by the "Image Resizer" service.</p>
+      </li>
+      <li>
+        <h4>Security:</h4>
+        <p>Leveraging Cloud Run's built-in security features and automatic updates.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="containers-microservices">
+    <h2 class="seo-friendly-heading">Containers and Microservices</h2>
+  
+    <!-- Containers -->
+    <div class="subsection">
+      <h3>Containers</h3>
+      <ul>
+        <li>
+          <h4>Definition:</h4>
+          <p>Lightweight and standalone executable packages that include everything an application needs to run (code, dependencies, libraries, settings).</p>
+        </li>
+        <li>
+          <h4>Key Benefits:</h4>
+          <ul>
+            <li>
+              <h5>Isolation:</h5>
+              <p>Run multiple containers simultaneously without conflicts.</p>
+            </li>
+            <li>
+              <h5>Portability:</h5>
+              <p>Deploy containers across different environments (dev, staging, prod) without worries.</p>
+            </li>
+            <li>
+              <h5>Efficiency:</h5>
+              <p>Optimize resource utilization (e.g., CPU, memory).</p>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  
+    <!-- Microservices -->
+    <div class="subsection">
+      <h3>Microservices</h3>
+      <ul>
+        <li>
+          <h4>Definition:</h4>
+          <p>Software development technique that structures an application as a collection of small, independent services.</p>
+        </li>
+        <li>
+          <h4>Key Benefits:</h4>
+          <ul>
+            <li>
+              <h5>Scalability:</h5>
+              <p>Scale individual services as needed.</p>
+            </li>
+            <li>
+              <h5>Flexibility:</h5>
+              <p>Use different programming languages, databases, or frameworks for each service.</p>
+            </li>
+            <li>
+              <h5>Resilience:</h5>
+              <p>If one service fails, others remain operational.</p>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  
+    <!-- Containerization Examples -->
+    <div class="subsection">
+      <h3>Containerization Examples</h3>
+      <ul>
+        <li>
+          <h4>Netflix's Content Delivery Network (CDN):</h4>
+          <ul>
+            <li>
+              <h5>Use Case:</h5>
+              <p>Netflix uses Docker containers to package and deploy its CDN servers globally, ensuring consistent and fast content delivery.</p>
+            </li>
+            <li>
+              <h5>Benefits:</h5>
+              <p>Reduced deployment time from hours to minutes, increased scalability, and improved resource utilization.</p>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h4>PayPal's Payment Processing:</h4>
+          <ul>
+            <li>
+              <h5>Use Case:</h5>
+              <p>PayPal utilizes containers to isolate and deploy multiple payment processing services, ensuring high availability and security.</p>
+            </li>
+            <li>
+              <h5>Benefits:</h5>
+              <p>Improved fault tolerance, reduced latency, and enhanced security through isolation.</p>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h4>Spotify's Music Streaming:</h4>
+          <ul>
+            <li>
+              <h5>Use Case:</h5>
+              <p>Spotify employs containers to deploy and manage its music streaming services, allowing for seamless scaling and updates.</p>
+            </li>
+            <li>
+              <h5>Benefits:</h5>
+              <p>Increased agility, reduced costs, and improved user experience through faster deployment of new features.</p>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  
+    <!-- Microservices Examples -->
+    <div class="subsection">
+      <h3>Microservices Examples</h3>
+      <ul>
+        <li>
+          <h4>Amazon's E-commerce Platform:</h4>
+          <ul>
+            <li>
+              <h5>Use Case:</h5>
+              <p>Amazon's platform is built as a collection of microservices, each responsible for a specific function (e.g., product catalog, order processing, payment gateway).</p>
+            </li>
+            <li>
+              <h5>Benefits:</h5>
+              <p>Enhanced scalability, improved fault tolerance, and increased development velocity.</p>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+</section>
+
+<!-- Original Case Study: FashionFrenzy -->
+<section id="case-study">
+    <h1 class="seo-friendly-heading">Scaling E-commerce Success with Cloud Run: The Story of "FashionFrenzy"</h1>
+    <h2>Background:</h2>
+    <p class="text-color">FashionFrenzy, a trendy online clothing store, was launched in 2020 by two entrepreneurs, Emma and Ryan. Initially, the website was built on a traditional monolithic architecture, hosted on a single virtual machine. As the brand gained popularity, especially among young adults, the site faced scalability issues, leading to frequent crashes during peak shopping seasons (e.g., Black Friday, Holiday Sales).</p>
+  
+    <!-- Challenges Faced by FashionFrenzy -->
+    <section id="challenges">
+      <h2>Challenges Faced by FashionFrenzy:</h2>
+      <ul class="nav-links">
+        <li>
+          <h3 class="subheading-color">Unpredictable Traffic Spikes:</h3>
+          <p class="text-color">Difficulty in anticipating and preparing for sudden increases in website traffic.</p>
+        </li>
+        <li>
+          <h3 class="subheading-color">Server Crashes:</h3>
+          <p class="text-color">Frequent downtime during peak shopping periods, resulting in lost sales and damaged brand reputation.</p>
+        </li>
+        <li>
+          <h3 class="subheading-color">High Operational Costs:</h3>
+          <p class="text-color">Inefficient use of resources, with underutilized servers during off-peak times.</p>
+        </li>
+        <li>
+          <h3 class="subheading-color">Complex Deployment Process:</h3>
+          <p class="text-color">Time-consuming and error-prone deployment of new features and updates.</p>
+        </li>
+      </ul>
+    </section>
+  
+    <!-- Solution: Migration to Cloud Run -->
+    <section id="solution">
+      <h2>Solution:</h2>
+      <p class="text-color">Emma and Ryan decided to migrate FashionFrenzy to Google Cloud Run to leverage its serverless, scalable, and secure environment.</p>
+  
+      <!-- Implementation Highlights -->
+      <section id="implementation-highlights">
+        <h3>Implementation Highlights:</h3>
+        <ul class="nav-links">
+          <li>
+            <h4 class="subheading-color">Containerization:</h4>
+            <p class="text-color">FashionFrenzy's application was containerized using Docker, ensuring consistency across environments.</p>
+          </li>
+          <li>
+            <h4 class="subheading-color">Cloud Run Deployment:</h4>
+            <p class="text-color">The containerized app was seamlessly deployed on Cloud Run, with automatic scaling enabled.</p>
+          </li>
+          <li>
+            <h4 class="subheading-color">Integration with Cloud Load Balancing:</h4>
+            <p class="text-color">Efficient traffic distribution to ensure no single point of failure.</p>
+          </li>
+        </ul>
+      </section>
+    </section>
+  
+    <!-- Quotes from FashionFrenzy Founders -->
+    <section id="founder-quotes">
+      <h2>Quotes from FashionFrenzy Founders:</h2>
+      <ul class="nav-links">
+        <li>
+          <h3 class="subheading-color">Emma:</h3>
+          <p class="text-color">&ldquo;Cloud Run has been a game-changer. We can now focus on growing our brand, not worrying about our site crashing.&rdquo;</p>
+        </li>
+        <li>
+          <h3 class="subheading-color">Ryan:</h3>
+          <p class="text-color">&ldquo;The scalability and cost savings have exceeded our expectations. We're thrilled with our decision to migrate to Cloud Run.&rdquo;</p>
+        </li>
+      </ul>
+    </section>
+  </section>
+  <!-- Step 1: Create a Simple "Hello World" Flask App -->
+<section id="step-1">
+    <h2>Step 1: Create a Simple "Hello World" Flask App</h2>
+    <ol>
+      <li>Create a new directory for your project and navigate into it:
+        <pre><code>mkdir flask-cloudrun-example
+  cd flask-cloudrun-example</code></pre>
+        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      </li>
+      <li>Create a file named <code>app.py</code> with the following content:
+        <div class="code-box">
+          <pre><code class="language-python">from flask import Flask
+  app = Flask(__name__)
+  
+  @app.route("/")
+  def hello_world():
+      return "Hello, World from Cloud Run!"
+  
+  if __name__ == "__main__":
+      app.run(debug=True, host="0.0.0.0", port=8080)</code></pre>
+          <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+        <img src="cloudrun_images/app_py.png" alt="app.py Code">
+      </li>
+    </ol>
+  </section>
+  
+  <!-- Step 2: Dockerize Your Flask Application -->
+  <section id="step-2">
+    <h2>Step 2: Dockerize Your Flask Application</h2>
+    <ol>
+      <li>Create a Dockerfile in the same directory with the following content:
+        <div class="code-box">
+          <pre><code>FROM python:3.9-slim
+  
+  WORKDIR /app
+  
+  COPY . .
+  
+  # Install any needed packages specified in requirements.txt
+  RUN pip install --trusted-host pypi.python.org flask
+  
+  # Make port 8080 available to the world outside this container
+  EXPOSE 8080
+  
+  # Define environment variable
+  ENV NAME World
+  
+  # Run app.py when the container launches
+  CMD ["python", "app.py"]</code></pre>
+          <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+        <img src="cloudrun_images/dockerfile.png" alt="Dockerfile">
+        <img src="cloudrun_images/docker_all_files.png" alt="All Files in Directory">
+      </li>
+    </ol>
+  </section>
+  
+  <!-- Step 3: Build Your Docker Image -->
+  <section id="step-3">
+    <h2>Step 3: Build Your Docker Image</h2>
+    <ol>
+      <li>Build your Docker image by running:
+        <pre><code>docker build -t hello-world .
+  docker tag hello-world gcr.io/[YOUR_GCP_PROJECT_ID]/hello-world</code></pre>
+        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <p>Replace <code>[YOUR_GCP_PROJECT_ID]</code> with your project ID.</p>
+        <img src="cloudrun_images/docker_build.png" alt="Build Docker Image">
+        <img src="cloudrun_images/docker_tag_gcr.png" alt="Tag for GCR">
+      </li>
+    </ol>
+  </section>
+  
+  <!-- Step 4: Push Your Image to Google Container Registry (GCR) -->
+  <section id="step-4">
+    <h2>Step 4: Push Your Image to Google Container Registry (GCR)</h2>
+    <ol>
+      <li>Configure Docker to use gcloud as a credential helper, then push your image:
+        <pre><code>gcloud auth configure-docker
+  docker push gcr.io/[YOUR_GCP_PROJECT_ID]/hello-world</code></pre>
+        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <p>Replace <code>[YOUR_GCP_PROJECT_ID]</code> with your project ID.</p>
+        <img src="cloudrun_images/docker_push.png" alt="Push to GCR">
+      </li>
+    </ol>
+  </section>
+  
+<!-- Step 5: Deploy to Cloud Run (Console) -->
+<section id="step-5-console">
+    <h2>Step 5: Deploy to Cloud Run (Console)</h2>
+    <ol>
+      <li>First, open Cloud Run console and click "Deploy Container":
+        <div class="screenshot">
+          <img src="cloudrun_images/select_service.png" alt="Select Service" style="width: 80%; margin: 20px auto;">
+        </div>
+      </li>
+      <br>
+  
+      <li>Select the container from Google Container Registry:
+        <div class="screenshot">
+          <img src="cloudrun_images/select_container.png" alt="Select Container" style="width: 80%; margin: 20px auto;">
+        </div>
+      </li>
+      <br>
+  
+      <li>Give a name to your service and click "Create":
+        <div class="screenshot">
+          <img src="cloudrun_images/select_name.png" alt="Select Name" style="width: 80%; margin: 20px auto;">
+        </div>
+      </li>
+      <br>
+  
+      <li>After deployment, click on the link to view your "Hello, World from Cloud Run!" message:
+        <div class="screenshot">
+          <img src="cloudrun_images/deploy_console.png" alt="Deploy to Cloud Run Console" style="width: 80%; margin: 20px auto;">
+        </div>
+        <div class="screenshot">
+          <img src="cloudrun_images/cloudrun_log.png" alt="Cloud Run Log" style="width: 80%; margin: 20px auto;">
+        </div>
+      </li>
+    </ol>
+  </section>
+  
+  <!-- Step 6: Verify Your Deployment -->
+  <section id="step-6">
+    <h2>Step 6: Verify Your Deployment</h2>
+    <ol>
+      <li>After deployment, the <code>gcloud run deploy</code> command will output a URL.</li>
+      <li>Visit this URL in your web browser to see your "Hello, World from Cloud Run!" message:
+        <div class="screenshot">
+          <img src="cloudrun_images/output.png" alt="Output" style="width: 80%; margin: 20px auto;">
+        </div>
+      </li>
+      <li>Alternatively, you can find the URL in the Cloud Console under the Cloud Run section for your service.</li>
+    </ol>
+    <p>Congratulations! You've successfully deployed a Flask "Hello World" application as a Docker container to Google Cloud Run.</p>
+  </section>
+
+  <!-- Environment Variables: Setup and Usage in Cloud Run -->
+<section id="environment-variables">
+    <h1>Environment Variables: Setup and Usage in Cloud Run</h1>
+  
+    <!-- What are Environment Variables? -->
+    <section id="what-are-env-vars">
+      <h2>What are Environment Variables?</h2>
+      <p>Environment Variables (Env Vars) are key-value pairs that store sensitive information or configurable settings for your application, separate from your code. This approach enhances security and makes it easier to manage different environments (e.g., dev, staging, prod).</p>
+    </section>
+  
+    <!-- Setting Up Environment Variables in Cloud Run -->
+    <section id="setting-up-env-vars">
+      <h2>Setting Up Environment Variables in Cloud Run</h2>
+  
+      <!-- Using the Google Cloud Console -->
+      <section id="using-console">
+        <h3>Using the Google Cloud Console</h3>
+        <ol>
+          <li>Navigate to Cloud Run: Open the Google Cloud Console, select your project, and click on Cloud Run.</li>
+          <li>Select Your Service: Choose the service for which you want to set environment variables.</li>
+          <li>Click on "Variables": In the service's left sidebar, click on Variables (under Settings).</li>
+          <li>Add Variable:
+            <ul>
+              <li>Click Add Variable.</li>
+              <li>Enter the Key (name) and Value for your environment variable.</li>
+              <li>Optionally, select Is secret to encrypt the value.</li>
+              <li>Click Save.</li>
+            </ul>
+          </li>
+        </ol>
+        <div class="screenshot">
+          <img src="console_add_variable.png" alt="Add Variable in Console" style="width: 80%; margin: 20px auto;">
+        </div>
+      </section>
+  
+      <!-- Using the gcloud Command-Line Interface (CLI) -->
+      <section id="using-gcloud-cli">
+        <h3>Using the gcloud Command-Line Interface (CLI)</h3>
+        <ol>
+          <li>Install/Update gcloud CLI: Ensure you have the latest gcloud CLI installed.</li>
+          <li>Set Environment Variable:
+            <pre><code>gcloud run services update <SERVICE-NAME> --set-env-vars <KEY>=<VALUE></code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <p>Replace <code><SERVICE-NAME></code>, <code><KEY></code>, and <code><VALUE></code> with your actual service name, environment variable key, and value, respectively.</p>
+          </li>
+        </ol>
+      </section>
+    </section>
+  
+    <!-- Using Environment Variables in Your Application -->
+    <section id="using-env-vars-in-app">
+      <h2>Using Environment Variables in Your Application</h2>
+      <ul>
+        <li>Access Env Vars in Code: Use standard environment variable access methods for your programming language. For example, in Node.js: <code>process.env.MY_VARIABLE</code>.</li>
+      </ul>
+      <div class="code-box">
+        <pre><code class="language-javascript">const myVariable = process.env.MY_VARIABLE;</code></pre>
+        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+      </div>
+  
+      <!-- Example Use Case -->
+      <section id="example-use-case">
+        <h3>Example Use Case:</h3>
+        <p>Store a database connection string as an encrypted environment variable (IS_SECRET enabled) to keep it secure across different environments.</p>
+      </section>
+    </section>
+  </section>
+  
+  <!-- Scaling and Traffic Splitting -->
+  <section id="scaling-and-traffic-splitting">
+    <h1>Scaling and Traffic Splitting</h1>
+  
+    <!-- Autoscaling Features -->
+    <section id="autoscaling-features">
+      <h2>Autoscaling Features:</h2>
+      <p>Cloud Run's Autoscaling automatically adjusts the number of container instances based on incoming traffic, ensuring efficient resource utilization and optimal responsiveness.</p>
+      <ul>
+        <li>Scaling Metrics:
+          <ul>
+            <li>Concurrency (default): Scales based on the number of concurrent requests.</li>
+            <li>CPU Utilization: Scales based on the average CPU usage across instances.</li>
+          </ul>
+        </li>
+        <li>Scaling Settings:
+          <ul>
+            <li>Minimum Instances: The lowest number of instances to maintain.</li>
+            <li>Maximum Instances: The highest number of instances to scale up to.</li>
+            <li>Scaling Settings:
+                <ul>
+                  <li>Minimum Instances: The lowest number of instances to maintain.</li>
+                  <li>Maximum Instances: The highest number of instances to scale up to.</li>
+                  <li>Target Value (for CPU Utilization or Concurrency): The threshold that triggers scaling.</li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+        
+          <!-- Configuring Autoscaling in Cloud Run -->
+          <section id="configuring-autoscaling">
+            <h2>Configuring Autoscaling in Cloud Run</h2>
+        
+            <!-- Using the Google Cloud Console -->
+            <section id="using-console-autoscaling">
+              <h3>Using the Google Cloud Console</h3>
+              <ol>
+                <li>Navigate to Cloud Run, select your service, and click on Settings.</li>
+                <li>Scroll to "Scaling": Adjust the scaling settings as desired (e.g., change the Minimum Instances, Maximum Instances, or Target CPU Utilization).</li>
+                <li>Click Save.</li>
+              </ol>
+              <div class="screenshot">
+                <img src="console_autoscaling.png" alt="Autoscaling in Console" style="width: 80%; margin: 20px auto;">
+              </div>
+            </section>
+        
+            <!-- Using the gcloud CLI -->
+            <section id="using-gcloud-autoscaling">
+              <h3>Using the gcloud CLI</h3>
+              <pre><code>gcloud run services update <SERVICE-NAME> --platform managed --region <REGION> \
+          --min-instances <MIN_INSTANCES> --max-instances <MAX_INSTANCES> \
+          --cpu-threshold <CPU_THRESHOLD> --cpu-target-utilization-percentage <TARGET_UTILIZATION></code></pre>
+              <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+              <p>Replace placeholders with your actual values.</p>
+            </section>
+          </section>
+        
+          <!-- Handling Multiple Versions with Traffic Splitting -->
+          <section id="traffic-splitting">
+            <h2>Handling Multiple Versions with Traffic Splitting</h2>
+        
+            <!-- What is Traffic Splitting? -->
+            <section id="what-is-traffic-splitting">
+              <h3>What is Traffic Splitting?</h3>
+              <p>Traffic Splitting allows you to divert a percentage of incoming traffic to different versions of your service, enabling A/B testing, canary releases, or rolling out updates with minimal risk.</p>
+            </section>
+        
+            <!-- Configuring Traffic Splitting in Cloud Run -->
+            <section id="configuring-traffic-splitting">
+              <h3>Configuring Traffic Splitting in Cloud Run</h3>
+        
+              <!-- Using the Google Cloud Console -->
+              <section id="using-console-traffic-splitting">
+                <h4>Using the Google Cloud Console</h4>
+                <ol>
+                  <li>Navigate to Cloud Run, select your service, and click on Traffic Splitting.</li>
+                  <li>Add a New Split:
+                    <ul>
+                      <li>Select the Service Version to split traffic to.</li>
+                      <li>Set the Percentage of traffic to divert.</li>
+                      <li>Click Save.</li>
+                    </ul>
+                  </li>
+                </ol>
+                <div class="screenshot">
+                  <img src="console_traffic_splitting.png" alt="Traffic Splitting in Console" style="width: 80%; margin: 20px auto;">
+                </div>
+              </section>
+        
+              <!-- Using the gcloud CLI -->
+              <section id="using-gcloud-traffic-splitting">
+                <h4>Using the gcloud CLI</h4>
+                <pre><code>gcloud run services update-traffic <SERVICE-NAME> --platform managed --region <REGION> \
+          --to-revisions <REVISION-NAME>=<TRAFFIC-PERCENTAGE></code></pre>
+                <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+                <p>Replace <code><SERVICE-NAME></code>, <code><REGION></code>, <code><REVISION-NAME></code>, and <code><TRAFFIC-PERCENTAGE></code> with your actual values (e.g., my-service, us-central1, my-revision, and 20 for 20%).</p>
+              </section>
+            </section>
+          </section>
+        </section>
+        <li>Scaling Settings:
+          <ul>
+            <li>Minimum Instances: The lowest number of instances to maintain.</li>
+            <li>Maximum Instances: The highest number of instances to scale up to.</li>
+            <li>Target Value (for CPU Utilization or Concurrency): The threshold that triggers scaling.</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+  
+    <!-- Configuring Autoscaling in Cloud Run -->
+    <section id="configuring-autoscaling">
+      <h2>Configuring Autoscaling in Cloud Run</h2>
+  
+      <!-- Using the Google Cloud Console -->
+      <section id="using-console-autoscaling">
+        <h3>Using the Google Cloud Console</h3>
+        <ol>
+          <li>Navigate to Cloud Run, select your service, and click on Settings.</li>
+          <li>Scroll to "Scaling": Adjust the scaling settings as desired (e.g., change the Minimum Instances, Maximum Instances, or Target CPU Utilization).</li>
+          <li>Click Save.</li>
+        </ol>
+        <div class="screenshot">
+          <img src="console_autoscaling.png" alt="Autoscaling in Console" style="width: 80%; margin: 20px auto;">
+        </div>
+      </section>
+  
+      <!-- Using the gcloud CLI -->
+      <section id="using-gcloud-autoscaling">
+        <h3>Using the gcloud CLI</h3>
+        <pre><code>gcloud run services update <SERVICE-NAME> --platform managed --region <REGION> \
+    --min-instances <MIN_INSTANCES> --max-instances <MAX_INSTANCES> \
+    --cpu-threshold <CPU_THRESHOLD> --cpu-target-utilization-percentage <TARGET_UTILIZATION></code></pre>
+        <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        <p>Replace placeholders with your actual values.</p>
+      </section>
+    </section>
+  
+    <!-- Handling Multiple Versions with Traffic Splitting -->
+    <section id="traffic-splitting">
+      <h2>Handling Multiple Versions with Traffic Splitting</h2>
+  
+      <!-- What is Traffic Splitting? -->
+      <section id="what-is-traffic-splitting">
+        <h3>What is Traffic Splitting?</h3>
+        <p>Traffic Splitting allows you to divert a percentage of incoming traffic to different versions of your service, enabling A/B testing, canary releases, or rolling out updates with minimal risk.</p>
+      </section>
+  
+      <!-- Configuring Traffic Splitting in Cloud Run -->
+      <section id="configuring-traffic-splitting">
+        <h3>Configuring Traffic Splitting in Cloud Run</h3>
+  
+        <!-- Using the Google Cloud Console -->
+        <section id="using-console-traffic-splitting">
+          <h4>Using the Google Cloud Console</h4>
+          <ol>
+            <li>Navigate to Cloud Run, select your service, and click on Traffic Splitting.</li>
+            <li>Add a New Split:
+              <ul>
+                <li>Select the Service Version to split traffic to.</li>
+                <li>Set the Percentage of traffic to divert.</li>
+                <li>Click Save.</li>
+              </ul>
+            </li>
+          </ol>
+          <div class="screenshot">
+            <img src="console_traffic_splitting.png" alt="Traffic Splitting in Console" style="width: 80%; margin: 20px auto;">
+          </div>
+        </section>
+  
+        <!-- Using the gcloud CLI -->
+        <section id="using-gcloud-traffic-splitting">
+          <h4>Using the gcloud CLI</h4>
+          <pre><code>gcloud run services update-traffic <SERVICE-NAME> --platform managed --region <REGION> \
+    --to-revisions <REVISION-NAME>=<TRAFFIC-PERCENTAGE></code></pre>
+          <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+          <p>Replace <code><SERVICE-NAME></code>, <code><REGION></code>, <code><REVISION-NAME></code>, and <code><TRAFFIC-PERCENTAGE></code> with your actual values (e.g., my-service, us-central1, my-revision, and 20 for 20%).</p>
+        </section>
+      </section>
+    </section>
+  </section>
+  
+  
+  
+  </main>
+     <!-- Footer -->
+     <footer class="footer">
+        <p class="paragraph">Copyright 2023 Hacktrix. All rights reserved.</p>
+      </footer>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script>  <!-- Highlight.js initialization -->
+      
+      <script src="script.js"></script>
+</body>
+</html>
+  

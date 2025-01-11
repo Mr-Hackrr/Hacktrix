@@ -9,35 +9,36 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
     <link rel="stylesheet" href="style.css"> <!-- Assuming your CSS file is named styles.css -->
-
 </head>
 <body>
     <!-- Header Bar -->
-    <div class="header-bar">
-        <div class="brand-name">Hacktrix</div>
-        <nav>
-            <ul>
+    <header class="header-bar">
+        <span class="brand-name">Hacktrix</span>
+        <nav class="navbar">
+            <ul class="nav-links">
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#exercise" class="nav-link">Exercise</a></li>
                 <li><a href="#project" class="nav-link">Project</a></li>
                 <li><a href="#contact" class="nav-link">Contact Us</a></li>
             </ul>
         </nav>
+        <div class="toggle-menu" id="toggle-menu">☰</div>
+    </header>
+
+    <!-- Sidebar -->
+    <div id="sideMenu" class="sideMenu" role="navigation" aria-label="Sidebar Navigation">
+        <a href="#" class="closebtn" aria-label="Close sidebar">×</a>
+        <nav class="sidebar-nav">
+            <ul class="sidebar-links">
+                <li class="sidebar-link"><a href="#joins" tabindex="0">Joins</a></li>
+                <li class="sidebar-link"><a href="#subqueries" tabindex="0">Subqueries</a></li>
+                <li class="sidebar-link"><a href="#group-by-having" tabindex="0">GROUP BY and HAVING Clauses</a></li>
+                <li class="sidebar-link"><a href="#indexing-constraints" tabindex="0">Indexing and Constraints</a></li>
+                <li class="sidebar-link"><a href="#views-stored-procedures" tabindex="0">Views and Stored Procedures</a></li>
+                <li class="sidebar-link"><a href="#database-design" tabindex="0">Database Design</a></li>
+            </ul>
+        </nav>
     </div>
-
-<!-- Sidebar -->
-<div id="sideMenu" class="sideMenu">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="#joins">Joins</a>
-    <a href="#subqueries">Subqueries</a>
-    <a href="#group-by-having">GROUP BY and HAVING Clauses</a>
-    <a href="#indexing-constraints">Indexing and Constraints</a>
-    <a href="#views-stored-procedures">Views and Stored Procedures</a>
-    <a href="#database-design">Database Design</a>
-</div>
-
-    <!-- Toggle Button -->
-    <div class="toggle-menu" onclick="openNav()">☰</div>
 
     <!-- Content -->
     <div id="content">
@@ -744,7 +745,6 @@ Suppliers: Supplier ID, Supplier Name, Supplier Address</code></pre>
 </section>
 
 
-
 <!-- Intermediate SQL Content: Subqueries -->
 <section id="subqueries">
     <h2>What are Subqueries?</h2>
@@ -949,9 +949,126 @@ WHERE job_title IN (
     </ul>
 </section>
 
-
+<section class="padding-lg" id="customer-insights">
+    <h2 class="font-weight-bold margin-lg text-align-center">Unlocking the Value of Your Customer Base: A Deep Dive into Purchase Behavior Analysis</h2>
+  
+    <div class="code-box margin-lg">
+      <h3 class="header">The Query: Unveiling High-Value Customers</h3>
+      <pre>
+        <code>
+  SELECT 
+    customers.customer_name,
+    SUM(orders.total_amount) AS total_spent,
+    AVG(orders.total_amount) AS average_order_value
+  FROM 
+    customers
+    JOIN orders ON customers.customer_id = orders.customer_id
+  WHERE 
+    orders.order_date >= '2022-01-01'
+  GROUP BY 
+    customers.customer_name
+  HAVING 
+    SUM(orders.total_amount) > 1000
+  ORDER BY 
+    total_spent DESC;
+        </code>
+      </pre>
     </div>
+  
+    <div class="padding-md background-color-f9f9f9 border-radius border-1px-solid-dde0e3 box-shadow">
+      <h3>Breaking Down the Query:</h3>
+      <ul>
+        <li><strong>SELECT:</strong> We're interested in the customer's name, the total amount they've spent (total_spent), and the average value of their orders (average_order_value).</li>
+        <li><strong>FROM & JOIN:</strong> We combine data from the customers and orders tables based on the customer_id to link each customer with their respective orders.</li>
+        <li><strong>WHERE:</strong> We focus on orders made from the start of 2022 onwards, ensuring our analysis reflects recent purchase behavior.</li>
+        <li><strong>GROUP BY:</strong> We aggregate the data by customer_name, allowing us to analyze each customer's purchase behavior individually.</li>
+        <li><strong>HAVING:</strong> We filter the results to only include customers who have spent more than $1000, identifying our high-value customers.</li>
+        <li><strong>ORDER BY:</strong> We sort these high-value customers in descending order based on total_spent, highlighting our most lucrative customers at the top.</li>
+      </ul>
+    </div>
+  
+    <div class="padding-md background-color-f9f9f9 border-radius border-1px-solid-dde0e3 box-shadow margin-top-md">
+      <h3>Unpacking the Insights:</h3>
+      <ul>
+        <li><strong>Total Spent (total_spent):</strong> Immediately identifies the cumulative value each high-value customer has brought to your business since 2022.</li>
+        <li><strong>Average Order Value (average_order_value):</strong> Provides insight into the typical purchase size of these high-value customers, helping you understand their buying habits.</li>
+      </ul>
+    </div>
+  
+    <div class="padding-lg">
+      <h2 class="font-weight-bold text-align-center">Actionable Advice: Further Segmenting High-Value Customers for Targeted Marketing</h2>
+  
+      <div class="data-table margin-lg">
+        <table>
+          <thead>
+            <tr>
+              <th>Analysis</th>
+              <th>Query Adjustment</th>
+              <th>Insight</th>
+              <th>Marketing Strategy</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Purchase Frequency Analysis</td>
+              <td>Add COUNT(orders.order_id) AS number_of_orders to the SELECT clause.</td>
+              <td>Reveals how often high-value customers make purchases, helping you determine the optimal frequency for promotional emails or loyalty program rewards.</td>
+              <td>Offer exclusive, less frequent promotions to less active high-value customers to re-engage them.</td>
+            </tr>
+            <tr>
+              <td>Product Preference Analysis</td>
+              <td>Join with the order_items table and SELECT product_category.</td>
+              <td>Uncovers the product categories high-value customers are most interested in.</td>
+              <td>Tailor product recommendations in newsletters or on-site banners to these preferred categories for enhanced relevance.</td>
+            </tr>
+            <tr>
+              <td>Geographic Segmentation</td>
+              <td>Include customers.customer_location in the SELECT clause.</td>
+              <td>Highlights the geographic distribution of your high-value customers.</td>
+              <td>Launch location-specific promotions or partner with local businesses to cater to these valuable customers' regional preferences.</td>
+            </tr>
+            <tr>
+                <td>Geographic Segmentation</td>
+                <td>Include customers.customer_location in the SELECT clause.</td>
+                <td>Highlights the geographic distribution of your high-value customers.</td>
+                <td>Launch location-specific promotions or partner with local businesses to cater to these valuable customers' regional preferences.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    
+        <div class="padding-md background-color-f9f9f9 border-radius border-1px-solid-dde0e3 box-shadow margin-top-md">
+          <h3>Next Steps:</h3>
+          <ul>
+            <li><strong>Regularly Update Your Analysis:</strong> Schedule the query to run quarterly to capture changes in customer behavior over time.</li>
+            <li><strong>Integrate with Marketing Tools:</strong> Use the insights gained to personalize your marketing automation workflows, ensuring each high-value customer receives content that resonates with their purchase behavior and preferences.</li>
+            <li><strong>Monitor and Refine:</strong> Continuously assess the effectiveness of your targeted marketing efforts and refine your strategies based on the feedback and new insights gathered from your customer base.</li>
+          </ul>
+        </div>
+    
+        <div class="text-align-center margin-top-lg padding-bottom-lg">
+          <button class="copy-button" onclick="copyQueryToClipboard()">Copy Query to Clipboard</button>
+        </div>
+      </div>
+    </section>
 
-    <script src="script.js"></script>
+
+</div>
+
+<footer class="footer">
+    <p class="paragraph">Copyright 2023 TechyVia. All rights reserved.</p>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+
+  <script>
+      const MOBILE_BREAKPOINT = 768;
+      if (window.innerWidth <= MOBILE_BREAKPOINT) {
+        document.write('<script src="mobile.js"><\/script>');
+      }
+    </script>
+    
+  
+  <script src="script.js"></script>
 </body>
 </html>

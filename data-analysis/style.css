@@ -62,11 +62,7 @@ h2::before {
   width: 60px; /* Adjustable width for the underline effect */
   height: 3px;
   background-color: var(--accent-color); /* Accent color for highlighting */
-}
-
-
-
-  
+}  
   body, html {
     font-family: var(--font-family);
     line-height: var(--line-height);

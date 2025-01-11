@@ -1,57 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SQL Basics - Hacktrix</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
-    <link rel="stylesheet" href="style.css"> <!-- Assuming your CSS file is named styles.css -->
-
-</head>
-<body>
-    <!-- Header Bar -->
-    <div class="header-bar">
-        <div class="brand-name">Hacktrix</div>
-        <nav>
-            <ul>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#exercise" class="nav-link">Exercise</a></li>
-                <li><a href="#project" class="nav-link">Project</a></li>
-                <li><a href="#contact" class="nav-link">Contact Us</a></li>
-            </ul>
-        </nav>
-    </div>
-
-    
-<!-- Sidebar -->
-<div id="sideMenu" class="sideMenu">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="#history">History of Python</a>
-    <a href="#variables">Variables and Data Types</a>
-    <a href="#operators">Basic Operators</a>
-    <a href="#control-flow">Control Flow</a>
-    <a href="#functions">Functions</a>
-    <a href="#data-structures">Data Structures</a>
-    <a href="#sql-basics">SQL Basics</a>
-    <a href="#sql-syntax-basics">SQL Syntax Basics</a>
-    <a href="#sql-data-types">SQL Data Types</a>
-    <a href="#sql-data-manipulation">SQL Data Manipulation</a>
-    <a href="#filtering-sorting-data">Filtering and Sorting Data</a>
-</div>
-
-    <!-- Toggle Button -->
-    <div class="toggle-menu" onclick="openNav()">☰</div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SQL Basics - TechyVia</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <!-- Header Bar -->
+        <header class="header-bar">
+            <span class="brand-name">TechyVia</span>
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#exercise" class="nav-link">Exercise</a></li>
+                    <li><a href="#project" class="nav-link">Project</a></li>
+                    <li><a href="#contact" class="nav-link">Contact Us</a></li>
+                </ul>
+            </nav>
+            <div class="toggle-menu" id="toggle-menu">☰</div>
+        </header>
+        
+        <!-- Sidebar -->
+        <div id="sideMenu" class="sideMenu" role="navigation" aria-label="Sidebar Navigation">
+            <a href="#" class="closebtn" aria-label="Close sidebar">×</a>
+            <nav class="sidebar-nav">
+                <ul class="sidebar-links">
+                    <li class="sidebar-link"><a href="#introduction" tabindex="0">SQL Introduction</a></li>
+                    <li class="sidebar-link"><a href="#sql-syntax-basics" tabindex="0">SQL Syntax Basics</a></li>
+                    <li class="sidebar-link"><a href="#sql-data-types" tabindex="0">SQL Data Types</a></li>
+                    <li class="sidebar-link"><a href="#sql-data-manipulation" tabindex="0">SQL Data Manipulation</a></li>
+                    <li class="sidebar-link"><a href="#filtering-sorting-data" tabindex="0">Filtering and Sorting Data</a></li>
+                </ul>
+            </nav>
+        </div>
 
     <!-- Content -->
     <div id="content">
-        <h1>SQL Basics</h1>
-        <!-- Content will go here -->
-        <section id="sql-basics">
+
+        <section id="introduction">
             <h1>Unlocking the Power of Data: Introduction to SQL</h1>
-            <p>Meta Description: Discover the fundamentals of SQL, its rich history, and understand why SQL remains a crucial skill in the era of big data and analytics.</p>
         
             <h2>What is SQL?</h2>
             <p><strong>Definition:</strong> SQL (Structured Query Language) is a programming language designed for managing and manipulating data stored in relational database management systems (RDBMS).</p>
@@ -61,7 +53,7 @@
                 <li><strong>Data Manipulation:</strong> Perform operations to insert, update, and delete data within databases.</li>
                 <li><strong>Data Control:</strong> Manage access and permissions to database objects.</li>
                 <li><strong>Data Query:</strong> Retrieve specific data with powerful querying capabilities.</li>
-            </ul>
+            </ul><br>
             <p><strong>SQL Types:</strong></p>
             <ul>
                 <li><strong>DML (Data Manipulation Language):</strong> INSERT, UPDATE, DELETE</li>
@@ -70,7 +62,7 @@
                 <li><strong>Query Language:</strong> SELECT, FROM, WHERE, etc.</li>
             </ul>
         
-            <h2>Brief History of SQL</h2>
+            <h3>Brief History of SQL</h3>
             <table class="data-table">
                 <thead>
                     <tr>
@@ -106,7 +98,7 @@
                 </tbody>
             </table>
         
-            <h2>Importance of SQL</h2>
+            <h3>Importance of SQL</h3>
             <ul>
                 <li><strong>Universal Language for Data Access:</strong> SQL is the standard language for interacting with relational databases, ensuring cross-platform compatibility.</li>
                 <li><strong>Data Analysis and Insights:</strong> Powerful querying capabilities enable the extraction of valuable insights from large datasets.</li>
@@ -114,515 +106,529 @@
                 <li><strong>Database Administration:</strong> SQL is crucial for database design, implementation, and maintenance, ensuring data integrity and security.</li>
                 <li><strong>Foundation for Advanced Technologies:</strong> Understanding SQL provides a solid base for learning more complex data technologies, such as NoSQL databases, data warehousing, and big data analytics.</li>
             </ul>
-        
-            <h3>Key Takeaways:</h3>
-            <ul>
-                <li>SQL is a fundamental language for managing relational databases.</li>
-                <li>Its history reflects continuous evolution to meet the growing demands of data management.</li>
-                <li>Mastery of SQL is indispensable in today's data-driven world, offering versatility and a foundation for advanced data technologies.</li>
-            </ul>
         </section>
 
         <!-- SQL Syntax Basics Content -->
-<section id="sql-syntax-basics">
-    <h1>Mastering SQL Syntax Basics: A Foundation for Querying</h1>
-    <p>Meta Description: Dive into the fundamental syntax of SQL, understanding case sensitivity, essential commands, and the basic structure of queries for effective database interaction.</p>
+        <section id="sql-syntax-basics">
+            <h2>SQL Syntax Basics: A Foundation for Querying</h2>
+            
+            <h3>Case Sensitivity in SQL</h3>
+            <p><strong>Definition:</strong> Case sensitivity refers to whether SQL distinguishes between uppercase and lowercase letters in its syntax.</p>
+            <p><strong>SQL Case Sensitivity Rules:</strong></p>
+            <ul>
+                <li><strong>Database Names, Table Names, Column Names:</strong></li>
+                <ul>
+                    <li>MySQL, PostgreSQL: Case-sensitive (though can be configured otherwise)</li>
+                    <li>Microsoft SQL Server, Oracle: Case-insensitive (unless quoted)</li>
+                </ul>
+                <li><strong>SQL Keywords (e.g., SELECT, FROM, WHERE):</strong> Always case-insensitive</li>
+                <li><strong>String Literals (e.g., 'hello', "hello"):</strong> Case-sensitive</li>
+            </ul>
+            <p><strong>Best Practice:</strong> Use consistent casing throughout your SQL code for readability, even if the database is case-insensitive.</p>
 
-    <h2>Case Sensitivity in SQL</h2>
-    <p><strong>Definition:</strong> Case sensitivity refers to whether SQL distinguishes between uppercase and lowercase letters in its syntax.</p>
-    <p><strong>SQL Case Sensitivity Rules:</strong></p>
-    <ul>
-        <li><strong>Database Names, Table Names, Column Names:</strong></li>
-        <ul>
-            <li>MySQL, PostgreSQL: Case-sensitive (though can be configured otherwise)</li>
-            <li>Microsoft SQL Server, Oracle: Case-insensitive (unless quoted)</li>
-        </ul>
-        <li><strong>SQL Keywords (e.g., SELECT, FROM, WHERE):</strong> Always case-insensitive</li>
-        <li><strong>String Literals (e.g., 'hello', "hello"):</strong> Case-sensitive</li>
-    </ul>
-    <p><strong>Best Practice:</strong> Use consistent casing throughout your SQL code for readability, even if the database is case-insensitive.</p>
+            <h3>SQL Commands (Statements)</h3>
+            <p><strong>Definition:</strong> SQL commands, or statements, are instructions given to the database to perform a specific task.</p>
+            <p><strong>Types of SQL Commands:</strong></p>
+            <ul>
+                <li><strong>DDL (Data Definition Language) Statements:</strong></li>
+                <ul>
+                    <li>CREATE (e.g., table, index)</li>
+                    <li>ALTER (e.g., modify table structure)</li>
+                    <li>DROP (e.g., delete table, database)</li>
+                </ul>
+                <li><strong>DML (Data Manipulation Language) Statements:</strong></li>
+                <ul>
+                    <li>INSERT (add new data)</li>
+                    <li>UPDATE (modify existing data)</li>
+                    <li>DELETE (remove data)</li>
+                </ul>
+                <li><strong>DQL (Data Query Language) Statements:</strong> SELECT (retrieve data)</li>
+                <li><strong>DCL (Data Control Language) Statements:</strong></li>
+                <ul>
+                    <li>GRANT (assign privileges)</li>
+                    <li>REVOKE (remove privileges)</li>
+                </ul>
+            </ul>
 
-    <h2>SQL Commands (Statements)</h2>
-    <p><strong>Definition:</strong> SQL commands, or statements, are instructions given to the database to perform a specific task.</p>
-    <p><strong>Types of SQL Commands:</strong></p>
-    <ul>
-        <li><strong>DDL (Data Definition Language) Statements:</strong></li>
-        <ul>
-            <li>CREATE (e.g., table, index)</li>
-            <li>ALTER (e.g., modify table structure)</li>
-            <li>DROP (e.g., delete table, database)</li>
-        </ul>
-        <li><strong>DML (Data Manipulation Language) Statements:</strong></li>
-        <ul>
-            <li>INSERT (add new data)</li>
-            <li>UPDATE (modify existing data)</li>
-            <li>DELETE (remove data)</li>
-        </ul>
-        <li><strong>DQL (Data Query Language) Statements:</strong> SELECT (retrieve data)</li>
-        <li><strong>DCL (Data Control Language) Statements:</strong></li>
-        <ul>
-            <li>GRANT (assign privileges)</li>
-            <li>REVOKE (remove privileges)</li>
-        </ul>
-    </ul>
+            <h3>Basic Query Structure (SELECT, FROM, WHERE)</h3>
+            <p><strong>The Backbone of a Query:</strong> SELECT, FROM, and optionally WHERE, form the basic structure for retrieving data.</p>
+            <p><strong>Breakdown:</strong></p>
+            <ul>
+                <li><strong>SELECT Clause:</strong></li>
+                <ul>
+                    <li><strong>Purpose:</strong> Specify which columns to include in the result set.</li>
+                    <li><strong>Syntax:</strong> SELECT column1, column2, ...</li>
+                    <li><strong>Example:</strong> SELECT name, email</li>
+                </ul>
+                <li><strong>FROM Clause:</strong></li>
+                <ul>
+                    <li><strong>Purpose:</strong> Identify the table(s) to retrieve data from.</li>
+                    <li><strong>Syntax:</strong> FROM table_name</li>
+                    <li><strong>Example:</strong> FROM customers</li>
+                </ul>
+                <li><strong>WHERE Clause (Optional):</strong></li>
+                <ul>
+                    <li><strong>Purpose:</strong> Filter rows based on conditions.</li>
+                    <li><strong>Syntax:</strong> WHERE condition</li>
+                    <li><strong>Example:</strong> WHERE country='USA'</li>
+                </ul>
+            </ul>
 
-    <h2>Basic Query Structure (SELECT, FROM, WHERE)</h2>
-    <p><strong>The Backbone of a Query:</strong> SELECT, FROM, and optionally WHERE, form the basic structure for retrieving data.</p>
-    <p><strong>Breakdown:</strong></p>
-    <ul>
-        <li><strong>SELECT Clause:</strong></li>
-        <ul>
-            <li><strong>Purpose:</strong> Specify which columns to include in the result set.</li>
-            <li><strong>Syntax:</strong> SELECT column1, column2, ...</li>
-            <li><strong>Example:</strong> SELECT name, email</li>
-        </ul>
-        <li><strong>FROM Clause:</strong></li>
-        <ul>
-            <li><strong>Purpose:</strong> Identify the table(s) to retrieve data from.</li>
-            <li><strong>Syntax:</strong> FROM table_name</li>
-            <li><strong>Example:</strong> FROM customers</li>
-        </ul>
-        <li><strong>WHERE Clause (Optional):</strong></li>
-        <ul>
-            <li><strong>Purpose:</strong> Filter rows based on conditions.</li>
-            <li><strong>Syntax:</strong> WHERE condition</li>
-            <li><strong>Example:</strong> WHERE country='USA'</li>
-        </ul>
-    </ul>
+            <p><strong>Basic Query Example:</strong></p>
+            <pre class="code-box"><code>
+        SELECT name, email
+        FROM customers
+        WHERE country='USA';</code></pre>
 
-    <p><strong>Basic Query Example:</strong></p>
-    <pre class="code-box"><code>SELECT name, email
-FROM customers
-WHERE country='USA';</code></pre>
+        </section>
 
-    <h3>Key Takeaways:</h3>
-    <ul>
-        <li>Understand the case sensitivity rules to write compatible SQL code.</li>
-        <li>Familiarize yourself with the types of SQL commands for different database operations.</li>
-        <li>Master the basic query structure (SELECT, FROM, WHERE) for data retrieval.</li>
-    </ul>
-</section>
+         <!-- SQL Data Types Content -->
+        <section id="sql-data-types">
+            <h2>Understanding Data Types in SQL</h2>
+
+            <h3>Why Data Types Matter in SQL</h3>
+            <ul>
+                <li><strong>Data Integrity:</strong> Ensures data is stored in a consistent and correct format.</li>
+                <li><strong>Storage Efficiency:</strong> Optimizes database storage by allocating the right amount of space for each value.</li>
+                <li><strong>Query Performance:</strong> Influences the speed and accuracy of queries, especially when indexing and aggregating data.</li>
+            </ul>
+
+            <h3>Numeric Types in SQL</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Data Type</th>
+                        <th>Description</th>
+                        <th>Example Values</th>
+                        <th>Storage Size</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>INT</td>
+                        <td>Whole numbers, e.g., integers.</td>
+                        <td>-2147483648 to 2147483647</td>
+                        <td>4 bytes</td>
+                    </tr>
+                    <tr>
+                        <td>BIGINT</td>
+                        <td>Larger whole numbers.</td>
+                        <td>-9223372036854775808 to 9223372036854775807</td>
+                        <td>8 bytes</td>
+                    </tr>
+                    <tr>
+                        <td>DECIMAL(p, s)</td>
+                        <td>Precise fractional numbers.</td>
+                        <td>DECIMAL(5, 2) for values like 123.45</td>
+                        <td>Variable (up to 17 bytes)</td>
+                    </tr>
+                    <tr>
+                        <td>FLOAT</td>
+                        <td>Approximate fractional numbers, single precision.</td>
+                        <td>3.14159</td>
+                        <td>4 bytes</td>
+                    </tr>
+                    <tr>
+                        <td>DOUBLE PRECISION</td>
+                        <td>Approximate fractional numbers, double precision.</td>
+                        <td>3.14159265359</td>
+                        <td>8 bytes</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Character Types in SQL</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Data Type</th>
+                        <th>Description</th>
+                        <th>Example Values</th>
+                        <th>Storage Size</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>CHAR(n)</td>
+                        <td>Fixed-length character string.</td>
+                        <td>CHAR(10) for 'Hello World'</td>
+                        <td>n bytes</td>
+                    </tr>
+                    <tr>
+                        <td>VARCHAR(n)</td>
+                        <td>Variable-length character string.</td>
+                        <td>VARCHAR(50) for 'Example String'</td>
+                        <td>Up to n bytes + 1-4 bytes overhead</td>
+                    </tr>
+                    <tr>
+                        <td>TEXT</td>
+                        <td>Long, variable-length character string.</td>
+                        <td>Articles, descriptions</td>
+                        <td>Up to 65,535 bytes (database-dependent)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Date and Time Types in SQL</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Data Type</th>
+                        <th>Description</th>
+                        <th>Example Values</th>
+                        <th>Storage Size</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>DATE</td>
+                        <td>Date without time.</td>
+                        <td>'2023-03-15'</td>
+                        <td>3 bytes (database-dependent)</td>
+                    </tr>
+                    <tr>
+                        <td>TIME</td>
+                        <td>Time without date.</td>
+                        <td>'14:30:00'</td>
+                        <td>3-5 bytes (database-dependent)</td>
+                    </tr>
+                    <tr>
+                        <td>TIMESTAMP</td>
+                        <td>Date and time combined.</td>
+                        <td>'2023-03-15 14:30:00'</td>
+                        <td>8-12 bytes (database-dependent)</td>
+                    </tr>
+                    <tr>
+                        <td>INTERVAL</td>
+                        <td>Time interval (e.g., for durations).</td>
+                        <td>'3 years 2 months'</td>
+                        <td>Variable (database-dependent)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Binary Types in SQL</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Data Type</th>
+                        <th>Description</th>
+                        <th>Example Values</th>
+                        <th>Storage Size</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>BINARY(n)</td>
+                        <td>Fixed-length binary string.</td>
+                        <td>Images, executable files</td>
+                        <td>n bytes</td>
+                    </tr>
+                    <tr>
+                        <td>VARBINARY(n)</td>
+                        <td>Variable-length binary string.</td>
+                        <td>Documents, videos</td>
+                        <td>Up to n bytes + 1-4 bytes overhead</td>
+                    </tr>
+                    <tr>
+                        <td>BLOB (Binary Large OBject)</td>
+                        <td>Very large binary objects.</td>
+                        <td>Large files, multimedia</td>
+                        <td>Up to several GB (database-dependent)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>JSON/XML Types (Overview)</h3>
+            <p><strong>JSON:</strong></p>
+            <ul>
+                <li>Stores JSON (JavaScript Object Notation) data.</li>
+                <li>Example: {"name": "John", "age": 30}.</li>
+                <li>Database Support: MySQL, PostgreSQL, SQL Server (with limitations).</li>
+            </ul>
+            <p><strong>XML:</strong></p>
+            <ul>
+                <li>Stores Extensible Markup Language data.</li>
+                <li>Example: <name>John</name><age>30</age>.</li>
+                <li>Database Support: SQL Server, Oracle, PostgreSQL (with extensions).</li>
+            </ul>
+
+
+            <h3>Additional Considerations for Choosing Data Types</h3>
+            <h3>Precision and Scale</h3>
+            <p><strong>Precision:</strong> The total number of digits in a numeric value.</p>
+            <p><strong>Scale:</strong> The number of digits after the decimal point in a numeric value.</p>
+            <p><strong>Example:</strong> DECIMAL(10, 2) has a precision of 10 and a scale of 2.</p>
+
+            <h3>Character Encoding</h3>
+            <p><strong>ASCII:</strong> Suitable for English and other Western languages.</p>
+            <p><strong>UTF-8:</strong> Supports a wide range of languages, including non-English characters.</p>
+            <p><strong>Database Support:</strong> Check your database's default encoding and supported character sets.</p>
+
+            <h3>Date and Time Zones</h3>
+            <p><strong>Time Zones:</strong> Consider the time zone of your data and the database server.</p>
+            <p><strong>Database Support:</strong> Check if your database supports time zones (e.g., PostgreSQL, SQL Server).</p>
+
+            <h3>Binary Data</h3>
+            <p><strong>Storage:</strong> Consider the storage requirements for large binary objects (BLOBs).</p>
+            <p><strong>Retrieval:</strong> Optimize queries for efficient retrieval of binary data.</p>
+
+            <h3>Best Practices for Working with Data Types</h3>
+            <ol>
+                <li><strong>Choose the Right Data Type:</strong> Match the data type to the data's purpose and format. Avoid using overly broad data types (e.g., TEXT for a phone number).</li>
+                <li><strong>Consider Storage and Performance:</strong> Balance storage needs with query performance. Use indexing strategically to improve query efficiency.</li>
+                <li><strong>Document Your Choices:</strong> Keep a record of your data type selections and rationales. Share this documentation with your team for consistency and collaboration.</li>
+            </ol>
+
+            <h3>Common Pitfalls to Avoid</h3>
+            <ol>
+                <li><strong>Insufficient Precision:</strong> Example: Using INT for storing monetary values (use DECIMAL instead).</li>
+                <li><strong>Inconsistent Character Encoding:</strong> Example: Mixing ASCII and UTF-8 encoded columns in the same database.</li>
+                <li><strong>Ignoring Time Zones:</strong> Example: Assuming all date/time values are in the same time zone (use time zone-aware data types).</li>
+            </ol>
+        </section>
+
+        <!-- SQL Commands for Data Manipulation Content -->
+        <section id="sql-data-manipulation">
+            <h2>SQL Commands for Data Manipulation</h2>
+
+            <h3>SELECT Statement</h3>
+            <p>The <strong>SELECT</strong> statement is used to retrieve data from a database. It allows you to specify which columns to include in the result set and apply filters to narrow down the results.</p>
+            <pre class="code-box"><code>
+        SELECT column1, column2, ...
+        FROM table_name
+        WHERE condition;</code></pre>
+
+            <h3>INSERT INTO Statement</h3>
+            <p>The <strong>INSERT INTO</strong> statement is used to add new rows of data to a table. You can specify the columns and the values to be inserted.</p>
+            <pre class="code-box"><code>
+        INSERT INTO table_name (column1, column2, ...)
+        VALUES (value1, value2, ...);</code></pre>
+
+            <h3>UPDATE Statement</h3>
+            <p>The <strong>UPDATE</strong> statement is used to modify existing data in a table. You can specify which rows to update and the new values for the columns.</p>
+            <pre class="code-box"><code>
+        UPDATE table_name
+        SET column1 = value1, column2 = value2, ...
+        WHERE condition;</code></pre>
+
+            <h3>DELETE Statement</h3>
+            <p>The <strong>DELETE</strong> statement is used to remove rows from a table. You can specify which rows to delete based on a condition.</p>
+            <pre class="code-box"><code>
+        DELETE FROM table_name
+        WHERE condition;</code></pre>
+        </section>
+
+        <!-- Filtering and Sorting Data Content -->
+        <section id="filtering-sorting-data">
+            <h2>Filtering and Sorting Data</h2>
+
+            <h3>WHERE Clause</h3>
+            <p>The <strong>WHERE</strong> clause is used to filter records that meet certain conditions. It is used in SELECT, UPDATE, DELETE statements to specify which rows should be affected.</p>
+            <pre class="code-box"><code>
+        SELECT column1, column2, ...
+        FROM table_name
+        WHERE condition;</code></pre>
+
+            <h3>AND, OR, NOT Operators</h3>
+            <p>These logical operators are used to combine multiple conditions in a WHERE clause:</p>
+            <ul>
+                <li><strong>AND:</strong> All conditions must be true.</li>
+                <li><strong>OR:</strong> At least one condition must be true.</li>
+                <li><strong>NOT:</strong> The condition must be false.</li>
+            </ul>
+            <pre class="code-box"><code>
+        SELECT column1, column2, ...
+        FROM table_name
+        WHERE condition1 AND condition2;
+
+        SELECT column1, column2, ...
+        FROM table_name
+        WHERE condition1 OR condition2;
+
+        SELECT column1, column2, ...
+        FROM table_name
+        WHERE NOT condition;</code></pre>
+
+            <h3>ORDER BY Clause</h3>
+            <p>The <strong>ORDER BY</strong> clause is used to sort the result set in ascending or descending order based on one or more columns.</p>
+            <pre class="code-box"><code>
+        SELECT column1, column2, ...
+        FROM table_name
+        ORDER BY column1 ASC, column2 DESC;</code></pre>
+
+            <h3>LIMIT Clause</h3>
+            <p>The <strong>LIMIT</strong> clause is used to specify the number of records to return. It is useful for pagination and controlling the size of the result set.</p>
+            <pre class="code-box"><code>
+        SELECT column1, column2, ...
+        FROM table_name
+        ORDER BY column1
+        LIMIT number_of_records;</code></pre>
+
+            <h3>Aggregate Functions</h3>
+            <p>Aggregate functions perform calculations on a set of values and return a single value. Common aggregate functions include:</p>
+            <ul>
+                <li><strong>SUM:</strong> Returns the total sum of a numeric column.</li>
+                <li><strong>AVG:</strong> Returns the average value of a numeric column.</li>
+                <li><strong>MAX:</strong> Returns the maximum value in a column.</li>
+                <li><strong>MIN:</strong> Returns the minimum value in a column.</li>
+                <li><strong>COUNT:</strong> Returns the number of rows that match a specified condition.</li>
+            </ul>
+            <pre class="code-box"><code>
+        SELECT SUM(column_name) FROM table_name;
+        SELECT AVG(column_name) FROM table_name;
+        SELECT MAX(column_name) FROM table_name;
+        SELECT MIN(column_name) FROM table_name;
+        SELECT COUNT(column_name) FROM table_name;</code></pre>
+        </section>
+
+        <!-- Practice Questions Content -->
+        <h3><strong>Practice Questions</strong></h3>
+        <section id="practice-questions">
+            <p><strong>Question 1:</strong> What is SQL and what are its primary functions?</p>
+            <p><strong>Answer:</strong> SQL (Structured Query Language) is a programming language designed for managing and manipulating data stored in relational database management systems (RDBMS). Its primary functions include Data Definition, Data Manipulation, Data Control, and Data Query.</p>
+
+            <br>
+
+            <p><strong>Question 2:</strong> Write a basic SQL query to select the name and email columns from a table named customers where the country is 'USA'.</p>
+            <pre class="code-box"><code>
+        SELECT name, email
+        FROM customers
+        WHERE country='USA';</code></pre>
+
+            <br>
+
+            <p><strong>Question 3:</strong> What is the difference between CHAR and VARCHAR data types?</p>
+            <p><strong>Answer:</strong> CHAR is a fixed-length character string, while VARCHAR is a variable-length character string. CHAR(n) always uses n bytes of storage, regardless of the actual length of the string, whereas VARCHAR(n) uses up to n bytes plus 1-4 bytes of overhead, depending on the length of the string.</p>
+
+            <br>
+
+            <p><strong>Question 4:</strong> Write an SQL query to insert a new row into the customers table with the following values: name='John Doe', email='john.doe@example.com', country='USA'.</p>
+            <pre class="code-box"><code>
+        INSERT INTO customers (name, email, country)
+        VALUES ('John Doe', 'john.doe@example.com', 'USA');</code></pre>
+
+            <br>
+
+            <p><strong>Question 5:</strong> Write an SQL query to select all columns from the customers table where the country is 'USA' and the age is greater than 30, sorted by the name column in ascending order.</p>
+            <pre class="code-box"><code>
+        SELECT *
+        FROM customers
+        WHERE country='USA' AND age > 30
+        ORDER BY name ASC;</code></pre>
+
+            <br>
+
+            <p><strong>Question 6:</strong> What is the purpose of the WHERE clause in SQL?</p>
+            <p><strong>Answer:</strong> The WHERE clause is used to filter records that meet certain conditions. It is used in SELECT, UPDATE, DELETE statements to specify which rows should be affected.</p>
+
+            <br>
+
+            <p><strong>Question 7:</strong> Explain the use of the AND, OR, and NOT operators in SQL.</p>
+            <p><strong>Answer:</strong> These logical operators are used to combine multiple conditions in a WHERE clause. AND requires all conditions to be true, OR requires at least one condition to be true, and NOT requires the condition to be false.</p>
+
+            <br>
+
+            <p><strong>Question 8:</strong> Write an SQL query to update the email of a customer named 'Jane Doe' to 'jane.doe@example.com' in the customers table.</p>
+            <pre class="code-box"><code>
+        UPDATE customers
+        SET email = 'jane.doe@example.com'
+        WHERE name = 'Jane Doe';</code></pre>
+
+            <br>
+
+            <p><strong>Question 9:</strong> What is the purpose of the ORDER BY clause in SQL?</p>
+            <p><strong>Answer:</strong> The ORDER BY clause is used to sort the result set in ascending or descending order based on one or more columns.</p>
+
+            <br>
+
+            <p><strong>Question 10:</strong> Write an SQL query to delete all rows from the customers table where the country is 'Canada'.</p>
+            <pre class="code-box"><code>
+        DELETE FROM customers
+        WHERE country = 'Canada';</code></pre>
+
+            <br>
+
+            <p><strong>Question 11:</strong> What is the purpose of the LIMIT clause in SQL?</p>
+            <p><strong>Answer:</strong> The LIMIT clause is used to specify the number of records to return. It is useful for pagination and controlling the size of the result set.</p>
+
+            <br>
+
+            <p><strong>Question 12:</strong> Write an SQL query to select the first 5 rows from the customers table, sorted by the age column in descending order.</p>
+            <pre class="code-box"><code>
+        SELECT *
+        FROM customers
+        ORDER BY age DESC
+        LIMIT 5;</code></pre>
+
+            <br>
+
+            <p><strong>Question 13:</strong> Explain the difference between the SUM and AVG aggregate functions in SQL.</p>
+            <p><strong>Answer:</strong> The SUM function returns the total sum of a numeric column, while the AVG function returns the average value of a numeric column.</p>
+
+            <br>
+
+            <p><strong>Question 14:</strong> Write an SQL query to find the total number of customers in the customers table.</p>
+            <pre class="code-box"><code>
+        SELECT COUNT(*)
+        FROM customers;</code></pre>
+
+            <br>
+
+            <p><strong>Question 15:</strong> What is the purpose of the GROUP BY clause in SQL?</p>
+            <p><strong>Answer:</strong> The GROUP BY clause is used to group rows that have the same values in specified columns into summary rows, often used with aggregate functions like COUNT, SUM, AVG, etc.</p>
+
+            <br>
+
+            <p><strong>Question 16:</strong> Write an SQL query to find the average age of customers grouped by country in the customers table.</p>
+            <pre class="code-box"><code>
+        SELECT country, AVG(age)
+        FROM customers
+        GROUP BY country;</code></pre>
+
+            <br>
+
+            <p><strong>Question 17:</strong> Explain the difference between the MAX and MIN aggregate functions in SQL.</p>
+            <p><strong>Answer:</strong> The MAX function returns the maximum value in a column, while the MIN function returns the minimum value in a column.</p>
+
+            <br>
+
+            <p><strong>Question 18:</strong> Write an SQL query to find the maximum and minimum age of customers in the customers table.</p>
+            <pre class="code-box"><code>
+        SELECT MAX(age) AS max_age, MIN(age) AS min_age
+        FROM customers;</code></pre>
+
+            <br>
+
+            <p><strong>Question 19:</strong> What is the purpose of the HAVING clause in SQL?</p>
+            <p><strong>Answer:</strong> The HAVING clause is used to filter groups based on a specified condition, often used with the GROUP BY clause.</p>
+
+            <br>
+
+            <p><strong>Question 20:</strong> Write an SQL query to find the total number of customers in each country, but only include countries with more than 10 customers.</p>
+            <pre class="code-box"><code>
+        SELECT country, COUNT(*) AS total_customers
+        FROM customers
+        GROUP BY country
+        HAVING COUNT(*) > 10;</code></pre>
+        </section>
+
     </div>
 
-    <!-- SQL Data Types Content -->
-<section id="sql-data-types">
-    <h1>Unlocking the Power of Data: Understanding Data Types in SQL</h1>
-    <p>Meta Description: Discover the importance of data types in SQL, their impact on data integrity, storage efficiency, and query performance.</p>
-
-    <h2>Why Data Types Matter in SQL</h2>
-    <ul>
-        <li><strong>Data Integrity:</strong> Ensures data is stored in a consistent and correct format.</li>
-        <li><strong>Storage Efficiency:</strong> Optimizes database storage by allocating the right amount of space for each value.</li>
-        <li><strong>Query Performance:</strong> Influences the speed and accuracy of queries, especially when indexing and aggregating data.</li>
-    </ul>
-
-    <h2>Numeric Types in SQL</h2>
-    <table class="data-table">
-        <thead>
-            <tr>
-                <th>Data Type</th>
-                <th>Description</th>
-                <th>Example Values</th>
-                <th>Storage Size</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>INT</td>
-                <td>Whole numbers, e.g., integers.</td>
-                <td>-2147483648 to 2147483647</td>
-                <td>4 bytes</td>
-            </tr>
-            <tr>
-                <td>BIGINT</td>
-                <td>Larger whole numbers.</td>
-                <td>-9223372036854775808 to 9223372036854775807</td>
-                <td>8 bytes</td>
-            </tr>
-            <tr>
-                <td>DECIMAL(p, s)</td>
-                <td>Precise fractional numbers.</td>
-                <td>DECIMAL(5, 2) for values like 123.45</td>
-                <td>Variable (up to 17 bytes)</td>
-            </tr>
-            <tr>
-                <td>FLOAT</td>
-                <td>Approximate fractional numbers, single precision.</td>
-                <td>3.14159</td>
-                <td>4 bytes</td>
-            </tr>
-            <tr>
-                <td>DOUBLE PRECISION</td>
-                <td>Approximate fractional numbers, double precision.</td>
-                <td>3.14159265359</td>
-                <td>8 bytes</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <h2>Character Types in SQL</h2>
-    <table class="data-table">
-        <thead>
-            <tr>
-                <th>Data Type</th>
-                <th>Description</th>
-                <th>Example Values</th>
-                <th>Storage Size</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>CHAR(n)</td>
-                <td>Fixed-length character string.</td>
-                <td>CHAR(10) for 'Hello World'</td>
-                <td>n bytes</td>
-            </tr>
-            <tr>
-                <td>VARCHAR(n)</td>
-                <td>Variable-length character string.</td>
-                <td>VARCHAR(50) for 'Example String'</td>
-                <td>Up to n bytes + 1-4 bytes overhead</td>
-            </tr>
-            <tr>
-                <td>TEXT</td>
-                <td>Long, variable-length character string.</td>
-                <td>Articles, descriptions</td>
-                <td>Up to 65,535 bytes (database-dependent)</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <h2>Date and Time Types in SQL</h2>
-    <table class="data-table">
-        <thead>
-            <tr>
-                <th>Data Type</th>
-                <th>Description</th>
-                <th>Example Values</th>
-                <th>Storage Size</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>DATE</td>
-                <td>Date without time.</td>
-                <td>'2023-03-15'</td>
-                <td>3 bytes (database-dependent)</td>
-            </tr>
-            <tr>
-                <td>TIME</td>
-                <td>Time without date.</td>
-                <td>'14:30:00'</td>
-                <td>3-5 bytes (database-dependent)</td>
-            </tr>
-            <tr>
-                <td>TIMESTAMP</td>
-                <td>Date and time combined.</td>
-                <td>'2023-03-15 14:30:00'</td>
-                <td>8-12 bytes (database-dependent)</td>
-            </tr>
-            <tr>
-                <td>INTERVAL</td>
-                <td>Time interval (e.g., for durations).</td>
-                <td>'3 years 2 months'</td>
-                <td>Variable (database-dependent)</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <h2>Binary Types in SQL</h2>
-    <table class="data-table">
-        <thead>
-            <tr>
-                <th>Data Type</th>
-                <th>Description</th>
-                <th>Example Values</th>
-                <th>Storage Size</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>BINARY(n)</td>
-                <td>Fixed-length binary string.</td>
-                <td>Images, executable files</td>
-                <td>n bytes</td>
-            </tr>
-            <tr>
-                <td>VARBINARY(n)</td>
-                <td>Variable-length binary string.</td>
-                <td>Documents, videos</td>
-                <td>Up to n bytes + 1-4 bytes overhead</td>
-            </tr>
-            <tr>
-                <td>BLOB (Binary Large OBject)</td>
-                <td>Very large binary objects.</td>
-                <td>Large files, multimedia</td>
-                <td>Up to several GB (database-dependent)</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <h2>JSON/XML Types (Overview)</h2>
-    <p><strong>JSON:</strong></p>
-    <ul>
-        <li>Stores JSON (JavaScript Object Notation) data.</li>
-        <li>Example: {"name": "John", "age": 30}.</li>
-        <li>Database Support: MySQL, PostgreSQL, SQL Server (with limitations).</li>
-    </ul>
-    <p><strong>XML:</strong></p>
-    <ul>
-        <li>Stores Extensible Markup Language data.</li>
-        <li>Example: <name>John</name><age>30</age>.</li>
-        <li>Database Support: SQL Server, Oracle, PostgreSQL (with extensions).</li>
-    </ul>
-
-    <h3>Key Takeaways:</h3>
-    <ul>
-        <li>Understand the variety of SQL data types to choose the best fit for your data.</li>
-        <li>Be mindful of storage sizes and potential implications on database performance.</li>
-        <li>Familiarize yourself with the support for JSON and XML types in your database system.</li>
-    </ul>
-
-    <h2>Additional Considerations for Choosing Data Types</h2>
-    <h3>Precision and Scale</h3>
-    <p><strong>Precision:</strong> The total number of digits in a numeric value.</p>
-    <p><strong>Scale:</strong> The number of digits after the decimal point in a numeric value.</p>
-    <p><strong>Example:</strong> DECIMAL(10, 2) has a precision of 10 and a scale of 2.</p>
-
-    <h3>Character Encoding</h3>
-    <p><strong>ASCII:</strong> Suitable for English and other Western languages.</p>
-    <p><strong>UTF-8:</strong> Supports a wide range of languages, including non-English characters.</p>
-    <p><strong>Database Support:</strong> Check your database's default encoding and supported character sets.</p>
-
-    <h3>Date and Time Zones</h3>
-    <p><strong>Time Zones:</strong> Consider the time zone of your data and the database server.</p>
-    <p><strong>Database Support:</strong> Check if your database supports time zones (e.g., PostgreSQL, SQL Server).</p>
-
-    <h3>Binary Data</h3>
-    <p><strong>Storage:</strong> Consider the storage requirements for large binary objects (BLOBs).</p>
-    <p><strong>Retrieval:</strong> Optimize queries for efficient retrieval of binary data.</p>
-
-    <h2>Best Practices for Working with Data Types</h2>
-    <ol>
-        <li><strong>Choose the Right Data Type:</strong> Match the data type to the data's purpose and format. Avoid using overly broad data types (e.g., TEXT for a phone number).</li>
-        <li><strong>Consider Storage and Performance:</strong> Balance storage needs with query performance. Use indexing strategically to improve query efficiency.</li>
-        <li><strong>Document Your Choices:</strong> Keep a record of your data type selections and rationales. Share this documentation with your team for consistency and collaboration.</li>
-    </ol>
-
-    <h2>Common Pitfalls to Avoid</h2>
-    <ol>
-        <li><strong>Insufficient Precision:</strong> Example: Using INT for storing monetary values (use DECIMAL instead).</li>
-        <li><strong>Inconsistent Character Encoding:</strong> Example: Mixing ASCII and UTF-8 encoded columns in the same database.</li>
-        <li><strong>Ignoring Time Zones:</strong> Example: Assuming all date/time values are in the same time zone (use time zone-aware data types).</li>
-    </ol>
-</section>
-
-<!-- SQL Commands for Data Manipulation Content -->
-<section id="sql-data-manipulation">
-    <h1>SQL Commands for Data Manipulation</h1>
-
-    <h2>SELECT Statement</h2>
-    <p>The <strong>SELECT</strong> statement is used to retrieve data from a database. It allows you to specify which columns to include in the result set and apply filters to narrow down the results.</p>
-    <pre class="code-box"><code>SELECT column1, column2, ...
-FROM table_name
-WHERE condition;</code></pre>
-
-    <h2>INSERT INTO Statement</h2>
-    <p>The <strong>INSERT INTO</strong> statement is used to add new rows of data to a table. You can specify the columns and the values to be inserted.</p>
-    <pre class="code-box"><code>INSERT INTO table_name (column1, column2, ...)
-VALUES (value1, value2, ...);</code></pre>
-
-    <h2>UPDATE Statement</h2>
-    <p>The <strong>UPDATE</strong> statement is used to modify existing data in a table. You can specify which rows to update and the new values for the columns.</p>
-    <pre class="code-box"><code>UPDATE table_name
-SET column1 = value1, column2 = value2, ...
-WHERE condition;</code></pre>
-
-    <h2>DELETE Statement</h2>
-    <p>The <strong>DELETE</strong> statement is used to remove rows from a table. You can specify which rows to delete based on a condition.</p>
-    <pre class="code-box"><code>DELETE FROM table_name
-WHERE condition;</code></pre>
-</section>
-<!-- Filtering and Sorting Data Content -->
-<section id="filtering-sorting-data">
-    <h1>Filtering and Sorting Data</h1>
-
-    <h2>WHERE Clause</h2>
-    <p>The <strong>WHERE</strong> clause is used to filter records that meet certain conditions. It is used in SELECT, UPDATE, DELETE statements to specify which rows should be affected.</p>
-    <pre class="code-box"><code>SELECT column1, column2, ...
-FROM table_name
-WHERE condition;</code></pre>
-
-    <h2>AND, OR, NOT Operators</h2>
-    <p>These logical operators are used to combine multiple conditions in a WHERE clause:</p>
-    <ul>
-        <li><strong>AND:</strong> All conditions must be true.</li>
-        <li><strong>OR:</strong> At least one condition must be true.</li>
-        <li><strong>NOT:</strong> The condition must be false.</li>
-    </ul>
-    <pre class="code-box"><code>SELECT column1, column2, ...
-FROM table_name
-WHERE condition1 AND condition2;
-
-SELECT column1, column2, ...
-FROM table_name
-WHERE condition1 OR condition2;
-
-SELECT column1, column2, ...
-FROM table_name
-WHERE NOT condition;</code></pre>
-
-    <h2>ORDER BY Clause</h2>
-    <p>The <strong>ORDER BY</strong> clause is used to sort the result set in ascending or descending order based on one or more columns.</p>
-    <pre class="code-box"><code>SELECT column1, column2, ...
-FROM table_name
-ORDER BY column1 ASC, column2 DESC;</code></pre>
-
-    <h2>LIMIT Clause</h2>
-    <p>The <strong>LIMIT</strong> clause is used to specify the number of records to return. It is useful for pagination and controlling the size of the result set.</p>
-    <pre class="code-box"><code>SELECT column1, column2, ...
-FROM table_name
-ORDER BY column1
-LIMIT number_of_records;</code></pre>
-
-    <h2>Aggregate Functions</h2>
-    <p>Aggregate functions perform calculations on a set of values and return a single value. Common aggregate functions include:</p>
-    <ul>
-        <li><strong>SUM:</strong> Returns the total sum of a numeric column.</li>
-        <li><strong>AVG:</strong> Returns the average value of a numeric column.</li>
-        <li><strong>MAX:</strong> Returns the maximum value in a column.</li>
-        <li><strong>MIN:</strong> Returns the minimum value in a column.</li>
-        <li><strong>COUNT:</strong> Returns the number of rows that match a specified condition.</li>
-    </ul>
-    <pre class="code-box"><code>SELECT SUM(column_name) FROM table_name;
-SELECT AVG(column_name) FROM table_name;
-SELECT MAX(column_name) FROM table_name;
-SELECT MIN(column_name) FROM table_name;
-SELECT COUNT(column_name) FROM table_name;</code></pre>
-</section>
-
-
-<!-- Practice Questions Content -->
- <h3><strong>Practice Questions</strong></h3>
-<section id="practice-questions">
-    <p><strong>Question 1:</strong> What is SQL and what are its primary functions?</p>
-    <p><strong>Answer:</strong> SQL (Structured Query Language) is a programming language designed for managing and manipulating data stored in relational database management systems (RDBMS). Its primary functions include Data Definition, Data Manipulation, Data Control, and Data Query.</p>
-
-    <br>
-
-    <p><strong>Question 2:</strong> Write a basic SQL query to select the name and email columns from a table named customers where the country is 'USA'.</p>
-    <pre class="code-box"><code>SELECT name, email
-FROM customers
-WHERE country='USA';</code></pre>
-
-    <br>
-
-    <p><strong>Question 3:</strong> What is the difference between CHAR and VARCHAR data types?</p>
-    <p><strong>Answer:</strong> CHAR is a fixed-length character string, while VARCHAR is a variable-length character string. CHAR(n) always uses n bytes of storage, regardless of the actual length of the string, whereas VARCHAR(n) uses up to n bytes plus 1-4 bytes of overhead, depending on the length of the string.</p>
-
-    <br>
-
-    <p><strong>Question 4:</strong> Write an SQL query to insert a new row into the customers table with the following values: name='John Doe', email='john.doe@example.com', country='USA'.</p>
-    <pre class="code-box"><code>INSERT INTO customers (name, email, country)
-VALUES ('John Doe', 'john.doe@example.com', 'USA');</code></pre>
-
-    <br>
-
-    <p><strong>Question 5:</strong> Write an SQL query to select all columns from the customers table where the country is 'USA' and the age is greater than 30, sorted by the name column in ascending order.</p>
-    <pre class="code-box"><code>SELECT *
-FROM customers
-WHERE country='USA' AND age > 30
-ORDER BY name ASC;</code></pre>
-
-    <br>
-
-    <p><strong>Question 6:</strong> What is the purpose of the WHERE clause in SQL?</p>
-    <p><strong>Answer:</strong> The WHERE clause is used to filter records that meet certain conditions. It is used in SELECT, UPDATE, DELETE statements to specify which rows should be affected.</p>
-
-    <br>
-
-    <p><strong>Question 7:</strong> Explain the use of the AND, OR, and NOT operators in SQL.</p>
-    <p><strong>Answer:</strong> These logical operators are used to combine multiple conditions in a WHERE clause. AND requires all conditions to be true, OR requires at least one condition to be true, and NOT requires the condition to be false.</p>
-
-    <br>
-
-    <p><strong>Question 8:</strong> Write an SQL query to update the email of a customer named 'Jane Doe' to 'jane.doe@example.com' in the customers table.</p>
-    <pre class="code-box"><code>UPDATE customers
-SET email = 'jane.doe@example.com'
-WHERE name = 'Jane Doe';</code></pre>
-
-    <br>
-
-    <p><strong>Question 9:</strong> What is the purpose of the ORDER BY clause in SQL?</p>
-    <p><strong>Answer:</strong> The ORDER BY clause is used to sort the result set in ascending or descending order based on one or more columns.</p>
-
-    <br>
-
-    <p><strong>Question 10:</strong> Write an SQL query to delete all rows from the customers table where the country is 'Canada'.</p>
-    <pre class="code-box"><code>DELETE FROM customers
-WHERE country = 'Canada';</code></pre>
-
-    <br>
-
-    <p><strong>Question 11:</strong> What is the purpose of the LIMIT clause in SQL?</p>
-    <p><strong>Answer:</strong> The LIMIT clause is used to specify the number of records to return. It is useful for pagination and controlling the size of the result set.</p>
-
-    <br>
-
-    <p><strong>Question 12:</strong> Write an SQL query to select the first 5 rows from the customers table, sorted by the age column in descending order.</p>
-    <pre class="code-box"><code>SELECT *
-FROM customers
-ORDER BY age DESC
-LIMIT 5;</code></pre>
-
-    <br>
-
-    <p><strong>Question 13:</strong> Explain the difference between the SUM and AVG aggregate functions in SQL.</p>
-    <p><strong>Answer:</strong> The SUM function returns the total sum of a numeric column, while the AVG function returns the average value of a numeric column.</p>
-
-    <br>
-
-    <p><strong>Question 14:</strong> Write an SQL query to find the total number of customers in the customers table.</p>
-    <pre class="code-box"><code>SELECT COUNT(*)
-FROM customers;</code></pre>
-
-    <br>
-
-    <p><strong>Question 15:</strong> What is the purpose of the GROUP BY clause in SQL?</p>
-    <p><strong>Answer:</strong> The GROUP BY clause is used to group rows that have the same values in specified columns into summary rows, often used with aggregate functions like COUNT, SUM, AVG, etc.</p>
-
-    <br>
-
-    <p><strong>Question 16:</strong> Write an SQL query to find the average age of customers grouped by country in the customers table.</p>
-    <pre class="code-box"><code>SELECT country, AVG(age)
-FROM customers
-GROUP BY country;</code></pre>
-
-    <br>
-
-    <p><strong>Question 17:</strong> Explain the difference between the MAX and MIN aggregate functions in SQL.</p>
-    <p><strong>Answer:</strong> The MAX function returns the maximum value in a column, while the MIN function returns the minimum value in a column.</p>
-
-    <br>
-
-    <p><strong>Question 18:</strong> Write an SQL query to find the maximum and minimum age of customers in the customers table.</p>
-    <pre class="code-box"><code>SELECT MAX(age) AS max_age, MIN(age) AS min_age
-FROM customers;</code></pre>
-
-    <br>
-
-    <p><strong>Question 19:</strong> What is the purpose of the HAVING clause in SQL?</p>
-    <p><strong>Answer:</strong> The HAVING clause is used to filter groups based on a specified condition, often used with the GROUP BY clause.</p>
-
-    <br>
-
-    <p><strong>Question 20:</strong> Write an SQL query to find the total number of customers in each country, but only include countries with more than 10 customers.</p>
-    <pre class="code-box"><code>SELECT country, COUNT(*) AS total_customers
-FROM customers
-GROUP BY country
-HAVING COUNT(*) > 10;</code></pre>
-</section>
-
-    <script src="script.js"></script>
-</body>
-</html>
+    <footer class="footer">
+        <p class="paragraph">Copyright 2023 TechyVia. All rights reserved.</p>
+      </footer>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script>
+  
+      <script>
+          const MOBILE_BREAKPOINT = 768;
+          if (window.innerWidth <= MOBILE_BREAKPOINT) {
+            document.write('<script src="mobile.js"><\/script>');
+          }
+        </script>
+        
+      
+      <script src="script.js"></script>
+    </body>
+    </html>

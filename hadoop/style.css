@@ -1,0 +1,501 @@
+/* CSS Variables (Custom Properties) */
+:root {
+  --primary-color: #212121; 
+  --secondary-color: #3498db; 
+  --accent-color: #f1c40f;
+  --background-color: #f9f9f9; 
+  --text-color: #333; 
+  --font-family: 'Roboto', sans-serif;
+  --line-height: 1.6;
+  --spacing-xs: 5px;
+  --spacing-sm: 10px;
+  --spacing-md: 20px;
+  --spacing-lg: 30px;
+  --border-radius: 5px;
+  --box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+/* Global Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*::before, *::after {
+  box-sizing: border-box;
+}
+
+body, html {
+  font-family: var(--font-family);
+  line-height: var(--line-height);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  scroll-behavior: smooth;
+}
+
+/* Header Bar Styles */
+.header-bar {
+  /* Shared header bar styles */
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: var(--box-shadow);
+  height: 70px;
+  transition: var(--transition);
+}
+
+.header-bar .brand-name {
+  /* Brand name styles */
+  font-size: 26px;
+  font-weight: bold;
+  padding-left: 30px;
+  margin-left: var(--spacing-md);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.header-bar nav {
+  /* Navigation styles */
+  list-style: none;
+  display: flex;
+  gap: var(--spacing-sm);
+  margin: 0;
+  padding: 0;
+}
+
+.header-bar nav ul li {
+  /* Navigation list item styles */
+  display: inline-block;
+  position: relative;
+}
+
+.header-bar nav ul li a {
+  /* Navigation link styles */
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+.header-bar nav ul li a:hover {
+  /* Navigation link hover styles */
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.header-bar nav ul li a::after {
+  /* Navigation link after pseudo-element styles */
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent-color);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.header-bar nav ul li a:hover::after {
+  /* Navigation link hover after pseudo-element styles */
+  opacity: 1;
+}
+
+/* Toggle Menu Styles */
+.toggle-menu {
+  /* Toggle menu styles */
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--primary-color);
+  background-color: #fff;
+  border: none;
+  position: fixed;
+  left: var(--spacing-md);
+  z-index: 1001;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+}
+
+.toggle-menu:hover {
+  /* Toggle menu hover styles */
+  background-color: var(--secondary-color);
+  transform: scale(1.1);
+}
+
+/* Sidebar Styles */
+.sideMenu {
+  /* Shared sidebar styles */
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--primary-color);
+  overflow-y: auto;
+  transition: left 0.4s ease;
+  z-index: 999;
+  padding-top: var(--spacing-lg);
+  box-shadow: var(--box-shadow);
+}
+
+.sideMenu a {
+  /* Sidebar link styles */
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  padding: var(--spacing-md) var(--spacing-lg);
+  transition: background-color 0.3s ease, padding-left 0.3s ease;
+}
+
+.sideMenu a:hover {
+  /* Sidebar link hover styles */
+  background-color: rgba(255, 255, 255, 0.1);
+  padding-left: var(--spacing-lg);
+}
+
+.sideMenu .closebtn {
+  /* Close button styles */
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  font-size: 24px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.sideMenu .closebtn:hover {
+  /* Close button hover styles */
+  color: var(--accent-color);
+}
+
+/* Main Content Styles */
+#content {
+  /* Main content styles */
+  margin-top: var(--spacing-lg);
+  padding: var(--spacing-md) var(--spacing-lg);
+  margin-left: 0;
+  transition: margin-left 0.4s ease;
+}
+
+.content-shifted {
+  /* Content shifted styles */
+  margin-left: 300px;
+}
+
+/* Code Box Styles */
+.code-box {
+  /* Code box styles */
+  background-color: #eef4ff;
+  border: 1px solid #d3e3ff;
+  padding: var(--spacing-md);
+  margin: var(--spacing-md) 0;
+  font-family: 'Courier New', monospace;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  position: relative;
+}
+
+.code-box pre {
+  /* Code box pre styles */
+  margin: 0;
+  overflow-x: auto;
+  color: var(--primary-color);
+}
+
+.copy-button {
+  /* Copy button styles */
+  position: absolute;
+  top: var(--spacing-xs);
+  right: var(--spacing-xs);
+  background-color: var(--secondary-color);
+  color: #fff;
+  border: none;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+.copy-button:hover {
+  /* Copy button hover styles */
+  background-color: var(--accent-color);
+}
+
+/* Footer Styles */
+.footer {
+  /* Footer styles */
+  background-color: var(--primary-color);
+  color: #fff;
+  text-align: center;
+  padding: var(--spacing-md) 0;
+  font-size: 18px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.footer a {
+  /* Footer link styles */
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  /* Footer link hover styles */
+  text-decoration: underline;
+}
+
+/* Heading Styles */
+h1, h2, h3 {
+  /* Shared heading styles */
+  color: var(--primary-color);
+  margin-top: var(--spacing-lg);
+}
+
+h1 {
+  /* H1 styles */
+  font-size: 36px;
+}
+
+h2 {
+  /* H2 styles */
+  font-size: 28px;
+}
+
+h3 {
+  /* H3 styles */
+  font-size: 22px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  /* Responsive styles for max-width: 768px */
+  .sideMenu {
+      width: 0;
+      left: 0;
+  }
+  #content {
+      margin-left: 0;
+      padding: var(--spacing-md);
+      margin-top: var(--spacing-lg);
+  }
+  .content-shifted {
+      margin-left: 0;
+      margin-top: var(--spacing-lg);
+  }
+  .header-bar {
+      padding: var(--spacing-sm);
+  }
+  .header-bar .brand-name {
+      font-size: 20px;
+      padding-left: var(--spacing-sm);
+  }
+  .header-bar nav ul {
+      gap: var(--spacing-xs);
+  }
+  .header-bar nav ul li a {
+      padding: var(--spacing-xs) var(--spacing-sm);
+      font-size: 16px;
+  }
+  .header-bar .nav-link {
+      margin-right: var(--spacing-sm);
+  }
+  .toggle-menu {
+      padding: var(--spacing-xs) var(--spacing-xs);
+  }
+  .code-box {
+      margin: var(--spacing-sm) 0;
+  }
+  .footer {
+      font-size: 16px;
+      padding: var(--spacing-sm) 0;
+  }
+}
+
+/* Data Table Styles */
+.data-table {
+  /* Data table styles */
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: var(--spacing-md);
+  box-shadow: var(--box-shadow);
+}
+
+.data-table th,
+.data-table td {
+  /* Data table header and cell styles */
+  border: 1px solid #ddd;
+  padding: var(--spacing-sm);
+  text-align: left;
+}
+
+.data-table th {
+  /* Data table header styles */
+  background-color: #f0f0f0;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.data-table tr:nth-child(even) {
+  /* Data table even row styles */
+  background-color: #f9f9f9;
+}
+
+.data-table tr:hover {
+  /* Data table row hover styles */
+  background-color: #f2f2f2;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  /* Fade in animation */
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  /* Fade out animation */
+  from {
+      opacity: 1;
+  }
+  to {
+      opacity: 0;
+  }
+}
+
+.fadeIn {
+  /* Fade in class */
+  animation: fadeIn 0.5s ease;
+}
+
+.fadeOut {
+  /* Fade out class */
+  animation: fadeOut 0.5s ease;
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  /* Scrollbar styles */
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  /* Scrollbar thumb styles */
+  background: var(--primary-color);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  /* Scrollbar thumb hover styles */
+  background: var(--secondary-color);
+}
+
+::-webkit-scrollbar-track {
+  /* Scrollbar track styles */
+  background: #f9f9f9;
+}
+
+/* Print Styles */
+@media print {
+  /* Print styles */
+  .header-bar, .footer, .sideMenu {
+      display: none;
+  }
+  #content {
+      margin-top: 0;
+  }
+}
+
+/* Accessibility Styles */
+.screen-reader-only {
+  /* Screen reader only styles */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.screen-reader-only:focus {
+  /* Screen reader only focus styles */
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  position: static;
+  white-space: normal;
+}
+
+/* Global Transitions */
+* {
+  /* Global transition styles */
+  transition: var(--transition);
+}
+
+/* Global Box Shadow */
+.box-shadow {
+  /* Global box shadow styles */
+  box-shadow: var(--box-shadow);
+}
+
+/* Global Border Radius */
+.border-radius {
+  /* Global border radius styles */
+  border-radius: var(--border-radius);
+}
+
+/* Global Padding */
+.padding-sm {
+  /* Global small padding styles */
+  padding: var(--spacing-sm);
+}
+
+.padding-md {
+  /* Global medium padding styles */
+  padding: var(--spacing-md);
+}
+
+.padding-lg {
+  /* Global large padding styles */
+  padding: var(--spacing-lg);
+}
+
+/* Global Margin */
+.margin-sm {
+  /* Global small margin styles */
+  margin: var(--spacing-sm);
+}
+
+.margin-md {
+  /* Global medium margin styles */
+  margin: var(--spacing-md);
+}
+
+.margin-lg {
+  /* Global large margin styles */
+  margin: var(--spacing-lg);
+}

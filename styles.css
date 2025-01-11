@@ -237,6 +237,96 @@ footer p {
     color: #ddd;
 }
 
+.topic-link {
+    position: relative;
+    text-decoration: none;
+    color: #337ab7; /* Default Bootstrap link color */
+  }
+  
+  .hover-text {
+    visibility: hidden;
+    width: auto; /* Adjusted to 'auto' for single-line display */
+    background-color: #555;
+    color: #fff;
+    padding: 2px 5px; /* Reduced padding for a more compact look */
+    border-radius: 4px; /* Slightly reduced radius for a sleeker look */
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%); /* Centers the hover text horizontally */
+    opacity: 0;
+    transition: opacity 0.3s;
+    white-space: nowrap; /* Ensures the text stays in a single line */
+  }
+  
+  .topic-link:hover .hover-text {
+    visibility: visible;
+    opacity: 1;
+  }
+
+    .question-bank-section {
+      background-color: #f9f9f9;
+      padding: 40px 0;
+      border-radius: 8px;
+    }
+    .question-bank-section h2 {
+      color: #007bff;
+      font-size: 2.5em;
+      animation: fadeInDown 1s;
+    }
+    .question-bank-section p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+      animation: fadeInUp 1s;
+    }
+    .question-bank-section .card {
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: none;
+      border-radius: 10px;
+    }
+    .question-bank-section .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    .question-bank-section .card-title a {
+      text-decoration: none;
+      color: #007bff;
+      font-weight: bold;
+    }
+    .question-bank-section .card-title a:hover {
+      text-decoration: underline;
+    }
+    .question-bank-section .btn {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      transition: background-color 0.3s;
+    }
+    .question-bank-section .btn:hover {
+      background-color: #0056b3;
+    }
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
 /* Animations */
 @keyframes fadeIn {
     0% { opacity: 0; transform: scale(0.9); }

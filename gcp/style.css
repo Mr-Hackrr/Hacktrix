@@ -1,385 +1,362 @@
-* {
-  scroll-behavior: smooth;
-  box-sizing: border-box;
-}
+  /* General Setup */
+  * {
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+  }
 
-body {
-  font-family: Arial, sans-serif;
-  color: #333; /* Deep Gray */
-  margin: 0;
-  background-color: #f5f7fa; /* Light Gray */
-  overflow-x: hidden;
-}
+  body {
+    font-family: Arial, sans-serif;
+    color: #333; /* Deep Gray */
+    margin: 0;
+    background-color: #f5f7fa; /* Light Gray */
+    overflow-x: hidden;
+  }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Montserrat', sans-serif;
-  margin-bottom: 10px;
-}
+  /* Typography */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 10px;
+  }
 
-h1 {
-  font-family: 'Open Sans', sans-serif; /* Or your chosen font */
-  font-size: 36px;
-  font-weight: 700;
-  color: #1c55e6; /* Deep Blue */
-  margin-top: 60px;
-  line-height: 1.2;
-  letter-spacing: 1px;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.2); /* Subtle shadow */
-  padding: 10px 20px; /*adds padding*/
-  background-color: #e6f2ff; /* light blue background */ /*optional */
-  border-radius: 5px; /*optional, rounds the corners*/
-}
+  h1 {
+    font-family: 'Open Sans', sans-serif; /* Or your chosen font */
+    font-size: 36px;
+    font-weight: 700;
+    color: #1c55e6; /* Deep Blue */
+    margin-top: 60px;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2); /* Subtle shadow */
+    padding: 10px 20px; /*adds padding*/
+    background-color: #e6f2ff; /* light blue background */ /*optional */
+    border-radius: 5px; /*optional, rounds the corners*/
+  }
 
-h2 {
-  font-size: 28px;
-  color: #4682B4; /* Steel Blue */
-}
+  h2 {
+    font-size: 28px;
+    color: #4682B4; /* Steel Blue */
+  }
 
-h3 {
-  font-size: 22px;
-  color: #87CEEB; /* Light Blue */
-}
+  h3 {
+    font-size: 22px;
+    color: #87CEEB; /* Light Blue */
+  }
 
-h4, h5, h6 {
-  font-size: 18px;
-  color: #212121; /* Dark Blue */
-}
+  h4, h5, h6 {
+    font-size: 18px;
+    color: #212121; /* Dark Blue */
+  }
 
-p {
-  margin-bottom: 15px;
-  color: #666; /* Softer Black */
-}
+  p {
+    margin-bottom: 15px;
+    color: #666; /* Softer Black */
+  }
 
-a {
-  text-decoration: none;
-  color: #87CEEB; /* Light Blue */
-  transition: color 0.2s ease;
-}
+  a {
+    text-decoration: none;
+    color: #87CEEB; /* Light Blue */
+    transition: color 0.2s ease;
+  }
 
-a:hover {
-  color: #ADD8E6; /* Sky Blue */
-}
+  a:hover {
+    color: #ADD8E6; /* Sky Blue */
+  }
 
-.header-bar {
-  background: linear-gradient(90deg, #1e3c72, #2a5298); /* Blue Gradient */
-  color: #ffffff;
-  padding: 15px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 999;
-  transition: all 0.3s;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-.header-bar .brand-name {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #a0b63f; /* Golden */
-  transition: color 0.3s;
-}
-
-.header-bar .nav-link {
-  color: #e2e8f0 !important; /* Soft White */
-  margin-right: 20px;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-.header-bar .nav-link:hover {
-  color: #ffd700 !important; /* Bright Yellow */
-}
-
-.header-bar nav ul {
-  display: flex;
-  list-style: none;
-  gap: 10px;
-  margin: 0;
-  padding: 0;
-  margin-right: 30px;
-}
-
-#content {
-  padding: 30px 20px;
-  transition: margin-left 0.5s; 
-}
-
-#content.content-shifted {
-  margin-left: 300px; 
-}
-
-/* SEO Friendly Heading */
-.seo-friendly-heading {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  text-align: center;
-  color: #0f0c0c; 
-}
-
-/* Code Box Styles */
-.code-box {
-  background-color: #f0f0f0;
-  border: 1px solid #ccc; 
-  border-radius: 8px; 
-  padding: 20px;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
-  transition: box-shadow 0.3s ease; 
-}
-
-.code-box:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-}
-
-.code-box pre {
-  margin: 0;
-  padding: 0;
-}
-
-.code-box code {
-  font-family: 'Monaco', monospace;
-  font-size: 0.95rem; 
-  line-height: 1.6;
-  color: #333; 
-  word-wrap: break-word; 
-  white-space: pre-wrap; 
-}
-
-.copy-button {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background-color: #4a90e2;
-  color: #ffffff;
-  border: none;
-  padding: 6px 12px;
-  font-size: 0.95rem; 
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.2s ease; 
-}
-
-.copy-button:hover {
-  background-color: #3e7cb3; 
-}
-
-.copy-button i {
-  margin-right: 5px; 
-}
-
-.copy-button {
-  display: flex;
-  align-items: center;
-}
-
-.copy-button i.fas.fa-copy {
-  font-size: 1.1rem; 
-
-
-/* Data Table Styles */
-.data-table {
-  border-collapse: collapse;
-  width: 100%;
-  margin-bottom: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.data-table th,
-.data-table td {
-  border: 1px solid #ddd;
-  padding: 10px;
-  text-align: left;
-}
-
-.data-table th {
-  background-color: #f0f0f0;
-  font-weight: bold;
-  color: #4682B4; /* Steel Blue */
-}
-
-.data-table tr:nth-child(even) {
-  background-color: #f9f9f9;
-}
-
-.data-table tr:hover {
-  background-color: #f2f2f2;
-}
-
-/* Footer Styles */
-.footer {
-  background-color: #1a202c;
-  color: #a0aec0;
-  padding: 20px;
-  text-align: center;
-  margin-top: 20px;
-}
-
-.footer a {
-  color: #87CEEB; /* Light Blue */
-  text-decoration: none;
-}
-
-.footer a:hover {
-  color: #ADD8E6; /* Sky Blue */
-}
-
-/* Sidebar Styles */
-.sideMenu {
-  height: 100%;
-  background-color: #2d3748;
-  color: #ffffff;
-  width: 0; 
-  position: fixed;
-  z-index: 1;
-  top: 54px;
-  left: 0;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
-}
-
-.sideMenu.open {
-  width: 300px; 
-}
-
-.sideMenu a {
-  padding: 7px 7px;
-  text-decoration: none;
-  font-size: 1rem;
-  color: #fff;
-  display: block;
-  transition: 0.3s;
-  margin-bottom: 20px;
-  font-weight: bold;
-}
-
-.sideMenu a:hover {
-  color: #fff;
-  background-color: #111;
-}
-
-.sideMenu a i {
-  padding-right: 15px;
-}
-
-.sideMenu .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-  cursor: pointer; 
-}
-
-div.toggle-menu {
-  position: fixed;
-  top: 15px;
-  right: 20px;
-  z-index: 1000;
-  background-color: #0078d4;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 8px 12px;
-  cursor: pointer;
-  display: block; 
-}
-
-div.toggle-menu:hover {
-  background-color: #005fa3;
-}
-
-@media (max-width: 768px) {
+  /* Header Bar */
   .header-bar {
-    padding: 20px 20px;
+    background: linear-gradient(90deg, #1e3c72, #2a5298); /* Blue Gradient */
+    color: #ffffff;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    transition: all 0.3s;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
   }
-  
-  .header-bar .brand-name {
-    font-size: 1rem;
-  }
-  
-  .header-bar .nav-link {
-    font-size: 0.8rem;
-    margin-right: 10px;
-  }
-  
-  div.toggle-menu {
-    top: 5px;
-    right: 5px;
-  }
-  
-  .sideMenu {
-    top: 54px; 
-  }
-  
-  #content {
-    padding: 20px;
-  }
-  
-  
-  .sideMenu.open {
-    width: 250px; 
-  }
-}
 
-@media (max-width: 480px) {
-  .header-bar .nav-link {
-    font-size: 0.7rem;
+  .header-bar .brand-name {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #a0b63f; /* Golden */
+    transition: color 0.3s;
   }
+
+  .header-bar .nav-link {
+    color: #e2e8f0 !important; /* Soft White */
+    margin-right: 20px;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+
+  .header-bar .nav-link:hover {
+    color: #ffd700 !important; /* Bright Yellow */
+  }
+
   .header-bar nav ul {
     display: flex;
-    gap: 5px;
-    margin-right: 20px;
+    list-style: none;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    margin-right: 30px;
   }
-  
-  div.toggle-menu {
-    top: 10px;
-    right: 5px;
-    
+
+  /* Content */
+  #content {
+    padding: 30px 20px;
+    transition: margin-left 0.5s; /* Smooth transition */
   }
-  
+
+  /* This is the ONLY rule to control left margin; it's added/removed by JS */
+  #content.content-shifted {
+    margin-left: 300px; /* Shift to the RIGHT for sidebar */
+  }
+
+  /* SEO Friendly Heading */
+  .seo-friendly-heading {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #0f0c0c; /* Deep Navy Blue */
+  }
+
+  /* Code Box Styles */
+  .code-box {
+    background-color: #f0f0f0; /* Soft Gray */
+    border: 1px solid #ccc; /* Light Gray Border */
+    border-radius: 8px; /* Slightly increased radius for a softer look */
+    padding: 20px; /* Increased padding for better code readability */
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: box-shadow 0.3s ease; /* Smooth transition for hover effect */
+  }
+
+  .code-box:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Increased shadow on hover for emphasis */
+  }
+
+  .code-box pre {
+    margin: 0;
+    padding: 0;
+  }
+
+  .code-box code {
+    font-family: 'Monaco', monospace;
+    font-size: 0.95rem; /* Slightly reduced font size for better fit */
+    line-height: 1.6; /* Increased line height for readability */
+    color: #333; /* Deep Gray for code text */
+    word-wrap: break-word; /* Ensure long lines wrap */
+    white-space: pre-wrap; /* Preserve whitespace but allow wrapping */
+  }
+
+  .copy-button {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background-color: #4a90e2; /* Consistent blue tone */
+    color: #ffffff;
+    border: none;
+    padding: 6px 12px;
+    font-size: 0.95rem; /* Matched font size with code */
+    cursor: pointer;
+    border-radius: 4px; /* Softer corner radius */
+    transition: background-color 0.2s ease; /* Smooth transition for hover */
+  }
+
+  .copy-button:hover {
+    background-color: #3e7cb3; /* Darker blue on hover */
+  }
+
+  .copy-button i {
+    margin-right: 5px; /* Added margin for better spacing with the copy icon */
+  }
+
+  /* Added Font Awesome copy icon for a more visual cue */
+  .copy-button {
+    display: flex;
+    align-items: center;
+  }
+
+  .copy-button i.fas.fa-copy {
+    font-size: 1.1rem; /* Slightly larger icon for visibility */
+  }
+
+
+  /* Data Table Styles */
+  .data-table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .data-table th,
+  .data-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+
+  .data-table th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+    color: #4682B4; /* Steel Blue */
+  }
+
+  .data-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  .data-table tr:hover {
+    background-color: #f2f2f2;
+  }
+
+  /* Footer Styles */
+  .footer {
+    background-color: #1a202c;
+    color: #a0aec0;
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .footer a {
+    color: #87CEEB; /* Light Blue */
+    text-decoration: none;
+  }
+
+  .footer a:hover {
+    color: #ADD8E6; /* Sky Blue */
+  }
+
+  /* Sidebar Styles */
+  .sideMenu {
+    height: 100%;
+    background-color: #2d3748;
+    color: #ffffff;
+    width: 0; /* Initially hidden on all screens */
+    position: fixed;
+    z-index: 1;
+    top: 54px;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+
   .sideMenu.open {
-    width: 200px; 
+    width: 300px; /* Open width */
   }
-}
 
-img {
-  max-width: 100%; 
-  height: auto; 
-  margin: 10px auto; 
-  display: block; 
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1); 
-}
+  .sideMenu a {
+    padding: 7px 7px;
+    text-decoration: none;
+    font-size: 1rem;
+    color: #fff;
+    display: block;
+    transition: 0.3s;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
 
-.screenshot {
-  width: 80%; 
-  margin: 20px auto; 
-  overflow: hidden; 
-  border-radius: 10px; 
-}
+  .sideMenu a:hover {
+    color: #fff;
+    background-color: #111;
+  }
 
-.screenshot img {
-  width: 120%; 
-  margin-left: -10%; 
-  transition: margin 0.5s ease-in-out; 
-}
+  .sideMenu a i {
+    padding-right: 15px;
+  }
 
-.screenshot:hover img {
-  margin-left: -5%; 
-}
+  .sideMenu .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    cursor: pointer; /* Added cursor style */
+  }
 
-.full-width {
-  width: 100%; 
-  margin: 0 auto; 
-  border-radius: 0; 
-}
+  /* Toggle Button Styles */
+  div.toggle-menu {
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    z-index: 1000;
+    background-color: #0078d4;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    display: block; /* Always show toggle button */
+  }
 
-.full-width img {
-  width: 100%; 
-  height: auto; 
-}
+  div.toggle-menu:hover {
+    background-color: #005fa3;
+  }
+
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    /* Header Bar */
+    .header-bar {
+      padding: 20px 20px;
+    }
+    
+    .header-bar .brand-name {
+      font-size: 1rem;
+    }
+    
+    .header-bar .nav-link {
+      font-size: 0.8rem;
+      margin-right: 10px;
+    }
+    
+    /* Toggle Button (always visible on smaller screens) */
+    div.toggle-menu {
+      top: 5px;
+      right: 5px;
+    }
+    
+    /* Sidebar (hidden by default, toggled by button) */
+    .sideMenu {
+      top: 54px; /* Adjusted to match header height on smaller screens */
+    }
+    
+    /* Content */
+    #content {
+      padding: 20px;
+    }
+    
+    /* Adjust sidebar open width for smaller screens */
+    .sideMenu.open {
+      width: 250px; /* Smaller open width */
+    }
+  }
+
+  @media (max-width: 480px) {
+    /* Further adjustments for very small screens */
+    .header-bar .nav-link {
+      font-size: 0.7rem;
+    }
+    .header-bar nav ul {
+      display: flex;
+      gap: 5px;
+      margin-right: 20px;
+    }
+    
+    div.toggle-menu {
+      top: 10px;
+      right: 5px;
+      
+    }
+    
+    .sideMenu.open {
+      width: 200px; /* Even smaller open width */
+    }
+  }
