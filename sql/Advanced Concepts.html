@@ -4,65 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Advanced SQL Concepts</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
-    <link rel="stylesheet" href="style.css"> <!-- Assuming your CSS file is named styles.css -->
-
+    <link rel="stylesheet" href="style.css"> <!-- Assuming your CSS file is named style.css -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
     <!-- Header Bar -->
-    <div class="header-bar">
-        <div class="brand-name">Hacktrix</div>
-        <nav>
-            <ul>
+    <header class="header-bar">
+        <span class="brand-name">TechyVia</span>
+        <nav class="navbar">
+            <ul class="nav-links">
                 <li><a href="about.html" class="nav-link">About</a></li>
                 <li><a href="exercise.html" class="nav-link">Exercise</a></li>
                 <li><a href="project.html" class="nav-link">Project</a></li>
                 <li><a href="contact.html" class="nav-link">Contact Us</a></li>
             </ul>
         </nav>
+        <div class="toggle-menu" id="toggle-menu" onclick="openNav()">☰</div>
+    </header>
+
+    <!-- Sidebar -->
+    <div id="sideMenu" class="sideMenu" role="navigation" aria-label="Sidebar Navigation">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" aria-label="Close sidebar">×</a>
+        <nav class="sidebar-nav">
+            <ul class="sidebar-links">
+                <li class="sidebar-link"><a href="#window-functions" tabindex="0">Window Functions</a></li>
+                <li class="sidebar-link"><a href="#ranking-functions" tabindex="0">Ranking Functions</a></li>
+                <li class="sidebar-link"><a href="#aggregate-functions" tabindex="0">Aggregate Functions</a></li>
+                <li class="sidebar-link"><a href="#value-functions" tabindex="0">Value Functions</a></li>
+                <li class="sidebar-link"><a href="#common-table-expressions" tabindex="0">Common Table Expressions (CTEs)</a></li>
+                <li class="sidebar-link"><a href="#recursive-queries" tabindex="0">Recursive Queries</a></li>
+                <li class="sidebar-link"><a href="#regular-expressions" tabindex="0">Regular Expressions</a></li>
+                <li class="sidebar-link"><a href="#denormalization-for-performance" tabindex="0">Denormalization for Performance</a></li>
+                <li class="sidebar-link"><a href="#database-partitioning" tabindex="0">Database Partitioning</a></li>
+                <li class="sidebar-link"><a href="#scaling-strategies" tabindex="0">Scaling Strategies (Horizontal vs. Vertical)</a></li>
+                <li class="sidebar-link"><a href="#security-access-control" tabindex="0">Security and Access Control</a></li>
+                <li class="sidebar-link"><a href="#user-roles-privileges" tabindex="0">User Roles and Privileges</a></li>
+                <li class="sidebar-link"><a href="#encryption-methods" tabindex="0">Encryption Methods</a></li>
+                <li class="sidebar-link"><a href="#auditing-logging" tabindex="0">Auditing and Logging</a></li>
+                <li class="sidebar-link"><a href="#sql-performance-optimization" tabindex="0">SQL Performance Optimization</a></li>
+                <li class="sidebar-link"><a href="#query-optimization" tabindex="0">Query Optimization Techniques</a></li>
+                <li class="sidebar-link"><a href="#index-tuning" tabindex="0">Index Tuning</a></li>
+                <li class="sidebar-link"><a href="#execution-plans" tabindex="0">Execution Plans</a></li>
+                <li class="sidebar-link"><a href="#triggers" tabindex="0">Triggers in SQL</a></li>
+                <li class="sidebar-link"><a href="#cursors" tabindex="0">Cursors in SQL</a></li>
+                <li class="sidebar-link"><a href="#udfs" tabindex="0">User-Defined Functions (UDFs) in SQL</a></li>
+                <li class="sidebar-link"><a href="#udts" tabindex="0">User-Defined Types (UDTs)</a></li>
+                <li class="sidebar-link"><a href="#user-contributions" tabindex="0">Submit Your SQL Queries or Challenges</a></li>
+            </ul>
+        </nav>
     </div>
-
-<!-- Sidebar -->
-<div id="sideMenu" class="sideMenu">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="history.html">History of Python</a>
-    <a href="variables.html">Variables and Data Types</a>
-    <a href="operators.html">Basic Operators</a>
-    <a href="control_flow.html">Control Flow</a>
-    <a href="functions.html">Functions</a>
-    <a href="data_structures.html">Data Structures</a>
-    <a href="sql_basics.html">SQL Basics</a>
-    <a href="intermediate_sql.html">Intermediate SQL</a>
-    <a href="advanced_sql.html">Advanced SQL</a>
-    <a href="database_design.html">Database Design</a>
-    <a href="security.html">Security and Access Control</a>
-    <a href="user_roles.html">User Roles and Privileges</a>
-    <a href="encryption.html">Encryption Methods</a>
-    <a href="auditing.html">Auditing and Logging</a>
-    <a href="performance.html">Performance Optimization</a>
-    <a href="query_optimization.html">Query Optimization Techniques</a>
-    <a href="index_tuning.html">Index Tuning</a>
-    <a href="execution_plans.html">Understanding Execution Plans</a>
-    <a href="triggers.html">Triggers</a>
-    <a href="cursors.html">Cursors</a>
-    <a href="udfs.html">User-Defined Functions (UDFs)</a>
-    <a href="udts.html">User-Defined Types (UDTs)</a>
-</div>
-
-    <!-- Toggle Button -->
-    <div class="toggle-menu" onclick="openNav()">☰</div>
 
 <!-- Content -->
 <div id="content">
     <h1>Advanced SQL Concepts</h1>
 
-    <section id="window-functions" class="margin-lg padding-md box-shadow">
-        <h2>Introduction to Window Functions in MySQL</h2>
+    <section id="window-functions">
+        <h2>Introduction to Window Functions</h2>
         <p>
-            Window functions in MySQL are a powerful tool for performing advanced data analysis and computations.
+            Window functions are a powerful tool for performing advanced data analysis and computations.
             Unlike standard aggregate functions, window functions do not collapse rows; instead, they provide results for each row in the dataset.
         </p>
     
@@ -78,7 +80,8 @@
     
         <h3>Syntax</h3>
         <div class="code-box">
-            <pre><code>function_name(expression) OVER (
+            <pre><code>
+        function_name(expression) OVER (
         [PARTITION BY column1, column2, ...]
         [ORDER BY column1 [ASC|DESC], column2 [ASC|DESC], ...]
         [frame_specification]
@@ -97,7 +100,8 @@
     
         <h4>Example 1: Calculating Running Totals</h4>
         <div class="code-box">
-            <pre><code>SELECT
+            <pre><code>
+        SELECT
         CustomerID,
         Amount,
         SUM(Amount) OVER (PARTITION BY CustomerID ORDER BY SaleID) AS RunningTotal
@@ -118,7 +122,8 @@
     
         <h4>Example 3: Identifying Trends</h4>
         <div class="code-box">
-            <pre><code>SELECT
+            <pre><code>
+        SELECT
         SaleID,
         SaleMonth,
         Amount,
@@ -136,10 +141,10 @@
         </ul>
     </section>
 
-    <section id="ranking-functions" class="margin-lg padding-md box-shadow">
-        <h2>Understanding Ranking Functions in MySQL</h2>
+    <section id="ranking-functions">
+        <h2> Ranking Functions</h2>
         <p>
-            Ranking functions in MySQL are used to assign ranks to rows within a partition of a result set. They are essential for analyzing trends, assigning positions, and grouping related information effectively.
+            Ranking functions are used to assign ranks to rows within a partition of a result set. They are essential for analyzing trends, assigning positions, and grouping related information effectively.
         </p>
     
         <h3>Key Ranking Functions</h3>
@@ -198,7 +203,8 @@
         <h4>Example 1: Using ROW_NUMBER()</h4>
         <p>Assign unique row numbers to employees based on their salaries:</p>
         <div class="code-box">
-            <pre><code>SELECT
+            <pre><code>
+        SELECT
         EmployeeID,
         EmployeeName,
         Salary,
@@ -253,7 +259,8 @@
         <h4>Example 2: Using RANK()</h4>
         <p>Rank employees by their salaries within each department:</p>
         <div class="code-box">
-            <pre><code>SELECT
+            <pre><code>
+        SELECT
         DepartmentID,
         EmployeeName,
         Salary,
@@ -308,7 +315,8 @@
         <h4>Example 3: Using DENSE_RANK()</h4>
         <p>Assign dense ranks to employees based on their salaries within each department:</p>
         <div class="code-box">
-            <pre><code>SELECT
+            <pre><code>
+        SELECT
         DepartmentID,
         EmployeeName,
         Salary,
@@ -360,10 +368,11 @@
             </tbody>
         </table>
     </section>
-    <section id="aggregate-functions" class="margin-lg padding-md box-shadow">
-        <h2>Understanding Aggregate Functions in MySQL</h2>
+
+    <section id="aggregate-functions">
+        <h2>Aggregate Functions</h2>
         <p>
-            Aggregate functions in MySQL are used to perform calculations on a set of values and return a single value. These functions are essential for summarizing data and are commonly used in reporting and analytics.
+            Aggregate functions are used to perform calculations on a set of values and return a single value. These functions are essential for summarizing data and are commonly used in reporting and analytics.
         </p>
     
         <h3>Key Aggregate Functions</h3>
@@ -424,7 +433,8 @@
         <h4>1. Using SUM()</h4>
         <p>Calculate the total salary for each department:</p>
         <div class="code-box">
-            <pre><code>SELECT
+            <pre><code>
+        SELECT
         DepartmentID,
         SUM(Salary) AS TotalSalary
     FROM Employees
@@ -458,7 +468,8 @@
         <h4>2. Using AVG()</h4>
         <p>Calculate the average salary for each department:</p>
         <div class="code-box">
-            <pre><code>SELECT
+            <pre><code>
+        SELECT
         DepartmentID,
         AVG(Salary) AS AverageSalary
     FROM Employees
@@ -492,7 +503,8 @@
         <h4>3. Using MIN()</h4>
         <p>Find the lowest salary in each department:</p>
         <div class="code-box">
-            <pre><code>SELECT
+            <pre><code>
+        SELECT
         DepartmentID,
         MIN(Salary) AS MinSalary
     FROM Employees
@@ -526,7 +538,8 @@
         <h4>4. Using MAX()</h4>
         <p>Find the highest salary in each department:</p>
         <div class="code-box">
-            <pre><code>SELECT
+            <pre><code>
+        SELECT
         DepartmentID,
         MAX(Salary) AS MaxSalary
     FROM Employees
@@ -560,7 +573,8 @@
         <h4>5. Using COUNT()</h4>
         <p>Count the number of employees in each department:</p>
         <div class="code-box">
-            <pre><code>SELECT
+            <pre><code>
+        SELECT
         DepartmentID,
         COUNT(EmployeeID) AS EmployeeCount
     FROM Employees
@@ -591,10 +605,11 @@
             </tbody>
         </table>
     </section>
-    <section id="value-functions" class="margin-lg padding-md box-shadow">
-        <h2>Understanding Value Functions in MySQL</h2>
+
+    <section id="value-functions">
+        <h2>Value Functions</h2>
         <p>
-            Value functions in MySQL allow you to retrieve specific values from a dataset within a defined window. These functions are particularly useful for comparing rows, identifying trends, and performing advanced analytics.
+            Value functions allow you to retrieve specific values from a dataset within a defined window. These functions are particularly useful for comparing rows, identifying trends, and performing advanced analytics.
         </p>
     
         <h3>Key Value Functions</h3>
@@ -661,7 +676,8 @@
         <h4>1. Using FIRST_VALUE()</h4>
         <p>Retrieve the first hired employee in each department based on hire date:</p>
         <div class="code-box">
-            <pre><code>SELECT
+            <pre><code>
+        SELECT
         DepartmentID,
         EmployeeName,
         HireDate,
@@ -718,7 +734,8 @@
         <h4>2. Using LAST_VALUE()</h4>
         <p>Retrieve the last hired employee in each department:</p>
         <div class="code-box">
-            <pre><code>SELECT
+            <pre><code>
+        SELECT
         DepartmentID,
         EmployeeName,
         HireDate,
@@ -774,7 +791,8 @@
         <h4>3. Using NTH_VALUE()</h4>
 <p>Retrieve the second highest salary in each department:</p>
 <div class="code-box">
-    <pre><code>SELECT
+    <pre><code>
+    SELECT
     DepartmentID,
     EmployeeName,
     Salary,
@@ -831,7 +849,8 @@ FROM Employees;</code></pre>
 <h4>4. Using LEAD()</h4>
 <p>Compare each employee's salary with the next employee's salary:</p>
 <div class="code-box">
-    <pre><code>SELECT
+    <pre><code>
+    SELECT
     EmployeeName,
     Salary,
     LEAD(Salary) OVER (ORDER BY Salary DESC) AS NextSalary
@@ -879,7 +898,8 @@ FROM Employees;</code></pre>
 <h4>5. Using LAG()</h4>
 <p>Compare each employee's salary with the previous employee's salary:</p>
 <div class="code-box">
-    <pre><code>SELECT
+    <pre><code>
+    SELECT
     EmployeeName,
     Salary,
     LAG(Salary) OVER (ORDER BY Salary DESC) AS PreviousSalary
@@ -926,7 +946,7 @@ FROM Employees;</code></pre>
 
     </section>
 
-    <section id="common-table-expressions" class="margin-lg padding-md box-shadow">
+    <section id="common-table-expressions">
         <h2>2. Common Table Expressions (CTEs)</h2>
         <p>
             Common Table Expressions (CTEs) are temporary result sets that simplify complex queries. They allow you to structure your SQL queries in a modular and readable way. A CTE is defined using the <code>WITH</code> keyword and can be used in <code>SELECT</code>, <code>INSERT</code>, <code>UPDATE</code>, or <code>DELETE</code> statements.
@@ -941,7 +961,8 @@ FROM Employees;</code></pre>
     
         <h3>Syntax</h3>
         <div class="code-box">
-            <pre><code>WITH cte_name (column1, column2, ...) AS (
+            <pre><code>
+        WITH cte_name (column1, column2, ...) AS (
         SELECT column1, column2, ...
         FROM table_name
         WHERE conditions
@@ -956,7 +977,8 @@ FROM Employees;</code></pre>
         <h4>1. Aggregating Sales Data</h4>
         <p>Find all salespeople whose total sales exceed $10,000:</p>
         <div class="code-box">
-            <pre><code>WITH Sales_CTE (SalesPerson, TotalSales) AS (
+            <pre><code>
+        WITH Sales_CTE (SalesPerson, TotalSales) AS (
         SELECT SalesPerson, SUM(SalesAmount)
         FROM Sales
         GROUP BY SalesPerson
@@ -971,7 +993,8 @@ FROM Employees;</code></pre>
         <h4>2. Using CTEs for Ranking</h4>
         <p>Rank employees by their salaries within each department:</p>
         <div class="code-box">
-            <pre><code>WITH RankedEmployees AS (
+            <pre><code>
+        WITH RankedEmployees AS (
         SELECT 
             DepartmentID, 
             EmployeeName, 
@@ -989,7 +1012,8 @@ FROM Employees;</code></pre>
         <h4>3. Recursive CTE: Hierarchical Data</h4>
         <p>Find all employees and their reporting hierarchy:</p>
         <div class="code-box">
-            <pre><code>WITH RECURSIVE EmployeeHierarchy AS (
+            <pre><code>
+        WITH RECURSIVE EmployeeHierarchy AS (
         SELECT EmployeeID, ManagerID, EmployeeName
         FROM Employees
         WHERE ManagerID IS NULL
@@ -1007,7 +1031,8 @@ FROM Employees;</code></pre>
         <h4>4. Joining CTEs</h4>
         <p>Combine data from multiple CTEs to calculate average sales per region:</p>
         <div class="code-box">
-            <pre><code>WITH RegionalSales AS (
+            <pre><code>
+        WITH RegionalSales AS (
         SELECT Region, SUM(SalesAmount) AS TotalSales
         FROM Sales
         GROUP BY Region
@@ -1032,7 +1057,7 @@ FROM Employees;</code></pre>
         </ul>
     </section>
 
-    <section id="recursive-queries" class="margin-lg padding-md box-shadow">
+    <section id="recursive-queries">
         <h2>3. Recursive Queries</h2>
         <p>
             Recursive queries in SQL are used to handle hierarchical or iterative data structures, such as organizational charts, file systems, or category trees. These queries use a combination of the <code>WITH RECURSIVE</code> clause and a recursive Common Table Expression (CTE) to achieve their functionality.
@@ -1047,7 +1072,8 @@ FROM Employees;</code></pre>
     
         <h3>Syntax</h3>
         <div class="code-box">
-            <pre><code>WITH RECURSIVE cte_name AS (
+            <pre><code>
+        WITH RECURSIVE cte_name AS (
         base_query
         UNION ALL
         recursive_query
@@ -1061,7 +1087,8 @@ FROM Employees;</code></pre>
         <h4>1. Building an Employee Hierarchy</h4>
         <p>Retrieve a hierarchical structure of employees and their managers:</p>
         <div class="code-box">
-            <pre><code>WITH RECURSIVE EmployeeHierarchy AS (
+            <pre><code>
+        WITH RECURSIVE EmployeeHierarchy AS (
         SELECT employee_id, manager_id, employee_name
         FROM employees
         WHERE manager_id IS NULL
@@ -1078,7 +1105,8 @@ FROM Employees;</code></pre>
         <h4>2. Calculating Factorials</h4>
         <p>Calculate the factorial of numbers from 1 to 5:</p>
         <div class="code-box">
-            <pre><code>WITH RECURSIVE FactorialCTE AS (
+            <pre><code>
+        WITH RECURSIVE FactorialCTE AS (
         SELECT 1 AS n, 1 AS factorial
         UNION ALL
         SELECT n + 1, factorial * (n + 1)
@@ -1124,7 +1152,8 @@ FROM Employees;</code></pre>
         <h4>3. Generating a Sequence</h4>
         <p>Create a sequence of numbers from 1 to 10:</p>
         <div class="code-box">
-            <pre><code>WITH RECURSIVE SequenceCTE AS (
+            <pre><code>
+        WITH RECURSIVE SequenceCTE AS (
         SELECT 1 AS n
         UNION ALL
         SELECT n + 1
@@ -1185,13 +1214,13 @@ FROM Employees;</code></pre>
         </ul>
     </section>
 
-    <section id="regular-expressions" class="margin-lg padding-md box-shadow">
-        <h2>Topic 2: Regular Expressions in SQL</h2>
+    <section id="regular-expressions">
+        <h2>Regular Expressions in SQL</h2>
         <p>
             <strong>Simple Explanation:</strong><br>
             Regular Expressions (RegEx) in SQL allow you to search, validate, or extract data using patterns. Think of RegEx as a powerful filter for text data, enabling complex matching beyond simple LIKE clauses. It is a versatile tool for cleaning and analyzing textual data.
         </p>
-    
+
         <h3>Key Benefits of Regular Expressions</h3>
         <ul>
             <li><strong>Advanced Pattern Matching:</strong> Identify complex patterns in text data.</li>
@@ -1199,14 +1228,15 @@ FROM Employees;</code></pre>
             <li><strong>Text Extraction:</strong> Extract useful information from unstructured text.</li>
             <li><strong>Data Transformation:</strong> Replace or modify text patterns efficiently.</li>
         </ul>
-    
-        <h3>5 Examples to Understand Regular Expressions</h3>
-    
+
+        <h3>Comprehensive Examples</h3>
+
         <h4>1. Email Validation</h4>
         <p><strong>Scenario:</strong> Check if a string is a valid email address.<br>
         <strong>SQL Snippet (PostgreSQL):</strong></p>
         <div class="code-box">
-            <pre><code>SELECT 'test@example.com' ~* '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}$' AS is_valid;</code></pre>
+            <pre><code>
+        SELECT 'test@example.com' ~* '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}$' AS is_valid;</code></pre>
             <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
         </div>
         <p><strong>Explanation:</strong> This query checks if the input string matches the typical email format: <code>username@domain.extension</code>. The result will return <code>TRUE</code> if valid and <code>FALSE</code> otherwise.</p>
@@ -1229,7 +1259,7 @@ FROM Employees;</code></pre>
                 </tr>
             </tbody>
         </table>
-    
+
         <h4>2. Extracting Numbers from Text</h4>
         <p><strong>Scenario:</strong> Pull out all numbers from a product description.<br>
         <strong>SQL Snippet (MySQL):</strong></p>
@@ -1238,245 +1268,93 @@ FROM Employees;</code></pre>
             <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
         </div>
         <p><strong>Explanation:</strong> The query identifies the first number in the input string. To extract all numbers, modify the query to iterate over matches.</p>
-        <p><strong>Result:</strong></p>
-        <table class="data-table margin-lg">
-            <thead>
-                <tr>
-                    <th>Input</th>
-                    <th>ExtractedNumber</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Product weighs 5kg and is 10cm tall</td>
-                    <td>5</td>
-                </tr>
-            </tbody>
-        </table>
-    
-        <h4>3. Matching Credit Card Numbers</h4>
-        <p><strong>Scenario:</strong> Identify potential credit card numbers in user input.<br>
-        <strong>SQL Snippet (SQL Server):</strong></p>
-        <div class="code-box">
-            <pre><code>SELECT * FROM logs
-    WHERE input LIKE '%[0-9][0-9][0-9][0-9]-%[0-9][0-9][0-9][0-9]-%[0-9][0-9][0-9][0-9]-%[0-9][0-9][0-9][0-9]%';</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
-        </div>
-        <p><strong>Explanation:</strong> This query looks for text patterns resembling credit card numbers (16 digits separated by hyphens).</p>
-    
-        <h4>4. Replacing Text Patterns</h4>
-        <p><strong>Scenario:</strong> Standardize date formats in text.<br>
-        <strong>SQL Snippet (Oracle):</strong></p>
-        <div class="code-box">
-            <pre><code>SELECT REGEXP_REPLACE(
-        'Meeting on 02-16-2023',
-        '(\d{2})-(\d{2})-(\d{4})',
-        'Month: \2, Day: \1, Year: \3'
-    ) AS standardized_date;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
-        </div>
-        <p><strong>Explanation:</strong> The query identifies dates in <code>MM-DD-YYYY</code> format and replaces them with a standardized format like <code>Month: DD, Day: MM, Year: YYYY</code>.</p>
-        <p><strong>Result:</strong></p>
-        <table class="data-table margin-lg">
-            <thead>
-                <tr>
-                    <th>Input</th>
-                    <th>StandardizedDate</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Meeting on 02-16-2023</td>
-                    <td>Month: 16, Day: 02, Year: 2023</td>
-                </tr>
-            </tbody>
-        </table>
-    
-        <h4>5. Validating Password Strength</h4>
-        <p><strong>Scenario:</strong> Check if a password meets complexity requirements (e.g., length, uppercase, lowercase, numbers).<br>
-        <strong>SQL Snippet (PostgreSQL):</strong></p>
-        <div class="code-box">
-            <pre><code>SELECT 'MyP@ssw0rd' ~* '^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$' AS is_strong_password;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
-        </div>
-        <p><strong>Explanation:</strong> This query validates passwords with at least one lowercase letter, one uppercase letter, one digit, and a minimum length of 8 characters.</p>
-        <p><strong>Result:</strong></p>
-        <table class="data-table margin-lg">
-            <thead>
-                <tr>
-                    <th>Password</th>
-                    <th>IsStrongPassword</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>MyP@ssw0rd</td>
-                    <td>TRUE</td>
-                </tr>
-                <tr>
-                    <td>weakpass</td>
-                    <td>FALSE</td>
-                </tr>
-            </tbody>
-        </table>
-    
-        <h3>Tips for Using Regular Expressions in SQL</h3>
-        <ul>
-            <li><strong>Database Compatibility:</strong> Check your database's RegEx support and syntax.</li>
-            <li><strong>Pattern Testing:</strong> Use online RegEx testers to refine your patterns before applying them in SQL.</li>
-            <li><strong>Performance:</strong> Be cautious with complex patterns on large datasets, as they can impact query performance.</li>
-            <li><strong>Security:</strong> Use RegEx responsibly, especially when validating user input, to avoid potential vulnerabilities.</li>
-        </ul>
-    </section>
 
-    <section id="regular-expressions" class="margin-lg padding-md box-shadow">
-        <h2>Topic 2: Regular Expressions in SQL</h2>
-        <p>
-            <strong>Simple Explanation:</strong><br>
-            Regular Expressions (RegEx) in SQL allow you to search, validate, or extract data using patterns. Think of RegEx as a powerful filter for text data, enabling complex matching beyond simple LIKE clauses. It is a versatile tool for cleaning and analyzing textual data.
-        </p>
-    
-        <h3>Key Benefits of Regular Expressions</h3>
-        <ul>
-            <li><strong>Advanced Pattern Matching:</strong> Identify complex patterns in text data.</li>
-            <li><strong>Data Validation:</strong> Ensure data adheres to specific formats, such as emails or phone numbers.</li>
-            <li><strong>Text Extraction:</strong> Extract useful information from unstructured text.</li>
-            <li><strong>Data Transformation:</strong> Replace or modify text patterns efficiently.</li>
-        </ul>
-    
-        <h3>5 Examples to Understand Regular Expressions</h3>
-    
-        <h4>1. Email Validation</h4>
-        <p><strong>Scenario:</strong> Check if a string is a valid email address.<br>
-        <strong>SQL Snippet (PostgreSQL):</strong></p>
-        <div class="code-box">
-            <pre><code>SELECT 'test@example.com' ~* '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}$' AS is_valid;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
-        </div>
-        <p><strong>Explanation:</strong> This query checks if the input string matches the typical email format: <code>username@domain.extension</code>. The result will return <code>TRUE</code> if valid and <code>FALSE</code> otherwise.</p>
-        <p><strong>Result:</strong></p>
+        <h4>3. Common Regular Expression Patterns</h4>
+        <p>The table below summarizes commonly used RegEx patterns and their descriptions:</p>
         <table class="data-table margin-lg">
             <thead>
                 <tr>
-                    <th>Input</th>
-                    <th>IsValid</th>
+                    <th>Pattern</th>
+                    <th>Description</th>
+                    <th>Example</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
+                    <td><code>^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}$</code></td>
+                    <td>Matches a valid email address.</td>
                     <td>test@example.com</td>
-                    <td>TRUE</td>
                 </tr>
                 <tr>
-                    <td>invalid-email</td>
-                    <td>FALSE</td>
+                    <td><code>[0-9]+</code></td>
+                    <td>Matches one or more digits.</td>
+                    <td>12345</td>
                 </tr>
-            </tbody>
-        </table>
-    
-        <h4>2. Extracting Numbers from Text</h4>
-        <p><strong>Scenario:</strong> Pull out all numbers from a product description.<br>
-        <strong>SQL Snippet (MySQL):</strong></p>
-        <div class="code-box">
-            <pre><code>SELECT REGEXP_SUBSTR('Product weighs 5kg and is 10cm tall', '[0-9]+') AS extracted_number;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
-        </div>
-        <p><strong>Explanation:</strong> The query identifies the first number in the input string. To extract all numbers, modify the query to iterate over matches.</p>
-        <p><strong>Result:</strong></p>
-        <table class="data-table margin-lg">
-            <thead>
                 <tr>
-                    <th>Input</th>
-                    <th>ExtractedNumber</th>
+                    <td><code>\b[A-Z]{3}\b</code></td>
+                    <td>Matches three-letter uppercase words.</td>
+                    <td>USA, CAT</td>
                 </tr>
-            </thead>
-            <tbody>
                 <tr>
-                    <td>Product weighs 5kg and is 10cm tall</td>
-                    <td>5</td>
+                    <td><code>\d{4}-\d{2}-\d{2}</code></td>
+                    <td>Matches a date in YYYY-MM-DD format.</td>
+                    <td>2023-01-01</td>
                 </tr>
-            </tbody>
-        </table>
-    
-        <h4>3. Matching Credit Card Numbers</h4>
-        <p><strong>Scenario:</strong> Identify potential credit card numbers in user input.<br>
-        <strong>SQL Snippet (SQL Server):</strong></p>
-        <div class="code-box">
-            <pre><code>SELECT * FROM logs
-    WHERE input LIKE '%[0-9][0-9][0-9][0-9]-%[0-9][0-9][0-9][0-9]-%[0-9][0-9][0-9][0-9]-%[0-9][0-9][0-9][0-9]%';</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
-        </div>
-        <p><strong>Explanation:</strong> This query looks for text patterns resembling credit card numbers (16 digits separated by hyphens).</p>
-    
-        <h4>4. Replacing Text Patterns</h4>
-        <p><strong>Scenario:</strong> Standardize date formats in text.<br>
-        <strong>SQL Snippet (Oracle):</strong></p>
-        <div class="code-box">
-            <pre><code>SELECT REGEXP_REPLACE(
-        'Meeting on 02-16-2023',
-        '(\d{2})-(\d{2})-(\d{4})',
-        'Month: \2, Day: \1, Year: \3'
-    ) AS standardized_date;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
-        </div>
-        <p><strong>Explanation:</strong> The query identifies dates in <code>MM-DD-YYYY</code> format and replaces them with a standardized format like <code>Month: DD, Day: MM, Year: YYYY</code>.</p>
-        <p><strong>Result:</strong></p>
-        <table class="data-table margin-lg">
-            <thead>
                 <tr>
-                    <th>Input</th>
-                    <th>StandardizedDate</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Meeting on 02-16-2023</td>
-                    <td>Month: 16, Day: 02, Year: 2023</td>
-                </tr>
-            </tbody>
-        </table>
-    
-        <h4>5. Validating Password Strength</h4>
-        <p><strong>Scenario:</strong> Check if a password meets complexity requirements (e.g., length, uppercase, lowercase, numbers).<br>
-        <strong>SQL Snippet (PostgreSQL):</strong></p>
-        <div class="code-box">
-            <pre><code>SELECT 'MyP@ssw0rd' ~* '^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$' AS is_strong_password;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
-        </div>
-        <p><strong>Explanation:</strong> This query validates passwords with at least one lowercase letter, one uppercase letter, one digit, and a minimum length of 8 characters.</p>
-        <p><strong>Result:</strong></p>
-        <table class="data-table margin-lg">
-            <thead>
-                <tr>
-                    <th>Password</th>
-                    <th>IsStrongPassword</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
+                    <td><code>^(?=.*[A-Z])(?=.*\d).{8,}$</code></td>
+                    <td>Validates a strong password.</td>
                     <td>MyP@ssw0rd</td>
-                    <td>TRUE</td>
-                </tr>
-                <tr>
-                    <td>weakpass</td>
-                    <td>FALSE</td>
                 </tr>
             </tbody>
         </table>
-    
-        <h3>Tips for Using Regular Expressions in SQL</h3>
+
+        <h3>Best Practices for Regular Expressions</h3>
         <ul>
-            <li><strong>Database Compatibility:</strong> Check your database's RegEx support and syntax.</li>
-            <li><strong>Pattern Testing:</strong> Use online RegEx testers to refine your patterns before applying them in SQL.</li>
-            <li><strong>Performance:</strong> Be cautious with complex patterns on large datasets, as they can impact query performance.</li>
-            <li><strong>Security:</strong> Use RegEx responsibly, especially when validating user input, to avoid potential vulnerabilities.</li>
+            <li><strong>Keep Patterns Simple:</strong> Avoid overly complex patterns that are hard to maintain.</li>
+            <li><strong>Test Your Patterns:</strong> Use online tools or database-specific testing environments to validate patterns before deploying them.</li>
+            <li><strong>Monitor Performance:</strong> Use RegEx judiciously on large datasets to avoid performance bottlenecks.</li>
+            <li><strong>Document Patterns:</strong> Include comments or documentation to explain the purpose of complex patterns.</li>
         </ul>
+
+        <h3>Tips for Database Compatibility</h3>
+        <p>Not all databases support RegEx natively. Here's a quick compatibility guide:</p>
+        <table class="data-table margin-lg">
+            <thead>
+                <tr>
+                    <th>Database</th>
+                    <th>RegEx Support</th>
+                    <th>Functions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>MySQL</td>
+                    <td>Partial</td>
+                    <td><code>REGEXP_LIKE</code>, <code>REGEXP_REPLACE</code></td>
+                </tr>
+                <tr>
+                    <td>PostgreSQL</td>
+                    <td>Full</td>
+                    <td><code>~</code>, <code>~*</code>, <code>REGEXP_REPLACE</code></td>
+                </tr>
+                <tr>
+                    <td>Oracle</td>
+                    <td>Full</td>
+                    <td><code>REGEXP_LIKE</code>, <code>REGEXP_SUBSTR</code>, <code>REGEXP_REPLACE</code></td>
+                </tr>
+                <tr>
+                    <td>SQL Server</td>
+                    <td>Limited</td>
+                    <td>CLR Integration or <code>LIKE</code></td>
+                </tr>
+            </tbody>
+        </table>
     </section>
 
-    <section id="denormalization-for-performance" class="margin-lg padding-md box-shadow">
-        <h2>Topic 2: Denormalization for Performance</h2>
+    <section id="denormalization-for-performance">
+        <h2>Denormalization for Performance</h2>
     
-        <h3>Understanding Denormalization</h3>
+        <h3>Denormalization</h3>
         <p>
             <strong>Analogy:</strong> Imagine you're moving into a new house. If your furniture is compactly stored in boxes (like IKEA), it takes time to assemble everything after moving in. But if some pieces are pre-assembled, you can set up your home much faster, even if it takes up more space in the moving truck. Similarly:
         </p>
@@ -1501,7 +1379,8 @@ FROM Employees;</code></pre>
         <h4>1. Combining Tables for Faster Access</h4>
         <p><strong>Scenario:</strong> Instead of joining <code>Orders</code> and <code>Customers</code> tables every time, store customer details in the <code>Orders</code> table.</p>
         <div class="code-box">
-            <pre><code>-- Normalized Structure
+            <pre><code>
+    -- Normalized Structure
     CREATE TABLE Customers (
         CustomerID INT PRIMARY KEY,
         Name VARCHAR(255),
@@ -1530,7 +1409,8 @@ FROM Employees;</code></pre>
         <h4>2. Pre-Calculated Totals</h4>
         <p><strong>Scenario:</strong> Instead of calculating the total amount for each order every time, store the pre-calculated total in the database.</p>
         <div class="code-box">
-            <pre><code>-- Normalized Structure
+            <pre><code>
+    -- Normalized Structure
     CREATE TABLE OrderDetails (
         OrderID INT,
         ProductID INT,
@@ -1550,7 +1430,8 @@ FROM Employees;</code></pre>
         <h4>3. Adding Redundant Data for Aggregates</h4>
         <p><strong>Scenario:</strong> Add a column to store the total number of orders for each customer:</p>
         <div class="code-box">
-            <pre><code>-- Normalized Structure
+            <pre><code>
+    -- Normalized Structure
     SELECT CustomerID, COUNT(*) AS OrderCount
     FROM Orders
     GROUP BY CustomerID;
@@ -1596,9 +1477,9 @@ FROM Employees;</code></pre>
         </p>
     </section>
     
-    <section id="database-partitioning" class="margin-lg padding-md box-shadow">
-        <h2>Topic 3: Database Partitioning</h2>
-        <h3>Understanding Database Partitioning</h3>
+    <section id="database-partitioning">
+        <h2>Database Partitioning</h2>
+        <h3>Database Partitioning</h3>
         <p>
             <strong>Analogy:</strong> Imagine a massive filing cabinet filled with documents. Searching for a single file could take ages. By dividing the cabinet into smaller sections labeled by criteria like date or client type, you can find what you need much faster.
         </p>
@@ -1615,7 +1496,8 @@ FROM Employees;</code></pre>
         <h3>Example: Horizontal Partitioning</h3>
         <p>Divide a large <code>Orders</code> table by regions:</p>
         <div class="code-box">
-            <pre><code>-- Partitioned Tables
+            <pre><code>
+    -- Partitioned Tables
     CREATE TABLE Orders_North (...);
     CREATE TABLE Orders_South (...);
     
@@ -1626,9 +1508,9 @@ FROM Employees;</code></pre>
         <p><strong>Takeaway:</strong> Instead of scanning a massive <code>Orders</code> table, queries target only the relevant partition, speeding up data retrieval.</p>
     </section>
     
-    <section id="scaling-strategies" class="margin-lg padding-md box-shadow">
-        <h2>Topic 4: Horizontal vs. Vertical Scaling</h2>
-        <h3>Understanding Scaling Strategies</h3>
+    <section id="scaling-strategies">
+        <h2>Horizontal vs. Vertical Scaling</h2>
+        <h3>Scaling Strategies</h3>
         <p>
             <strong>Analogy:</strong> Scaling your website is like expanding a restaurant:
             <ul>
@@ -1650,7 +1532,8 @@ FROM Employees;</code></pre>
         </ul>
         <h3>Example: Scaling a Website</h3>
         <div class="code-box">
-            <pre><code>-- Vertical Scaling: Upgrading server resources
+            <pre><code>
+    -- Vertical Scaling: Upgrading server resources
     ServerConfig {
         CPU: "8 cores",
         RAM: "32GB",
@@ -1664,9 +1547,9 @@ FROM Employees;</code></pre>
         <p><strong>Takeaway:</strong> Use vertical scaling for quick fixes and manageable growth. Opt for horizontal scaling when expecting significant traffic spikes or long-term growth.</p>
     </section>
     
-    <section id="security-access-control" class="margin-lg padding-md box-shadow">
-        <h2>Topic 1: Security and Access Control</h2>
-        <h3>Understanding Security and Access Control</h3>
+    <section id="security-access-control">
+        <h2>Security and Access Control</h2>
+        <h3>Security and Access Control</h3>
         <p>
             <strong>Analogy:</strong> Imagine a high-end jewelry store:
             <ul>
@@ -1683,7 +1566,8 @@ FROM Employees;</code></pre>
         </ul>
         <h3>Example: Implementing Role-Based Access Control</h3>
         <div class="code-box">
-            <pre><code>-- Creating Roles
+            <pre><code>
+    -- Creating Roles
     CREATE ROLE Admin;
     CREATE ROLE User;
     
@@ -1701,23 +1585,38 @@ FROM Employees;</code></pre>
         </ul>
         <p><strong>Takeaway:</strong> Protect your website like a jewelry store—secure the data (goods) and ensure only authorized users (employees) have the right level of access.</p>
     </section>
-    
 
+    <section id="user-roles-privileges">
+        <h2>User Roles and Privileges</h2>
+        <h3>User Roles and Privileges</h3>
+        <p>
+            <strong>Analogy:</strong> Imagine a restaurant kitchen:
+            <ul>
+                <li><strong>User Roles:</strong> Different positions like Chef, Sous Chef, and Dishwasher, each with specific tasks.</li>
+                <li><strong>Privileges:</strong> Assigning access to tools and areas based on their role. For instance, only the Chef can modify the menu, while the Line Cook executes recipes.</li>
+            </ul>
+        </p>
+        <h3>Benefits of Role-Based Access Control (RBAC)</h3>
+        <ul>
+            <li><strong>Enhanced Security:</strong> Limits user access to sensitive data and functionality.</li>
+            <li><strong>Simplified Management:</strong> Easy to assign and revoke permissions by role rather than individual users.</li>
+            <li><strong>Reduced Errors:</strong> Minimizes accidental or unauthorized changes.</li>
+        </ul>
+        <h3>Example: Implementing Roles and Privileges</h3>
+        <div class="code-box">
+            <pre><code>
+    -- Creating Roles
+    CREATE ROLE Admin;
+    CREATE ROLE Moderator;
+    CREATE ROLE User;
     
-    <section>
-        <h2>Topic 2: User Roles and Privileges</h2>
-        <p><strong>Analogy: Assigning Tasks in a Restaurant Kitchen</strong><br>
-        <strong>User Roles:</strong> Defining positions (e.g., Chef, Sous Chef, Line Cook, Dishwasher) with specific responsibilities.<br>
-        <strong>Privileges:</strong> Assigning only necessary tasks and access levels to each role:</p>
-        <ul>
-            <li><strong>Chef:</strong> Can create, edit, and delete menus.</li>
-            <li><strong>Line Cook:</strong> Can view and execute recipes.</li>
-        </ul>
-        <p><strong>Easy Takeaway for Your Website:</strong></p>
-        <ul>
-            <li><strong>Establish Clear User Roles:</strong> Define roles like Admin, Moderator, User, and Guest.</li>
-            <li><strong>Assign Least Privilege Access:</strong> Give each role only the necessary permissions to perform their tasks, minimizing potential damage.</li>
-        </ul>
+    -- Assigning Privileges
+    GRANT ALL PRIVILEGES ON database_name.* TO 'Admin';
+    GRANT SELECT, UPDATE ON database_name.* TO 'Moderator';
+    GRANT SELECT ON database_name.* TO 'User';</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+        <h3>Example Role Privileges</h3>
         <table class="data-table">
             <thead>
                 <tr>
@@ -1744,64 +1643,372 @@ FROM Employees;</code></pre>
                 </tr>
             </tbody>
         </table>
+        <h3>Takeaway</h3>
+        <p>
+            Assign roles and privileges based on the principle of least privilege—users should have only the permissions they need to perform their tasks. This enhances security and reduces risks.
+        </p>
     </section>
     
-    <section>
-        <h2>Topic 3: Encryption Methods</h2>
-        <p><strong>Analogy: Securing Sensitive Letters</strong><br>
-        <strong>Encryption:</strong> Converting sensitive letters (data) into unreadable code (ciphertext) using a key or password.</p>
-        <p><strong>Common Encryption Methods:</strong></p>
+    <section id="encryption-methods">
+        <h2>Encryption Methods</h2>
+        <h3>Encryption</h3>
+        <p>
+            <strong>Analogy:</strong> Think of sending sensitive letters:
+            <ul>
+                <li><strong>Encryption:</strong> Transforming the letter into an unreadable code (ciphertext) that only the recipient with the key can decode.</li>
+            </ul>
+        </p>
+        <h3>Common Encryption Methods</h3>
         <ul>
-            <li><strong>HTTPS (SSL/TLS):</strong> Securing data in transit (between website and user).</li>
-            <li><strong>Hashing (e.g., bcrypt):</strong> Protecting stored passwords.</li>
-            <li><strong>Symmetric Encryption (e.g., AES):</strong> Securing data at rest (stored on servers).</li>
+            <li><strong>HTTPS (SSL/TLS):</strong> Ensures secure data transmission between the client and server.</li>
+            <li><strong>Hashing (e.g., bcrypt):</strong> Protects stored passwords by converting them into a fixed-length code.</li>
+            <li><strong>Symmetric Encryption (e.g., AES):</strong> Encrypts sensitive data stored on servers.</li>
         </ul>
-        <p><strong>Easy Takeaway for Your Website:</strong></p>
-        <ul>
-            <li><strong>HTTPS:</strong> For secure data transmission.</li>
-            <li><strong>Hashing:</strong> For password storage.</li>
-            <li><strong>Symmetric Encryption:</strong> For sensitive stored data (e.g., credit card numbers).</li>
-        </ul>
+        <h3>Example: Encrypting Sensitive Data</h3>
+        <div class="code-box">
+            <pre><code>
+    -- Encrypting Passwords (PostgreSQL Example)
+    INSERT INTO users (username, password)
+    VALUES ('user1', crypt('password123', gen_salt('bf')));
+    
+    -- Using HTTPS (Nginx Example)
+    server {
+        listen 443 ssl;
+        ssl_certificate /path/to/certificate.crt;
+        ssl_certificate_key /path/to/private.key;
+    }</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+        <h3>Takeaway</h3>
+        <p>
+            Encryption is essential for protecting sensitive data in transit and at rest. Use HTTPS for secure communication, hashing for password storage, and symmetric encryption for sensitive stored data.
+        </p>
     </section>
     
-    <section>
-        <h2>Topic 4: Auditing and Logging</h2>
-        <p><strong>Analogy: Monitoring a Store's Security Cameras and Transaction Records</strong><br>
-        <strong>Auditing:</strong> Regularly reviewing security camera footage (logs) to identify potential issues.<br>
-        <strong>Logging:</strong> Maintaining detailed records of all transactions (system events, user activities) for forensic analysis.</p>
-        <p><strong>Easy Takeaway for Your Website:</strong></p>
+    <section id="auditing-logging">
+        <h2>Auditing and Logging</h2>
+        <h3>Auditing and Logging</h3>
+        <p>
+            <strong>Analogy:</strong> A store's security system:
+            <ul>
+                <li><strong>Auditing:</strong> Reviewing security footage to detect potential issues or threats.</li>
+                <li><strong>Logging:</strong> Keeping detailed records of transactions and events for future analysis.</li>
+            </ul>
+        </p>
+        <h3>Benefits</h3>
         <ul>
-            <li><strong>Implement Comprehensive Logging:</strong> Track system events, user activities (logins, updates, etc.), and security incidents.</li>
-            <li><strong>Regularly Audit Logs:</strong> Detect suspicious activity, identify vulnerabilities, and enhance security posture.</li>
+            <li><strong>Enhanced Security:</strong> Detect unauthorized access and suspicious activity.</li>
+            <li><strong>Forensic Analysis:</strong> Investigate incidents and identify vulnerabilities.</li>
+            <li><strong>Compliance:</strong> Meet legal and regulatory requirements for data protection.</li>
         </ul>
+        <h3>Example: Setting Up Logging</h3>
+        <div class="code-box">
+            <pre><code>
+    -- Enabling General Query Log (MySQL)
+    SET GLOBAL general_log = 'ON';
+    SET GLOBAL log_output = 'TABLE';
+    
+    -- Viewing Logs
+    SELECT * FROM mysql.general_log;
+    
+    -- Creating Audit Triggers
+    CREATE TRIGGER audit_log_trigger
+    AFTER INSERT ON sensitive_table
+    FOR EACH ROW
+    INSERT INTO audit_log (action, user, timestamp)
+    VALUES ('INSERT', CURRENT_USER(), NOW());</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+        <h3>Takeaway</h3>
+        <p>
+            Regularly audit and log system activities to enhance security, meet compliance requirements, and maintain a robust defense against potential threats.
+        </p>
     </section>
+    
+    <section id="sql-performance-optimization">
+        <h2>SQL Performance Optimization</h2>
+        <p>
+            SQL performance optimization is the process of improving the efficiency of SQL queries and database operations. It focuses on reducing query execution time, lowering resource usage, and enhancing overall database performance.
+        </p>
+    
+        <h3>Why Is Optimization Important?</h3>
+        <ul>
+            <li><strong>Faster Queries:</strong> Ensures minimal waiting time for users.</li>
+            <li><strong>Efficient Resource Use:</strong> Reduces server CPU, memory, and disk usage.</li>
+            <li><strong>Scalability:</strong> Handles large datasets and high traffic smoothly.</li>
+            <li><strong>Cost Savings:</strong> Reduces infrastructure costs by optimizing hardware utilization.</li>
+        </ul>
+    
+        <h3>Basics of SQL Optimization</h3>
+        <h4>1. Understand the Query Lifecycle</h4>
+        <p>When you execute a query, SQL goes through these steps:</p>
+        <ul>
+            <li><strong>Parsing:</strong> Validates the syntax.</li>
+            <li><strong>Optimization:</strong> Creates the most efficient execution plan.</li>
+            <li><strong>Execution:</strong> Runs the query based on the execution plan.</li>
+        </ul>
+    
+        <h4>2. Common Factors Affecting Query Performance</h4>
+        <ul>
+            <li>Complex joins or subqueries.</li>
+            <li>Missing or inefficient indexing.</li>
+            <li>Large table scans.</li>
+            <li>Redundant or repetitive queries.</li>
+            <li>Poorly written logic (e.g., unnecessary calculations).</li>
+        </ul>
+    
+        <h3>Beginner Optimization Techniques</h3>
+        <h4>1. Select Only Required Columns</h4>
+        <p>Avoid using <code>SELECT *</code> because it retrieves all columns, even those not needed.</p>
+        <div class="code-box">
+            <pre><code>
+    -- Inefficient
+    SELECT * FROM employees;
+    
+    -- Optimized
+    SELECT emp_id, name FROM employees;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+    
+        <h4>2. Use WHERE Clauses</h4>
+        <p>Filter rows using <code>WHERE</code> to minimize the data processed.</p>
+        <div class="code-box">
+            <pre><code>
+    -- Without WHERE clause
+    SELECT name FROM employees;
+    
+    -- With WHERE clause
+    SELECT name FROM employees WHERE department = 'Sales';</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+    
+        <h4>3. Avoid Redundant Calculations</h4>
+        <p>Perform calculations once and reuse the result.</p>
+        <div class="code-box">
+            <pre><code>
+    -- Inefficient
+    SELECT emp_id, salary * 12 AS annual_salary FROM employees;
+    
+    -- Efficient
+    WITH calculated_salaries AS (
+        SELECT emp_id, salary * 12 AS annual_salary FROM employees
+    )
+    SELECT * FROM calculated_salaries;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+    
+        <h4>4. Use LIMIT for Pagination</h4>
+        <p>When displaying limited results, use <code>LIMIT</code> (or <code>TOP</code> in SQL Server) to avoid fetching all rows.</p>
+        <div class="code-box">
+            <pre><code>SELECT * FROM employees LIMIT 10;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+    
+        <h3>Intermediate Optimization Techniques</h3>
+        <h4>5. Indexing</h4>
+        <p><strong>What Is an Index?</strong> An index is a data structure that speeds up data retrieval operations. It works like a book's table of contents.</p>
+        <p><strong>When to Use Indexes:</strong> Frequently searched columns, columns used in <code>WHERE</code>, <code>JOIN</code>, <code>GROUP BY</code>, and <code>ORDER BY</code>.</p>
+        <div class="code-box">
+            <pre><code>
+    -- Create an Index
+    CREATE INDEX idx_department ON employees(department);
+    
+    -- Query Before Indexing
+    SELECT * FROM employees WHERE department = 'Sales';
+    
+    -- Query After Indexing
+    SELECT * FROM employees WHERE department = 'Sales';</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+    
+        <h4>6. Avoid Using Functions on Indexed Columns</h4>
+        <p>Functions on indexed columns disable the index.</p>
+        <div class="code-box">
+            <pre><code>
+    -- Inefficient
+    SELECT * FROM employees WHERE UPPER(name) = 'ALICE';
+    
+    -- Efficient
+    SELECT * FROM employees WHERE name = 'Alice';</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+    
+        <h4>7. Optimize Joins</h4>
+        <p>Use appropriate join types and ensure columns used in joins are indexed.</p>
+        <div class="code-box">
+            <pre><code>SELECT e.name, d.dept_name
+    FROM employees e
+    INNER JOIN departments d ON e.dept_id = d.dept_id;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+    
+        <h4>8. Reduce Subquery Use</h4>
+        <p>Replace subqueries with joins for better performance.</p>
+        <div class="code-box">
+            <pre><code>
+    -- Subquery
+    SELECT name
+    FROM employees
+    WHERE dept_id = (SELECT dept_id FROM departments WHERE dept_name = 'Sales');
+    
+    -- Join
+    SELECT e.name
+    FROM employees e
+    INNER JOIN departments d ON e.dept_id = d.dept_id
+    WHERE d.dept_name = 'Sales';</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+    
+        <h3>Advanced Optimization Techniques</h3>
+        <h4>9. Partitioning</h4>
+        <p><strong>What Is Partitioning?</strong> Partitioning splits a large table into smaller, more manageable pieces, improving query performance.</p>
+        <div class="code-box">
+            <pre><code>-- Range Partitioning
+    CREATE TABLE orders (
+        order_id INT,
+        order_date DATE,
+        amount DECIMAL
+    ) PARTITION BY RANGE (YEAR(order_date)) (
+        PARTITION p2022 VALUES LESS THAN (2023),
+        PARTITION p2023 VALUES LESS THAN (2024)
+    );</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+    
+        <h4>10. Use Query Execution Plans</h4>
+        <p>Execution plans show how SQL will process your query. Use <code>EXPLAIN</code> or similar commands to analyze queries.</p>
+    
+        <h4>11. Optimize Updates and Deletes</h4>
+        <p>Perform batch updates or deletes instead of processing all rows at once.</p>
+        <div class="code-box">
+            <pre><code>
+    -- Batch Update
+    UPDATE employees
+    SET salary = salary * 1.10
+    WHERE department = 'Sales'
+    LIMIT 100;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+    
+        <h4>12. Use Materialized Views</h4>
+        <p>A materialized view stores query results for faster access.</p>
+        <div class="code-box">
+            <pre><code>
+    CREATE MATERIALIZED VIEW sales_summary AS
+    SELECT department, SUM(sales) AS total_sales
+    FROM sales
+    GROUP BY department;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+    
+        <h3>Best Practices</h3>
+        <ul>
+            <li><strong>Write Simple Queries:</strong> Avoid overly complex logic.</li>
+            <li><strong>Analyze and Monitor:</strong> Regularly check query performance using execution plans.</li>
+            <li><strong>Index Wisely:</strong> Over-indexing can slow down writes.</li>
+            <li><strong>Avoid Overfetching:</strong> Fetch only necessary data.</li>
+            <li><strong>Archive Old Data:</strong> Move historical data to separate tables or databases.</li>
+        </ul>
+    </section>    
 
-    <section>
-        <h2>Topic 1: Performance Optimization</h2>
-        <p><strong>Analogy: Fine-Tuning a Racing Car</strong><br>
-        <strong>Performance Optimization:</strong> Adjusting the car's engine, tires, and aerodynamics to achieve the fastest lap times.<br>
-        <strong>Goal:</strong> Minimize the time it takes for users to interact with your website (response time) and maximize the number of concurrent users (throughput).</p>
-        <p><strong>Easy Takeaway for Your Website:</strong> Regularly inspect and tune your website's:</p>
-        <ul>
-            <li><strong>Server and Infrastructure:</strong> Ensure your servers are powerful enough and properly configured.</li>
-            <li><strong>Database Queries:</strong> Optimize queries to reduce load times.</li>
-            <li><strong>Code and Caching:</strong> Write efficient code and use caching to speed up data retrieval.</li>
-            <li><strong>Content and Assets:</strong> Compress images, minify CSS/JS, and use CDNs to deliver content faster.</li>
-        </ul>
-    </section>
+    <section id="query-optimization">
+        <h2>Query Optimization Techniques</h2>
+        <h3>Query Optimization</h3>
+        <p>
+            <strong>Analogy:</strong> Think of query optimization as finding the quickest route to a destination:
+            <ul>
+                <li><strong>Simplify Queries:</strong> Avoid unnecessary detours by removing redundant operations.</li>
+                <li><strong>Use Efficient Data Types:</strong> Choose the most suitable "vehicle" (data type) for your data.</li>
+                <li><strong>Limit Result Sets:</strong> Carry only what you need to minimize load.</li>
+                <li><strong>Avoid SELECT *:</strong> Specify exactly what you're retrieving to save time and resources.</li>
+            </ul>
+        </p>
     
-    <section>
-        <h2>Topic 2: Query Optimization Techniques</h2>
-        <p><strong>Analogy: Finding the Quickest Route to a Destination</strong><br>
-        <strong>Query Optimization:</strong> Identifying the fastest route (most efficient query) to retrieve the required data, avoiding traffic jams (inefficient queries).</p>
-        <p><strong>Techniques:</strong></p>
+        <h3>Key Techniques for Query Optimization</h3>
         <ul>
-            <li><strong>Simplify Queries:</strong> Reduce complexity (e.g., limit joins, subqueries).</li>
-            <li><strong>Use Efficient Data Types:</strong> Choose optimal data types for each column.</li>
-            <li><strong>Limit Result Sets:</strong> Only retrieve necessary data (e.g., use LIMIT, OFFSET).</li>
-            <li><strong>Avoid SELECT *:</strong> Retrieve only required columns.</li>
+            <li><strong>Indexing:</strong> Use indexes to speed up searches on large datasets.</li>
+            <li><strong>Query Simplification:</strong> Rewrite complex queries to use joins instead of subqueries.</li>
+            <li><strong>Partitioning:</strong> Split large tables into smaller, more manageable partitions.</li>
+            <li><strong>Query Execution Plan:</strong> Analyze execution plans to identify bottlenecks.</li>
+            <li><strong>Caching:</strong> Use caching to store frequently accessed data.</li>
         </ul>
-        <p><strong>Easy Takeaway for Your Website:</strong></p>
+    
+        <h3>Examples and Best Practices</h3>
+    
+        <h4>1. Use Indexes Wisely</h4>
+        <p>Indexes help databases find data quickly. Here's an example of a query with and without an index:</p>
+        <div class="code-box">
+            <pre><code>
+    -- Without Index
+    SELECT * FROM orders WHERE customer_id = 123;
+    
+    -- With Index
+    CREATE INDEX idx_customer_id ON orders(customer_id);
+    SELECT * FROM orders WHERE customer_id = 123;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+        <p><strong>Tip:</strong> Avoid creating too many indexes, as they can slow down insert, update, and delete operations.</p>
+    
+        <h4>2. Simplify Complex Queries</h4>
+        <p>Rewrite queries to reduce complexity. For example:</p>
+        <div class="code-box">
+            <pre><code>
+    -- Complex Query with Subquery
+    SELECT * FROM orders
+    WHERE customer_id IN (SELECT customer_id FROM customers WHERE region = 'West');
+    
+    -- Simplified Query with Join
+    SELECT orders.*
+    FROM orders
+    JOIN customers ON orders.customer_id = customers.customer_id
+    WHERE customers.region = 'West';</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+    
+        <h4>3. Avoid SELECT *</h4>
+        <p>Retrieve only the columns you need to reduce data transfer:</p>
+        <div class="code-box">
+            <pre><code>
+    -- Inefficient Query
+    SELECT * FROM orders WHERE status = 'Shipped';
+    
+    -- Optimized Query
+    SELECT order_id, customer_id, status
+    FROM orders
+    WHERE status = 'Shipped';</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+    
+        <h4>4. Use LIMIT and OFFSET</h4>
+        <p>Limit the number of rows retrieved to improve performance:</p>
+        <div class="code-box">
+            <pre><code>
+    -- Retrieve the first 10 rows
+    SELECT * FROM orders LIMIT 10;
+    
+    -- Retrieve the next 10 rows
+    SELECT * FROM orders LIMIT 10 OFFSET 10;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+    
+        <h4>5. Analyze Query Execution Plans</h4>
+        <p>Execution plans provide insight into how a query is executed. Use it to identify bottlenecks:</p>
+        <div class="code-box">
+            <pre><code>
+    -- MySQL Example
+    EXPLAIN SELECT * FROM orders WHERE customer_id = 123;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+    
+        <h3>Advanced Optimization Techniques</h3>
+        <ul>
+            <li><strong>Partitioning:</strong> Divide large tables into smaller partitions to improve query performance.</li>
+            <li><strong>Denormalization:</strong> Store pre-aggregated or redundant data for faster access.</li>
+            <li><strong>Materialized Views:</strong> Use precomputed views for expensive queries.</li>
+            <li><strong>Database Configuration:</strong> Tune database parameters like buffer size and query cache size.</li>
+        </ul>
+    
+        <h3>Benefits of Query Optimization</h3>
         <table class="data-table">
             <thead>
                 <tr>
@@ -1812,247 +2019,634 @@ FROM Employees;</code></pre>
             </thead>
             <tbody>
                 <tr>
-                    <td>Simplify Queries</td>
-                    <td>Replace <code>SELECT * FROM users WHERE ...</code> with <code>SELECT id, name FROM users WHERE ...</code></td>
-                    <td>Reduced data transfer</td>
+                    <td>Indexing</td>
+                    <td>CREATE INDEX idx_column ON table(column);</td>
+                    <td>Speeds up data retrieval</td>
                 </tr>
                 <tr>
-                    <td>Efficient Data Types</td>
-                    <td>Use <code>DATE</code> instead of <code>VARCHAR</code> for date columns</td>
-                    <td>Faster query execution</td>
+                    <td>Partitioning</td>
+                    <td>Partition data by region or date</td>
+                    <td>Improves query performance on large tables</td>
                 </tr>
                 <tr>
-                    <td>Limit Result Sets</td>
-                    <td>Add <code>LIMIT 10</code> to retrieve only the first 10 results</td>
-                    <td>Reduced server load</td>
+                    <td>Execution Plan Analysis</td>
+                    <td>EXPLAIN SELECT * FROM table;</td>
+                    <td>Identifies performance bottlenecks</td>
                 </tr>
                 <tr>
-                    <td>Avoid SELECT *</td>
-                    <td>Retrieve only necessary columns (e.g., <code>SELECT id, name, email</code>)</td>
-                    <td>Reduced data transfer</td>
+                    <td>Caching</td>
+                    <td>Store results of frequent queries</td>
+                    <td>Reduces load on the database</td>
                 </tr>
             </tbody>
         </table>
-    </section>
     
-    <section>
-        <h2>Topic 3: Index Tuning</h2>
-        <p><strong>Analogy: Optimizing a Library's Catalog System</strong><br>
-        <strong>Indexing:</strong> Creating a catalog (index) to quickly locate specific books (data) in the library (database).<br>
-        <strong>Index Tuning:</strong> Refining the catalog system to:</p>
+        <h3>Key Takeaways</h3>
         <ul>
-            <li>Reduce search time (query execution time).</li>
-            <li>Minimize catalog maintenance (index overhead).</li>
-        </ul>
-        <p><strong>Easy Takeaway for Your Website:</strong></p>
-        <ul>
-            <li><strong>Create Indexes</strong> on frequently used WHERE, JOIN, and ORDER BY columns.</li>
-            <li><strong>Monitor Index Usage</strong> to identify and remove unused indexes.</li>
-            <li><strong>Regularly Maintain Indexes</strong> to ensure optimal performance.</li>
+            <li>Optimize queries for both performance and readability.</li>
+            <li>Use indexing, partitioning, and caching effectively.</li>
+            <li>Regularly analyze execution plans to refine queries.</li>
+            <li>Adopt advanced techniques like denormalization and materialized views for large-scale systems.</li>
         </ul>
     </section>
     
-    <section>
-        <h2>Topic 4: Understanding Execution Plans</h2>
-        <p><strong>Analogy: Decoding a GPS Navigation Route</strong><br>
-        <strong>Execution Plan:</strong> A step-by-step guide (like a GPS route) illustrating how the database executes a query.</p>
-        <p><strong>Key Components:</strong></p>
-        <ul>
-            <li><strong>Operators:</strong> (e.g., Table Scan, Index Seek).</li>
-            <li><strong>Cost Estimates:</strong> (e.g., CPU, I/O).</li>
-            <li><strong>Data Flow:</strong> (e.g., table joins, filtering).</li>
-        </ul>
-        <p><strong>Easy Takeaway for Your Website:</strong></p>
-        <ul>
-            <li><strong>Analyze Execution Plans</strong> to identify performance bottlenecks.</li>
-            <li><strong>Focus on High-Cost Operators</strong> (e.g., Table Scan) and optimize them.</li>
-            <li><strong>Use Insights</strong> to refine your indexing strategy and query optimization techniques.</li>
-        </ul>
+    <section id="index-tuning">
+        <h2>Index Tuning</h2>
+        <h3>Index Tuning</h3>
+        <p>
+            <strong>Analogy:</strong> Optimizing a library's catalog system to quickly locate books:
+            <ul>
+                <li><strong>Create Indexes:</strong> Add shortcuts to frequently searched shelves.</li>
+                <li><strong>Monitor Index Usage:</strong> Remove unnecessary shortcuts.</li>
+                <li><strong>Maintain Indexes:</strong> Regularly update to ensure efficiency.</li>
+            </ul>
+        </p>
+        <h3>Example: Creating and Maintaining Indexes</h3>
+        <div class="code-box">
+            <pre><code>
+    -- Creating an Index
+    CREATE INDEX idx_status ON orders (status);
+    
+    -- Dropping Unused Index
+    DROP INDEX idx_unused ON orders;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+    </section>
+    
+    <section id="execution-plans">
+        <h2>Execution Plans</h2>
+        <h3>Execution Plans</h3>
+        <p>
+            <strong>Analogy:</strong> Decoding a GPS route to understand how to reach your destination:
+            <ul>
+                <li><strong>Operators:</strong> Steps like Table Scan or Index Seek.</li>
+                <li><strong>Cost Estimates:</strong> Predicting the effort (CPU, I/O) required.</li>
+                <li><strong>Data Flow:</strong> How data is joined, filtered, and aggregated.</li>
+            </ul>
+        </p>
+        <h3>Example: Analyzing an Execution Plan</h3>
+        <div class="code-box">
+            <pre><code>
+    -- Viewing Execution Plan (MySQL)
+    EXPLAIN SELECT * FROM orders WHERE status = 'Shipped';
+    
+    -- Sample Output
+    +----+-------------+--------+-------+---------------+------+---------+------+-------+
+    | id | select_type | table  | type  | possible_keys | key  | key_len | ref  | rows  |
+    +----+-------------+--------+-------+---------------+------+---------+------+-------+</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+        <h3>Takeaway</h3>
+        <p>
+            Use execution plans to identify inefficiencies like table scans. Focus on optimizing high-cost operations and ensure indexes are effectively utilized.
+        </p>
     </section>
 
-    <section>
-        <h2>Topic 1: Triggers</h2>
-        <p><strong>Analogy: Automated Home Security System</strong><br>
-        <strong>Triggers:</strong> Pre-defined, automated responses to specific database events (e.g., insert, update, delete).</p>
-        <p><strong>Example:</strong></p>
+    <section id="triggers">
+        <h2>Triggers in SQL</h2>
+        <p>
+            A trigger in SQL is a special kind of stored procedure that automatically executes in response to specific events on a table or a view. These events can be <strong>INSERT</strong>, <strong>UPDATE</strong>, or <strong>DELETE</strong> operations.
+        </p>
+        <p>
+            Think of triggers as event-driven mechanisms that enforce business rules, automate tasks, or maintain data consistency without the need for manual intervention.
+        </p>
+    
+        <h3>Beginner's Guide: How Triggers Work</h3>
         <ul>
-            <li><strong>Event:</strong> New employee record inserted.</li>
-            <li><strong>Trigger Action:</strong> Automatically generate a unique employee ID and send a welcome email.</li>
-        </ul>
-        <p><strong>Easy Takeaway for Your Database:</strong></p>
-        <ul>
-            <li><strong>Use Triggers for:</strong></li>
+            <li><strong>Basic Definition:</strong> Triggers are attached to tables or views and activated when a specified event occurs. They execute pre-defined logic written in SQL.</li>
+            <li><strong>Why Use Triggers?</strong></li>
             <ul>
-                <li><strong>Data Validation:</strong> Enforce complex business rules.</li>
-                <li><strong>Auditing:</strong> Log sensitive data changes.</li>
-                <li><strong>Automation:</strong> Streamline workflows (e.g., notify teams, update related records).</li>
+                <li>To enforce business rules.</li>
+                <li>To automatically log changes in a table.</li>
+                <li>To maintain audit trails.</li>
+                <li>To validate data before insertion or update.</li>
             </ul>
         </ul>
-        <p><strong>Trigger Types:</strong></p>
-        <table class="data-table">
+    
+        <h3>Trigger Syntax</h3>
+        <div class="code-box">
+            <pre><code>
+    CREATE TRIGGER trigger_name
+    { BEFORE | AFTER }
+    { INSERT | UPDATE | DELETE }
+    ON table_name
+    FOR EACH ROW
+    BEGIN
+        -- SQL statements to execute
+    END;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+    
+        <h3>Beginner Example: Logging Changes</h3>
+        <p>
+            Suppose you have a <code>users</code> table, and you want to log every new user added to an <code>audit_log</code> table.
+        </p>
+    
+        <h4>Step 1: Create Tables</h4>
+        <div class="code-box">
+            <pre><code>
+    -- Main table
+    CREATE TABLE users (
+        user_id INT PRIMARY KEY,
+        name VARCHAR(100),
+        email VARCHAR(100)
+    );
+    
+    -- Audit log table
+    CREATE TABLE audit_log (
+        log_id INT AUTO_INCREMENT PRIMARY KEY,
+        action VARCHAR(50),
+        user_id INT,
+        timestamp DATETIME
+    );</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+    
+        <h4>Step 2: Create a Trigger</h4>
+        <div class="code-box">
+            <pre><code>
+    CREATE TRIGGER after_user_insert
+    AFTER INSERT ON users
+    FOR EACH ROW
+    BEGIN
+        INSERT INTO audit_log (action, user_id, timestamp)
+        VALUES ('User Added', NEW.user_id, NOW());
+    END;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+    
+        <h4>Step 3: Test the Trigger</h4>
+        <div class="code-box">
+            <pre><code>
+    -- Insert a new user
+    INSERT INTO users (user_id, name, email) VALUES (1, 'Alice', 'alice@example.com');
+    
+    -- Check the audit_log table
+    SELECT * FROM audit_log;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+    
+        <h4>Output:</h4>
+        <table class="data-table margin-lg">
             <thead>
                 <tr>
-                    <th>Type</th>
-                    <th>Description</th>
+                    <th>log_id</th>
+                    <th>action</th>
+                    <th>user_id</th>
+                    <th>timestamp</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td><strong>Before</strong></td>
-                    <td>Execute before the triggering event (e.g., validate data).</td>
-                </tr>
-                <tr>
-                    <td><strong>After</strong></td>
-                    <td>Execute after the triggering event (e.g., send notifications).</td>
-                </tr>
-                <tr>
-                    <td><strong>Instead Of</strong></td>
-                    <td>Replace the triggering event with a custom action.</td>
+                    <td>1</td>
+                    <td>User Added</td>
+                    <td>1</td>
+                    <td>2025-01-15 10:00:00</td>
                 </tr>
             </tbody>
         </table>
+    
+        <h3>Intermediate Level: Types of Triggers</h3>
+        <h4>1. BEFORE Triggers</h4>
+        <p>Executed before the event (INSERT, UPDATE, DELETE). Useful for data validation.</p>
         <div class="code-box">
-            <pre><code>CREATE TRIGGER trg_before_insert_employee
+            <pre><code>
+    CREATE TRIGGER before_salary_insert
     BEFORE INSERT ON employees
     FOR EACH ROW
     BEGIN
-      SET NEW.employee_id = CONCAT('EMP', LPAD(NEW.id, 5, '0'));
-      CALL send_welcome_email(NEW.email);
+        IF NEW.salary < 0 THEN
+            SIGNAL SQLSTATE '45000'
+            SET MESSAGE_TEXT = 'Salary cannot be negative';
+        END IF;
     END;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i></button>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
         </div>
-    </section>
     
-    <section>
-        <h2>Topic 2: Cursors</h2>
-        <p><strong>Analogy: Reading a Book, One Page at a Time</strong><br>
-        <strong>Cursors:</strong> Temporary workspaces that allow iterative processing of query results, one row (or set of rows) at a time.</p>
-        <p><strong>Example:</strong></p>
-        <ul>
-            <li><strong>Query:</strong> Retrieve all orders for a specific customer.</li>
-            <li><strong>Cursor:</strong> Process each order individually, performing calculations or updates.</li>
-        </ul>
-        <p><strong>Easy Takeaway for Your Database:</strong></p>
-        <ul>
-            <li><strong>Use Cursors for:</strong></li>
-            <ul>
-                <li><strong>Complex Calculations:</strong> Perform iterative computations.</li>
-                <li><strong>Row-by-Row Processing:</strong> Update or transform individual rows.</li>
-                <li><strong>Integration with Applications:</strong> Feed results to external programs.</li>
-            </ul>
-        </ul>
-        <p><strong>Best Practice:</strong> Minimize cursor usage due to potential performance impacts; consider alternative set-based operations instead.</p>
+        <h4>2. AFTER Triggers</h4>
+        <p>Executed after the event. Used for logging or updating other tables.</p>
         <div class="code-box">
-            <pre><code>DECLARE cursor_orders CURSOR FOR
-    SELECT order_id, order_amount FROM orders WHERE customer_id = 123;
-    
-    OPEN cursor_orders;
-    
-    FETCH NEXT FROM cursor_orders INTO @order_id, @order_amount;
-    
-    WHILE @@FETCH_STATUS = 0
+            <pre><code>
+    CREATE TRIGGER after_employee_delete
+    AFTER DELETE ON employees
+    FOR EACH ROW
     BEGIN
-      -- Perform calculations or updates
-      UPDATE orders SET processed = 1 WHERE order_id = @order_id;
-      FETCH NEXT FROM cursor_orders INTO @order_id, @order_amount;
-    END;
-    
-    CLOSE cursor_orders;
-    DEALLOCATE cursor_orders;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i></button>
+        INSERT INTO employee_archive (emp_id, name, deleted_at)
+        VALUES (OLD.emp_id, OLD.name, NOW());
+    END;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
         </div>
+    
+        <h4>3. INSTEAD OF Triggers</h4>
+        <p>Executed instead of the triggering event. Useful for views (supported in some databases like SQL Server).</p>
+        <div class="code-box">
+            <pre><code>
+    CREATE TRIGGER instead_of_view_update
+    INSTEAD OF UPDATE ON employee_view
+    FOR EACH ROW
+    BEGIN
+        UPDATE employees
+        SET name = NEW.name
+        WHERE emp_id = OLD.emp_id;
+    END;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+    
+        <h3>Advanced Topics: Trigger Concepts and Optimization</h3>
+        <h4>Accessing OLD and NEW Data</h4>
+        <p>
+            <strong>OLD:</strong> Refers to the row's values before the operation (for UPDATE or DELETE).<br>
+            <strong>NEW:</strong> Refers to the row's values after the operation (for INSERT or UPDATE).
+        </p>
+        <div class="code-box">
+            <pre><code>
+    CREATE TRIGGER after_salary_update
+    AFTER UPDATE ON employees
+    FOR EACH ROW
+    BEGIN
+        INSERT INTO salary_log (emp_id, old_salary, new_salary, change_date)
+        VALUES (OLD.emp_id, OLD.salary, NEW.salary, NOW());
+    END;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+    
+        <h4>Chaining Triggers</h4>
+        <p>Triggers can fire other triggers if the triggered action causes another INSERT, UPDATE, or DELETE.</p>
+    
+        <h3>Best Practices for Using Triggers</h3>
+        <ul>
+            <li><strong>Avoid Overusing Triggers:</strong> Use triggers only when necessary to avoid complexity.</li>
+            <li><strong>Keep Trigger Logic Simple:</strong> Avoid complex calculations or logic in triggers.</li>
+            <li><strong>Document Your Triggers:</strong> Clearly describe the purpose and logic of each trigger.</li>
+            <li><strong>Monitor Performance:</strong> Test triggers with large datasets to ensure they don't degrade performance.</li>
+        </ul>
+    
+        <h3>Real-World Use Cases</h3>
+        <ul>
+            <li><strong>Audit Trails:</strong> Track every change made to critical tables.</li>
+            <li><strong>Automatic Updates:</strong> Adjust related tables automatically when one table is updated.</li>
+            <li><strong>Enforcing Business Rules:</strong> Prevent invalid data entries (e.g., negative values).</li>
+            <li><strong>Cascading Operations:</strong> Handle cascading changes across multiple tables.</li>
+            <li><strong>Alerts and Notifications:</strong> Send alerts when specific conditions are met.</li>
+        </ul>
     </section>
     
-    <section>
-        <h2>Topic 3: User-Defined Functions (UDFs)</h2>
-        <p><strong>Analogy: Custom Cooking Recipes</strong><br>
-        <strong>UDFs:</strong> Reusable, named code blocks that perform specific tasks, taking optional input parameters.</p>
-        <p><strong>Example:</strong></p>
+    <section id="cursors">
+        <h2>Cursors in SQL</h2>
+        <p>
+            A cursor in SQL is a database object that allows you to handle query results one row at a time. While SQL is designed to work with entire result sets, cursors enable row-by-row processing for tasks requiring granular control.
+        </p>
+    
+        <h3>How Cursors Work</h3>
+        <p>
+            Think of a cursor as a pointer that navigates through rows in a dataset. Here's a typical workflow:
+        </p>
         <ul>
-            <li><strong>UDF:</strong> <code>CalculateTax(income, taxRate)</code></li>
-            <li><strong>Usage:</strong> Simplify tax calculations across your database.</li>
+            <li><strong>Declare:</strong> Define the cursor and specify the SQL query it will use.</li>
+            <li><strong>Open:</strong> Execute the query and store the result set in the cursor.</li>
+            <li><strong>Fetch:</strong> Retrieve one row at a time from the cursor.</li>
+            <li><strong>Process:</strong> Perform desired operations on the fetched row.</li>
+            <li><strong>Close:</strong> Close the cursor when done.</li>
+            <li><strong>Deallocate:</strong> Free resources associated with the cursor.</li>
         </ul>
-        <p><strong>Easy Takeaway for Your Database:</strong></p>
+    
+        <h3>Types of Cursors</h3>
         <ul>
-            <li><strong>Use UDFs for:</strong></li>
-            <ul>
-                <li><strong>Code Reusability:</strong> Avoid duplicating complex logic.</li>
-                <li><strong>Simplified Queries:</strong> Encapsulate intricate calculations.</li>
-                <li><strong>Improved Readability:</strong> Make your SQL more intuitive.</li>
-            </ul>
+            <li><strong>Implicit Cursors:</strong> Automatically created by the SQL engine for operations like SELECT, INSERT, UPDATE, or DELETE.</li>
+            <li><strong>Explicit Cursors:</strong> Manually declared by users to fetch and process rows individually.</li>
         </ul>
-        <p><strong>Types of UDFs:</strong></p>
-        <table class="data-table">
+    
+        <h3>Example: Explicit Cursor</h3>
+        <p>
+            Suppose we have a table <code>employees</code>:
+        </p>
+        <table class="data-table margin-lg">
             <thead>
                 <tr>
-                    <th>Type</th>
-                    <th>Description</th>
+                    <th>employee_id</th>
+                    <th>name</th>
+                    <th>department</th>
+                    <th>salary</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td><strong>Scalar</strong></td>
-                    <td>Returns a single value.</td>
+                    <td>1</td>
+                    <td>Alice</td>
+                    <td>IT</td>
+                    <td>6000</td>
                 </tr>
                 <tr>
-                    <td><strong>Table-Valued</strong></td>
-                    <td>Returns a result set (like a table).</td>
+                    <td>2</td>
+                    <td>Bob</td>
+                    <td>Sales</td>
+                    <td>4500</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Charlie</td>
+                    <td>IT</td>
+                    <td>7000</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Diana</td>
+                    <td>HR</td>
+                    <td>4800</td>
                 </tr>
             </tbody>
         </table>
+    
+        <p>Let’s print the details of employees in the "IT" department:</p>
         <div class="code-box">
-            <pre><code>CREATE FUNCTION CalculateTax(@income DECIMAL(10, 2), @taxRate DECIMAL(5, 2))
-    RETURNS DECIMAL(10, 2)
-    AS
+            <pre><code>
+    -- Step 1: Declare the Cursor
+    DECLARE employee_cursor CURSOR FOR
+    SELECT employee_id, name FROM employees WHERE department = 'IT';
+    
+    -- Step 2: Declare Variables to Hold Data
+    DECLARE @employee_id INT, @name NVARCHAR(100);
+    
+    -- Step 3: Open the Cursor
+    OPEN employee_cursor;
+    
+    -- Step 4: Fetch and Process Data in a Loop
+    FETCH NEXT FROM employee_cursor INTO @employee_id, @name;
+    
+    WHILE @@FETCH_STATUS = 0
     BEGIN
-      RETURN @income * @taxRate / 100;
-    END;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i></button>
+        PRINT 'Employee ID: ' + CAST(@employee_id AS VARCHAR) + ', Name: ' + @name;
+        FETCH NEXT FROM employee_cursor INTO @employee_id, @name;
+    END
+    
+    -- Step 5: Close and Deallocate Cursor
+    CLOSE employee_cursor;
+    DEALLOCATE employee_cursor;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
         </div>
+    
+        <h3>Output:</h3>
+        <table class="data-table margin-lg">
+            <thead>
+                <tr>
+                    <th>Employee ID</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Alice</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Charlie</td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <h3>Advanced Topics: Cursor Types</h3>
+        <ul>
+            <li><strong>Static Cursor:</strong> Takes a snapshot of data and does not reflect changes made after the cursor is opened.</li>
+            <li><strong>Dynamic Cursor:</strong> Reflects changes made to the underlying data but is resource-intensive.</li>
+            <li><strong>Forward-Only Cursor:</strong> Moves only forward through the result set, offering faster performance.</li>
+            <li><strong>Keyset-Driven Cursor:</strong> Uses a set of keys to fetch rows dynamically, reflecting updates but not inserts or deletes.</li>
+        </ul>
+    
+        <h3>Performance Tips</h3>
+        <ul>
+            <li><strong>Avoid Unnecessary Cursors:</strong> Use set-based operations like joins or window functions whenever possible.</li>
+            <li><strong>Use Forward-Only Cursors:</strong> For simple, sequential operations to minimize resource usage.</li>
+            <li><strong>Minimize Locking:</strong> Fetch smaller datasets or use read-only cursors to avoid blocking other transactions.</li>
+            <li><strong>Always Close and Deallocate:</strong> Release cursors promptly to free up resources.</li>
+        </ul>
+    
+        <h3>Real-World Use Cases</h3>
+        <ul>
+            <li><strong>Generating Payrolls:</strong> Process employee salary records row by row to generate payslips.</li>
+            <li><strong>Email Notifications:</strong> Fetch customer details and send personalized emails.</li>
+            <li><strong>Data Migration:</strong> Move data from one table to another with precise control.</li>
+        </ul>
     </section>
     
-    <section>
-        <h2>Topic 4: User-Defined Types (UDTs)</h2>
-        <p><strong>Analogy: Custom Product Packaging</strong><br>
-        <strong>UDTs:</strong> Custom data types that combine existing types, providing a new, reusable structure.</p>
-        <p><strong>Example:</strong></p>
+    <section id="udfs">
+        <h2>User-Defined Functions (UDFs) in SQL</h2>
+        <p>
+            A User-Defined Function (UDF) is a custom function created by a user to perform specific operations in a database. Unlike built-in functions (e.g., <code>SUM</code>, <code>AVG</code>), UDFs are written to handle tasks not supported by default SQL functions or to simplify repetitive calculations.
+        </p>
+    
+        <h3>Key Characteristics of UDFs</h3>
         <ul>
-            <li><strong>UDT:</strong> <code>Address</code> (combining street, city, state, and zip)</li>
-            <li><strong>Usage:</strong> Standardize address storage across your database.</li>
+            <li><strong>Reusable:</strong> UDFs can be called multiple times in different queries.</li>
+            <li><strong>Custom Logic:</strong> They allow users to implement logic tailored to specific needs.</li>
+            <li><strong>Input and Output:</strong> Accept parameters as input and return a value or table as output.</li>
+            <li><strong>Types:</strong> Scalar, Table-Valued, and Multi-Statement Table-Valued functions.</li>
         </ul>
-        <p><strong>Easy Takeaway for Your Database:</strong></p>
+    
+        <h3>Benefits of Using UDFs</h3>
         <ul>
-            <li><strong>Use UDTs for:</strong></li>
+            <li>Simplify complex queries.</li>
+            <li>Reduce repetitive code.</li>
+            <li>Enforce consistent logic across queries.</li>
+            <li>Improve maintainability by encapsulating logic in a single function.</li>
+        </ul>
+    
+        <h3>Basics of UDFs</h3>
+        <h4>1. Types of UDFs</h4>
+        <ul>
+            <li><strong>Scalar Functions:</strong> Return a single value.</li>
+            <li><strong>Table-Valued Functions:</strong></li>
             <ul>
-                <li><strong>Domain-Specific Modeling:</strong> Reflect your business domain accurately.</li>
-                <li><strong>Improved Data Integrity:</strong> Enforce customized constraints.</li>
-                <li><strong>Simplified Development:</strong> Enhance code readability and maintainability.</li>
+                <li><strong>Inline:</strong> Return a table directly using a single query.</li>
+                <li><strong>Multi-Statement:</strong> Use multiple statements to build and return a table.</li>
             </ul>
         </ul>
-        <p><strong>Considerations:</strong></p>
-        <ul>
-            <li><strong>Database Compatibility:</strong> UDT support varies across databases.</li>
-            <li><strong>Performance Implications:</strong> Depending on the UDT's complexity and usage.</li>
-        </ul>
+    
+        <h4>2. Basic Syntax of UDFs</h4>
         <div class="code-box">
-            <pre><code>CREATE TYPE Address AS OBJECT (
-      street VARCHAR2(50),
-      city VARCHAR2(50),
-      state VARCHAR2(50),
-      zip VARCHAR2(10)
+            <pre><code>
+    -- Scalar Function Syntax
+    CREATE FUNCTION function_name (@parameter datatype)
+    RETURNS return_datatype
+    AS
+    BEGIN
+        RETURN (expression or value);
+    END;
+    
+    -- Table-Valued Function Syntax
+    CREATE FUNCTION function_name (@parameter datatype)
+    RETURNS TABLE
+    AS
+    RETURN (SELECT ...);</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+    
+        <h3>Beginner Examples</h3>
+        <h4>1. Scalar Function: Calculate Square</h4>
+        <p><strong>Step 1:</strong> Create the Function</p>
+        <div class="code-box">
+            <pre><code>
+    CREATE FUNCTION calculate_square (@number INT)
+    RETURNS INT
+    AS
+    BEGIN
+        RETURN @number * @number;
+    END;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+        <p><strong>Step 2:</strong> Use the Function</p>
+        <div class="code-box">
+            <pre><code>SELECT dbo.calculate_square(4) AS Square;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+        <p><strong>Output:</strong></p>
+        <table class="data-table margin-lg">
+            <thead>
+                <tr>
+                    <th>Square</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>16</td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <h4>2. Inline Table-Valued Function: Filter Employees by Department</h4>
+        <p><strong>Step 1:</strong> Create the Function</p>
+        <div class="code-box">
+            <pre><code>CREATE FUNCTION get_employees_by_dept (@dept_name NVARCHAR(50))
+    RETURNS TABLE
+    AS
+    RETURN (
+        SELECT emp_id, name, department
+        FROM employees
+        WHERE department = @dept_name
+    );</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+        <p><strong>Step 2:</strong> Use the Function</p>
+        <div class="code-box">
+            <pre><code>SELECT * FROM dbo.get_employees_by_dept('Sales');</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+    
+        <h3>Intermediate Level: Adding Logic and Validations</h3>
+        <h4>3. Scalar Function with Validation</h4>
+        <p><strong>Example:</strong> Calculate Percentage (with Validation)</p>
+        <div class="code-box">
+            <pre><code>
+    CREATE FUNCTION calculate_percentage (@score FLOAT, @total FLOAT)
+    RETURNS FLOAT
+    AS
+    BEGIN
+        IF @total = 0
+            RETURN NULL; -- Avoid division by zero
+        RETURN (@score / @total) * 100;
+    END;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+    
+        <h4>4. Multi-Statement Table-Valued Function</h4>
+        <p><strong>Example:</strong> Get High-Performing Employees</p>
+        <div class="code-box">
+            <pre><code>
+    CREATE FUNCTION get_high_performers (@min_score INT)
+    RETURNS @result TABLE (
+        emp_id INT,
+        name NVARCHAR(100),
+        score INT
+    )
+    AS
+    BEGIN
+        INSERT INTO @result
+        SELECT emp_id, name, score
+        FROM employees
+        WHERE score > @min_score;
+    
+        RETURN;
+    END;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+    
+        <h3>Advanced Topics: UDF Optimization and Use Cases</h3>
+        <h4>5. Recursive UDFs</h4>
+        <p><strong>Example:</strong> Calculate Factorial</p>
+        <div class="code-box">
+            <pre><code>CREATE FUNCTION factorial (@n INT)
+    RETURNS INT
+    AS
+    BEGIN
+        IF @n = 0 OR @n = 1
+            RETURN 1;
+        RETURN @n * dbo.factorial(@n - 1);
+    END;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+    
+        <h4>6. UDFs with Complex Joins</h4>
+        <p><strong>Example:</strong> Employee-Manager Hierarchy</p>
+        <div class="code-box">
+            <pre><code>
+    CREATE FUNCTION get_manager (@emp_id INT)
+    RETURNS NVARCHAR(100)
+    AS
+    BEGIN
+        DECLARE @manager_name NVARCHAR(100);
+        SELECT @manager_name = m.name
+        FROM employees e
+        JOIN employees m ON e.manager_id = m.emp_id
+        WHERE e.emp_id = @emp_id;
+        RETURN @manager_name;
+    END;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+    
+        <h3>Best Practices for UDFs</h3>
+        <ul>
+            <li><strong>Use Meaningful Names:</strong> Clearly indicate the function’s purpose.</li>
+            <li><strong>Document Function Logic:</strong> Include comments to explain logic and parameters.</li>
+            <li><strong>Validate Inputs:</strong> Prevent unexpected errors with input validation.</li>
+            <li><strong>Optimize Queries:</strong> Avoid unnecessary calculations or joins in UDFs.</li>
+            <li><strong>Test Thoroughly:</strong> Ensure accuracy and performance with edge cases.</li>
+        </ul>
+    </section>
+    
+    <section id="udts">
+        <h2>User-Defined Types (UDTs)</h2>
+        <h3>UDTs</h3>
+        <p>
+            <strong>Analogy:</strong> Custom Product Packaging:
+            <ul>
+                <li><strong>Packaging:</strong> Combines multiple items (fields) into a single reusable unit.</li>
+                <li><strong>Usage:</strong> Streamlines handling of related fields (e.g., address).</li>
+            </ul>
+        </p>
+        <h3>Example: Creating and Using a UDT for Addresses</h3>
+        <div class="code-box">
+            <pre><code>
+        CREATE TYPE Address AS OBJECT (
+        street VARCHAR2(100),
+        city VARCHAR2(50),
+        state VARCHAR2(50),
+        zip VARCHAR2(10)
     );
     
     CREATE TABLE customers (
-      customer_id NUMBER,
-      name VARCHAR2(100),
-      address Address
-    );</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i></button>
+        customer_id NUMBER,
+        name VARCHAR2(100),
+        address Address
+    );
+    
+    -- Inserting Data
+    INSERT INTO customers (customer_id, name, address)
+    VALUES (1, 'John Doe', Address('123 Main St', 'Springfield', 'IL', '62701'));</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
         </div>
     </section>
-
     
-    <section id="user-contributions" class="margin-lg padding-md box-shadow">
+    <section id="user-contributions">
         <h2>Submit Your SQL Queries or Challenges</h2>
         <p>Have an interesting SQL query or challenge? Share it with us, and we might feature it on our site with credits to you!</p>
     
@@ -2173,8 +2767,14 @@ FROM Employees;</code></pre>
         </script>
 
     </section>
-    </div>
+</div>
 
-    <script src="script.js"></script> <!-- Link to your JavaScript file -->
+    <footer class="footer">
+        <p class="paragraph">Copyright 2023 TechyVia. All rights reserved.</p>
+      </footer>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script>
+        
+      <script src="script.js"></script>
 </body>
 </html>
