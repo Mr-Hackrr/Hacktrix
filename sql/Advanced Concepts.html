@@ -732,6 +732,129 @@ SELECT * FROM EmployeeHierarchy;</code></pre>
             <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
         </div>
     </section>
+
+    
+    <section id="user-contributions" class="margin-lg padding-md box-shadow">
+        <h2>Submit Your SQL Queries or Challenges</h2>
+        <p>Have an interesting SQL query or challenge? Share it with us, and we might feature it on our site with credits to you!</p>
+    
+        <!-- Submission Form -->
+        <form id="contribution-form" class="contribution-form">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+    
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+    
+            <label for="query">SQL Query/Challenge:</label>
+            <textarea id="query" name="query" placeholder="Enter your SQL query or challenge here" rows="5" required></textarea>
+    
+            <button type="submit" class="btn-submit">Submit</button>
+        </form>
+    
+        <!-- Featured Contributions -->
+        <div id="featured-contributions" class="featured-contributions">
+            <h3>Featured User Submissions</h3>
+            <ul>
+                <li><strong>John Doe:</strong> <em>"Write a query to find the top 5 highest-paid employees."</em></li>
+                <li><strong>Jane Smith:</strong> <em>"Optimize a query to retrieve customer orders within the last 30 days."</em></li>
+            </ul>
+        </div>
+        <style>
+            /* User Contributions Section */
+        #user-contributions {
+            background-color: #f9f9f9;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: var(--spacing-lg);
+        }
+
+        #user-contributions h2, #user-contributions h3 {
+            color: var(--secondary-color);
+            text-align: center;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .contribution-form {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .contribution-form label {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .contribution-form input, .contribution-form textarea {
+            width: 100%;
+            padding: var(--spacing-sm);
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+            font-size: 1em;
+        }
+
+        .contribution-form button {
+            background-color: var(--secondary-color);
+            color: #fff;
+            border: none;
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .contribution-form button:hover {
+            background-color: var(--accent-color);
+        }
+
+        .featured-contributions ul {
+            list-style: none;
+            padding: 0;
+            margin: var(--spacing-lg) 0;
+        }
+
+        .featured-contributions ul li {
+            margin-bottom: var(--spacing-sm);
+            padding-left: 10px;
+            position: relative;
+        }
+
+        .featured-contributions ul li::before {
+            content: "★";
+            position: absolute;
+            left: -15px;
+            color: var(--accent-color);
+        }
+
+        </style>
+
+        <script>
+            document.getElementById("contribution-form").addEventListener("submit", function(e) {
+                e.preventDefault();
+            
+                // Get form values
+                const name = document.getElementById("name").value;
+                const query = document.getElementById("query").value;
+            
+                // Add the contribution to the featured list
+                const contributions = document.getElementById("featured-contributions").querySelector("ul");
+                const newContribution = document.createElement("li");
+                newContribution.innerHTML = `<strong>${name}:</strong> <em>"${query}"</em>`;
+                contributions.appendChild(newContribution);
+            
+                // Reset form
+                this.reset();
+            
+                // Alert the user (optional)
+                alert("Thank you for your contribution!");
+            });
+        </script>
+
+    </section>
     </div>
 
     <script src="script.js"></script> <!-- Link to your JavaScript file -->

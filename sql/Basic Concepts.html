@@ -32,6 +32,7 @@
                 <ul class="sidebar-links">
                     <li class="sidebar-link"><a href="#introduction" tabindex="0">SQL Introduction</a></li>
                     <li class="sidebar-link"><a href="#sql-syntax-basics" tabindex="0">SQL Syntax Basics</a></li>
+                    <li class="sidebar-link"><a href="#sql-vs-nosql" tabindex="0">SQL vs NoSQL</a></li>
                     <li class="sidebar-link"><a href="#sql-data-types" tabindex="0">SQL Data Types</a></li>
                     <li class="sidebar-link"><a href="#sql-data-manipulation" tabindex="0">SQL Data Manipulation</a></li>
                     <li class="sidebar-link"><a href="#filtering-sorting-data" tabindex="0">Filtering and Sorting Data</a></li>
@@ -61,42 +62,6 @@
                 <li><strong>DCL (Data Control Language):</strong> GRANT, REVOKE</li>
                 <li><strong>Query Language:</strong> SELECT, FROM, WHERE, etc.</li>
             </ul>
-        
-            <h3>Brief History of SQL</h3>
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>Year</th>
-                        <th>Milestone</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1970</td>
-                        <td>Edgar F. Codd proposes the Relational Model for database management.</td>
-                    </tr>
-                    <tr>
-                        <td>1974</td>
-                        <td>Donald Chamberlin and Raymond Boyce at IBM develop the first SQL prototype, named SEQUEL (Structured English Query Language).</td>
-                    </tr>
-                    <tr>
-                        <td>1979</td>
-                        <td>The name is changed to SQL due to trademark issues. Oracle introduces the first commercially available RDBMS with SQL support.</td>
-                    </tr>
-                    <tr>
-                        <td>1986</td>
-                        <td>SQL becomes an ANSI (American National Standards Institute) standard.</td>
-                    </tr>
-                    <tr>
-                        <td>1989</td>
-                        <td>The International Organization for Standardization (ISO) adopts SQL as an international standard.</td>
-                    </tr>
-                    <tr>
-                        <td>Present</td>
-                        <td>SQL continues to evolve with new standards (e.g., SQL:2016) and remains a cornerstone in database management.</td>
-                    </tr>
-                </tbody>
-            </table>
         
             <h3>Importance of SQL</h3>
             <ul>
@@ -181,6 +146,101 @@
         WHERE country='USA';</code></pre>
 
         </section>
+        
+
+        <section id="sql-vs-nosql" class="margin-lg padding-md box-shadow">
+            <h2>Comparing SQL with NoSQL: Understanding the Benefits</h2>
+            <p>SQL and NoSQL databases serve different purposes and excel in different scenarios. Here's a comparison to help you understand their differences and strengths:</p>
+            <table class="data-table interactive-table">
+                <thead>
+                    <tr>
+                        <th>Aspect</th>
+                        <th>SQL (Relational)</th>
+                        <th>NoSQL (Non-Relational)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="highlight">Structure</td>
+                        <td data-tooltip="SQL databases require a fixed schema defined upfront.">Structured tables with fixed schemas</td>
+                        <td data-tooltip="NoSQL databases support flexible, schema-less formats.">Flexible, schema-less formats (JSON, key-value, graphs)</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight">Data Model</td>
+                        <td data-tooltip="Data is organized into tables with predefined relationships.">Relational, with predefined relationships</td>
+                        <td data-tooltip="Supports various data models like documents, key-value, or graph databases.">Various models (document, key-value, column-family)</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight">Scalability</td>
+                        <td data-tooltip="SQL databases scale vertically by increasing server power.">Vertical scaling (e.g., larger servers)</td>
+                        <td data-tooltip="NoSQL databases excel at horizontal scaling across distributed servers.">Horizontal scaling (e.g., distributed servers)</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight">Query Language</td>
+                        <td data-tooltip="SQL uses a standardized query language with powerful syntax.">Standardized SQL (e.g., SELECT, JOIN)</td>
+                        <td data-tooltip="NoSQL databases use custom APIs or query languages tailored to the model.">Custom APIs or languages (e.g., MongoDB Query Language)</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight">Use Case</td>
+                        <td data-tooltip="Ideal for applications needing consistency and structured data.">Transactional systems, structured data, ACID compliance</td>
+                        <td data-tooltip="Best for handling large volumes of unstructured data or rapid scaling.">Big data, unstructured data, high-velocity applications</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight">Strength</td>
+                        <td data-tooltip="Ensures data consistency and supports complex queries.">Data consistency, complex queries, relational integrity</td>
+                        <td data-tooltip="Highly scalable, flexible, and suitable for quick iterations.">Flexibility, scalability, rapid development</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Hover over the cells to learn more about each aspect.</p>
+        </section>
+
+        <style>
+            /* Interactive Table Styles */
+            .interactive-table .highlight {
+                font-weight: bold; /* Bold the first column */
+                background-color: #f9f9f9; /* Light background for emphasis */
+            }
+
+            .interactive-table tbody tr {
+                transition: background-color 0.3s ease;
+            }
+
+            .interactive-table tbody tr:hover {
+                background-color: #f0f8ff; /* Light blue hover effect */
+            }
+
+            .interactive-table td[data-tooltip] {
+                position: relative; /* Position for tooltip */
+                cursor: pointer;
+            }
+
+            .interactive-table td[data-tooltip]::after {
+                content: attr(data-tooltip);
+                position: absolute;
+                left: 50%;
+                top: -30px;
+                transform: translateX(-50%);
+                background-color: #333;
+                color: #fff;
+                padding: 5px 10px;
+                border-radius: 4px;
+                font-size: 12px;
+                white-space: nowrap;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.3s ease, top 0.3s ease;
+                z-index: 1000;
+            }
+
+            .interactive-table td[data-tooltip]:hover::after {
+                opacity: 1;
+                visibility: visible;
+                top: -40px; /* Moves tooltip slightly upwards on hover */
+            }
+
+        </style>
+        
 
          <!-- SQL Data Types Content -->
         <section id="sql-data-types">
@@ -612,6 +672,130 @@
         GROUP BY country
         HAVING COUNT(*) > 10;</code></pre>
         </section>
+
+        <section id="user-contributions" class="margin-lg padding-md box-shadow">
+            <h2>Submit Your SQL Queries or Challenges</h2>
+            <p>Have an interesting SQL query or challenge? Share it with us, and we might feature it on our site with credits to you!</p>
+        
+            <!-- Submission Form -->
+            <form id="contribution-form" class="contribution-form">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        
+                <label for="query">SQL Query/Challenge:</label>
+                <textarea id="query" name="query" placeholder="Enter your SQL query or challenge here" rows="5" required></textarea>
+        
+                <button type="submit" class="btn-submit">Submit</button>
+            </form>
+        
+            <!-- Featured Contributions -->
+            <div id="featured-contributions" class="featured-contributions">
+                <h3>Featured User Submissions</h3>
+                <ul>
+                    <li><strong>John Doe:</strong> <em>"Write a query to find the top 5 highest-paid employees."</em></li>
+                    <li><strong>Jane Smith:</strong> <em>"Optimize a query to retrieve customer orders within the last 30 days."</em></li>
+                </ul>
+            </div>
+            <style>
+                /* User Contributions Section */
+            #user-contributions {
+                background-color: #f9f9f9;
+                border-radius: var(--border-radius);
+                box-shadow: var(--box-shadow);
+                padding: var(--spacing-lg);
+            }
+
+            #user-contributions h2, #user-contributions h3 {
+                color: var(--secondary-color);
+                text-align: center;
+                margin-bottom: var(--spacing-md);
+            }
+
+            .contribution-form {
+                display: flex;
+                flex-direction: column;
+                gap: var(--spacing-md);
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .contribution-form label {
+                font-weight: bold;
+                color: var(--primary-color);
+            }
+
+            .contribution-form input, .contribution-form textarea {
+                width: 100%;
+                padding: var(--spacing-sm);
+                border: 1px solid #ddd;
+                border-radius: var(--border-radius);
+                box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+                font-size: 1em;
+            }
+
+            .contribution-form button {
+                background-color: var(--secondary-color);
+                color: #fff;
+                border: none;
+                padding: var(--spacing-sm) var(--spacing-md);
+                border-radius: var(--border-radius);
+                cursor: pointer;
+                transition: var(--transition);
+            }
+
+            .contribution-form button:hover {
+                background-color: var(--accent-color);
+            }
+
+            .featured-contributions ul {
+                list-style: none;
+                padding: 0;
+                margin: var(--spacing-lg) 0;
+            }
+
+            .featured-contributions ul li {
+                margin-bottom: var(--spacing-sm);
+                padding-left: 10px;
+                position: relative;
+            }
+
+            .featured-contributions ul li::before {
+                content: "★";
+                position: absolute;
+                left: -15px;
+                color: var(--accent-color);
+            }
+
+            </style>
+
+            <script>
+                document.getElementById("contribution-form").addEventListener("submit", function(e) {
+                    e.preventDefault();
+                
+                    // Get form values
+                    const name = document.getElementById("name").value;
+                    const query = document.getElementById("query").value;
+                
+                    // Add the contribution to the featured list
+                    const contributions = document.getElementById("featured-contributions").querySelector("ul");
+                    const newContribution = document.createElement("li");
+                    newContribution.innerHTML = `<strong>${name}:</strong> <em>"${query}"</em>`;
+                    contributions.appendChild(newContribution);
+                
+                    // Reset form
+                    this.reset();
+                
+                    // Alert the user (optional)
+                    alert("Thank you for your contribution!");
+                });
+            </script>
+    
+        </section>
+        
+        
 
     </div>
 

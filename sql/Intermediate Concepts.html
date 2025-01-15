@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Intermediate SQL - Hacktrix</title>
+    <title>Intermediate SQL - TechyVia</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
@@ -13,7 +13,7 @@
 <body>
     <!-- Header Bar -->
     <header class="header-bar">
-        <span class="brand-name">Hacktrix</span>
+        <span class="brand-name">TechyVia</span>
         <nav class="navbar">
             <ul class="nav-links">
                 <li><a href="#about" class="nav-link">About</a></li>
@@ -45,265 +45,851 @@
         <h1>Intermediate SQL</h1>
         <!-- Content will go here -->
 
-        <!-- Intermediate SQL Content: Joins -->
-<section id="joins">
-    <h2>INNER JOIN</h2>
-    <p><strong>Definition:</strong> Returns records that have matching values in both tables.</p>
-    <p><strong>Syntax:</strong></p>
-    <div class="code-box">
-        <pre><code>SELECT * FROM table1 INNER JOIN table2 ON table1.column = table2.column;</code></pre>
-        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
-    </div>
-    <p><strong>Example 1:</strong></p>
-    <div class="code-box">
-        <pre><code>SELECT employees.name, departments.department_name
-FROM employees
-INNER JOIN departments
-ON employees.department_id = departments.department_id;</code></pre>
-        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
-    </div>
-    <p><strong>Explanation:</strong> This query retrieves the names of employees along with their respective department names, but only for those employees who are assigned to a department.</p>
-    <p><strong>Example 2:</strong></p>
-    <div class="code-box">
-        <pre><code>SELECT products.product_name, categories.category_name
-FROM products
-INNER JOIN categories
-ON products.category_id = categories.category_id;</code></pre>
-        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
-    </div>
-    <p><strong>Explanation:</strong> This query fetches product names and their corresponding category names, but only for products that have a category assigned.</p>
+ <!-- Intermediate SQL Content: Joins -->
+ <section id="joins" class="margin-lg padding-md box-shadow">
+    <h1>SQL Joins: Combining Data</h1>
+    <p>
+        SQL Joins are used to retrieve data from multiple tables based on related columns. They are essential for answering questions that involve relationships between datasets.
+    </p>
 
-    <h2>LEFT JOIN / LEFT OUTER JOIN</h2>
-    <p><strong>Definition:</strong> Returns all records from the left table and matching records from the right table.</p>
-    <p><strong>Syntax:</strong></p>
-    <div class="code-box">
-        <pre><code>SELECT * FROM table1 LEFT JOIN table2 ON table1.column = table2.column;</code></pre>
-        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
-    </div>
-    <p><strong>Example 1:</strong></p>
-    <div class="code-box">
-        <pre><code>SELECT authors.author_name, books.book_title
-FROM authors
-LEFT JOIN books
-ON authors.author_id = books.author_id;</code></pre>
-        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
-    </div>
-    <p><strong>Explanation:</strong> This query lists all authors and their books, including authors who have not written any books (those will have NULL in the book_title column).</p>
-    <p><strong>Example 2:</strong></p>
-    <div class="code-box">
-        <pre><code>SELECT customers.customer_name, orders.order_date
+    <h2>Why Use Joins?</h2>
+    <ul>
+        <li>To combine data from multiple sources into a single result set.</li>
+        <li>To analyze relationships between datasets, such as customers and their orders.</li>
+        <li>To ensure meaningful data retrieval for complex queries.</li>
+    </ul>
+
+    <h2>Types of Joins</h2>
+    <ul>
+        <li><strong>INNER JOIN</strong> - Retrieves matching rows from both tables.</li>
+        <li><strong>LEFT JOIN</strong> - Includes all rows from the left table and matching rows from the right table.</li>
+        <li><strong>RIGHT JOIN</strong> - Includes all rows from the right table and matching rows from the left table.</li>
+        <li><strong>FULL OUTER JOIN</strong> - Combines all rows from both tables, filling unmatched rows with NULLs.</li>
+    </ul>
+
+    <hr>
+
+    <!-- INNER JOIN -->
+    <div class="join-section">
+        <h2>INNER JOIN</h2>
+        <p>
+            An <strong>INNER JOIN</strong> retrieves rows with matching values in both tables. It excludes rows that do not have matches in the other table.
+        </p>
+
+        <h3>Example Scenario</h3>
+        <p>Consider two tables:</p>
+
+        <div class="example-tables">
+            <div class="table-wrapper" style="display: inline-block; width: 45%; margin-right: 5%;">
+                <h4>Customers Table</h4>
+                <table class="data-table compact-table">
+                    <thead>
+                        <tr>
+                            <th>Customer ID</th>
+                            <th>Customer Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>John Doe</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Jane Smith</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Emily Johnson</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-wrapper" style="display: inline-block; width: 45%;">
+                <h4>Orders Table</h4>
+                <table class="data-table compact-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer ID</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>101</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>102</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>103</td>
+                            <td>4</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <h3>Query</h3>
+        <div class="code-box">
+            <pre><code>SELECT customers.customer_name, orders.order_id
 FROM customers
-LEFT JOIN orders
+INNER JOIN orders
 ON customers.customer_id = orders.customer_id;</code></pre>
-        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
-    </div>
-    <p><strong>Explanation:</strong> This query retrieves all customers and their order dates, including customers who have not placed any orders (those will have NULL in the order_date column).</p>
+        </div>
 
-    <h2>RIGHT JOIN / RIGHT OUTER JOIN</h2>
-    <p><strong>Definition:</strong> Similar to LEFT JOIN, but returns all records from the right table.</p>
-    <p><strong>Syntax:</strong></p>
-    <div class="code-box">
-        <pre><code>SELECT * FROM table1 RIGHT JOIN table2 ON table1.column = table2.column;</code></pre>
-        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
-    </div>
-    <p><strong>Example 1:</strong></p>
-    <div class="code-box">
-        <pre><code>SELECT orders.order_id, shippers.shipper_name
-FROM orders
-RIGHT JOIN shippers
-ON orders.shipper_id = shippers.shipper_id;</code></pre>
-        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
-    </div>
-    <p><strong>Explanation:</strong> This query lists all orders and their shippers, including shippers who have not shipped any orders (those will have NULL in the order_id column).</p>
-    <p><strong>Example 2:</strong></p>
-    <div class="code-box">
-        <pre><code>SELECT employees.employee_name, projects.project_name
-FROM employees
-RIGHT JOIN projects
-ON employees.project_id = projects.project_id;</code></pre>
-        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
-    </div>
-    <p><strong>Explanation:</strong> This query retrieves all projects and their assigned employees, including projects that have no employees assigned (those will have NULL in the employee_name column).</p>
+        <h3>Result</h3>
+        <table class="data-table compact-table" style="width: 50%; margin: 0 auto;">
+            <thead>
+                <tr>
+                    <th>Customer Name</th>
+                    <th>Order ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John Doe</td>
+                    <td>101</td>
+                </tr>
+                <tr>
+                    <td>Jane Smith</td>
+                    <td>102</td>
+                </tr>
+            </tbody>
+        </table>
 
-    <h2>FULL JOIN / FULL OUTER JOIN</h2>
-    <p><strong>Definition:</strong> Returns all records from both tables, with NULL in the columns where there are no matches.</p>
-    <p><strong>Syntax:</strong></p>
-    <div class="code-box">
-        <pre><code>SELECT * FROM table1 FULL JOIN table2 ON table1.column = table2.column;</code></pre>
-        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
-    </div>
-    <p><strong>Example 1:</strong></p>
-    <div class="code-box">
-        <pre><code>SELECT students.student_name, courses.course_name
-FROM students
-FULL JOIN courses
-ON students.course_id = courses.course_id;</code></pre>
-        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
-    </div>
-    <p><strong>Explanation:</strong> This query lists all students and courses, including students not enrolled in any course and courses with no students enrolled (those will have NULL in the respective columns).</p>
-    <p><strong>Example 2:</strong></p>
-    <div class="code-box">
-        <pre><code>SELECT suppliers.supplier_name, products.product_name
-FROM suppliers
-FULL JOIN products
-ON suppliers.supplier_id = products.supplier_id;</code></pre>
-        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
-    </div>
-    <p><strong>Explanation:</strong> This query retrieves all suppliers and products, including suppliers who do not supply any products and products with no suppliers (those will have NULL in the respective columns).</p>
+        <h3>Visual Representation</h3>
+        <div class="joins-visual" style="text-align: center;">
+            <svg viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg" class="join-diagram" style="width: 80%; max-width: 300px; height: auto;">
+                <circle cx="100" cy="75" r="60" fill="#3498db" fill-opacity="0.6" />
+                <circle cx="200" cy="75" r="60" fill="#e74c3c" fill-opacity="0.6" />
+                <text x="140" y="80" font-size="12" fill="#fff" text-anchor="middle">Matching Rows</text>
+            </svg>
+            <p>
+                The overlapping area shows rows where <strong>Customer ID</strong> matches between the Customers and Orders tables.
+            </p>
+        </div>
 
-    <h2>CROSS JOIN</h2>
-    <p><strong>Definition:</strong> Returns the Cartesian product of both tables, with each row of one table combined with each row of the other.</p>
-    <p><strong>Syntax:</strong></p>
-    <div class="code-box">
-        <pre><code>SELECT * FROM table1 CROSS JOIN table2;</code></pre>
-        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+        <h3>Explanation</h3>
+        <p>
+            The query retrieves orders that have matching customer IDs in the Customers table. For example:
+        </p>
+        <ul>
+            <li>John Doe (Customer ID 1) placed Order 101.</li>
+            <li>Jane Smith (Customer ID 2) placed Order 102.</li>
+        </ul>
     </div>
-    <p><strong>Example 1:</strong></p>
-    <div class="code-box">
-        <pre><code>SELECT colors.color_name, sizes.size_name
-FROM colors
-CROSS JOIN sizes;</code></pre>
-        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    <div class="join-section">
+        <h2>LEFT JOIN</h2>
+        <p>
+            A <strong>LEFT JOIN</strong> retrieves all rows from the left table and the matching rows from the right table. Rows from the left table without matches in the right table will have NULLs for the right table's columns.
+        </p>
+    
+        <h3>Example Scenario</h3>
+        <p>Consider the same two tables:</p>
+        <div class="example-tables">
+            <div class="table-wrapper" style="display: inline-block; width: 45%; margin-right: 5%;">
+                <h4>Customers Table</h4>
+                <table class="data-table compact-table">
+                    <thead>
+                        <tr>
+                            <th>Customer ID</th>
+                            <th>Customer Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>John Doe</td></tr>
+                        <tr><td>2</td><td>Jane Smith</td></tr>
+                        <tr><td>3</td><td>Emily Johnson</td></tr>
+                    </tbody>
+                </table>
+            </div>
+    
+            <div class="table-wrapper" style="display: inline-block; width: 45%;">
+                <h4>Orders Table</h4>
+                <table class="data-table compact-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer ID</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>101</td><td>1</td></tr>
+                        <tr><td>102</td><td>2</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    
+        <h3>Query</h3>
+        <div class="code-box">
+            <pre><code>SELECT customers.customer_name, orders.order_id
+    FROM customers
+    LEFT JOIN orders
+    ON customers.customer_id = orders.customer_id;</code></pre>
+        </div>
+    
+        <h3>Result</h3>
+        <table class="data-table compact-table" style="width: 50%; margin: 0 auto;">
+            <thead>
+                <tr>
+                    <th>Customer Name</th>
+                    <th>Order ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>John Doe</td><td>101</td></tr>
+                <tr><td>Jane Smith</td><td>102</td></tr>
+                <tr><td>Emily Johnson</td><td>NULL</td></tr>
+            </tbody>
+        </table>
+    
+        <h3>Visual Representation</h3>
+        <div class="joins-visual" style="text-align: center;">
+            <svg viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg" class="join-diagram" style="width: 80%; max-width: 300px; height: auto;">
+                <circle cx="100" cy="75" r="60" fill="#3498db" fill-opacity="0.6" />
+                <circle cx="200" cy="75" r="60" fill="#e74c3c" fill-opacity="0.2" />
+                <text x="120" y="80" font-size="12" fill="#fff" text-anchor="middle">Left Rows</text>
+            </svg>
+            <p>
+                The left circle includes all rows from the Customers table, with matches from the Orders table included in the overlap.
+            </p>
+        </div>
+    
+        <h3>Explanation</h3>
+        <p>
+            This query retrieves all customers, including those who have not placed any orders. For example, Emily Johnson has no orders, so her row has <strong>NULL</strong> for the Order ID.
+        </p>
     </div>
-    <p><strong>Explanation:</strong> This query generates all possible combinations of colors and sizes.</p>
-    <p><strong>Example 2:</strong></p>
-    <div class="code-box">
-        <pre><code>SELECT students.student_name, activities.activity_name
-FROM students
-CROSS JOIN activities;</code></pre>
-        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+    <div class="join-section">
+        <h2>RIGHT JOIN</h2>
+        <p>
+            A <strong>RIGHT JOIN</strong> retrieves all rows from the right table and the matching rows from the left table. Rows from the right table without matches in the left table will have <strong>NULL</strong> values for the left table's columns.
+        </p>
+    
+        <h3>Example Scenario</h3>
+        <p>Consider the same two tables:</p>
+        <div class="example-tables">
+            <div class="table-wrapper" style="display: inline-block; width: 45%; margin-right: 5%;">
+                <h4>Customers Table</h4>
+                <table class="data-table compact-table">
+                    <thead>
+                        <tr>
+                            <th>Customer ID</th>
+                            <th>Customer Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>John Doe</td></tr>
+                        <tr><td>2</td><td>Jane Smith</td></tr>
+                    </tbody>
+                </table>
+            </div>
+    
+            <div class="table-wrapper" style="display: inline-block; width: 45%;">
+                <h4>Orders Table</h4>
+                <table class="data-table compact-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer ID</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>101</td><td>1</td></tr>
+                        <tr><td>102</td><td>2</td></tr>
+                        <tr><td>103</td><td>4</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    
+        <h3>Query</h3>
+        <div class="code-box">
+            <pre><code>SELECT customers.customer_name, orders.order_id
+    FROM customers
+    RIGHT JOIN orders
+    ON customers.customer_id = orders.customer_id;</code></pre>
+        </div>
+    
+        <h3>Result</h3>
+        <table class="data-table compact-table" style="width: 50%; margin: 0 auto;">
+            <thead>
+                <tr>
+                    <th>Customer Name</th>
+                    <th>Order ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>John Doe</td><td>101</td></tr>
+                <tr><td>Jane Smith</td><td>102</td></tr>
+                <tr><td>NULL</td><td>103</td></tr>
+            </tbody>
+        </table>
+    
+        <h3>Visual Representation</h3>
+        <div class="joins-visual" style="text-align: center;">
+            <svg viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg" class="join-diagram" style="width: 80%; max-width: 300px; height: auto;">
+                <circle cx="100" cy="75" r="60" fill="#3498db" fill-opacity="0.2" />
+                <circle cx="200" cy="75" r="60" fill="#e74c3c" fill-opacity="0.6" />
+                <text x="200" y="80" font-size="12" fill="#fff" text-anchor="middle">Right Rows</text>
+            </svg>
+            <p>
+                The right circle includes all rows from the Orders table, with matches from the Customers table included in the overlap.
+            </p>
+        </div>
+    
+        <h3>Explanation</h3>
+        <p>
+            This query retrieves all orders, including those without matching customer records. For example:
+        </p>
+        <ul>
+            <li>Order 101 and 102 have matching customer records (John Doe and Jane Smith).</li>
+            <li>Order 103 has no matching customer, so the <strong>Customer Name</strong> is <strong>NULL</strong>.</li>
+        </ul>
     </div>
-    <p><strong>Explanation:</strong> This query lists all possible combinations of students and activities, regardless of whether a student is actually participating in an activity.</p>
+    <div class="join-section">
+        <h2>FULL OUTER JOIN</h2>
+        <p>
+            A <strong>FULL OUTER JOIN</strong> retrieves all rows from both tables. Rows without matches in the other table will have <strong>NULL</strong> values for the columns of the unmatched table.
+        </p>
+    
+        <h3>Example Scenario</h3>
+        <p>Consider the same two tables:</p>
+        <div class="example-tables">
+            <div class="table-wrapper" style="display: inline-block; width: 45%; margin-right: 5%;">
+                <h4>Customers Table</h4>
+                <table class="data-table compact-table">
+                    <thead>
+                        <tr>
+                            <th>Customer ID</th>
+                            <th>Customer Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>John Doe</td></tr>
+                        <tr><td>2</td><td>Jane Smith</td></tr>
+                        <tr><td>3</td><td>Emily Johnson</td></tr>
+                    </tbody>
+                </table>
+            </div>
+    
+            <div class="table-wrapper" style="display: inline-block; width: 45%;">
+                <h4>Orders Table</h4>
+                <table class="data-table compact-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer ID</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>101</td><td>1</td></tr>
+                        <tr><td>102</td><td>2</td></tr>
+                        <tr><td>103</td><td>4</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    
+        <h3>Query</h3>
+        <div class="code-box">
+            <pre><code>SELECT customers.customer_name, orders.order_id
+    FROM customers
+    FULL OUTER JOIN orders
+    ON customers.customer_id = orders.customer_id;</code></pre>
+        </div>
+    
+        <h3>Result</h3>
+        <table class="data-table compact-table" style="width: 50%; margin: 0 auto;">
+            <thead>
+                <tr>
+                    <th>Customer Name</th>
+                    <th>Order ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>John Doe</td><td>101</td></tr>
+                <tr><td>Jane Smith</td><td>102</td></tr>
+                <tr><td>Emily Johnson</td><td>NULL</td></tr>
+                <tr><td>NULL</td><td>103</td></tr>
+            </tbody>
+        </table>
+    
+        <h3>Visual Representation</h3>
+        <div class="joins-visual" style="text-align: center;">
+            <svg viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg" class="join-diagram" style="width: 80%; max-width: 300px; height: auto;">
+                <circle cx="100" cy="75" r="60" fill="#3498db" fill-opacity="0.4" />
+                <circle cx="200" cy="75" r="60" fill="#e74c3c" fill-opacity="0.4" />
+                <text x="100" y="80" font-size="12" fill="#fff" text-anchor="middle">Left Rows</text>
+                <text x="200" y="80" font-size="12" fill="#fff" text-anchor="middle">Right Rows</text>
+                <text x="150" y="100" font-size="12" fill="#fff" text-anchor="middle">Matching Rows</text>
+            </svg>
+            <p>
+                Both circles represent all rows from the Customers and Orders tables. The overlapping area shows matches, while the non-overlapping areas show unmatched rows.
+            </p>
+        </div>
+    
+        <h3>Explanation</h3>
+        <p>
+            This query retrieves all rows from both tables:
+        </p>
+        <ul>
+            <li>John Doe and Jane Smith have matching orders (101 and 102).</li>
+            <li>Emily Johnson has no orders, so her Order ID is <strong>NULL</strong>.</li>
+            <li>Order 103 has no matching customer, so the Customer Name is <strong>NULL</strong>.</li>
+        </ul>
+    </div>
+    <div class="join-section">
+        <h2>SELF JOIN</h2>
+        <p>
+            A <strong>SELF JOIN</strong> is a join where a table is joined with itself. It is useful for comparing rows within the same table, such as finding relationships or hierarchical structures.
+        </p>
+    
+        <h3>Example Scenario</h3>
+        <p>Consider the following Employee table:</p>
+        <div class="example-tables">
+            <div class="table-wrapper" style="display: inline-block; width: 50%; margin: 0 auto;">
+                <h4>Employee Table</h4>
+                <table class="data-table compact-table">
+                    <thead>
+                        <tr>
+                            <th>Employee ID</th>
+                            <th>Employee Name</th>
+                            <th>Manager ID</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>John Doe</td><td>NULL</td></tr>
+                        <tr><td>2</td><td>Jane Smith</td><td>1</td></tr>
+                        <tr><td>3</td><td>Emily Johnson</td><td>1</td></tr>
+                        <tr><td>4</td><td>Michael Brown</td><td>2</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    
+        <h3>Query</h3>
+        <div class="code-box">
+            <pre><code>SELECT e1.employee_name AS Employee, e2.employee_name AS Manager
+    FROM employee AS e1
+    LEFT JOIN employee AS e2
+    ON e1.manager_id = e2.employee_id;</code></pre>
+        </div>
+    
+        <h3>Result</h3>
+        <table class="data-table compact-table" style="width: 60%; margin: 0 auto;">
+            <thead>
+                <tr>
+                    <th>Employee</th>
+                    <th>Manager</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>John Doe</td><td>NULL</td></tr>
+                <tr><td>Jane Smith</td><td>John Doe</td></tr>
+                <tr><td>Emily Johnson</td><td>John Doe</td></tr>
+                <tr><td>Michael Brown</td><td>Jane Smith</td></tr>
+            </tbody>
+        </table>
+    
+        <h3>Visual Representation</h3>
+        <div class="joins-visual" style="text-align: center;">
+            <svg viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg" class="join-diagram" style="width: 80%; max-width: 300px; height: auto;">
+                <circle cx="150" cy="75" r="60" fill="#3498db" fill-opacity="0.6" />
+                <text x="150" y="80" font-size="12" fill="#fff" text-anchor="middle">Employee Table</text>
+            </svg>
+            <p>
+                The single circle represents the Employee table. Each row in the table can join with other rows based on the Manager ID.
+            </p>
+        </div>
+    
+        <h3>Explanation</h3>
+        <p>
+            This query compares rows within the Employee table to find relationships between employees and their managers:
+        </p>
+        <ul>
+            <li>John Doe has no manager, so the Manager column is <strong>NULL</strong>.</li>
+            <li>Jane Smith and Emily Johnson report to John Doe.</li>
+            <li>Michael Brown reports to Jane Smith.</li>
+        </ul>
+    </div>
+    <div class="join-section">
+        <h2>CROSS JOIN</h2>
+        <p>
+            A <strong>CROSS JOIN</strong> produces the Cartesian product of two tables, combining each row from the first table with every row from the second table. This join is useful in scenarios like generating combinations or exploring all possible pairings between two datasets.
+        </p>
+    
+        <h3>Example Scenario</h3>
+        <p>Consider the following two tables:</p>
+        <div class="example-tables">
+            <div class="table-wrapper" style="display: inline-block; width: 45%; margin-right: 5%;">
+                <h4>Products Table</h4>
+                <table class="data-table compact-table">
+                    <thead>
+                        <tr>
+                            <th>Product ID</th>
+                            <th>Product Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>T-Shirt</td></tr>
+                        <tr><td>2</td><td>Jeans</td></tr>
+                    </tbody>
+                </table>
+            </div>
+    
+            <div class="table-wrapper" style="display: inline-block; width: 45%;">
+                <h4>Sizes Table</h4>
+                <table class="data-table compact-table">
+                    <thead>
+                        <tr>
+                            <th>Size ID</th>
+                            <th>Size</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Small</td></tr>
+                        <tr><td>2</td><td>Medium</td></tr>
+                        <tr><td>3</td><td>Large</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    
+        <h3>Query</h3>
+        <div class="code-box">
+            <pre><code>SELECT products.product_name, sizes.size
+    FROM products
+    CROSS JOIN sizes;</code></pre>
+        </div>
+    
+        <h3>Result</h3>
+        <table class="data-table compact-table" style="width: 60%; margin: 0 auto;">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Size</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>T-Shirt</td><td>Small</td></tr>
+                <tr><td>T-Shirt</td><td>Medium</td></tr>
+                <tr><td>T-Shirt</td><td>Large</td></tr>
+                <tr><td>Jeans</td><td>Small</td></tr>
+                <tr><td>Jeans</td><td>Medium</td></tr>
+                <tr><td>Jeans</td><td>Large</td></tr>
+            </tbody>
+        </table>
+    
+        <h3>Visual Representation</h3>
+        <div class="joins-visual" style="text-align: center;">
+            <svg viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg" class="join-diagram" style="width: 80%; max-width: 300px; height: auto;">
+                <circle cx="100" cy="75" r="60" fill="#3498db" fill-opacity="0.6" />
+                <circle cx="200" cy="75" r="60" fill="#e74c3c" fill-opacity="0.6" />
+                <text x="100" y="75" font-size="12" fill="#fff" text-anchor="middle">Products</text>
+                <text x="200" y="75" font-size="12" fill="#fff" text-anchor="middle">Sizes</text>
+                <line x1="100" y1="75" x2="200" y2="75" stroke="#fff" stroke-width="2" />
+            </svg>
+            <p>
+                The Cartesian product connects every row in the <strong>Products</strong> table with every row in the <strong>Sizes</strong> table.
+            </p>
+        </div>
+    
+        <h3>Explanation</h3>
+        <p>
+            This query generates all possible combinations of products and sizes:
+        </p>
+        <ul>
+            <li>A <strong>T-Shirt</strong> is available in <strong>Small</strong>, <strong>Medium</strong>, and <strong>Large</strong>.</li>
+            <li><strong>Jeans</strong> are also available in all three sizes.</li>
+            <li>This is useful for creating a product catalog with every size variation for each item.</li>
+        </ul>
+    </div>
+    
 </section>
+
 
 <!-- Intermediate SQL Content: GROUP BY and HAVING Clauses -->
-<section id="group-by-having">
-    <h2>GROUP BY Clause</h2>
-    <p><strong>Definition:</strong> Divides data into groups based on one or more columns.</p>
-    <p><strong>Syntax:</strong></p>
-    <div class="code-box">
-        <pre><code>SELECT column1, column2, ...
-FROM table_name
-GROUP BY column1, column2, ...;</code></pre>
-        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+<section id="group-by" class="margin-lg padding-md box-shadow">
+    <h1>SQL GROUP BY: Aggregating Data</h1>
+    <p>
+        The <strong>GROUP BY</strong> statement is used to arrange identical data into groups. It is commonly used with aggregate functions like <code>SUM</code>, <code>COUNT</code>, <code>AVG</code>, <code>MAX</code>, and <code>MIN</code> to perform operations on groups of data.
+    </p>
+
+    <h2>Why Use GROUP BY?</h2>
+    <ul>
+        <li>To summarize large datasets by aggregating values.</li>
+        <li>To gain insights into data patterns or trends.</li>
+        <li>To organize data for reporting and analysis purposes.</li>
+    </ul>
+
+    <hr>
+
+    <!-- Example 1 -->
+    <div class="group-section">
+        <h2>Example 1: Total Sales by City</h2>
+        <p>Consider the following <strong>Sales</strong> table:</p>
+
+        <div class="table-wrapper" style="width: 60%; margin: 0 auto;">
+            <table class="data-table compact-table">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>City</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>New York</td><td>150</td></tr>
+                    <tr><td>2</td><td>Los Angeles</td><td>200</td></tr>
+                    <tr><td>3</td><td>New York</td><td>100</td></tr>
+                    <tr><td>4</td><td>Chicago</td><td>300</td></tr>
+                    <tr><td>5</td><td>Los Angeles</td><td>250</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Query</h3>
+        <div class="code-box">
+            <pre><code>SELECT city, SUM(amount) AS total_sales
+FROM sales
+GROUP BY city;</code></pre>
+        </div>
+
+        <h3>Result</h3>
+        <table class="data-table compact-table" style="width: 50%; margin: 0 auto;">
+            <thead>
+                <tr>
+                    <th>City</th>
+                    <th>Total Sales</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>New York</td><td>250</td></tr>
+                <tr><td>Los Angeles</td><td>450</td></tr>
+                <tr><td>Chicago</td><td>300</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Explanation</h3>
+        <p>
+            This query groups the data by the <strong>City</strong> column and calculates the total sales for each city:
+        </p>
+        <ul>
+            <li><strong>New York</strong> has total sales of 150 + 100 = 250.</li>
+            <li><strong>Los Angeles</strong> has total sales of 200 + 250 = 450.</li>
+            <li><strong>Chicago</strong> has total sales of 300.</li>
+        </ul>
     </div>
 
-    <p><strong>Example 1: Group Employees by Department</strong></p>
-    <div class="code-box">
-        <pre><code>SELECT department, AVG(salary) AS avg_salary
+    <hr>
+
+    <!-- Example 2 -->
+    <div class="group-section">
+        <h2>Example 2: Average Salary by Department</h2>
+        <p>Consider the following <strong>Employees</strong> table:</p>
+
+        <div class="table-wrapper" style="width: 60%; margin: 0 auto;">
+            <table class="data-table compact-table">
+                <thead>
+                    <tr>
+                        <th>Employee ID</th>
+                        <th>Department</th>
+                        <th>Salary</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>IT</td><td>80000</td></tr>
+                    <tr><td>2</td><td>HR</td><td>60000</td></tr>
+                    <tr><td>3</td><td>Finance</td><td>75000</td></tr>
+                    <tr><td>4</td><td>IT</td><td>90000</td></tr>
+                    <tr><td>5</td><td>Finance</td><td>85000</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Query</h3>
+        <div class="code-box">
+            <pre><code>SELECT department, AVG(salary) AS average_salary
 FROM employees
 GROUP BY department;</code></pre>
-        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
-    </div>
-    <p><strong>Explanation:</strong> This query calculates the average salary for each department. It groups the employees by their department and then computes the average salary within each group.</p>
+        </div>
 
-    <p><strong>Example 2: Group Orders by Customer Region</strong></p>
-    <div class="code-box">
-        <pre><code>SELECT customer_region, SUM(total_amount) AS total_sales
-FROM orders
-GROUP BY customer_region;</code></pre>
-        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
-    </div>
-    <p><strong>Explanation:</strong> This query sums the total sales for each customer region. It groups the orders by customer region and then calculates the total sales amount for each group.</p>
+        <h3>Result</h3>
+        <table class="data-table compact-table" style="width: 50%; margin: 0 auto;">
+            <thead>
+                <tr>
+                    <th>Department</th>
+                    <th>Average Salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>IT</td><td>85000</td></tr>
+                <tr><td>HR</td><td>60000</td></tr>
+                <tr><td>Finance</td><td>80000</td></tr>
+            </tbody>
+        </table>
 
-    <p><strong>Example 3: Group Products by Category</strong></p>
-    <div class="code-box">
-        <pre><code>SELECT category, COUNT(product_id) AS num_products
-FROM products
-GROUP BY category;</code></pre>
-        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+        <h3>Explanation</h3>
+        <p>
+            This query groups the data by the <strong>Department</strong> column and calculates the average salary for each department:
+        </p>
+        <ul>
+            <li>The average salary for <strong>IT</strong> is (80000 + 90000) / 2 = 85000.</li>
+            <li>The average salary for <strong>HR</strong> is 60000.</li>
+            <li>The average salary for <strong>Finance</strong> is (75000 + 85000) / 2 = 80000.</li>
+        </ul>
     </div>
-    <p><strong>Explanation:</strong> This query counts the number of products in each category. It groups the products by category and then counts the number of products in each group.</p>
-
-    <p><strong>Example 4: Group Customers by Order Frequency</strong></p>
-    <div class="code-box">
-        <pre><code>SELECT customer_id, COUNT(order_id) AS num_orders
-FROM orders
-GROUP BY customer_id
-ORDER BY num_orders DESC;</code></pre>
-        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
-    </div>
-    <p><strong>Explanation:</strong> This query counts the number of orders placed by each customer and orders the results by the number of orders in descending order. It groups the orders by customer ID and then counts the number of orders for each customer.</p>
-
-    <p><strong>Example 5: Group Sales by Quarter and Year</strong></p>
-    <div class="code-box">
-        <pre><code>SELECT 
-  EXTRACT(QUARTER FROM order_date) AS quarter,
-  EXTRACT(YEAR FROM order_date) AS year,
-  SUM(total_amount) AS total_sales
-FROM orders
-GROUP BY quarter, year
-ORDER BY year, quarter;</code></pre>
-        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
-    </div>
-    <p><strong>Explanation:</strong> This query sums the total sales for each quarter and year. It groups the orders by the quarter and year extracted from the order date and then calculates the total sales amount for each group.</p>
-
-    <h2>HAVING Clause</h2>
-    <p><strong>Definition:</strong> Filters grouped data based on a condition.</p>
-    <p><strong>Syntax:</strong></p>
-    <div class="code-box">
-        <pre><code>SELECT column1, column2, ...
-FROM table_name
-GROUP BY column1, column2, ...
-HAVING condition;</code></pre>
-        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
-    </div>
-
-    <p><strong>Example 1: Filter Groups with Average Salary > $60,000</strong></p>
-    <div class="code-box">
-        <pre><code>SELECT department, AVG(salary) AS avg_salary
-FROM employees
-GROUP BY department
-HAVING AVG(salary) > 60000;</code></pre>
-        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
-    </div>
-    <p><strong>Explanation:</strong> This query filters the departments to include only those with an average salary greater than $60,000. The HAVING clause is used to apply the condition on the grouped data.</p>
-
-    <p><strong>Example 2: Filter Customer Regions with Total Sales > $80,000</strong></p>
-    <div class="code-box">
-        <pre><code>SELECT customer_region, SUM(total_amount) AS total_sales
-FROM orders
-GROUP BY customer_region
-HAVING SUM(total_amount) > 80000;</code></pre>
-        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
-    </div>
-    <p><strong>Explanation:</strong> This query filters the customer regions to include only those with total sales greater than $80,000. The HAVING clause is used to apply the condition on the grouped data.</p>
-
-    <p><strong>Example 3: Filter Categories with More Than 12 Products</strong></p>
-    <div class="code-box">
-        <pre><code>SELECT category, COUNT(product_id) AS num_products
-FROM products
-GROUP BY category
-HAVING COUNT(product_id) > 12;</code></pre>
-        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
-    </div>
-    <p><strong>Explanation:</strong> This query filters the categories to include only those with more than 12 products. The HAVING clause is used to apply the condition on the grouped data.</p>
-
-    <p><strong>Example 4: Filter Customers with More Than 5 Orders</strong></p>
-    <div class="code-box">
-        <pre><code>SELECT customer_id, COUNT(order_id) AS num_orders
-FROM orders
-GROUP BY customer_id
-HAVING COUNT(order_id) > 5;</code></pre>
-        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
-    </div>
-    <p><strong>Explanation:</strong> This query filters the customers to include only those with more than 5 orders. The HAVING clause is used to apply the condition on the grouped data.</p>
-
-    <p><strong>Example 5: Filter Quarters with Total Sales > $50,000</strong></p>
-    <div class="code-box">
-        <pre><code>SELECT 
-  EXTRACT(QUARTER FROM order_date) AS quarter,
-  EXTRACT(YEAR FROM order_date) AS year,
-  SUM(total_amount) AS total_sales
-FROM orders
-GROUP BY quarter, year
-HAVING SUM(total_amount) > 50000;</code></pre>
-        <button class="copy-button" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
-    </div>
-    <p><strong>Explanation:</strong> This query filters the quarters to include only those with total sales greater than $50,000. The HAVING clause is used to apply the condition on the grouped data.</p>
 </section>
 
+<section id="having-close" class="margin-lg padding-md box-shadow">
+    <h1>SQL HAVING CLOSE: Refining Grouped Results</h1>
+    <p>
+        The <strong>HAVING CLOSE</strong> statement is not a standard SQL clause. However, to refine grouped results, SQL uses the <strong>HAVING</strong> clause in conjunction with the <strong>GROUP BY</strong> statement. <strong>HAVING</strong> is used to filter grouped results based on conditions applied to aggregated values.
+    </p>
 
+    <h2>Why Use HAVING with GROUP BY?</h2>
+    <ul>
+        <li>To filter grouped data based on aggregated values.</li>
+        <li>To exclude groups that don't meet specific criteria.</li>
+        <li>To further analyze data after initial grouping and aggregation.</li>
+    </ul>
+
+    <hr>
+
+    <!-- Example 1: Filtering Total Sales by City -->
+    <div class="having-section">
+        <h2>Example 1: Cities with Total Sales Over $400</h2>
+        <p>Using the previous <strong>Sales</strong> table:</p>
+
+        <div class="table-wrapper" style="width: 60%; margin: 0 auto;">
+            <table class="data-table compact-table">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>City</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>New York</td><td>150</td></tr>
+                    <tr><td>2</td><td>Los Angeles</td><td>200</td></tr>
+                    <tr><td>3</td><td>New York</td><td>100</td></tr>
+                    <tr><td>4</td><td>Chicago</td><td>300</td></tr>
+                    <tr><td>5</td><td>Los Angeles</td><td>250</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Query</h3>
+        <div class="code-box">
+            <pre><code>SELECT city, SUM(amount) AS total_sales
+FROM sales
+GROUP BY city
+HAVING SUM(amount) > 400;</code></pre>
+        </div>
+
+        <h3>Result</h3>
+        <table class="data-table compact-table" style="width: 50%; margin: 0 auto;">
+            <thead>
+                <tr>
+                    <th>City</th>
+                    <th>Total Sales</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Los Angeles</td><td>450</td></tr>
+                <tr><td>Chicago</td><td>300</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Explanation</h3>
+        <p>
+            This query groups sales by city, calculates the total sales for each, and then filters the results to only include cities with total sales exceeding $400.
+        </p>
+    </div>
+
+    <hr>
+
+    <!-- Example 2: Average Salary Threshold -->
+    <div class="having-section">
+        <h2>Example 2: Departments with Average Salary Over $80,000</h2>
+        <p>Using the previous <strong>Employees</strong> table:</p>
+
+        <div class="table-wrapper" style="width: 60%; margin: 0 auto;">
+            <table class="data-table compact-table">
+                <thead>
+                    <tr>
+                        <th>Employee ID</th>
+                        <th>Department</th>
+                        <th>Salary</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>IT</td><td>80000</td></tr>
+                    <tr><td>2</td><td>HR</td><td>60000</td></tr>
+                    <tr><td>3</td><td>Finance</td><td>75000</td></tr>
+                    <tr><td>4</td><td>IT</td><td>90000</td></tr>
+                    <tr><td>5</td><td>Finance</td><td>85000</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Query</h3>
+        <div class="code-box">
+            <pre><code>SELECT department, AVG(salary) AS average_salary
+                FROM employees
+                GROUP BY department
+                HAVING AVG(salary) > 80000;</code></pre>
+                        </div>
+                
+                        <h3>Result</h3>
+                        <table class="data-table compact-table" style="width: 50%; margin: 0 auto;">
+                            <thead>
+                                <tr>
+                                    <th>Department</th>
+                                    <th>Average Salary</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>IT</td><td>85000</td></tr>
+                                <tr><td>Finance</td><td>80000</td></tr>
+                            </tbody>
+                        </table>
+                
+                        <h3>Explanation</h3>
+                        <p>
+                            This query groups employees by department, calculates the average salary for each, and then filters the results to only include departments with an average salary exceeding $80,000.
+                        </p>
+    </div>
+    <div class="having-section">
+        <h2>Example 3: Filtering by Multiple Conditions</h2>
+        <p>Find departments with an average salary over $70,000 and fewer than 3 employees:</p>
+    
+        <h3>Query</h3>
+        <div class="code-box">
+            <pre><code>SELECT department, AVG(salary) AS average_salary, COUNT(*) AS num_employees
+    FROM employees
+    GROUP BY department
+    HAVING AVG(salary) > 70000 AND COUNT(*) < 3;</code></pre>
+        </div>
+    
+        <h3>Result</h3>
+        <!-- Result table would be placed here, assuming there are matching records -->
+    
+        <h3>Explanation</h3>
+        <p>
+            This query demonstrates using `HAVING` with multiple conditions to refine the results further.
+        </p>
+    </div>
+    
+</section> 
+                
 <!-- Intermediate SQL Content: Indexing and Constraints -->
 <section id="indexing-constraints">
     <h2>Indexing</h2>
@@ -1050,6 +1636,129 @@ WHERE job_title IN (
           <button class="copy-button" onclick="copyQueryToClipboard()">Copy Query to Clipboard</button>
         </div>
       </div>
+    </section>
+
+    
+    <section id="user-contributions" class="margin-lg padding-md box-shadow">
+        <h2>Submit Your SQL Queries or Challenges</h2>
+        <p>Have an interesting SQL query or challenge? Share it with us, and we might feature it on our site with credits to you!</p>
+    
+        <!-- Submission Form -->
+        <form id="contribution-form" class="contribution-form">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+    
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+    
+            <label for="query">SQL Query/Challenge:</label>
+            <textarea id="query" name="query" placeholder="Enter your SQL query or challenge here" rows="5" required></textarea>
+    
+            <button type="submit" class="btn-submit">Submit</button>
+        </form>
+    
+        <!-- Featured Contributions -->
+        <div id="featured-contributions" class="featured-contributions">
+            <h3>Featured User Submissions</h3>
+            <ul>
+                <li><strong>John Doe:</strong> <em>"Write a query to find the top 5 highest-paid employees."</em></li>
+                <li><strong>Jane Smith:</strong> <em>"Optimize a query to retrieve customer orders within the last 30 days."</em></li>
+            </ul>
+        </div>
+        <style>
+            /* User Contributions Section */
+        #user-contributions {
+            background-color: #f9f9f9;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: var(--spacing-lg);
+        }
+
+        #user-contributions h2, #user-contributions h3 {
+            color: var(--secondary-color);
+            text-align: center;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .contribution-form {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .contribution-form label {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .contribution-form input, .contribution-form textarea {
+            width: 100%;
+            padding: var(--spacing-sm);
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+            font-size: 1em;
+        }
+
+        .contribution-form button {
+            background-color: var(--secondary-color);
+            color: #fff;
+            border: none;
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .contribution-form button:hover {
+            background-color: var(--accent-color);
+        }
+
+        .featured-contributions ul {
+            list-style: none;
+            padding: 0;
+            margin: var(--spacing-lg) 0;
+        }
+
+        .featured-contributions ul li {
+            margin-bottom: var(--spacing-sm);
+            padding-left: 10px;
+            position: relative;
+        }
+
+        .featured-contributions ul li::before {
+            content: "★";
+            position: absolute;
+            left: -15px;
+            color: var(--accent-color);
+        }
+
+        </style>
+
+        <script>
+            document.getElementById("contribution-form").addEventListener("submit", function(e) {
+                e.preventDefault();
+            
+                // Get form values
+                const name = document.getElementById("name").value;
+                const query = document.getElementById("query").value;
+            
+                // Add the contribution to the featured list
+                const contributions = document.getElementById("featured-contributions").querySelector("ul");
+                const newContribution = document.createElement("li");
+                newContribution.innerHTML = `<strong>${name}:</strong> <em>"${query}"</em>`;
+                contributions.appendChild(newContribution);
+            
+                // Reset form
+                this.reset();
+            
+                // Alert the user (optional)
+                alert("Thank you for your contribution!");
+            });
+        </script>
+
     </section>
 
 
