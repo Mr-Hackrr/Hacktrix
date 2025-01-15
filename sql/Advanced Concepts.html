@@ -58,232 +58,1149 @@
 <!-- Content -->
 <div id="content">
     <h1>Advanced SQL Concepts</h1>
+
+    <section id="window-functions" class="margin-lg padding-md box-shadow">
+        <h2>Introduction to Window Functions in MySQL</h2>
+        <p>
+            Window functions in MySQL are a powerful tool for performing advanced data analysis and computations.
+            Unlike standard aggregate functions, window functions do not collapse rows; instead, they provide results for each row in the dataset.
+        </p>
     
-    <section>
-        <h2>1. Window Functions</h2>
-        <p>Window functions perform calculations across a set of table rows that are related to the current row. They are useful for tasks like running totals, moving averages, and ranking.</p>
+        <h3>How Window Functions Work</h3>
+        <p>
+            Window functions operate over a "window" of rows, defined by the <code>OVER</code> clause. The <code>OVER</code> clause specifies how rows are partitioned and ordered within the window.
+        </p>
+        <ul>
+            <li><strong>Function:</strong> The specific operation, such as <code>SUM</code>, <code>AVG</code>, <code>ROW_NUMBER</code>, etc.</li>
+            <li><strong>PARTITION BY:</strong> Defines subsets of data (optional).</li>
+            <li><strong>ORDER BY:</strong> Determines the order of rows within the window (optional).</li>
+        </ul>
+    
+        <h3>Syntax</h3>
         <div class="code-box">
-            <pre><code>-- Example SQL Code
-SELECT employee_id, department_id, salary,
-       RANK() OVER (PARTITION BY department_id ORDER BY salary DESC) as rank
-FROM employees;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <pre><code>function_name(expression) OVER (
+        [PARTITION BY column1, column2, ...]
+        [ORDER BY column1 [ASC|DESC], column2 [ASC|DESC], ...]
+        [frame_specification]
+    )</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
+    
+        <h3>Types of Window Functions</h3>
+        <ul>
+            <li><strong>Ranking Functions:</strong> <code>ROW_NUMBER()</code>, <code>RANK()</code>, <code>DENSE_RANK()</code></li>
+            <li><strong>Aggregate Functions:</strong> <code>SUM()</code>, <code>AVG()</code>, <code>MIN()</code>, <code>MAX()</code>, <code>COUNT()</code></li>
+            <li><strong>Value Functions:</strong> <code>FIRST_VALUE()</code>, <code>LAST_VALUE()</code>, <code>NTH_VALUE()</code>, <code>LEAD()</code>, <code>LAG()</code></li>
+        </ul>
+    
+        <h3>Examples</h3>
+    
+        <h4>Example 1: Calculating Running Totals</h4>
+        <div class="code-box">
+            <pre><code>SELECT
+        CustomerID,
+        Amount,
+        SUM(Amount) OVER (PARTITION BY CustomerID ORDER BY SaleID) AS RunningTotal
+    FROM Sales;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
+        </div>
+    
+        <h4>Example 2: Ranking Rows</h4>
+        <div class="code-box">
+            <pre><code>SELECT
+        DepartmentID,
+        EmployeeName,
+        Salary,
+        RANK() OVER (PARTITION BY DepartmentID ORDER BY Salary DESC) AS Rank
+    FROM Employees;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
+        </div>
+    
+        <h4>Example 3: Identifying Trends</h4>
+        <div class="code-box">
+            <pre><code>SELECT
+        SaleID,
+        SaleMonth,
+        Amount,
+        LAG(Amount) OVER (ORDER BY SaleMonth) AS PreviousMonthAmount
+    FROM Sales;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
+        </div>
+    
+        <h3>Use Cases</h3>
+        <ul>
+            <li><strong>Cumulative Metrics:</strong> Calculate running totals, moving averages, or cumulative percentages.</li>
+            <li><strong>Comparative Analysis:</strong> Compare a row to its previous or next row using <code>LEAD</code> and <code>LAG</code>.</li>
+            <li><strong>Ranking:</strong> Assign ranks or dense ranks to rows within categories.</li>
+            <li><strong>Highlighting Extremes:</strong> Identify first or last values in sorted subsets.</li>
+        </ul>
     </section>
 
-    <section>
+    <section id="ranking-functions" class="margin-lg padding-md box-shadow">
+        <h2>Understanding Ranking Functions in MySQL</h2>
+        <p>
+            Ranking functions in MySQL are used to assign ranks to rows within a partition of a result set. They are essential for analyzing trends, assigning positions, and grouping related information effectively.
+        </p>
+    
+        <h3>Key Ranking Functions</h3>
+        <ul>
+            <li><strong>ROW_NUMBER():</strong> Assigns a unique number to each row within a partition.</li>
+            <li><strong>RANK():</strong> Assigns a rank to each row, with gaps in ranks for ties.</li>
+            <li><strong>DENSE_RANK():</strong> Similar to <code>RANK()</code>, but without gaps in ranks for ties.</li>
+        </ul>
+    
+        <h3>Example Table</h3>
+        <table class="data-table margin-lg">
+            <thead>
+                <tr>
+                    <th>EmployeeID</th>
+                    <th>DepartmentID</th>
+                    <th>EmployeeName</th>
+                    <th>Salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>101</td>
+                    <td>Alice</td>
+                    <td>60000</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>102</td>
+                    <td>Bob</td>
+                    <td>55000</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>101</td>
+                    <td>Charlie</td>
+                    <td>60000</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>102</td>
+                    <td>David</td>
+                    <td>52000</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>101</td>
+                    <td>Eve</td>
+                    <td>58000</td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <h3>Examples</h3>
+    
+        <h4>Example 1: Using ROW_NUMBER()</h4>
+        <p>Assign unique row numbers to employees based on their salaries:</p>
+        <div class="code-box">
+            <pre><code>SELECT
+        EmployeeID,
+        EmployeeName,
+        Salary,
+        ROW_NUMBER() OVER (ORDER BY Salary DESC) AS RowNumber
+    FROM Employees;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
+        </div>
+        <p><strong>Result:</strong></p>
+        <table class="data-table margin-lg">
+            <thead>
+                <tr>
+                    <th>EmployeeID</th>
+                    <th>EmployeeName</th>
+                    <th>Salary</th>
+                    <th>RowNumber</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Alice</td>
+                    <td>60000</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Charlie</td>
+                    <td>60000</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Eve</td>
+                    <td>58000</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Bob</td>
+                    <td>55000</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>David</td>
+                    <td>52000</td>
+                    <td>5</td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <h4>Example 2: Using RANK()</h4>
+        <p>Rank employees by their salaries within each department:</p>
+        <div class="code-box">
+            <pre><code>SELECT
+        DepartmentID,
+        EmployeeName,
+        Salary,
+        RANK() OVER (PARTITION BY DepartmentID ORDER BY Salary DESC) AS Rank
+    FROM Employees;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
+        </div>
+        <p><strong>Result:</strong></p>
+        <table class="data-table margin-lg">
+            <thead>
+                <tr>
+                    <th>DepartmentID</th>
+                    <th>EmployeeName</th>
+                    <th>Salary</th>
+                    <th>Rank</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>101</td>
+                    <td>Alice</td>
+                    <td>60000</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>101</td>
+                    <td>Charlie</td>
+                    <td>60000</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>101</td>
+                    <td>Eve</td>
+                    <td>58000</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>102</td>
+                    <td>Bob</td>
+                    <td>55000</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>102</td>
+                    <td>David</td>
+                    <td>52000</td>
+                    <td>2</td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <h4>Example 3: Using DENSE_RANK()</h4>
+        <p>Assign dense ranks to employees based on their salaries within each department:</p>
+        <div class="code-box">
+            <pre><code>SELECT
+        DepartmentID,
+        EmployeeName,
+        Salary,
+        DENSE_RANK() OVER (PARTITION BY DepartmentID ORDER BY Salary DESC) AS DenseRank
+    FROM Employees;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
+        </div>
+        <p><strong>Result:</strong></p>
+        <table class="data-table margin-lg">
+            <thead>
+                <tr>
+                    <th>DepartmentID</th>
+                    <th>EmployeeName</th>
+                    <th>Salary</th>
+                    <th>DenseRank</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>101</td>
+                    <td>Alice</td>
+                    <td>60000</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>101</td>
+                    <td>Charlie</td>
+                    <td>60000</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>101</td>
+                    <td>Eve</td>
+                    <td>58000</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>102</td>
+                    <td>Bob</td>
+                    <td>55000</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>102</td>
+                    <td>David</td>
+                    <td>52000</td>
+                    <td>2</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section id="aggregate-functions" class="margin-lg padding-md box-shadow">
+        <h2>Understanding Aggregate Functions in MySQL</h2>
+        <p>
+            Aggregate functions in MySQL are used to perform calculations on a set of values and return a single value. These functions are essential for summarizing data and are commonly used in reporting and analytics.
+        </p>
+    
+        <h3>Key Aggregate Functions</h3>
+        <ul>
+            <li><strong>SUM():</strong> Calculates the total sum of a numeric column.</li>
+            <li><strong>AVG():</strong> Computes the average value of a numeric column.</li>
+            <li><strong>MIN():</strong> Finds the smallest value in a column.</li>
+            <li><strong>MAX():</strong> Finds the largest value in a column.</li>
+            <li><strong>COUNT():</strong> Counts the number of rows or non-NULL values in a column.</li>
+        </ul>
+    
+        <h3>Example Table</h3>
+        <table class="data-table margin-lg">
+            <thead>
+                <tr>
+                    <th>DepartmentID</th>
+                    <th>EmployeeID</th>
+                    <th>EmployeeName</th>
+                    <th>Salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>101</td>
+                    <td>1</td>
+                    <td>Alice</td>
+                    <td>60000</td>
+                </tr>
+                <tr>
+                    <td>101</td>
+                    <td>2</td>
+                    <td>Bob</td>
+                    <td>50000</td>
+                </tr>
+                <tr>
+                    <td>102</td>
+                    <td>3</td>
+                    <td>Charlie</td>
+                    <td>70000</td>
+                </tr>
+                <tr>
+                    <td>102</td>
+                    <td>4</td>
+                    <td>David</td>
+                    <td>55000</td>
+                </tr>
+                <tr>
+                    <td>103</td>
+                    <td>5</td>
+                    <td>Eve</td>
+                    <td>45000</td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <h3>Examples</h3>
+    
+        <h4>1. Using SUM()</h4>
+        <p>Calculate the total salary for each department:</p>
+        <div class="code-box">
+            <pre><code>SELECT
+        DepartmentID,
+        SUM(Salary) AS TotalSalary
+    FROM Employees
+    GROUP BY DepartmentID;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
+        </div>
+        <p><strong>Result:</strong></p>
+        <table class="data-table margin-lg">
+            <thead>
+                <tr>
+                    <th>DepartmentID</th>
+                    <th>TotalSalary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>101</td>
+                    <td>110000</td>
+                </tr>
+                <tr>
+                    <td>102</td>
+                    <td>125000</td>
+                </tr>
+                <tr>
+                    <td>103</td>
+                    <td>45000</td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <h4>2. Using AVG()</h4>
+        <p>Calculate the average salary for each department:</p>
+        <div class="code-box">
+            <pre><code>SELECT
+        DepartmentID,
+        AVG(Salary) AS AverageSalary
+    FROM Employees
+    GROUP BY DepartmentID;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
+        </div>
+        <p><strong>Result:</strong></p>
+        <table class="data-table margin-lg">
+            <thead>
+                <tr>
+                    <th>DepartmentID</th>
+                    <th>AverageSalary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>101</td>
+                    <td>55000</td>
+                </tr>
+                <tr>
+                    <td>102</td>
+                    <td>62500</td>
+                </tr>
+                <tr>
+                    <td>103</td>
+                    <td>45000</td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <h4>3. Using MIN()</h4>
+        <p>Find the lowest salary in each department:</p>
+        <div class="code-box">
+            <pre><code>SELECT
+        DepartmentID,
+        MIN(Salary) AS MinSalary
+    FROM Employees
+    GROUP BY DepartmentID;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
+        </div>
+        <p><strong>Result:</strong></p>
+        <table class="data-table margin-lg">
+            <thead>
+                <tr>
+                    <th>DepartmentID</th>
+                    <th>MinSalary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>101</td>
+                    <td>50000</td>
+                </tr>
+                <tr>
+                    <td>102</td>
+                    <td>55000</td>
+                </tr>
+                <tr>
+                    <td>103</td>
+                    <td>45000</td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <h4>4. Using MAX()</h4>
+        <p>Find the highest salary in each department:</p>
+        <div class="code-box">
+            <pre><code>SELECT
+        DepartmentID,
+        MAX(Salary) AS MaxSalary
+    FROM Employees
+    GROUP BY DepartmentID;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
+        </div>
+        <p><strong>Result:</strong></p>
+        <table class="data-table margin-lg">
+            <thead>
+                <tr>
+                    <th>DepartmentID</th>
+                    <th>MaxSalary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>101</td>
+                    <td>60000</td>
+                </tr>
+                <tr>
+                    <td>102</td>
+                    <td>70000</td>
+                </tr>
+                <tr>
+                    <td>103</td>
+                    <td>45000</td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <h4>5. Using COUNT()</h4>
+        <p>Count the number of employees in each department:</p>
+        <div class="code-box">
+            <pre><code>SELECT
+        DepartmentID,
+        COUNT(EmployeeID) AS EmployeeCount
+    FROM Employees
+    GROUP BY DepartmentID;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
+        </div>
+        <p><strong>Result:</strong></p>
+        <table class="data-table margin-lg">
+            <thead>
+                <tr>
+                    <th>DepartmentID</th>
+                    <th>EmployeeCount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>101</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>102</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>103</td>
+                    <td>1</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section id="value-functions" class="margin-lg padding-md box-shadow">
+        <h2>Understanding Value Functions in MySQL</h2>
+        <p>
+            Value functions in MySQL allow you to retrieve specific values from a dataset within a defined window. These functions are particularly useful for comparing rows, identifying trends, and performing advanced analytics.
+        </p>
+    
+        <h3>Key Value Functions</h3>
+        <ul>
+            <li><strong>FIRST_VALUE():</strong> Retrieves the first value in a window.</li>
+            <li><strong>LAST_VALUE():</strong> Retrieves the last value in a window.</li>
+            <li><strong>NTH_VALUE():</strong> Retrieves the nth value in a window.</li>
+            <li><strong>LEAD():</strong> Accesses subsequent rows relative to the current row.</li>
+            <li><strong>LAG():</strong> Accesses preceding rows relative to the current row.</li>
+        </ul>
+    
+        <h3>Example Table</h3>
+        <table class="data-table margin-lg">
+            <thead>
+                <tr>
+                    <th>EmployeeID</th>
+                    <th>DepartmentID</th>
+                    <th>EmployeeName</th>
+                    <th>Salary</th>
+                    <th>HireDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>101</td>
+                    <td>Alice</td>
+                    <td>60000</td>
+                    <td>2020-01-15</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>101</td>
+                    <td>Bob</td>
+                    <td>50000</td>
+                    <td>2021-03-10</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>101</td>
+                    <td>Charlie</td>
+                    <td>55000</td>
+                    <td>2019-07-22</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>102</td>
+                    <td>David</td>
+                    <td>70000</td>
+                    <td>2018-11-30</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>102</td>
+                    <td>Eve</td>
+                    <td>45000</td>
+                    <td>2022-05-18</td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <h3>Examples</h3>
+    
+        <h4>1. Using FIRST_VALUE()</h4>
+        <p>Retrieve the first hired employee in each department based on hire date:</p>
+        <div class="code-box">
+            <pre><code>SELECT
+        DepartmentID,
+        EmployeeName,
+        HireDate,
+        FIRST_VALUE(EmployeeName) OVER (
+            PARTITION BY DepartmentID ORDER BY HireDate
+        ) AS FirstHired
+    FROM Employees;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+        <p><strong>Result:</strong></p>
+        <table class="data-table margin-lg">
+            <thead>
+                <tr>
+                    <th>DepartmentID</th>
+                    <th>EmployeeName</th>
+                    <th>HireDate</th>
+                    <th>FirstHired</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>101</td>
+                    <td>Alice</td>
+                    <td>2020-01-15</td>
+                    <td>Charlie</td>
+                </tr>
+                <tr>
+                    <td>101</td>
+                    <td>Bob</td>
+                    <td>2021-03-10</td>
+                    <td>Charlie</td>
+                </tr>
+                <tr>
+                    <td>101</td>
+                    <td>Charlie</td>
+                    <td>2019-07-22</td>
+                    <td>Charlie</td>
+                </tr>
+                <tr>
+                    <td>102</td>
+                    <td>David</td>
+                    <td>2018-11-30</td>
+                    <td>David</td>
+                </tr>
+                <tr>
+                    <td>102</td>
+                    <td>Eve</td>
+                    <td>2022-05-18</td>
+                    <td>David</td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <h4>2. Using LAST_VALUE()</h4>
+        <p>Retrieve the last hired employee in each department:</p>
+        <div class="code-box">
+            <pre><code>SELECT
+        DepartmentID,
+        EmployeeName,
+        HireDate,
+        LAST_VALUE(EmployeeName) OVER (
+            PARTITION BY DepartmentID ORDER BY HireDate ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING
+        ) AS LastHired
+    FROM Employees;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+        <p><strong>Result:</strong></p>
+        <table class="data-table margin-lg">
+            <thead>
+                <tr>
+                    <th>DepartmentID</th>
+                    <th>EmployeeName</th>
+                    <th>HireDate</th>
+                    <th>LastHired</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>101</td>
+                    <td>Alice</td>
+                    <td>2020-01-15</td>
+                    <td>Bob</td>
+                </tr>
+                <tr>
+                    <td>101</td>
+                    <td>Bob</td>
+                    <td>2021-03-10</td>
+                    <td>Bob</td>
+                </tr>
+                <tr>
+                    <td>101</td>
+                    <td>Charlie</td>
+                    <td>2019-07-22</td>
+                    <td>Bob</td>
+                </tr>
+                <tr>
+                    <td>102</td>
+                    <td>David</td>
+                    <td>2018-11-30</td>
+                    <td>Eve</td>
+                </tr>
+                <tr>
+                    <td>102</td>
+                    <td>Eve</td>
+                    <td>2022-05-18</td>
+                    <td>Eve</td>
+                </tr>
+            </tbody>
+        </table>
+        <h4>3. Using NTH_VALUE()</h4>
+<p>Retrieve the second highest salary in each department:</p>
+<div class="code-box">
+    <pre><code>SELECT
+    DepartmentID,
+    EmployeeName,
+    Salary,
+    NTH_VALUE(Salary, 2) OVER (
+        PARTITION BY DepartmentID ORDER BY Salary DESC
+    ) AS SecondHighestSalary
+FROM Employees;</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
+<p><strong>Result:</strong></p>
+<table class="data-table margin-lg">
+    <thead>
+        <tr>
+            <th>DepartmentID</th>
+            <th>EmployeeName</th>
+            <th>Salary</th>
+            <th>SecondHighestSalary</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>101</td>
+            <td>Alice</td>
+            <td>60000</td>
+            <td>55000</td>
+        </tr>
+        <tr>
+            <td>101</td>
+            <td>Bob</td>
+            <td>50000</td>
+            <td>55000</td>
+        </tr>
+        <tr>
+            <td>101</td>
+            <td>Charlie</td>
+            <td>55000</td>
+            <td>55000</td>
+        </tr>
+        <tr>
+            <td>102</td>
+            <td>David</td>
+            <td>70000</td>
+            <td>45000</td>
+        </tr>
+        <tr>
+            <td>102</td>
+            <td>Eve</td>
+            <td>45000</td>
+            <td>45000</td>
+        </tr>
+    </tbody>
+</table>
+
+<h4>4. Using LEAD()</h4>
+<p>Compare each employee's salary with the next employee's salary:</p>
+<div class="code-box">
+    <pre><code>SELECT
+    EmployeeName,
+    Salary,
+    LEAD(Salary) OVER (ORDER BY Salary DESC) AS NextSalary
+FROM Employees;</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
+<p><strong>Result:</strong></p>
+<table class="data-table margin-lg">
+    <thead>
+        <tr>
+            <th>EmployeeName</th>
+            <th>Salary</th>
+            <th>NextSalary</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>David</td>
+            <td>70000</td>
+            <td>60000</td>
+        </tr>
+        <tr>
+            <td>Alice</td>
+            <td>60000</td>
+            <td>55000</td>
+        </tr>
+        <tr>
+            <td>Charlie</td>
+            <td>55000</td>
+            <td>50000</td>
+        </tr>
+        <tr>
+            <td>Bob</td>
+            <td>50000</td>
+            <td>45000</td>
+        </tr>
+        <tr>
+            <td>Eve</td>
+            <td>45000</td>
+            <td>NULL</td>
+        </tr>
+    </tbody>
+</table>
+
+<h4>5. Using LAG()</h4>
+<p>Compare each employee's salary with the previous employee's salary:</p>
+<div class="code-box">
+    <pre><code>SELECT
+    EmployeeName,
+    Salary,
+    LAG(Salary) OVER (ORDER BY Salary DESC) AS PreviousSalary
+FROM Employees;</code></pre>
+    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+</div>
+<p><strong>Result:</strong></p>
+<table class="data-table margin-lg">
+    <thead>
+        <tr>
+            <th>EmployeeName</th>
+            <th>Salary</th>
+            <th>PreviousSalary</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>David</td>
+            <td>70000</td>
+            <td>NULL</td>
+        </tr>
+        <tr>
+            <td>Alice</td>
+            <td>60000</td>
+            <td>70000</td>
+        </tr>
+        <tr>
+            <td>Charlie</td>
+            <td>55000</td>
+            <td>60000</td>
+        </tr>
+        <tr>
+            <td>Bob</td>
+            <td>50000</td>
+            <td>55000</td>
+        </tr>
+        <tr>
+            <td>Eve</td>
+            <td>45000</td>
+            <td>50000</td>
+        </tr>
+    </tbody>
+</table>
+
+    </section>
+
+    <section id="common-table-expressions" class="margin-lg padding-md box-shadow">
         <h2>2. Common Table Expressions (CTEs)</h2>
-        <p>CTEs are temporary result sets that can be referenced within a SELECT, INSERT, UPDATE, or DELETE statement. They help make complex queries easier to read and maintain.</p>
+        <p>
+            Common Table Expressions (CTEs) are temporary result sets that simplify complex queries. They allow you to structure your SQL queries in a modular and readable way. A CTE is defined using the <code>WITH</code> keyword and can be used in <code>SELECT</code>, <code>INSERT</code>, <code>UPDATE</code>, or <code>DELETE</code> statements.
+        </p>
+    
+        <h3>Key Benefits of CTEs</h3>
+        <ul>
+            <li><strong>Improved Readability:</strong> Break down complex queries into smaller, logical parts.</li>
+            <li><strong>Reusability:</strong> Use the CTE multiple times within the same query.</li>
+            <li><strong>Recursive Queries:</strong> Handle hierarchical or iterative data more efficiently.</li>
+        </ul>
+    
+        <h3>Syntax</h3>
         <div class="code-box">
-            <pre><code>-- Example SQL Code
-WITH Sales_CTE (SalesPerson, TotalSales) AS (
-    SELECT SalesPerson, SUM(SalesAmount)
-    FROM Sales
-    GROUP BY SalesPerson
-)
-SELECT SalesPerson, TotalSales
-FROM Sales_CTE
-WHERE TotalSales > 10000;</code></pre>
+            <pre><code>WITH cte_name (column1, column2, ...) AS (
+        SELECT column1, column2, ...
+        FROM table_name
+        WHERE conditions
+    )
+    SELECT column1, column2, ...
+    FROM cte_name;</code></pre>
             <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
         </div>
+    
+        <h3>Examples</h3>
+    
+        <h4>1. Aggregating Sales Data</h4>
+        <p>Find all salespeople whose total sales exceed $10,000:</p>
+        <div class="code-box">
+            <pre><code>WITH Sales_CTE (SalesPerson, TotalSales) AS (
+        SELECT SalesPerson, SUM(SalesAmount)
+        FROM Sales
+        GROUP BY SalesPerson
+    )
+    SELECT SalesPerson, TotalSales
+    FROM Sales_CTE
+    WHERE TotalSales > 10000;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+        <p><strong>Explanation:</strong> The CTE <code>Sales_CTE</code> calculates the total sales for each salesperson. The main query filters out those with total sales greater than $10,000.</p>
+    
+        <h4>2. Using CTEs for Ranking</h4>
+        <p>Rank employees by their salaries within each department:</p>
+        <div class="code-box">
+            <pre><code>WITH RankedEmployees AS (
+        SELECT 
+            DepartmentID, 
+            EmployeeName, 
+            Salary,
+            RANK() OVER (PARTITION BY DepartmentID ORDER BY Salary DESC) AS Rank
+        FROM Employees
+    )
+    SELECT *
+    FROM RankedEmployees
+    WHERE Rank = 1;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+        <p><strong>Explanation:</strong> The CTE <code>RankedEmployees</code> calculates the rank of employees within each department. The main query retrieves the top-ranked employee from each department.</p>
+    
+        <h4>3. Recursive CTE: Hierarchical Data</h4>
+        <p>Find all employees and their reporting hierarchy:</p>
+        <div class="code-box">
+            <pre><code>WITH RECURSIVE EmployeeHierarchy AS (
+        SELECT EmployeeID, ManagerID, EmployeeName
+        FROM Employees
+        WHERE ManagerID IS NULL
+        UNION ALL
+        SELECT e.EmployeeID, e.ManagerID, e.EmployeeName
+        FROM Employees e
+        INNER JOIN EmployeeHierarchy eh ON e.ManagerID = eh.EmployeeID
+    )
+    SELECT *
+    FROM EmployeeHierarchy;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+        <p><strong>Explanation:</strong> The recursive CTE <code>EmployeeHierarchy</code> builds a hierarchy of employees, starting from the top-level managers and iteratively adding their subordinates.</p>
+    
+        <h4>4. Joining CTEs</h4>
+        <p>Combine data from multiple CTEs to calculate average sales per region:</p>
+        <div class="code-box">
+            <pre><code>WITH RegionalSales AS (
+        SELECT Region, SUM(SalesAmount) AS TotalSales
+        FROM Sales
+        GROUP BY Region
+    ),
+    AverageSales AS (
+        SELECT AVG(TotalSales) AS AvgSales
+        FROM RegionalSales
+    )
+    SELECT Region, TotalSales, AvgSales
+    FROM RegionalSales, AverageSales
+    WHERE TotalSales > AvgSales;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+        <p><strong>Explanation:</strong> The first CTE <code>RegionalSales</code> calculates total sales by region. The second CTE <code>AverageSales</code> computes the average sales across all regions. The main query filters regions with sales above the average.</p>
+    
+        <h3>Use Cases</h3>
+        <ul>
+            <li><strong>Data Aggregation:</strong> Simplify queries for calculating totals, averages, or other aggregates.</li>
+            <li><strong>Hierarchical Data:</strong> Handle recursive relationships, such as organizational charts or category trees.</li>
+            <li><strong>Query Modularity:</strong> Break down complex queries into manageable, reusable parts.</li>
+            <li><strong>Temporary Data:</strong> Use CTEs for temporary data that doesn't need to be stored in the database.</li>
+        </ul>
     </section>
 
-    <section>
+    <section id="recursive-queries" class="margin-lg padding-md box-shadow">
         <h2>3. Recursive Queries</h2>
-        <p>Recursive queries are used to query hierarchical data, such as organizational charts or file systems.</p>
-        <div class="code-box">
-            <pre><code>-- Example SQL Code
-WITH RECURSIVE EmployeeHierarchy AS (
-    SELECT employee_id, manager_id, employee_name
-    FROM employees
-    WHERE manager_id IS NULL
-    UNION ALL
-    SELECT e.employee_id, e.manager_id, e.employee_name
-    FROM employees e
-    INNER JOIN EmployeeHierarchy eh ON e.manager_id = eh.employee_id
-)
-SELECT * FROM EmployeeHierarchy;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
-        </div>
-    </section>
-
-    <section>
-        <h2>Topic: Common Table Expressions (CTEs)</h2>
-        <p><strong>Simple Explanation:</strong><br>
-        Common Table Expressions (CTEs) are temporary, named result sets that you can reference within a SELECT, INSERT, UPDATE, or DELETE statement. Think of a CTE as a "temporary view" that simplifies complex queries by breaking them down into manageable, reusable pieces.</p>
+        <p>
+            Recursive queries in SQL are used to handle hierarchical or iterative data structures, such as organizational charts, file systems, or category trees. These queries use a combination of the <code>WITH RECURSIVE</code> clause and a recursive Common Table Expression (CTE) to achieve their functionality.
+        </p>
     
-        <h3>5 Different Examples to Help Users Understand Easily:</h3>
-    
-        <h4>1. Simplifying Complex Queries - Recursive CTE</h4>
-        <p><strong>Scenario:</strong> List all employees in a company hierarchy, showing each employee's manager.<br>
-        <strong>Before CTE:</strong> Nested queries or joins can become unwieldy.<br>
-        <strong>With Recursive CTE:</strong></p>
-        <div class="code-box">
-            <pre><code>WITH RECURSIVE employee_hierarchy AS (
-      SELECT employee_id, manager_id, 0 AS level
-      FROM employees WHERE manager_id IS NULL  -- Top-level managers
-      UNION ALL
-      SELECT e.employee_id, e.manager_id, level + 1
-      FROM employees e
-      INNER JOIN employee_hierarchy m ON e.manager_id = m.employee_id
-    )
-    SELECT * FROM employee_hierarchy;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
-        </div>
-        <p><strong>Result:</strong> Easily navigate through the organizational chart.</p>
-    
-        <h4>2. Avoiding Correlated Subqueries - Non-Recursive CTE</h4>
-        <p><strong>Scenario:</strong> Find the top 3 products by sales in each category.<br>
-        <strong>Before CTE:</strong> Use correlated subqueries or self-joins, which can be slow.<br>
-        <strong>With Non-Recursive CTE:</strong></p>
-        <div class="code-box">
-            <pre><code>WITH top_products AS (
-      SELECT category, product, sales,
-      ROW_NUMBER() OVER (PARTITION BY category ORDER BY sales DESC) AS sales_rank
-      FROM product_sales
-    )
-    SELECT * FROM top_products WHERE sales_rank &lt;= 3;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
-        </div>
-        <p><strong>Result:</strong> More readable and potentially faster query.</p>
-    
-        <h4>3. Solving Problems Iteratively - Recursive CTE for Numerical Sequences</h4>
-        <p><strong>Scenario:</strong> Generate a date sequence for the next 12 months from the current date.<br>
-        <strong>Before CTE:</strong> Looping in application code or complex date arithmetic.<br>
-        <strong>With Recursive CTE:</strong></p>
-        <div class="code-box">
-            <pre><code>WITH date_sequence AS (
-      SELECT CAST(CURRENT_DATE AS DATE) AS date_value
-      UNION ALL
-      SELECT DATE_ADD(date_value, INTERVAL 1 MONTH)
-      FROM date_sequence
-      WHERE date_value &lt; CAST(CURRENT_DATE + INTERVAL 1 YEAR AS DATE)
-    )
-    SELECT * FROM date_sequence OPTION (MAXRECURSION 0);</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
-        </div>
-        <p><strong>Result:</strong> Dynamically generate a series of dates.</p>
-    
-        <h4>4. Pivoting Data Without PIVOT - Using CTE for Transformation</h4>
-        <p><strong>Scenario:</strong> Transform row data into columns for easier analysis (e.g., sales by quarter).<br>
-        <strong>Before CTE:</strong> Use the PIVOT function or complex aggregation.<br>
-        <strong>With CTE:</strong></p>
-        <div class="code-box">
-            <pre><code>WITH transformed_data AS (
-      SELECT 'Q1' AS quarter, SUM(CASE WHEN quarter = 'Q1' THEN sales END) AS sales
-      FROM sales_data
-      UNION ALL
-      SELECT 'Q2', SUM(CASE WHEN quarter = 'Q2' THEN sales END)
-      FROM sales_data
-      -- Repeat for Q3, Q4
-    )
-    SELECT * FROM transformed_data;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
-        </div>
-        <p><strong>Result (Simplified):</strong> Easily readable sales data by quarter.</p>
-    
-        <h4>5. Enhancing Data Security - Using CTEs with Row-Level Security</h4>
-        <p><strong>Scenario:</strong> Ensure employees can only see sales data for their region.<br>
-        <strong>Before CTE:</strong> Implement complex row-level security (RLS) policies.<br>
-        <strong>With CTE &amp; RLS:</strong></p>
-        <div class="code-box">
-            <pre><code>CREATE FUNCTION securitypredicate(@region AS VARCHAR(10))
-    RETURNS TABLE
-    WITH security_cte AS (
-      SELECT region, sales
-      FROM sales_data
-      WHERE region = @region  -- Simplified for demonstration
-    )
-    RETURN SELECT * FROM security_cte;
-    
-    -- Apply the security predicate to the table
-    ALTER TABLE sales_data
-    WITH (SECURITY_POLICY = securitypolicy ADD (FILTER PREDICATE dbo.securitypredicate(region)));</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
-        </div>
-        <p><strong>Result:</strong> Enhanced security with simplified policy management.</p>
-    
-        <h3>Tips for Working with CTEs:</h3>
+        <h3>How Recursive Queries Work</h3>
         <ul>
-            <li><strong>Recursive vs. Non-Recursive:</strong> Choose based on whether you need to iterate (e.g., hierarchical data) or just simplify a query.</li>
-            <li><strong>CTE Naming:</strong> Keep names descriptive and unique within the query.</li>
-            <li><strong>CTE Placement:</strong> Always define CTEs immediately before the main query.</li>
-            <li><strong>Performance:</strong> Monitor and optimize, as excessive use or poor indexing can impact performance.</li>
+            <li><strong>Base Query:</strong> The initial query retrieves the top-level rows, such as root nodes in a hierarchy.</li>
+            <li><strong>Recursive Query:</strong> This query references the CTE itself to retrieve child nodes or related rows.</li>
+            <li><strong>Termination:</strong> The recursion stops when no more rows match the conditions.</li>
+        </ul>
+    
+        <h3>Syntax</h3>
+        <div class="code-box">
+            <pre><code>WITH RECURSIVE cte_name AS (
+        base_query
+        UNION ALL
+        recursive_query
+    )
+    SELECT * FROM cte_name;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+    
+        <h3>Examples</h3>
+    
+        <h4>1. Building an Employee Hierarchy</h4>
+        <p>Retrieve a hierarchical structure of employees and their managers:</p>
+        <div class="code-box">
+            <pre><code>WITH RECURSIVE EmployeeHierarchy AS (
+        SELECT employee_id, manager_id, employee_name
+        FROM employees
+        WHERE manager_id IS NULL
+        UNION ALL
+        SELECT e.employee_id, e.manager_id, e.employee_name
+        FROM employees e
+        INNER JOIN EmployeeHierarchy eh ON e.manager_id = eh.employee_id
+    )
+    SELECT * FROM EmployeeHierarchy;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+        <p><strong>Explanation:</strong> The base query retrieves employees with no managers (top-level). The recursive query retrieves employees reporting to the previously retrieved rows, iteratively building the hierarchy.</p>
+    
+        <h4>2. Calculating Factorials</h4>
+        <p>Calculate the factorial of numbers from 1 to 5:</p>
+        <div class="code-box">
+            <pre><code>WITH RECURSIVE FactorialCTE AS (
+        SELECT 1 AS n, 1 AS factorial
+        UNION ALL
+        SELECT n + 1, factorial * (n + 1)
+        FROM FactorialCTE
+        WHERE n < 5
+    )
+    SELECT * FROM FactorialCTE;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+        <p><strong>Explanation:</strong> The base query starts with <code>n = 1</code> and <code>factorial = 1</code>. The recursive query calculates the factorial by incrementing <code>n</code> and multiplying it with the previous factorial value.</p>
+        <p><strong>Result:</strong></p>
+        <table class="data-table margin-lg">
+            <thead>
+                <tr>
+                    <th>n</th>
+                    <th>factorial</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>24</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>120</td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <h4>3. Generating a Sequence</h4>
+        <p>Create a sequence of numbers from 1 to 10:</p>
+        <div class="code-box">
+            <pre><code>WITH RECURSIVE SequenceCTE AS (
+        SELECT 1 AS n
+        UNION ALL
+        SELECT n + 1
+        FROM SequenceCTE
+        WHERE n < 10
+    )
+    SELECT * FROM SequenceCTE;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+        <p><strong>Explanation:</strong> The base query starts with <code>n = 1</code>. The recursive query increments <code>n</code> by 1 until it reaches 10.</p>
+        <p><strong>Result:</strong></p>
+        <table class="data-table margin-lg">
+            <thead>
+                <tr>
+                    <th>n</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <h3>Use Cases</h3>
+        <ul>
+            <li><strong>Organizational Charts:</strong> Query hierarchical structures like employees and their managers.</li>
+            <li><strong>Category Trees:</strong> Handle nested categories in e-commerce or content management systems.</li>
+            <li><strong>Mathematical Calculations:</strong> Perform iterative calculations like factorials or sequences.</li>
+            <li><strong>File Systems:</strong> Explore hierarchical file and folder structures.</li>
         </ul>
     </section>
 
-    <section>
-        <h2>Topic 1: Full-Text Search</h2>
-        <p><strong>Simple Explanation:</strong><br>
-        Full-Text Search enables searching for words or phrases within unstructured data (e.g., text, comments, descriptions) stored in your database, returning results based on relevance. Think of it as using a search engine within your database.</p>
-    
-        <h3>5 Different Examples to Help Users Understand Easily</h3>
-    
-        <h4>1. Product Description Search</h4>
-        <p><strong>Scenario:</strong> Find all products whose descriptions contain the word "sustainable".<br>
-        <strong>SQL Snippet (SQL Server):</strong></p>
-        <div class="code-box">
-            <pre><code>SELECT * FROM products
-    WHERE CONTAINS(description, 'sustainable');</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
-        </div>
-    
-        <h4>2. Fuzzy Search for User Input</h4>
-        <p><strong>Scenario:</strong> Implement a search bar that tolerates minor typos.<br>
-        <strong>SQL Snippet (MySQL with FULLTEXT index & boolean mode):</strong></p>
-        <div class="code-box">
-            <pre><code>SELECT * FROM articles
-    WHERE MATCH(content) AGAINST ('+search_term*' IN BOOLEAN MODE);</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
-        </div>
-    
-        <h4>3. Ranking Search Results by Relevance</h4>
-        <p><strong>Scenario:</strong> Display search results ordered by how well they match the query.<br>
-        <strong>SQL Snippet (PostgreSQL with TSVECTOR & RANK):</strong></p>
-        <div class="code-box">
-            <pre><code>SELECT *, TS_RANK_CD(textsearch, to_tsquery('search_term')) AS rank
-    FROM documents
-    WHERE textsearch @@ to_tsquery('search_term')
-    ORDER BY rank DESC;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
-        </div>
-    
-        <h4>4. Excluding Common Words (Stopwords)</h4>
-        <p><strong>Scenario:</strong> Improve search efficiency by ignoring common words like "the", "and".<br>
-        <strong>SQL Snippet (SQL Server, configuring stopwords):</strong></p>
-        <div class="code-box">
-            <pre><code>-- Create a custom stoplist
-    CREATE FULLTEXT STOPLIST myStoplist;
-    ALTER FULLTEXT STOPLIST myStoplist ADD 'the' LANGUAGE 'English';
-    -- Use the stoplist in your full-text index
-    CREATE FULLTEXT INDEX ON myTable(myColumn) KEY INDEX myKeyIndex ON myFileGroup
-    WITH STOPLIST = myStoplist;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
-        </div>
-    
-        <h4>5. Searching Across Multiple Columns</h4>
-        <p><strong>Scenario:</strong> Search for a term within both the title and content of articles.<br>
-        <strong>SQL Snippet (MySQL):</strong></p>
-        <div class="code-box">
-            <pre><code>SELECT * FROM articles
-    WHERE MATCH(title, content) AGAINST ('search_term' IN NATURAL LANGUAGE MODE);</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
-        </div>
-    
-        <h3>Tips for Full-Text Search</h3>
-        <ul>
-            <li><strong>Indexing:</strong> Properly configure full-text indexes for efficient searching.</li>
-            <li><strong>Stopwords:</strong> Customize stopwords to enhance search result relevance.</li>
-            <li><strong>Query Modes:</strong> Understand the differences between natural language, boolean, and query modes.</li>
-        </ul>
-    </section>
-    
-    <section>
+    <section id="regular-expressions" class="margin-lg padding-md box-shadow">
         <h2>Topic 2: Regular Expressions in SQL</h2>
-        <p><strong>Simple Explanation:</strong><br>
-        Regular Expressions (RegEx) in SQL allow you to search, validate, or extract data using patterns. Think of RegEx as a powerful filter for text data, enabling complex matching beyond simple LIKE clauses.</p>
+        <p>
+            <strong>Simple Explanation:</strong><br>
+            Regular Expressions (RegEx) in SQL allow you to search, validate, or extract data using patterns. Think of RegEx as a powerful filter for text data, enabling complex matching beyond simple LIKE clauses. It is a versatile tool for cleaning and analyzing textual data.
+        </p>
     
-        <h3>5 Different Examples to Help Users Understand Easily</h3>
+        <h3>Key Benefits of Regular Expressions</h3>
+        <ul>
+            <li><strong>Advanced Pattern Matching:</strong> Identify complex patterns in text data.</li>
+            <li><strong>Data Validation:</strong> Ensure data adheres to specific formats, such as emails or phone numbers.</li>
+            <li><strong>Text Extraction:</strong> Extract useful information from unstructured text.</li>
+            <li><strong>Data Transformation:</strong> Replace or modify text patterns efficiently.</li>
+        </ul>
+    
+        <h3>5 Examples to Understand Regular Expressions</h3>
     
         <h4>1. Email Validation</h4>
         <p><strong>Scenario:</strong> Check if a string is a valid email address.<br>
@@ -292,6 +1209,26 @@ SELECT * FROM EmployeeHierarchy;</code></pre>
             <pre><code>SELECT 'test@example.com' ~* '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}$' AS is_valid;</code></pre>
             <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
         </div>
+        <p><strong>Explanation:</strong> This query checks if the input string matches the typical email format: <code>username@domain.extension</code>. The result will return <code>TRUE</code> if valid and <code>FALSE</code> otherwise.</p>
+        <p><strong>Result:</strong></p>
+        <table class="data-table margin-lg">
+            <thead>
+                <tr>
+                    <th>Input</th>
+                    <th>IsValid</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>test@example.com</td>
+                    <td>TRUE</td>
+                </tr>
+                <tr>
+                    <td>invalid-email</td>
+                    <td>FALSE</td>
+                </tr>
+            </tbody>
+        </table>
     
         <h4>2. Extracting Numbers from Text</h4>
         <p><strong>Scenario:</strong> Pull out all numbers from a product description.<br>
@@ -300,24 +1237,60 @@ SELECT * FROM EmployeeHierarchy;</code></pre>
             <pre><code>SELECT REGEXP_SUBSTR('Product weighs 5kg and is 10cm tall', '[0-9]+') AS extracted_number;</code></pre>
             <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
         </div>
+        <p><strong>Explanation:</strong> The query identifies the first number in the input string. To extract all numbers, modify the query to iterate over matches.</p>
+        <p><strong>Result:</strong></p>
+        <table class="data-table margin-lg">
+            <thead>
+                <tr>
+                    <th>Input</th>
+                    <th>ExtractedNumber</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Product weighs 5kg and is 10cm tall</td>
+                    <td>5</td>
+                </tr>
+            </tbody>
+        </table>
     
         <h4>3. Matching Credit Card Numbers</h4>
-        <p><strong>Scenario:</strong> Identify potential credit card numbers in user input (for security logging).<br>
-        <strong>SQL Snippet (SQL Server, using LIKE for simplicity, but RegEx is more powerful):</strong></p>
+        <p><strong>Scenario:</strong> Identify potential credit card numbers in user input.<br>
+        <strong>SQL Snippet (SQL Server):</strong></p>
         <div class="code-box">
-            <pre><code>-- Note: SQL Server's LIKE is shown for simplicity; for RegEx, consider CLR integration.
-    SELECT * FROM logs
+            <pre><code>SELECT * FROM logs
     WHERE input LIKE '%[0-9][0-9][0-9][0-9]-%[0-9][0-9][0-9][0-9]-%[0-9][0-9][0-9][0-9]-%[0-9][0-9][0-9][0-9]%';</code></pre>
             <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
         </div>
+        <p><strong>Explanation:</strong> This query looks for text patterns resembling credit card numbers (16 digits separated by hyphens).</p>
     
         <h4>4. Replacing Text Patterns</h4>
         <p><strong>Scenario:</strong> Standardize date formats in text.<br>
         <strong>SQL Snippet (Oracle):</strong></p>
         <div class="code-box">
-            <pre><code>SELECT REGEXP_REPLACE('Meeting on 02-16-2023', '(\d{2})-(\d{2})-(\d{4})', 'Month: \2, Day: \1, Year: \3') AS standardized_date;</code></pre>
+            <pre><code>SELECT REGEXP_REPLACE(
+        'Meeting on 02-16-2023',
+        '(\d{2})-(\d{2})-(\d{4})',
+        'Month: \2, Day: \1, Year: \3'
+    ) AS standardized_date;</code></pre>
             <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
         </div>
+        <p><strong>Explanation:</strong> The query identifies dates in <code>MM-DD-YYYY</code> format and replaces them with a standardized format like <code>Month: DD, Day: MM, Year: YYYY</code>.</p>
+        <p><strong>Result:</strong></p>
+        <table class="data-table margin-lg">
+            <thead>
+                <tr>
+                    <th>Input</th>
+                    <th>StandardizedDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Meeting on 02-16-2023</td>
+                    <td>Month: 16, Day: 02, Year: 2023</td>
+                </tr>
+            </tbody>
+        </table>
     
         <h4>5. Validating Password Strength</h4>
         <p><strong>Scenario:</strong> Check if a password meets complexity requirements (e.g., length, uppercase, lowercase, numbers).<br>
@@ -326,65 +1299,410 @@ SELECT * FROM EmployeeHierarchy;</code></pre>
             <pre><code>SELECT 'MyP@ssw0rd' ~* '^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$' AS is_strong_password;</code></pre>
             <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
         </div>
+        <p><strong>Explanation:</strong> This query validates passwords with at least one lowercase letter, one uppercase letter, one digit, and a minimum length of 8 characters.</p>
+        <p><strong>Result:</strong></p>
+        <table class="data-table margin-lg">
+            <thead>
+                <tr>
+                    <th>Password</th>
+                    <th>IsStrongPassword</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>MyP@ssw0rd</td>
+                    <td>TRUE</td>
+                </tr>
+                <tr>
+                    <td>weakpass</td>
+                    <td>FALSE</td>
+                </tr>
+            </tbody>
+        </table>
     
-        <h3>Tips for Regular Expressions in SQL</h3>
+        <h3>Tips for Using Regular Expressions in SQL</h3>
         <ul>
             <li><strong>Database Compatibility:</strong> Check your database's RegEx support and syntax.</li>
             <li><strong>Pattern Testing:</strong> Use online RegEx testers to refine your patterns before applying them in SQL.</li>
             <li><strong>Performance:</strong> Be cautious with complex patterns on large datasets, as they can impact query performance.</li>
-            <li><strong>Security:</strong> Use RegEx responsibly, especially when validating user input, to avoid potential security vulnerabilities.</li>
+            <li><strong>Security:</strong> Use RegEx responsibly, especially when validating user input, to avoid potential vulnerabilities.</li>
         </ul>
     </section>
 
-    <section>
-        <h2>Topic 1: Database Modeling and Scalability</h2>
-        <p><strong>Analogy: Building a Library</strong><br>
-        <strong>Database Modeling:</strong> Imagine designing a library's layout with shelves, sections, and a catalog system to efficiently store and retrieve books (data).<br>
-        <strong>Scalability:</strong> As your book collection (website traffic/data) grows, the library's design should accommodate more shelves (servers), sections (databases), or even new buildings (cloud services) to maintain easy access and organization.</p>
-        <p><strong>Easy Takeaway for Your Website:</strong> Ensure your database structure is flexible and adaptable to handle increasing traffic and data. Regularly review and refine your database model to maintain performance.</p>
-    </section>
+    <section id="regular-expressions" class="margin-lg padding-md box-shadow">
+        <h2>Topic 2: Regular Expressions in SQL</h2>
+        <p>
+            <strong>Simple Explanation:</strong><br>
+            Regular Expressions (RegEx) in SQL allow you to search, validate, or extract data using patterns. Think of RegEx as a powerful filter for text data, enabling complex matching beyond simple LIKE clauses. It is a versatile tool for cleaning and analyzing textual data.
+        </p>
     
-    <section>
-        <h2>Topic 2: Denormalization for Performance</h2>
-        <p><strong>Analogy: Pre-Assembled Furniture for Faster Moving-In</strong><br>
-        <strong>Normalization:</strong> Breaking down furniture into compact, efficient pieces (e.g., IKEA boxes) for easy storage, reducing data redundancy.<br>
-        <strong>Denormalization for Performance:</strong> Pre-assembling some furniture (storing partially processed data) so it's quicker to move in (retrieve and display on your website), even if storage space increases slightly.</p>
-        <p><strong>Easy Takeaway for Your Website:</strong> Strategically duplicate some data (denormalize) to enhance query performance, but be cautious not to overdo it, as this can increase storage needs and data inconsistency risks.</p>
-    </section>
-    
-    <section>
-        <h2>Topic 3: Database Partitioning</h2>
-        <p><strong>Analogy: Organizing a Filing Cabinet</strong><br>
-        <strong>Database Partitioning:</strong> Dividing a large filing cabinet (database) into smaller, labeled sections (partitions) based on criteria like date, user type, or geographic location.<br>
-        <strong>Benefit:</strong> Faster data retrieval and maintenance, as you're only accessing/opening the relevant section(s) of the cabinet.</p>
-        <p><strong>Easy Takeaway for Your Website:</strong> Split your database into manageable partitions based on your website's specific needs (e.g., by date for a blog or by region for an e-commerce site with global customers). This enhances data access speeds and reduces the load on your database.</p>
-    </section>
-    
-    <section>
-        <h2>Topic 4: Horizontal vs. Vertical Scaling</h2>
-        <p><strong>Analogy: Expanding a Restaurant</strong><br>
-        <strong>Vertical Scaling (Scale Up):</strong><br>
-        <strong>Analogy:</strong> Upgrading to a larger kitchen, more staff, and better equipment in the SAME restaurant location.<br>
-        <strong>Your Website:</strong> Increasing the power of your existing server (more RAM, CPU, etc.) to handle more traffic.</p>
-        <p><strong>Horizontal Scaling (Scale Out):</strong><br>
-        <strong>Analogy:</strong> Opening NEW restaurant locations (each with standard kitchen equipment and staff) to serve more customers.<br>
-        <strong>Your Website:</strong> Adding more servers of the same capacity to distribute the load, making it easier to handle increased traffic.</p>
-        <p><strong>Easy Takeaway for Your Website:</strong><br>
-        <strong>Use Vertical Scaling</strong> when you expect temporary or manageable growth, and upgrading your server is more cost-effective.<br>
-        <strong>Choose Horizontal Scaling</strong> for anticipated high or unpredictable growth, as it offers more flexibility and reliability, though it might be more complex to manage.</p>
-    </section>
-
-    <section>
-        <h2>Topic 1: Security and Access Control</h2>
-        <p><strong>Analogy: Protecting a High-End Jewelry Store</strong><br>
-        <strong>Security:</strong> Implementing robust measures to prevent unauthorized physical access to the store (e.g., alarms, cameras, strong doors).<br>
-        <strong>Access Control:</strong> Regulating who can enter specific areas of the store (e.g., employees, managers, owners) and what they can do once inside (e.g., handle cash, access the vault).</p>
-        <p><strong>Easy Takeaway for Your Website:</strong></p>
+        <h3>Key Benefits of Regular Expressions</h3>
         <ul>
-            <li><strong>Strong Security:</strong> Use firewalls, intrusion detection systems, and other measures to prevent breaches.</li>
-            <li><strong>Effective Access Control:</strong> Limit user privileges to reduce the attack surface.</li>
+            <li><strong>Advanced Pattern Matching:</strong> Identify complex patterns in text data.</li>
+            <li><strong>Data Validation:</strong> Ensure data adheres to specific formats, such as emails or phone numbers.</li>
+            <li><strong>Text Extraction:</strong> Extract useful information from unstructured text.</li>
+            <li><strong>Data Transformation:</strong> Replace or modify text patterns efficiently.</li>
+        </ul>
+    
+        <h3>5 Examples to Understand Regular Expressions</h3>
+    
+        <h4>1. Email Validation</h4>
+        <p><strong>Scenario:</strong> Check if a string is a valid email address.<br>
+        <strong>SQL Snippet (PostgreSQL):</strong></p>
+        <div class="code-box">
+            <pre><code>SELECT 'test@example.com' ~* '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}$' AS is_valid;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+        <p><strong>Explanation:</strong> This query checks if the input string matches the typical email format: <code>username@domain.extension</code>. The result will return <code>TRUE</code> if valid and <code>FALSE</code> otherwise.</p>
+        <p><strong>Result:</strong></p>
+        <table class="data-table margin-lg">
+            <thead>
+                <tr>
+                    <th>Input</th>
+                    <th>IsValid</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>test@example.com</td>
+                    <td>TRUE</td>
+                </tr>
+                <tr>
+                    <td>invalid-email</td>
+                    <td>FALSE</td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <h4>2. Extracting Numbers from Text</h4>
+        <p><strong>Scenario:</strong> Pull out all numbers from a product description.<br>
+        <strong>SQL Snippet (MySQL):</strong></p>
+        <div class="code-box">
+            <pre><code>SELECT REGEXP_SUBSTR('Product weighs 5kg and is 10cm tall', '[0-9]+') AS extracted_number;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+        <p><strong>Explanation:</strong> The query identifies the first number in the input string. To extract all numbers, modify the query to iterate over matches.</p>
+        <p><strong>Result:</strong></p>
+        <table class="data-table margin-lg">
+            <thead>
+                <tr>
+                    <th>Input</th>
+                    <th>ExtractedNumber</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Product weighs 5kg and is 10cm tall</td>
+                    <td>5</td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <h4>3. Matching Credit Card Numbers</h4>
+        <p><strong>Scenario:</strong> Identify potential credit card numbers in user input.<br>
+        <strong>SQL Snippet (SQL Server):</strong></p>
+        <div class="code-box">
+            <pre><code>SELECT * FROM logs
+    WHERE input LIKE '%[0-9][0-9][0-9][0-9]-%[0-9][0-9][0-9][0-9]-%[0-9][0-9][0-9][0-9]-%[0-9][0-9][0-9][0-9]%';</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+        <p><strong>Explanation:</strong> This query looks for text patterns resembling credit card numbers (16 digits separated by hyphens).</p>
+    
+        <h4>4. Replacing Text Patterns</h4>
+        <p><strong>Scenario:</strong> Standardize date formats in text.<br>
+        <strong>SQL Snippet (Oracle):</strong></p>
+        <div class="code-box">
+            <pre><code>SELECT REGEXP_REPLACE(
+        'Meeting on 02-16-2023',
+        '(\d{2})-(\d{2})-(\d{4})',
+        'Month: \2, Day: \1, Year: \3'
+    ) AS standardized_date;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+        <p><strong>Explanation:</strong> The query identifies dates in <code>MM-DD-YYYY</code> format and replaces them with a standardized format like <code>Month: DD, Day: MM, Year: YYYY</code>.</p>
+        <p><strong>Result:</strong></p>
+        <table class="data-table margin-lg">
+            <thead>
+                <tr>
+                    <th>Input</th>
+                    <th>StandardizedDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Meeting on 02-16-2023</td>
+                    <td>Month: 16, Day: 02, Year: 2023</td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <h4>5. Validating Password Strength</h4>
+        <p><strong>Scenario:</strong> Check if a password meets complexity requirements (e.g., length, uppercase, lowercase, numbers).<br>
+        <strong>SQL Snippet (PostgreSQL):</strong></p>
+        <div class="code-box">
+            <pre><code>SELECT 'MyP@ssw0rd' ~* '^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$' AS is_strong_password;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+        <p><strong>Explanation:</strong> This query validates passwords with at least one lowercase letter, one uppercase letter, one digit, and a minimum length of 8 characters.</p>
+        <p><strong>Result:</strong></p>
+        <table class="data-table margin-lg">
+            <thead>
+                <tr>
+                    <th>Password</th>
+                    <th>IsStrongPassword</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>MyP@ssw0rd</td>
+                    <td>TRUE</td>
+                </tr>
+                <tr>
+                    <td>weakpass</td>
+                    <td>FALSE</td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <h3>Tips for Using Regular Expressions in SQL</h3>
+        <ul>
+            <li><strong>Database Compatibility:</strong> Check your database's RegEx support and syntax.</li>
+            <li><strong>Pattern Testing:</strong> Use online RegEx testers to refine your patterns before applying them in SQL.</li>
+            <li><strong>Performance:</strong> Be cautious with complex patterns on large datasets, as they can impact query performance.</li>
+            <li><strong>Security:</strong> Use RegEx responsibly, especially when validating user input, to avoid potential vulnerabilities.</li>
         </ul>
     </section>
+
+    <section id="denormalization-for-performance" class="margin-lg padding-md box-shadow">
+        <h2>Topic 2: Denormalization for Performance</h2>
+    
+        <h3>Understanding Denormalization</h3>
+        <p>
+            <strong>Analogy:</strong> Imagine you're moving into a new house. If your furniture is compactly stored in boxes (like IKEA), it takes time to assemble everything after moving in. But if some pieces are pre-assembled, you can set up your home much faster, even if it takes up more space in the moving truck. Similarly:
+        </p>
+        <ul>
+            <li><strong>Normalization:</strong> Data is broken into smaller, logical pieces to minimize redundancy and optimize storage.</li>
+            <li><strong>Denormalization:</strong> Combines some of these pieces to improve performance by reducing the time needed to retrieve and process data.</li>
+        </ul>
+        <p>
+            Denormalization is a strategic decision where you trade a bit of storage efficiency for faster query performance. It’s particularly useful in systems where read performance is critical, like dashboards or e-commerce websites.
+        </p>
+    
+        <h3>When to Use Denormalization</h3>
+        <ul>
+            <li><strong>High Read Demand:</strong> When most operations involve reading data, and you need quick responses.</li>
+            <li><strong>Complex Joins:</strong> When queries involve multiple joins that slow down performance.</li>
+            <li><strong>Aggregated Data:</strong> When frequently accessed data requires heavy calculations or summarization.</li>
+            <li><strong>Reporting:</strong> For analytical or reporting systems where read performance outweighs storage concerns.</li>
+        </ul>
+    
+        <h3>Examples</h3>
+    
+        <h4>1. Combining Tables for Faster Access</h4>
+        <p><strong>Scenario:</strong> Instead of joining <code>Orders</code> and <code>Customers</code> tables every time, store customer details in the <code>Orders</code> table.</p>
+        <div class="code-box">
+            <pre><code>-- Normalized Structure
+    CREATE TABLE Customers (
+        CustomerID INT PRIMARY KEY,
+        Name VARCHAR(255),
+        Email VARCHAR(255)
+    );
+    
+    CREATE TABLE Orders (
+        OrderID INT PRIMARY KEY,
+        CustomerID INT,
+        OrderDate DATE,
+        FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
+    );
+    
+    -- Denormalized Structure
+    CREATE TABLE Orders (
+        OrderID INT PRIMARY KEY,
+        CustomerID INT,
+        CustomerName VARCHAR(255),
+        CustomerEmail VARCHAR(255),
+        OrderDate DATE
+    );</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+        <p><strong>Explanation:</strong> By storing customer details directly in the <code>Orders</code> table, you avoid frequent joins between <code>Customers</code> and <code>Orders</code>, improving read performance.</p>
+    
+        <h4>2. Pre-Calculated Totals</h4>
+        <p><strong>Scenario:</strong> Instead of calculating the total amount for each order every time, store the pre-calculated total in the database.</p>
+        <div class="code-box">
+            <pre><code>-- Normalized Structure
+    CREATE TABLE OrderDetails (
+        OrderID INT,
+        ProductID INT,
+        Quantity INT,
+        Price DECIMAL(10, 2)
+    );
+    
+    -- Denormalized Structure
+    CREATE TABLE Orders (
+        OrderID INT PRIMARY KEY,
+        TotalAmount DECIMAL(10, 2)
+    );</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+        <p><strong>Explanation:</strong> Pre-calculating the total amount and storing it in the <code>Orders</code> table reduces the need for summing up order details during every query.</p>
+    
+        <h4>3. Adding Redundant Data for Aggregates</h4>
+        <p><strong>Scenario:</strong> Add a column to store the total number of orders for each customer:</p>
+        <div class="code-box">
+            <pre><code>-- Normalized Structure
+    SELECT CustomerID, COUNT(*) AS OrderCount
+    FROM Orders
+    GROUP BY CustomerID;
+    
+    -- Denormalized Structure
+    ALTER TABLE Customers ADD COLUMN TotalOrders INT;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+        <p><strong>Explanation:</strong> Storing the total number of orders in the <code>Customers</code> table eliminates the need for frequent group-by queries.</p>
+    
+        <h3>Advantages of Denormalization</h3>
+        <ul>
+            <li><strong>Faster Reads:</strong> Reduces the need for complex joins and calculations during query execution.</li>
+            <li><strong>Simplified Queries:</strong> Queries become more straightforward and easier to write.</li>
+            <li><strong>Improved Reporting:</strong> Pre-aggregated data speeds up dashboards and reports.</li>
+        </ul>
+    
+        <h3>Disadvantages of Denormalization</h3>
+        <ul>
+            <li><strong>Increased Storage:</strong> Redundant data consumes more space.</li>
+            <li><strong>Data Inconsistency Risks:</strong> Updating redundant data requires additional effort to maintain consistency.</li>
+            <li><strong>Complex Updates:</strong> More complex logic is needed to ensure changes propagate correctly.</li>
+        </ul>
+    
+        <h3>Tips for Using Denormalization Effectively</h3>
+        <ul>
+            <li><strong>Analyze Use Cases:</strong> Only denormalize where performance gains justify the trade-offs.</li>
+            <li><strong>Use Triggers:</strong> Automate updates to redundant data using database triggers.</li>
+            <li><strong>Monitor Storage:</strong> Keep track of storage growth to ensure scalability.</li>
+            <li><strong>Regular Audits:</strong> Periodically review your database to identify and address any inconsistencies.</li>
+        </ul>
+    
+        <h3>Real-World Use Cases</h3>
+        <ul>
+            <li><strong>E-commerce:</strong> Store product categories directly in the product table for faster category-based searches.</li>
+            <li><strong>Analytics:</strong> Pre-calculate and store aggregated metrics like monthly sales or active users.</li>
+            <li><strong>Social Media:</strong> Cache user stats (e.g., followers count) for quick profile rendering.</li>
+        </ul>
+    
+        <h3>Easy Takeaway</h3>
+        <p>
+            Denormalization is like pre-assembling furniture: it saves time during use but requires more effort to maintain. Use it strategically for read-heavy applications where performance is a priority, but always balance the trade-offs with storage and consistency.
+        </p>
+    </section>
+    
+    <section id="database-partitioning" class="margin-lg padding-md box-shadow">
+        <h2>Topic 3: Database Partitioning</h2>
+        <h3>Understanding Database Partitioning</h3>
+        <p>
+            <strong>Analogy:</strong> Imagine a massive filing cabinet filled with documents. Searching for a single file could take ages. By dividing the cabinet into smaller sections labeled by criteria like date or client type, you can find what you need much faster.
+        </p>
+        <ul>
+            <li><strong>Horizontal Partitioning:</strong> Splits rows across multiple tables. Example: A table of orders divided by region (e.g., North, South).</li>
+            <li><strong>Vertical Partitioning:</strong> Splits columns across multiple tables. Example: Separating sensitive user details like passwords into a secure table.</li>
+        </ul>
+        <h3>Benefits</h3>
+        <ul>
+            <li><strong>Improved Query Performance:</strong> Access only the relevant partition instead of scanning the entire database.</li>
+            <li><strong>Easier Maintenance:</strong> Smaller partitions are easier to back up and manage.</li>
+            <li><strong>Scalability:</strong> Distribute partitions across multiple servers for load balancing.</li>
+        </ul>
+        <h3>Example: Horizontal Partitioning</h3>
+        <p>Divide a large <code>Orders</code> table by regions:</p>
+        <div class="code-box">
+            <pre><code>-- Partitioned Tables
+    CREATE TABLE Orders_North (...);
+    CREATE TABLE Orders_South (...);
+    
+    -- Querying North Region Orders
+    SELECT * FROM Orders_North WHERE OrderDate >= '2023-01-01';</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+        <p><strong>Takeaway:</strong> Instead of scanning a massive <code>Orders</code> table, queries target only the relevant partition, speeding up data retrieval.</p>
+    </section>
+    
+    <section id="scaling-strategies" class="margin-lg padding-md box-shadow">
+        <h2>Topic 4: Horizontal vs. Vertical Scaling</h2>
+        <h3>Understanding Scaling Strategies</h3>
+        <p>
+            <strong>Analogy:</strong> Scaling your website is like expanding a restaurant:
+            <ul>
+                <li><strong>Vertical Scaling (Scale Up):</strong> Upgrade the kitchen with larger ovens and more staff in the same restaurant location.</li>
+                <li><strong>Horizontal Scaling (Scale Out):</strong> Open additional restaurant branches, each with its own kitchen and staff.</li>
+            </ul>
+        </p>
+        <h3>Vertical Scaling</h3>
+        <ul>
+            <li><strong>How It Works:</strong> Increase the capacity of a single server by adding more CPU, RAM, or storage.</li>
+            <li><strong>Advantages:</strong> Simpler to implement and manage.</li>
+            <li><strong>Disadvantages:</strong> Limited by hardware capacity and can be costly for high-end upgrades.</li>
+        </ul>
+        <h3>Horizontal Scaling</h3>
+        <ul>
+            <li><strong>How It Works:</strong> Add more servers to distribute the workload.</li>
+            <li><strong>Advantages:</strong> Offers better redundancy, scalability, and fault tolerance.</li>
+            <li><strong>Disadvantages:</strong> More complex to implement, requiring load balancers and data synchronization.</li>
+        </ul>
+        <h3>Example: Scaling a Website</h3>
+        <div class="code-box">
+            <pre><code>-- Vertical Scaling: Upgrading server resources
+    ServerConfig {
+        CPU: "8 cores",
+        RAM: "32GB",
+        Storage: "2TB"
+    }
+    
+    -- Horizontal Scaling: Adding more servers
+    LoadBalancer -> [Server1, Server2, Server3]</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+        <p><strong>Takeaway:</strong> Use vertical scaling for quick fixes and manageable growth. Opt for horizontal scaling when expecting significant traffic spikes or long-term growth.</p>
+    </section>
+    
+    <section id="security-access-control" class="margin-lg padding-md box-shadow">
+        <h2>Topic 1: Security and Access Control</h2>
+        <h3>Understanding Security and Access Control</h3>
+        <p>
+            <strong>Analogy:</strong> Imagine a high-end jewelry store:
+            <ul>
+                <li><strong>Security:</strong> Prevent break-ins with strong locks, alarms, and cameras.</li>
+                <li><strong>Access Control:</strong> Ensure only authorized personnel can enter certain areas, like the vault.</li>
+            </ul>
+        </p>
+        <h3>Key Components</h3>
+        <ul>
+            <li><strong>Authentication:</strong> Verify the identity of users (e.g., username and password).</li>
+            <li><strong>Authorization:</strong> Control what actions authenticated users can perform.</li>
+            <li><strong>Encryption:</strong> Protect data in transit and at rest to prevent unauthorized access.</li>
+            <li><strong>Monitoring:</strong> Use tools like intrusion detection systems (IDS) to identify and respond to threats.</li>
+        </ul>
+        <h3>Example: Implementing Role-Based Access Control</h3>
+        <div class="code-box">
+            <pre><code>-- Creating Roles
+    CREATE ROLE Admin;
+    CREATE ROLE User;
+    
+    -- Granting Permissions
+    GRANT SELECT, INSERT, UPDATE ON Products TO Admin;
+    GRANT SELECT ON Products TO User;</code></pre>
+            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+        </div>
+        <h3>Tips for Enhancing Security</h3>
+        <ul>
+            <li><strong>Use Strong Passwords:</strong> Enforce complexity and regular updates.</li>
+            <li><strong>Enable Multi-Factor Authentication (MFA):</strong> Add an extra layer of security.</li>
+            <li><strong>Encrypt Sensitive Data:</strong> Use SSL/TLS for data in transit and AES for data at rest.</li>
+            <li><strong>Audit Logs Regularly:</strong> Track access and changes to identify potential threats.</li>
+        </ul>
+        <p><strong>Takeaway:</strong> Protect your website like a jewelry store—secure the data (goods) and ensure only authorized users (employees) have the right level of access.</p>
+    </section>
+    
+
     
     <section>
         <h2>Topic 2: User Roles and Privileges</h2>
@@ -601,7 +1919,7 @@ SELECT * FROM EmployeeHierarchy;</code></pre>
       SET NEW.employee_id = CONCAT('EMP', LPAD(NEW.id, 5, '0'));
       CALL send_welcome_email(NEW.email);
     END;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
     </section>
     
@@ -641,7 +1959,7 @@ SELECT * FROM EmployeeHierarchy;</code></pre>
     
     CLOSE cursor_orders;
     DEALLOCATE cursor_orders;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
     </section>
     
@@ -689,7 +2007,7 @@ SELECT * FROM EmployeeHierarchy;</code></pre>
     BEGIN
       RETURN @income * @taxRate / 100;
     END;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
     </section>
     
@@ -729,7 +2047,7 @@ SELECT * FROM EmployeeHierarchy;</code></pre>
       name VARCHAR2(100),
       address Address
     );</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
     </section>
 

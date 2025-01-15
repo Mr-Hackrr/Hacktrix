@@ -1,271 +1,166 @@
-// **Variables and Selectors**
-
-const contentArea = document.getElementById("content"); // Get the content area
-console.log('Content area:', contentArea);
-
-const header = document.querySelector('.header-bar'); // Get the header element
-console.log('Header:', header);
-
-const scrollTopButton = document.createElement('button'); // Create the scroll-to-top button
-console.log('Scroll-to-top button:', scrollTopButton);
-
-const SCROLL_THRESHOLD = 10; // Scroll threshold for header effects
-console.log('Scroll threshold:', SCROLL_THRESHOLD);
-
-const SCROLL_TO_TOP_VISIBILITY_THRESHOLD = 500; // Threshold to show scroll-to-top button
-console.log('Scroll-to-top visibility threshold:', SCROLL_TO_TOP_VISIBILITY_THRESHOLD);
-
-const sidebarWidth = '300px'; // Define the sidebar width
-console.log('Sidebar width:', sidebarWidth);
-
-// **Selectors**
-
-const toggleButton = document.getElementById('toggle-menu');
-console.log('Toggle button:', toggleButton);
+// **Optimized JavaScript for Sidebar Navigation**
 
 const sideMenu = document.getElementById('sideMenu');
-console.log('Sidebar menu:', sideMenu);
-
-const closeButton = document.querySelector('.closebtn');
-console.log('Close button:', closeButton);
-
-const sidebarLinks = document.querySelectorAll('#sideMenu a');
-console.log('Sidebar links:', sidebarLinks);
-
 const content = document.getElementById('content');
-console.log('Content:', content);
-
-// **Initial State**
+const toggleButton = document.getElementById('toggle-menu');
+const closeButton = document.querySelector('.closebtn');
+const sidebarLinks = document.querySelectorAll('#sideMenu a');
+const header = document.querySelector('.header-bar');
+const backdrop = document.createElement('div');
+const scrollTopButton = document.createElement('button');
+const copyButtons = document.querySelectorAll('.copy-button');
+const SCROLL_THRESHOLD = 10;
+const SCROLL_TO_TOP_VISIBILITY_THRESHOLD = 500;
+const sidebarWidth = '300px';
 
 let isMenuOpen = false;
-console.log('Initial menu state:', isMenuOpen);
 
-// **Debounced Scroll Event Listener**
+// **Initial Setup**
+sideMenu.style.width = '0';
+sideMenu.style.transition = 'width 0.3s ease';
+backdrop.className = 'backdrop';
+backdrop.style.cssText = `
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.5); display: none; z-index: 998; opacity: 0;
+  transition: opacity 0.3s ease;
+`;
+document.body.appendChild(backdrop);
 
-let debounceTimeout = null;
-
-window.addEventListener('scroll', () => {
-  clearTimeout(debounceTimeout); // Clear the timeout
-  debounceTimeout = setTimeout(handleScroll, 100);
-});
-
-
-// **Event Listeners**
-
-toggleButton.addEventListener('click', toggleSidebar);
-console.log('Toggle button event listener added');
-
-closeButton.addEventListener('click', closeSidebar);
-console.log('Close button event listener added');
+scrollTopButton.textContent = '↑';
+scrollTopButton.style.cssText = `
+  position: fixed; bottom: 20px; right: 20px; padding: 10px;
+  border-radius: 50%; border: none; background-color: #4a90e2;
+  color: #fff; cursor: pointer; font-size: 1.5rem; display: none;
+  z-index: 1000; transition: opacity 0.3s ease;
+`;
+document.body.appendChild(scrollTopButton);
 
 // **Functions**
-
-function toggleSidebar() {
-
-  console.log('Toggle sidebar button clicked');
-
-  if (!isMenuOpen) {
-
-    openSidebar();
-
-  } else {
-
-    closeSidebar();
-
-  }
-
-}
-
 function openSidebar() {
-
-  console.log('Opening sidebar');
-
-  sideMenu.style.width = sidebarWidth;
-
-  content.style.marginLeft = sidebarWidth; // Shift the content
-
+  if (window.innerWidth > 768) {
+    // For large screens
+    sideMenu.style.width = sidebarWidth;
+    content.style.marginLeft = sidebarWidth;
+  } else {
+    // For mobile/portrait screens
+    sideMenu.style.width = sidebarWidth;
+    backdrop.style.display = 'block';
+    setTimeout(() => (backdrop.style.opacity = '1'), 10);
+  }
   isMenuOpen = true;
-
-  console.log('Sidebar opened');
-
 }
 
 function closeSidebar() {
-
-  console.log('Closing sidebar');
-
   sideMenu.style.width = '0';
-
-  content.style.marginLeft = '0'; // Reset the content margin
-
+  content.style.marginLeft = '0';
+  backdrop.style.opacity = '0';
+  setTimeout(() => (backdrop.style.display = 'none'), 300);
   isMenuOpen = false;
-
-  console.log('Sidebar closed');
-
 }
 
-// Handle Smooth Scrolling for Sidebar Links
-sidebarLinks.forEach(link => {
-  link.addEventListener('click', function (e) {
-    e.preventDefault();
+function toggleSidebar() {
+  if (isMenuOpen) {
+    closeSidebar();
+  } else {
+    openSidebar();
+  }
+}
 
-    const href = this.getAttribute('href');
-    const targetId = href && href.startsWith('#') ? href.substring(1) : null;
-
-    if (targetId !== "") {
-      const targetElement = document.getElementById(targetId);
-
-      if (targetElement) {
-        const headerHeight = header.offsetHeight;
-        const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight;
-
-        try {
-          window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth',
-          });
-        } catch (error) {
-          console.error('Error scrolling to target position:', error);
-        }
-      } else {
-        console.error(`Target element with ID "${targetId}" not found. Please verify the element exists on the page.`);
-      }
-    } else {
-      console.log("Ignoring link with empty href attribute.");
-    }
-  });
-});
-
-
-// **Header Scroll Effect**
+function scrollToSection(targetId) {
+  const targetElement = document.getElementById(targetId);
+  if (targetElement) {
+    const headerHeight = header ? header.offsetHeight : 0;
+    const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight;
+    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+    if (window.innerWidth <= 768) closeSidebar();
+  }
+}
 
 function handleScroll() {
-  clearTimeout(debounceTimeout); // Clear the timeout at the beginning
-
-  console.log('Handling scroll event');
-
   if (window.pageYOffset > SCROLL_THRESHOLD) {
-
     header.classList.add('scrolled');
-
-    console.log('Header scrolled class added');
-
   } else {
-
     header.classList.remove('scrolled');
-
-    console.log('Header scrolled class removed');
-
   }
-
-  // **Show/Hide Scroll-to-Top Button**
 
   if (window.scrollY > SCROLL_TO_TOP_VISIBILITY_THRESHOLD) {
-
     scrollTopButton.style.display = 'block';
-
-    console.log('Scroll-to-top button displayed');
-
+    scrollTopButton.style.opacity = '1';
   } else {
-
-    scrollTopButton.style.display = 'none';
-
-    console.log('Scroll-to-top button hidden');
-
+    scrollTopButton.style.opacity = '0';
+    setTimeout(() => (scrollTopButton.style.display = 'none'), 300);
   }
-
 }
 
-// **Scroll-to-Top Button Setup**
-scrollTopButton.textContent = '↑';
-scrollTopButton.style.position = 'fixed';
-scrollTopButton.style.bottom = '20px';
-scrollTopButton.style.right = '20px';
-scrollTopButton.style.padding = '10px';
-scrollTopButton.style.borderRadius = '50%';
-scrollTopButton.style.border = 'none';
-scrollTopButton.style.backgroundColor = '#4a90e2';
-scrollTopButton.style.color = '#ffffff';
-scrollTopButton.style.cursor = 'pointer';
-scrollTopButton.style.fontSize = '1.5rem';
-scrollTopButton.style.display = 'none'; // Initially hidden
-scrollTopButton.tabIndex = "0";
-scrollTopButton.ariaLabel = "Scroll to Top";
-
-// **Scroll-to-Top Button Setup (continued)**
-scrollTopButton.addEventListener('click', () => {
-  console.log('Scroll-to-top button clicked');
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth',
-  });
-
-});
-
-document.body.appendChild(scrollTopButton);
-
-// **Error Handling for Debugging**
-
-window.addEventListener('error', function (e) {
-
-  console.error('An error occurred:', e.message, 'at', e.filename, 'line', e.lineno);
-
-});
-
-// **Copy Code Button Functionality**
-
-const copyButtons = document.querySelectorAll('.copy-button');
-
-copyButtons.forEach(button => {
-
-  button.addEventListener('click', () => {
-
-    console.log('Copy code button clicked');
-
-    const code = button.previousElementSibling.textContent.trim();
-
-    console.log(`Copying code: ${code}`);
-
-    navigator.clipboard.writeText(code)
-
+function copyCode(button) {
+  const codeBlock = button.closest('.code-box').querySelector('pre code');
+  if (codeBlock) {
+    navigator.clipboard.writeText(codeBlock.textContent.trim())
       .then(() => {
-
-        console.log('Code copied successfully');
-
         button.textContent = 'Copied!';
-
-        setTimeout(() => button.textContent = 'Copy Code', 1500);
-
+        setTimeout(() => (button.textContent = 'Copy Code'), 1500);
       })
-
       .catch(err => {
-
-        console.error('Failed to copy code: ', err);
-
-        button.textContent = 'Copy Error. Please try again.';
-
-        setTimeout(() => button.textContent = 'Copy Code', 2500);
-
+        console.error('Error copying code:', err);
+        button.textContent = 'Copy Error';
+        setTimeout(() => (button.textContent = 'Copy Code'), 2500);
       });
+  }
+}
 
+// **Event Listeners**
+toggleButton.addEventListener('click', toggleSidebar);
+closeButton.addEventListener('click', closeSidebar);
+backdrop.addEventListener('click', closeSidebar);
+
+sidebarLinks.forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const targetId = link.getAttribute('href').substring(1);
+    scrollToSection(targetId);
   });
-
 });
 
-// **Highlight.js Initialization**
+scrollTopButton.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
 
-document.addEventListener('DOMContentLoaded', function () {
+window.addEventListener('scroll', handleScroll);
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 768 && isMenuOpen) {
+    sideMenu.style.width = sidebarWidth;
+    content.style.marginLeft = sidebarWidth;
+  } else if (!isMenuOpen) {
+    sideMenu.style.width = '0';
+    content.style.marginLeft = '0';
+  }
+});
 
-  console.log('Initializing Highlight.js');
+// **Animations and Enhancements**
+document.addEventListener('DOMContentLoaded', () => {
+  const hash = window.location.hash.substring(1);
+  if (hash) {
+    scrollToSection(hash);
+  }
 
-  document.querySelectorAll('pre code').forEach((block) => {
-
-    console.log(`Highlighting code block: ${block.textContent}`);
-
+  document.querySelectorAll('pre code').forEach(block => {
     hljs.highlightBlock(block);
-
   });
 
+  // Add fade-in animation to content
+  content.style.opacity = '0';
+  content.style.transition = 'opacity 0.5s ease';
+  setTimeout(() => (content.style.opacity = '1'), 100);
 });
 
+window.addEventListener('hashchange', () => {
+  const hash = window.location.hash.substring(1);
+  if (hash) {
+    scrollToSection(hash);
+  }
+});
 
+// Attach event listeners to copy buttons
+document.querySelectorAll('.copy-button').forEach(button => {
+  button.addEventListener('click', () => copyCode(button));
+});
