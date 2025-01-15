@@ -685,7 +685,7 @@
             PARTITION BY DepartmentID ORDER BY HireDate
         ) AS FirstHired
     FROM Employees;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
         <p><strong>Result:</strong></p>
         <table class="data-table margin-lg">
@@ -743,7 +743,7 @@
             PARTITION BY DepartmentID ORDER BY HireDate ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING
         ) AS LastHired
     FROM Employees;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
         <p><strong>Result:</strong></p>
         <table class="data-table margin-lg">
@@ -800,7 +800,7 @@
         PARTITION BY DepartmentID ORDER BY Salary DESC
     ) AS SecondHighestSalary
 FROM Employees;</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p><strong>Result:</strong></p>
 <table class="data-table margin-lg">
@@ -855,7 +855,7 @@ FROM Employees;</code></pre>
     Salary,
     LEAD(Salary) OVER (ORDER BY Salary DESC) AS NextSalary
 FROM Employees;</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p><strong>Result:</strong></p>
 <table class="data-table margin-lg">
@@ -904,7 +904,7 @@ FROM Employees;</code></pre>
     Salary,
     LAG(Salary) OVER (ORDER BY Salary DESC) AS PreviousSalary
 FROM Employees;</code></pre>
-    <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+    <button class="copy-button"><i class="fas fa-copy"></i></button>
 </div>
 <p><strong>Result:</strong></p>
 <table class="data-table margin-lg">
@@ -969,7 +969,7 @@ FROM Employees;</code></pre>
     )
     SELECT column1, column2, ...
     FROM cte_name;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
     
         <h3>Examples</h3>
@@ -986,7 +986,7 @@ FROM Employees;</code></pre>
     SELECT SalesPerson, TotalSales
     FROM Sales_CTE
     WHERE TotalSales > 10000;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
         <p><strong>Explanation:</strong> The CTE <code>Sales_CTE</code> calculates the total sales for each salesperson. The main query filters out those with total sales greater than $10,000.</p>
     
@@ -1005,7 +1005,7 @@ FROM Employees;</code></pre>
     SELECT *
     FROM RankedEmployees
     WHERE Rank = 1;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
         <p><strong>Explanation:</strong> The CTE <code>RankedEmployees</code> calculates the rank of employees within each department. The main query retrieves the top-ranked employee from each department.</p>
     
@@ -1024,7 +1024,7 @@ FROM Employees;</code></pre>
     )
     SELECT *
     FROM EmployeeHierarchy;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
         <p><strong>Explanation:</strong> The recursive CTE <code>EmployeeHierarchy</code> builds a hierarchy of employees, starting from the top-level managers and iteratively adding their subordinates.</p>
     
@@ -1044,7 +1044,7 @@ FROM Employees;</code></pre>
     SELECT Region, TotalSales, AvgSales
     FROM RegionalSales, AverageSales
     WHERE TotalSales > AvgSales;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
         <p><strong>Explanation:</strong> The first CTE <code>RegionalSales</code> calculates total sales by region. The second CTE <code>AverageSales</code> computes the average sales across all regions. The main query filters regions with sales above the average.</p>
     
@@ -1079,7 +1079,7 @@ FROM Employees;</code></pre>
         recursive_query
     )
     SELECT * FROM cte_name;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
     
         <h3>Examples</h3>
@@ -1098,7 +1098,7 @@ FROM Employees;</code></pre>
         INNER JOIN EmployeeHierarchy eh ON e.manager_id = eh.employee_id
     )
     SELECT * FROM EmployeeHierarchy;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
         <p><strong>Explanation:</strong> The base query retrieves employees with no managers (top-level). The recursive query retrieves employees reporting to the previously retrieved rows, iteratively building the hierarchy.</p>
     
@@ -1114,7 +1114,7 @@ FROM Employees;</code></pre>
         WHERE n < 5
     )
     SELECT * FROM FactorialCTE;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
         <p><strong>Explanation:</strong> The base query starts with <code>n = 1</code> and <code>factorial = 1</code>. The recursive query calculates the factorial by incrementing <code>n</code> and multiplying it with the previous factorial value.</p>
         <p><strong>Result:</strong></p>
@@ -1161,7 +1161,7 @@ FROM Employees;</code></pre>
         WHERE n < 10
     )
     SELECT * FROM SequenceCTE;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
         <p><strong>Explanation:</strong> The base query starts with <code>n = 1</code>. The recursive query increments <code>n</code> by 1 until it reaches 10.</p>
         <p><strong>Result:</strong></p>
@@ -1237,7 +1237,7 @@ FROM Employees;</code></pre>
         <div class="code-box">
             <pre><code>
         SELECT 'test@example.com' ~* '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}$' AS is_valid;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
         <p><strong>Explanation:</strong> This query checks if the input string matches the typical email format: <code>username@domain.extension</code>. The result will return <code>TRUE</code> if valid and <code>FALSE</code> otherwise.</p>
         <p><strong>Result:</strong></p>
@@ -1265,7 +1265,7 @@ FROM Employees;</code></pre>
         <strong>SQL Snippet (MySQL):</strong></p>
         <div class="code-box">
             <pre><code>SELECT REGEXP_SUBSTR('Product weighs 5kg and is 10cm tall', '[0-9]+') AS extracted_number;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
         <p><strong>Explanation:</strong> The query identifies the first number in the input string. To extract all numbers, modify the query to iterate over matches.</p>
 
@@ -1402,7 +1402,7 @@ FROM Employees;</code></pre>
         CustomerEmail VARCHAR(255),
         OrderDate DATE
     );</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
         <p><strong>Explanation:</strong> By storing customer details directly in the <code>Orders</code> table, you avoid frequent joins between <code>Customers</code> and <code>Orders</code>, improving read performance.</p>
     
@@ -1423,7 +1423,7 @@ FROM Employees;</code></pre>
         OrderID INT PRIMARY KEY,
         TotalAmount DECIMAL(10, 2)
     );</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
         <p><strong>Explanation:</strong> Pre-calculating the total amount and storing it in the <code>Orders</code> table reduces the need for summing up order details during every query.</p>
     
@@ -1438,7 +1438,7 @@ FROM Employees;</code></pre>
     
     -- Denormalized Structure
     ALTER TABLE Customers ADD COLUMN TotalOrders INT;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
         <p><strong>Explanation:</strong> Storing the total number of orders in the <code>Customers</code> table eliminates the need for frequent group-by queries.</p>
     
@@ -1503,7 +1503,7 @@ FROM Employees;</code></pre>
     
     -- Querying North Region Orders
     SELECT * FROM Orders_North WHERE OrderDate >= '2023-01-01';</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
         <p><strong>Takeaway:</strong> Instead of scanning a massive <code>Orders</code> table, queries target only the relevant partition, speeding up data retrieval.</p>
     </section>
@@ -1542,7 +1542,7 @@ FROM Employees;</code></pre>
     
     -- Horizontal Scaling: Adding more servers
     LoadBalancer -> [Server1, Server2, Server3]</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
         <p><strong>Takeaway:</strong> Use vertical scaling for quick fixes and manageable growth. Opt for horizontal scaling when expecting significant traffic spikes or long-term growth.</p>
     </section>
@@ -1574,7 +1574,7 @@ FROM Employees;</code></pre>
     -- Granting Permissions
     GRANT SELECT, INSERT, UPDATE ON Products TO Admin;
     GRANT SELECT ON Products TO User;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
         <h3>Tips for Enhancing Security</h3>
         <ul>
@@ -1614,7 +1614,7 @@ FROM Employees;</code></pre>
     GRANT ALL PRIVILEGES ON database_name.* TO 'Admin';
     GRANT SELECT, UPDATE ON database_name.* TO 'Moderator';
     GRANT SELECT ON database_name.* TO 'User';</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
         <h3>Example Role Privileges</h3>
         <table class="data-table">
@@ -1677,7 +1677,7 @@ FROM Employees;</code></pre>
         ssl_certificate /path/to/certificate.crt;
         ssl_certificate_key /path/to/private.key;
     }</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
         <h3>Takeaway</h3>
         <p>
@@ -1717,7 +1717,7 @@ FROM Employees;</code></pre>
     FOR EACH ROW
     INSERT INTO audit_log (action, user, timestamp)
     VALUES ('INSERT', CURRENT_USER(), NOW());</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
         <h3>Takeaway</h3>
         <p>
@@ -1767,7 +1767,7 @@ FROM Employees;</code></pre>
     
     -- Optimized
     SELECT emp_id, name FROM employees;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
     
         <h4>2. Use WHERE Clauses</h4>
@@ -1779,7 +1779,7 @@ FROM Employees;</code></pre>
     
     -- With WHERE clause
     SELECT name FROM employees WHERE department = 'Sales';</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
     
         <h4>3. Avoid Redundant Calculations</h4>
@@ -1794,14 +1794,14 @@ FROM Employees;</code></pre>
         SELECT emp_id, salary * 12 AS annual_salary FROM employees
     )
     SELECT * FROM calculated_salaries;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
     
         <h4>4. Use LIMIT for Pagination</h4>
         <p>When displaying limited results, use <code>LIMIT</code> (or <code>TOP</code> in SQL Server) to avoid fetching all rows.</p>
         <div class="code-box">
             <pre><code>SELECT * FROM employees LIMIT 10;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
     
         <h3>Intermediate Optimization Techniques</h3>
@@ -1818,7 +1818,7 @@ FROM Employees;</code></pre>
     
     -- Query After Indexing
     SELECT * FROM employees WHERE department = 'Sales';</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
     
         <h4>6. Avoid Using Functions on Indexed Columns</h4>
@@ -1830,7 +1830,7 @@ FROM Employees;</code></pre>
     
     -- Efficient
     SELECT * FROM employees WHERE name = 'Alice';</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
     
         <h4>7. Optimize Joins</h4>
@@ -1839,7 +1839,7 @@ FROM Employees;</code></pre>
             <pre><code>SELECT e.name, d.dept_name
     FROM employees e
     INNER JOIN departments d ON e.dept_id = d.dept_id;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
     
         <h4>8. Reduce Subquery Use</h4>
@@ -1856,7 +1856,7 @@ FROM Employees;</code></pre>
     FROM employees e
     INNER JOIN departments d ON e.dept_id = d.dept_id
     WHERE d.dept_name = 'Sales';</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
     
         <h3>Advanced Optimization Techniques</h3>
@@ -1872,7 +1872,7 @@ FROM Employees;</code></pre>
         PARTITION p2022 VALUES LESS THAN (2023),
         PARTITION p2023 VALUES LESS THAN (2024)
     );</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
     
         <h4>10. Use Query Execution Plans</h4>
@@ -1887,7 +1887,7 @@ FROM Employees;</code></pre>
     SET salary = salary * 1.10
     WHERE department = 'Sales'
     LIMIT 100;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
     
         <h4>12. Use Materialized Views</h4>
@@ -1898,7 +1898,7 @@ FROM Employees;</code></pre>
     SELECT department, SUM(sales) AS total_sales
     FROM sales
     GROUP BY department;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
     
         <h3>Best Practices</h3>
@@ -1945,7 +1945,7 @@ FROM Employees;</code></pre>
     -- With Index
     CREATE INDEX idx_customer_id ON orders(customer_id);
     SELECT * FROM orders WHERE customer_id = 123;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
         <p><strong>Tip:</strong> Avoid creating too many indexes, as they can slow down insert, update, and delete operations.</p>
     
@@ -1962,7 +1962,7 @@ FROM Employees;</code></pre>
     FROM orders
     JOIN customers ON orders.customer_id = customers.customer_id
     WHERE customers.region = 'West';</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
     
         <h4>3. Avoid SELECT *</h4>
@@ -1976,7 +1976,7 @@ FROM Employees;</code></pre>
     SELECT order_id, customer_id, status
     FROM orders
     WHERE status = 'Shipped';</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
     
         <h4>4. Use LIMIT and OFFSET</h4>
@@ -1988,7 +1988,7 @@ FROM Employees;</code></pre>
     
     -- Retrieve the next 10 rows
     SELECT * FROM orders LIMIT 10 OFFSET 10;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
     
         <h4>5. Analyze Query Execution Plans</h4>
@@ -1997,7 +1997,7 @@ FROM Employees;</code></pre>
             <pre><code>
     -- MySQL Example
     EXPLAIN SELECT * FROM orders WHERE customer_id = 123;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
     
         <h3>Advanced Optimization Techniques</h3>
@@ -2069,7 +2069,7 @@ FROM Employees;</code></pre>
     
     -- Dropping Unused Index
     DROP INDEX idx_unused ON orders;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
     </section>
     
@@ -2094,7 +2094,7 @@ FROM Employees;</code></pre>
     +----+-------------+--------+-------+---------------+------+---------+------+-------+
     | id | select_type | table  | type  | possible_keys | key  | key_len | ref  | rows  |
     +----+-------------+--------+-------+---------------+------+---------+------+-------+</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
         <h3>Takeaway</h3>
         <p>
@@ -2134,7 +2134,7 @@ FROM Employees;</code></pre>
     BEGIN
         -- SQL statements to execute
     END;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
     
         <h3>Beginner Example: Logging Changes</h3>
@@ -2159,7 +2159,7 @@ FROM Employees;</code></pre>
         user_id INT,
         timestamp DATETIME
     );</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
     
         <h4>Step 2: Create a Trigger</h4>
@@ -2172,7 +2172,7 @@ FROM Employees;</code></pre>
         INSERT INTO audit_log (action, user_id, timestamp)
         VALUES ('User Added', NEW.user_id, NOW());
     END;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
     
         <h4>Step 3: Test the Trigger</h4>
@@ -2183,7 +2183,7 @@ FROM Employees;</code></pre>
     
     -- Check the audit_log table
     SELECT * FROM audit_log;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
     
         <h4>Output:</h4>
@@ -2220,7 +2220,7 @@ FROM Employees;</code></pre>
             SET MESSAGE_TEXT = 'Salary cannot be negative';
         END IF;
     END;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
     
         <h4>2. AFTER Triggers</h4>
@@ -2234,7 +2234,7 @@ FROM Employees;</code></pre>
         INSERT INTO employee_archive (emp_id, name, deleted_at)
         VALUES (OLD.emp_id, OLD.name, NOW());
     END;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
     
         <h4>3. INSTEAD OF Triggers</h4>
@@ -2249,7 +2249,7 @@ FROM Employees;</code></pre>
         SET name = NEW.name
         WHERE emp_id = OLD.emp_id;
     END;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
     
         <h3>Advanced Topics: Trigger Concepts and Optimization</h3>
@@ -2267,7 +2267,7 @@ FROM Employees;</code></pre>
         INSERT INTO salary_log (emp_id, old_salary, new_salary, change_date)
         VALUES (OLD.emp_id, OLD.salary, NEW.salary, NOW());
     END;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
     
         <h4>Chaining Triggers</h4>
@@ -2382,7 +2382,7 @@ FROM Employees;</code></pre>
     -- Step 5: Close and Deallocate Cursor
     CLOSE employee_cursor;
     DEALLOCATE employee_cursor;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
     
         <h3>Output:</h3>
@@ -2478,7 +2478,7 @@ FROM Employees;</code></pre>
     RETURNS TABLE
     AS
     RETURN (SELECT ...);</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
     
         <h3>Beginner Examples</h3>
@@ -2492,12 +2492,12 @@ FROM Employees;</code></pre>
     BEGIN
         RETURN @number * @number;
     END;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
         <p><strong>Step 2:</strong> Use the Function</p>
         <div class="code-box">
             <pre><code>SELECT dbo.calculate_square(4) AS Square;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
         <p><strong>Output:</strong></p>
         <table class="data-table margin-lg">
@@ -2524,12 +2524,12 @@ FROM Employees;</code></pre>
         FROM employees
         WHERE department = @dept_name
     );</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
         <p><strong>Step 2:</strong> Use the Function</p>
         <div class="code-box">
             <pre><code>SELECT * FROM dbo.get_employees_by_dept('Sales');</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
     
         <h3>Intermediate Level: Adding Logic and Validations</h3>
@@ -2545,7 +2545,7 @@ FROM Employees;</code></pre>
             RETURN NULL; -- Avoid division by zero
         RETURN (@score / @total) * 100;
     END;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
     
         <h4>4. Multi-Statement Table-Valued Function</h4>
@@ -2567,7 +2567,7 @@ FROM Employees;</code></pre>
     
         RETURN;
     END;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
     
         <h3>Advanced Topics: UDF Optimization and Use Cases</h3>
@@ -2582,7 +2582,7 @@ FROM Employees;</code></pre>
             RETURN 1;
         RETURN @n * dbo.factorial(@n - 1);
     END;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
     
         <h4>6. UDFs with Complex Joins</h4>
@@ -2600,7 +2600,7 @@ FROM Employees;</code></pre>
         WHERE e.emp_id = @emp_id;
         RETURN @manager_name;
     END;</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
     
         <h3>Best Practices for UDFs</h3>
@@ -2642,7 +2642,7 @@ FROM Employees;</code></pre>
     -- Inserting Data
     INSERT INTO customers (customer_id, name, address)
     VALUES (1, 'John Doe', Address('123 Main St', 'Springfield', 'IL', '62701'));</code></pre>
-            <button class="copy-button"><i class="fas fa-copy"></i> Copy Code</button>
+            <button class="copy-button"><i class="fas fa-copy"></i></button>
         </div>
     </section>
     
