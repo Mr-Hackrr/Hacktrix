@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Python Gaming Zone - TechyVia</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #1c1c3c, #383850);
+      color: #fff;
+    }
+
+    /* Header Styles */
+    .header {
+      background-color: #21212f;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    }
+
+    .header h1 {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin: 0;
+      color: #f39c12;
+    }
+
+    .header nav a {
+      color: #f39c12;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    .header nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 50px 20px;
+      background: url('https://via.placeholder.com/1920x600') no-repeat center center/cover;
+      color: #fff;
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.7);
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      animation: fadeInDown 1s ease;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      animation: fadeInUp 1s ease;
+    }
+
+    .hero button {
+      background-color: #f39c12;
+      color: #fff;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      animation: bounceIn 1s ease;
+    }
+
+    .hero button:hover {
+      background-color: #e67e22;
+    }
+
+    /* Game Zone */
+    .game-zone {
+      padding: 40px 20px;
+      background-color: #28293e;
+      border-top: 5px solid #f39c12;
+      border-bottom: 5px solid #f39c12;
+    }
+
+    .game-zone h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 30px;
+      color: #f39c12;
+      animation: fadeIn 1s ease;
+    }
+
+    .game-zone .game-panel {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 20px;
+    }
+
+    /* Quiz Panel */
+    .quiz-panel {
+      background: #1f1f2e;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .quiz-panel h3 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    .quiz-panel ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .quiz-panel li {
+      background: #383850;
+      margin-bottom: 10px;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .quiz-panel li:hover {
+      background-color: #454567;
+    }
+
+    /* Coding Panel */
+    .coding-panel {
+      background: #1f1f2e;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .coding-panel h3 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    .coding-panel textarea {
+      width: 100%;
+      background: #2c2c45;
+      border: 1px solid #383850;
+      color: #fff;
+      border-radius: 5px;
+      padding: 10px;
+      font-size: 1rem;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    .coding-panel pre {
+      background: #2c2c45;
+      padding: 10px;
+      border-radius: 5px;
+      color: #fff;
+      overflow-x: auto;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #21212f;
+      text-align: center;
+      padding: 15px;
+      color: #f39c12;
+      font-size: 1rem;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bounceIn {
+      0% {
+        transform: scale(0.9);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <h1>TechyVia</h1>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Python Game</a>
+    <a href="#">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>Welcome to the Python Gaming Zone</h2>
+  <p>Master Python through interactive challenges, quizzes, and coding exercises.</p>
+  <button>Start Learning</button>
+</section>
+
+<section class="game-zone">
+  <h2>Interactive Python Game</h2>
+  <div class="game-panel">
+    <!-- Quiz Panel -->
+    <div class="quiz-panel">
+      <h3>Quiz Challenge</h3>
+      <ul id="quiz-list">
+        <!-- Questions dynamically populated -->
+      </ul>
+    </div>
+
+    <!-- Coding Panel -->
+    <div class="coding-panel">
+      <h3>Code Challenge</h3>
+      <textarea id="code-editor" rows="10" placeholder="Write your Python code here..."></textarea>
+      <button id="run-code" class="btn btn-primary mt-3">Run Code</button>
+      <pre id="code-output" class="mt-3"></pre>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2024 TechyVia. All rights reserved.
+</footer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const questions = [
+      { question: "What is the output of 2 + 3?", options: ["5", "23", "Error"], correct: 0 },
+      { question: "What does `len('Python')` return?", options: ["6", "7", "Error"], correct: 0 },
+    ];
+    const quizList = document.getElementById("quiz-list");
+
+    // Load questions
+    questions.forEach((q, index) => {
+      const li = document.createElement("li");
+      li.textContent = q.question;
+      li.addEventListener("click", () => alert(q.correct === index ? "Correct!" : "Try again!"));
+      quizList.appendChild(li);
+    });
+
+    const codeEditor = document.getElementById("code-editor");
+    const runCodeButton = document.getElementById("run-code");
+    const codeOutput = document.getElementById("code-output");
+
+    runCodeButton.addEventListener("click", () => {
+      try {
+        const result = eval(codeEditor.value);
+        codeOutput.textContent = result;
+      } catch (error) {
+        codeOutput.textContent = `Error: ${error.message}`;
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
